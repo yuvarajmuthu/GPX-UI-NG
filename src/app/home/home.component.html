@@ -1,0 +1,152 @@
+
+    <div class="border-radius bg-white">
+        <div>
+            <img src="../../assets/bg.jpg" alt="" class="w-100 height-fix ">
+            <div class="cover-camera">
+                <i class="fa fa-camera center-ion text-blue" (click)="fileInputcover.click()"></i>
+                <input #fileInputcover type="file" (change)="onChangecover($event)" style="display:none" />
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="">
+                    <img src="../../assets/profile.png" class="profile">
+                    <input type="file" style="display: none;" #profile>
+                    <i class="fa fa-camera prof-camera text-blue" (click)="fileInput.click()"></i>
+                    <div>
+                        <input #fileInput type="file" (change)="onChangeProfile($event)"
+                            style="display:none" />
+                    </div>
+                </div>
+            </div>
+            <div class="float-right mr-3">
+                <button class="btn button-grew font-14" (click)="largeModal(largeDataModal)"> Edit
+                    Profile</button>
+                <ng-template #largeDataModal let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0">Large modal</h5>
+
+                        <div (click)="modal.dismiss('Cross click')"><i class="fa fa-close"></i> </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">First name</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="First name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Last name</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Last name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Additional name</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Additional name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Headline</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Headline">
+                            </div>
+                            <button type="submit" class="btn button-blue font-14">Submit</button>
+                        </form>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="p-3">
+            <div class="header-start">
+                <div class="font-24 font-w-bold fix-on-header " [class.fixed]="navFixed">Kakadiya Sagar <i
+                        class="fa fa-bookmark" aria-hidden="true"></i>
+                </div>
+                <div class="font-16" [class.fixeddes]="navFixed">Student at Bhagwan Mahavir College of
+                    Education, Surat</div>
+                <div class="font-16 color-grew">Bhagwan Mahavir College of Education, Surat</div>
+                <div class="font-14 color-grew">Gujarat, India .<span class="text-blue font-w-bold"> Contact
+                        info </span></div>
+                <div class="color-grew"> <i class="fa fa-calendar"></i> Joined December 2014</div>
+                <div class="d-flex justify-content-start">
+                    <div class="mr-3"><strong>74</strong><span class="color-grew"> Following </span></div>
+                    <div class="mr-3"><strong>14</strong><span class="color-grew"> Followers </span></div>
+                </div>
+                <div class="d-flex justify-content-start" [class.fixeds]="navFixed">
+                    <div class="mr-3"><button class="btn button-blue font-14">Open to</button></div>
+                    <!-- <div class="mr-3"><button class="btn button-outline-blue font-14">Add profile
+                            section</button></div> -->
+                    <div class="d-inline-block mr-3" ngbDropdown #myDrop="ngbDropdown">
+                        <button class="btn button-outline-blue font-14 me-2" id="dropdownManual" ngbDropdownAnchor
+                            (focus)="myDrop.open()">Add profile section</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                            <button ngbDropdownItem (click)="OpenSection(SectionModel,'1')">Event-1</button>
+                            <button ngbDropdownItem (click)="OpenSection(SectionModel,'2')">Event-2</button>
+                            <button ngbDropdownItem (click)="OpenSection(SectionModel,'3')">Event-3</button>
+                        </div>
+                        <ng-template #SectionModel let-modal>
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0">Add section Event-{{SectionName}}</h5>
+                                <div (click)="modal.dismiss('Cross click')"><i class="fa fa-close"></i> </div>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Description</label>
+                                        <textarea class="form-control" id="exampleInputEmail1" rows="5"
+                                            aria-describedby="emailHelp" placeholder="description"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn button-blue font-14">Submit</button>
+                                </form>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="mr-3"><button class="btn button-grew font-14">More</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-radius bg-white my-3">
+        <div class="p-3">
+            <div class="d-flex">
+                <div class="p-2">
+                    <h3 class="font-24">About</h3>
+                    <div [ngClass]="{'limitTextHeight': isReadMore}">
+                        Senior Angular & Web Development/Mobile Apps: I have possesses over 3+ Year of
+                        hands-on experience with Angular. I am working as a full-stack web developer
+                        full-time. Have good working experience on web services SOAP and rest API
+                        Senior Angular & Web Development/Mobile Apps: I have possesses over 3+ Year of
+                        hands-on experience with Angular. I am working as a full-stack web developer
+                        full-time. Have good working experience on web services SOAP and rest API
+                        Senior Angular & Web Development/Mobile Apps: I have possesses over 3+ Year of
+                        hands-on experience with Angular. I am working as a full-stack web developer
+                        full-time. Have good working experience on web services SOAP and rest API
+                        Senior Angular & Web Development/Mobile Apps: I have possesses over 3+ Year of
+                        hands-on experience with Angular. I am working as a full-stack web developer
+                        full-time. Have good working experience on web services SOAP and rest API
+                    </div>
+                    <div (click)="showText()" class="text-primary pointer font-12 text-right"> {{ isReadMore
+                        ? 'Read More': 'Read Less' }}</div>
+                </div>
+                <div class="ml-auto p-2" (click)="largeModalAbout(largeDataModalAbout)"><i
+                        class="fa fa-pen"></i></div>
+                <ng-template #largeDataModalAbout let-modal>
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0">About</h5>
+
+                        <div (click)="modal.dismiss('Cross click')"><i class="fa fa-close"></i> </div>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Description</label>
+                                <textarea class="form-control" id="exampleInputEmail1" rows="5"
+                                    aria-describedby="emailHelp" placeholder="description"></textarea>
+                            </div>
+                            <button type="submit" class="btn button-blue font-14">Submit</button>
+                        </form>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>

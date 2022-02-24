@@ -1,0 +1,40 @@
+.navbar-brand{
+height: 50px;
+&:hover{
+        background-color: #0a66c2;
+        color: white;
+    }
+}
+.bd-highlight{
+    color: #536471;
+    i{
+        font-size: 24px;
+    }
+    a{
+        font-size: 12px;
+        color: #536471;
+    }
+}
+#hashLink {
+    display: none;
+}
+
+#hashLink:target {
+    display: block;
+}
+
+.limitTextHeight {
+    height: 50px;
+    overflow: hidden;
+}
+
+
+.prof-camera{
+    position: relative;
+    left: -30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+}

@@ -1,0 +1,77 @@
+<!-- side menu -->
+<div class="border-radius bg-white hide-small">
+    <nav class="navbar navbar-light p-0">
+        <div class="navbar-brand w-100 m-0" [routerLink]="['/']"> <i class="fa fa-home mx-3"></i> Home</div>
+        <div class="navbar-brand w-100 m-0" [routerLink]="['event']"> <i class="fa fa-microchip mx-3"></i> Event</div>
+        <div class="navbar-brand w-100 m-0"> <i class="fa fa-bell mx-3"></i> Notification</div>
+        <div class="navbar-brand w-100 m-0"> <i class="fa fa-comments mx-3"></i> Message</div>
+        <div class="navbar-brand w-100 m-0"> <i class="fa fa-book mx-3"></i> Bookmarks</div>
+        <div class="navbar-brand w-100 m-0"> <i class="fa fa-list mx-3"></i> Lists</div>
+        <div class="navbar-brand w-100 m-0"> <i class="fa fa-user mx-3"></i> Profile</div>
+        <div class="navbar-brand w-100 m-0"> <i class="fa fa-ellipsis-v mx-3"></i> More</div>
+    </nav>
+</div>
+
+
+<!-- footer side menu -->
+<div class="navbar bg-white fix-bottom hide-big">
+    <a class="active" href="#">
+        <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto"><i class="fa fa-home"></i></div>
+            <div class="bd-highlight mx-auto"><a>Event</a></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto"><i class="fa fa-microchip"></i></div>
+            <div class="bd-highlight mx-auto" ><a>My Explore</a></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto"><i class="fa fa-bell"></i></div>
+            <div class="bd-highlight mx-auto"><a>Notification</a></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto"><i class="fa fa-comments"></i></div>
+            <div class="bd-highlight mx-auto"><a>Message</a></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto"><i class="fa fa-book"></i></div>
+            <div class="bd-highlight mx-auto"><a>Bookmarks</a></div>
+        </div>
+    </a>
+    <!-- <a href="#">
+        <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto"><i class="fa fa-list mx-3"></i> </div>
+            <div class="bd-highlight mx-auto"><a>Lists</a></div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto"><i class="fa fa-user mx-3"></i> </div>
+            <div class="bd-highlight mx-auto"><a>Profile</a></div>
+        </div>
+    </a> -->
+    <a href="#">
+        <!-- <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto"><i class="fa fa-ellipsis-v mx-3"></i> </div>
+            <div class="bd-highlight mx-auto"><a>More</a></div>
+        </div> -->
+          <!-- <div class="col"> -->
+            <div ngbDropdown placement="top-right" class="d-flex flex-column bd-highlight">
+              <div class="bd-highlight mx-auto" id="gfg"
+                      ngbDropdownToggle><i class="fa fa-ellipsis-v mx-3"></i></div>
+                      <div class="bd-highlight mx-auto"><a>More</a></div>
+              <div ngbDropdownMenu="gfg" class="set-postion">
+                <button ngbDropdownItem>Lists</button>
+                <button ngbDropdownItem>Profile</button>
+              </div>
+            </div>
+          <!-- </div> -->
+    </a>
+</div>

@@ -1,0 +1,44 @@
+<div class="border-radius bg-white my-3">
+    <div class="p-3">
+        <div class="d-flex">
+            <div class="p-2">
+                <h3 class="font-24">event</h3>
+                <div [ngClass]="{'limitTextHeight': isReadMore}">
+                    Senior Angular & Web Development/Mobile Apps: I have possesses over 3+ Year of
+                    hands-on experience with Angular. I am working as a full-stack web developer
+                    full-time. Have good working experience on web services SOAP and rest API
+                    Senior Angular & Web Development/Mobile Apps: I have possesses over 3+ Year of
+                    hands-on experience with Angular. I am working as a full-stack web developer
+                    full-time. Have good working experience on web services SOAP and rest API
+                    Senior Angular & Web Development/Mobile Apps: I have possesses over 3+ Year of
+                    hands-on experience with Angular. I am working as a full-stack web developer
+                    full-time. Have good working experience on web services SOAP and rest API
+                    Senior Angular & Web Development/Mobile Apps: I have possesses over 3+ Year of
+                    hands-on experience with Angular. I am working as a full-stack web developer
+                    full-time. Have good working experience on web services SOAP and rest API
+                </div>
+                <div (click)="showText()" class="text-primary pointer font-12 text-right"> {{ isReadMore
+                    ? 'Read More': 'Read Less' }}</div>
+            </div>
+            <div class="ml-auto p-2" (click)="largeModal(largeDataModalAbout)"><i
+                    class="fa fa-pen"></i></div>
+            <ng-template #largeDataModalAbout let-modal>
+                <div class="modal-header">
+                    <h5 class="modal-title mt-0">About</h5>
+
+                    <div (click)="modal.dismiss('Cross click')"><i class="fa fa-close"></i> </div>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Description</label>
+                            <textarea class="form-control" id="exampleInputEmail1" rows="5"
+                                aria-describedby="emailHelp" placeholder="description"></textarea>
+                        </div>
+                        <button type="submit" class="btn button-blue font-14">Submit</button>
+                    </form>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
