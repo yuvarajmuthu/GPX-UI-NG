@@ -3,7 +3,7 @@
         <header>
             <div class="logo">
                 <span class="mr-3">
-                    <img src="../../assets/profile.png" alt="" class="logo-img">
+                    <img src="../../assets/profile.png" alt="" class="logo-img pointer">
                 </span>
                 <div class="input-group">
                     <span class="input-group-append" style="width: 0px;">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <i class="material-icons"> <i class="fas fa-bars"></i></i>
+            <i class="material-icons"> <i class="fas fa-bars text-white"></i></i>
             <nav class="font-22-bold header-side-menu">
                 <div>
                     <div class="d-flex flex-column bd-highlight">
@@ -60,7 +60,7 @@
                 <div>
                     <div class="d-flex flex-column bd-highlight">
                         <div class="bd-highlight mx-auto hide-small"><i class="fa fa-commenting"></i></div>
-                        <div class="bd-highlight mx-auto"><a class="font-small">Messaging</a></div>
+                        <div class="bd-highlight mx-auto"><a class="font-small">Message</a></div>
                     </div>
                 </div>
                 <div>
@@ -74,42 +74,48 @@
         </header>
     </div>
 </div>
-<div class="hide-big">
-    <!-- <a class="active" href="#">
+
+<!-- footer fix for small screen -->
+<div class="navbar bg-drak-blue fix-bottom hide-big">
+    <a >
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-home"></i></div>
-            <div class="bd-highlight mx-auto"><a>Home</a></div>
+            <div class="bd-highlight mx-auto"><a class="font-small">Home</a></div>
         </div>
     </a>
-    <a href="#">
+    <a >
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-users"></i></div>
-            <div class="bd-highlight mx-auto"><a>My Network</a></div>
+            <div class="bd-highlight mx-auto"><a class="font-small">My Network</a></div>
         </div>
     </a>
-    <a href="#">
+    <a >
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-briefcase"></i></div>
-            <div class="bd-highlight mx-auto"><a>Jobs</a></div>
+            <div class="bd-highlight mx-auto"><a class="font-small">Jobs</a></div>
         </div>
     </a>
-    <a href="#">
+    <a >
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-commenting"></i></div>
-            <div class="bd-highlight mx-auto"><a>Messaging</a></div>
+            <div class="bd-highlight mx-auto"><a class="font-small">Message</a></div>
         </div>
     </a>
-    <a href="#">
+    <a >
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-bell"></i></div>
-            <div class="bd-highlight mx-auto"><a>Notification</a></div>
+            <div class="bd-highlight mx-auto"><a class="font-small">Notification</a></div>
         </div>
     </a>
-    <a href="#">
-        <div class="d-flex flex-column bd-highlight">
-            <div class="bd-highlight mx-auto"><i class="fa fa-ellipsis-v mx-3"></i> </div>
-            <div class="bd-highlight mx-auto"><a>More</a></div>
+    <!-- <a >
+        <div ngbDropdown placement="top-right" class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight mx-auto" id="gfg" ngbDropdownToggle><i class="fa fa-ellipsis-v mx-3"></i></div>
+            <div class="bd-highlight mx-auto"><a class="font-small">More</a></div>
+            <div ngbDropdownMenu="gfg" class="set-postion">
+                <button ngbDropdownItem>Lists</button>
+                <button ngbDropdownItem>Profile</button>
+            </div>
         </div>
     </a> -->
-    <app-sidemenu></app-sidemenu>
 </div>
+<!-- footer fix for small screen -->

@@ -15,17 +15,18 @@ header {
   box-shadow: none;
 }
 .bd-highlight{
-    color: #536471;
+    color: white;
+    cursor: pointer;
     i{
         font-size: 24px;
     }
     a{
         font-size: 12px;
-        color: #536471;
+        color: white;
     }
 }
 .bg-header{
-    background-color: #ffffff;
+    background-color: #191b32;
     box-shadow: 0px 1px 6px #00000038;
 }
 header > .logo {
@@ -72,9 +73,12 @@ header > nav > div > a {
     transition: background-color 0.2s ease;
     text-transform: uppercase;
 }
-
-header > nav > div:hover > a {
-    background-color: rgba(0, 0, 0, 0.1);
+a:hover{
+  text-decoration: none !important;
+}
+header > nav > div:hover{
+    background-color: #323046;
+    border-radius: 5px;
     cursor: pointer;
     color: #000000;
 }
@@ -156,7 +160,7 @@ p {
 @media (min-width: 0px) and (max-width: 991px) {
     header > nav {
             overflow-y: scroll;
-            background-color: white;
+            background-color: #191b32;
             position: fixed;
             top: 0;
             right: -300px;

@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   navFixed: boolean = false;
   private scrollOffset: number = 450;
   SectionName=''
-  isReadMore = true
+  // isReadMore = true
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
     this.modalService.open(SectionModel, { centered: true });
     this.SectionName=Section
   }
-  showText() {
-    this.isReadMore = !this.isReadMore
-  }
+  // showText() {
+  //   this.isReadMore = !this.isReadMore
+  // }
   @HostListener('window:scroll')
   onWindowScroll() {
     this.navFixed = (window.pageYOffset
@@ -34,9 +34,9 @@ export class HomeComponent implements OnInit {
       || document.body.scrollTop || 0
     ) > this.scrollOffset;
   }
-  largeModalAbout(largeDataModalAbout: any) {
-    this.modalService.open(largeDataModalAbout, { centered: true });
-  }
+  // largeModalAbout(largeDataModalAbout: any) {
+  //   this.modalService.open(largeDataModalAbout, { centered: true });
+  // }
 
   fileNameProfile: string = "";
   onChangeProfile(event:any) {
