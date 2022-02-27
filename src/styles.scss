@@ -1,10 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 // 
+* {
+    font-family: 'Poppins', sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 3px;
+    padding-top: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 5px transparent;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+    border-radius: 4px;
+}
 .pointer{
     cursor: pointer;
 }
 body{
-    background-color: #f3f2ef;
+    background-color: #cdedf3;
 }
 @media (min-width: 1200px){
     .container, .container-lg, .container-md, .container-sm, .container-xl {
@@ -13,7 +32,7 @@ body{
 }
 .border-radius{
     border-radius: 8px;
-    border: 0.5px solid #e6e5e2;
+    // border: 0.5px solid #e6e5e2;
     .btn{
         border-radius: 50px;
         margin-top: 10px;
@@ -39,7 +58,7 @@ body{
     position: absolute;
     right: 30px;
     top: 10px;
-    background-color: #ffffff;
+    background-color: #d8f8f2;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -83,16 +102,35 @@ body{
 .font-w-normal{
     font-weight: 400;
 }
-.text-blue{
-    color: #0a66c2;
+.text-green{
+    color: #0db685;
+}
+.bg-drak-blue{
+    background-color: #191b32;
+}
+.pointer{
+    cursor: pointer;
+}
+.green-btn{
+    color: white;
+    background-color: #d7f9f1;
+    font-weight: 600;
+    border: none;
+    color: #0db685;
+    &:hover{
+        color: #0db685;
+        border-color: #536471 !important;
+        background-color: #d8f8f2;
+        box-shadow: 0 0 0 0.5px;
+    }
 }
 .button-blue{
     color: white;
-    background-color: #0a66c2;
-    font-weight: 500;
+    background-color: #0db685;
+    font-weight: 600 !important;
     border: none;
     &:hover{
-        background-color: #004182;
+        // background-color: #004182;
         border-color: #536471 !important;
         // border: 2px solid #536471;
         color: #ffffff;
@@ -100,23 +138,29 @@ body{
     }
 }
 .button-outline-blue{
-    color: #0a66c2;
+    color: #0db685;
     background-color: white;
-    font-weight: 500;
-    border-color: #0a66c2 !important;
-    border: 0.5px solid #0a66c2;
+    font-weight: 600 !important;
+    border-color: #0db685 !important;
+    border: 0.5px solid #0db685;
     &:hover{
-        background-color: #e2f0fe;
-        border-color: #0a66c2 !important;
-        // border: 2px solid #0a66c2;
+        color: #0db685;
+        border-color: #0db685 !important;
+        // border: 2px solid #0db685;
         box-shadow: 0 0 0 0.5px;
     }
 }
 .button-grew{
-    color: #536471;
+    // color: #536471;
+    font-weight: 600 !important;
+    border: none;
+    background-color: #d8f8f2;
+    color: #0db685;
     &:hover{
-        background-color: #ebebeb;
+        color: #0db685;
+        // background-color: #ebebeb;
         border-color: #536471 !important;
+        background-color: #d8f8f2;
         // border: 2px solid #536471;
         box-shadow: 0 0 0 0.5px;
     }
@@ -282,7 +326,7 @@ body{
         width: 50%;
     }
     .hide-big{
-        display: none;
+        display: none !important;
     }
     // .ng-autocomplete{
     //     width: 85% !important;
@@ -296,7 +340,7 @@ body{
     //     width: 90% !important;
     // }
     .hide-big{
-        display: none;
+        display: none !important;
     }
 }
 .set-header-m{

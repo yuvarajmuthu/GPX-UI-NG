@@ -10,6 +10,8 @@ import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { RightsidemenuComponent } from './rightsidemenu/rightsidemenu.component';
 import { EventComponent } from './event/event.component';
+import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { EventComponent } from './event/event.component';
     HeaderComponent,
     SidemenuComponent,
     RightsidemenuComponent,
-    EventComponent
+    EventComponent,
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
