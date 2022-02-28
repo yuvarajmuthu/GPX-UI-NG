@@ -22,9 +22,9 @@
 .pointer{
     cursor: pointer;
 }
-body{
-    background-color: #cdedf3;
-}
+// body{
+//     background-color: #cdedf3;
+// }
 @media (min-width: 1200px){
     .container, .container-lg, .container-md, .container-sm, .container-xl {
         max-width: 1300px;
@@ -32,7 +32,7 @@ body{
 }
 .border-radius{
     border-radius: 8px;
-    // border: 0.5px solid #e6e5e2;
+    border: 0.5px solid #e6e5e2;
     .btn{
         border-radius: 50px;
         margin-top: 10px;
@@ -106,7 +106,7 @@ body{
     color: #0db685;
 }
 .bg-drak-blue{
-    background-color: #191b32;
+    background-color: white;
 }
 .pointer{
     cursor: pointer;
@@ -177,6 +177,7 @@ body{
 }
 .fix-bottom{
     position: fixed;
+    background-color: #ffffff;
     z-index: 1;
     display: flex;
     width: 100%;
@@ -248,7 +249,7 @@ body{
         font-size: 20px;
     }
     header > .logo{
-        width: 80%;
+        width: 70%;
     }
     .hide-small{
         display: none;
@@ -292,7 +293,7 @@ body{
         font-size: 20px;
     }
      header > .logo{
-        width: 90%;
+        width: 85%;
     }
     .hide-small{
         display: none;
@@ -323,22 +324,22 @@ body{
         font-size: 22px;
     }
      header > .logo{
-        width: 50%;
+        width: 32%;
     }
     .hide-big{
         display: none !important;
     }
-    // .ng-autocomplete{
-    //     width: 85% !important;
-    // }
+   .header-side-menu{
+       display: flex;align-items: center;
+   }
 }
 @media (min-width: 1200px) {
     header > .logo{
-        width: 65%;
+        width: 48%;
     }
-    // .ng-autocomplete{
-    //     width: 90% !important;
-    // }
+    .header-side-menu{
+        display: flex;align-items: center;
+    }
     .hide-big{
         display: none !important;
     }

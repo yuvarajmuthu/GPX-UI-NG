@@ -1,86 +1,88 @@
 header {
-    width: 100%;
-    height: 58px;
-    padding: 5px 0px;
-    // background-color: #ffffff;
-    // box-shadow: 0px 1px 6px #00000038;
+  width: 100%;
+  height: 58px;
+  padding: 5px 0px;
+  // background-color: #ffffff;
+  // box-shadow: 0px 1px 6px #00000038;
 }
 .bg-search{
-    background-color:#eef3f8;
+  background-color:#eef3f8;
 }
-// :focus-visible {
-//   outline: none;
-// }
+.profile-header{
+border-radius: 50%;
+width: 40px;
+height: 40px;
+}
 .btn.focus, .btn:focus{
-  box-shadow: none;
+box-shadow: none;
 }
 .bd-highlight{
-    color: white;
-    cursor: pointer;
-    i{
-        font-size: 24px;
-    }
-    a{
-        font-size: 12px;
-        color: white;
-    }
+  color: black;
+  cursor: pointer;
+  i{
+      font-size: 24px;
+  }
+  a{
+      font-size: 12px;
+      color: black;
+  }
 }
 .bg-header{
-    background-color: #191b32;
-    box-shadow: 0px 1px 6px #00000038;
+  background-color: white;
+  box-shadow: 0px 1px 6px #00000038;
 }
 header > .logo {
-    // width: 50%;
-    float: left;
-    color: #0088E2;
-    // padding: 0 20px;
-    letter-spacing: 0px;
-    color: #0088E2;
-    text-transform: uppercase;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
+  // width: 50%;
+  float: left;
+  color: #0088E2;
+  // padding: 0 20px;
+  letter-spacing: 0px;
+  color: #0088E2;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 // .logo span{
 //     align-self: flex-start;
 //   }
 .logo-img{
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 header > nav {
-    float: right;
+  float: right;
 }
 
 header > nav > div {
-    float: left;
-    height: 100%;
-    position: relative;
-    padding: 0 15px;
+  float: left;
+  height: 100%;
+  position: relative;
+  padding: 0 15px;
 }
 
 header > nav > div > a {
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    display: block;
-    line-height: 50px;
-    padding: 0 20px;
-    color: #656565;
-    transition: background-color 0.2s ease;
-    text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 50px;
+  padding: 0 20px;
+  color: #656565;
+  transition: background-color 0.2s ease;
+  text-transform: uppercase;
 }
 a:hover{
-  text-decoration: none !important;
+text-decoration: none !important;
 }
-header > nav > div:hover{
-    background-color: #323046;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #000000;
+header > nav > .shawdo:hover{
+  background-color: #d7f9f1;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #000000;
 }
 
 // header > nav > div > div {
@@ -94,143 +96,143 @@ header > nav > div:hover{
 // }
 
 header > nav > div:not(:first-of-type):not(:last-of-type) > div {
-    left: -50%;
-    border-radius: 0 0 3px 3px;
+  left: -50%;
+  border-radius: 0 0 3px 3px;
 }
 
 header > nav > div:first-of-type > div {
-    left: 0;
-    border-radius: 0 0 3px 0;
+  left: 0;
+  border-radius: 0 0 3px 0;
 }
 
 header > nav > div:last-of-type > div {
-    right: 0;
-    border-radius: 0 0 0 3px;
-    // min-width: 400%;
+  right: 0;
+  border-radius: 0 0 0 3px;
+  // min-width: 400%;
 }
 
 header > nav > div:hover > div {
-    display: block;
-    z-index: 1;
+  display: block;
+  z-index: 1;
 }
 
 header > nav > div > div > a {
-    display: block;
-    float: left;
-    padding: 8px 10px;
-    width: 46%;
-    margin: 2%;
-    text-align: center;
-    background-color: #f44355;
-    color: #fbfbfb;
-    border-radius: 2px;
-   
-    transition: background-color 0.2s ease;
+  display: block;
+  float: left;
+  padding: 8px 10px;
+  width: 46%;
+  margin: 2%;
+  text-align: center;
+  background-color: #f44355;
+  color: #fbfbfb;
+  border-radius: 2px;
+ 
+  transition: background-color 0.2s ease;
 }
 
 header > nav > div > div > a:hover {
-    background-color: #212121;
-    cursor: pointer;
+  background-color: #212121;
+  cursor: pointer;
 }
 
 header > .material-icons {
-    display: none;
+  display: none;
 }
 
 h1 {
-    margin-top: 100px;
-    font-weight: 100;
+  margin-top: 100px;
+  font-weight: 100;
 }
 
 p {
-    color: #aaa;
-    font-weight: 300;
+  color: #aaa;
+  font-weight: 300;
 }
 
 @media (max-width:600px) {
-    header > nav > div > div > a {
-            margin: 5px 0;
-            width: 100%;
-    }
-    header > nav > div > a > span {
-            display: none;
-    }
+  header > nav > div > div > a {
+          margin: 5px 0;
+          width: 100%;
+  }
+  header > nav > div > a > span {
+          display: none;
+  }
 }
 
 @media (min-width: 0px) and (max-width: 991px) {
-    header > nav {
-            overflow-y: scroll;
-            background-color: #191b32;
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-            height: 100%;
-            transition: right 0.3s ease;
-            z-index: 16;
-    }
-    header > nav > div {
-            height: initial;
-            float: none;
-            position: relative;
-    }
-    header > nav > div > a {
-            color: #212121;
-            text-align: center;
-    }
-    // header > nav > div > div {
-    //         display: block;
-    //         position: static;
-    //         min-width: 100% !important;
-    //         float: none;
-    //         box-shadow: none;
-    //         padding: 0;
-    //         margin: 0;
-    //         border-radius: 1px !important;
-    // }
-    header > nav > div > div > a {
-            float: none;
-            width: 100%;
-            margin: 0;
-            text-align: right;
-            border-radius: 1px;
-            padding: 8px 20px;
-            background-color: #eee;
-            color: #777;
-    }
-    header > nav > div > div > a:hover {
-            background-color: #ccc;
-    }
-    header > .material-icons {
-            display: block;
-            color: #000000;
-            line-height: 50px;
-            float: right;
-            font-size: 32px;
-            // padding: 0 15px;
-            transition: background-color 0.2s ease;
-    }
-    header > .material-icons:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-    }
-    header > .material-icons:hover + nav,
-    nav:hover {
-            right: 0;
-    }
-    header .black {
-            transition: background-color 0.3s ease;
-    }
-    header > .material-icons:hover ~ .black,
-    nav:hover ~ .black {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            // background-color: rgba(0, 0, 0, 0.2);
-            // z-index: 1;
-            pointer-events: none;
-    }
+  header > nav {
+          overflow-y: scroll;
+          background-color: white;
+          position: fixed;
+          top: 0;
+          right: -300px;
+          width: 300px;
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          height: 100%;
+          transition: right 0.3s ease;
+          z-index: 16;
+  }
+  header > nav > div {
+          height: initial;
+          float: none;
+          position: relative;
+  }
+  header > nav > div > a {
+          color: #212121;
+          text-align: center;
+  }
+  // header > nav > div > div {
+  //         display: block;
+  //         position: static;
+  //         min-width: 100% !important;
+  //         float: none;
+  //         box-shadow: none;
+  //         padding: 0;
+  //         margin: 0;
+  //         border-radius: 1px !important;
+  // }
+  header > nav > div > div > a {
+          float: none;
+          width: 100%;
+          margin: 0;
+          text-align: right;
+          border-radius: 1px;
+          padding: 8px 20px;
+          background-color: #eee;
+          color: #777;
+  }
+  header > nav > div > div > a:hover {
+          background-color: #ccc;
+  }
+  header > .material-icons {
+          display: block;
+          color: #000000;
+          line-height: 50px;
+          float: right;
+          font-size: 32px;
+          // padding: 0 15px;
+          transition: background-color 0.2s ease;
+  }
+  header > .material-icons:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+  }
+  header > .material-icons:hover + nav,
+  nav:hover {
+          right: 0;
+  }
+  header .black {
+          transition: background-color 0.3s ease;
+  }
+  header > .material-icons:hover ~ .black,
+  nav:hover ~ .black {
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          // background-color: rgba(0, 0, 0, 0.2);
+          // z-index: 1;
+          pointer-events: none;
+  }
 }
 
 
@@ -238,9 +240,9 @@ p {
 
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box
+margin: 0;
+padding: 0;
+box-sizing: border-box
 }
 // html,
 // body {
@@ -251,114 +253,114 @@ p {
 // }
 .filter-wrapper,
 .keyword-wrapper {
-  display: flex;
-  justify-content: center;
+display: flex;
+justify-content: center;
 }
 .filter-wrapper {
-  min-height: 100%;
-  flex-flow: column wrap;;
-  position: relative
+min-height: 100%;
+flex-flow: column wrap;;
+position: relative
 }
 .keyword-wrapper {
-  width: 100%;
-  position: relative;
+width: 100%;
+position: relative;
 }
 #keyword {
-  border: 1px solid #ccc;
-  padding: 10px;
-  font: 1.5em 'Arimo', sans-serif;
-  width: 50%;
-  outline: none;
-  transition: border 0.5s ease-in-out
+border: 1px solid #ccc;
+padding: 10px;
+font: 1.5em 'Arimo', sans-serif;
+width: 50%;
+outline: none;
+transition: border 0.5s ease-in-out
 }
 #keyword:focus {
-  border-color : rgba(81, 203, 238, 1);;
+border-color : rgba(81, 203, 238, 1);;
 }
 #keyword-button {
-  position: absolute;
-  right: 26%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.7em;
-  color: #8DB9ED
+position: absolute;
+right: 26%;
+top: 50%;
+transform: translateY(-50%);
+font-size: 1.7em;
+color: #8DB9ED
 }
 #keyword-button:hover {
-  color: #ccc
+color: #ccc
 }
 .filter-select {
-  width: 50%;
-  list-style: none;
-  font-size: 1.1em;
-  color: rgb(105, 105, 105);
-  border: 1px solid #ccc;
-  border-top: none;
-  /*so things don't jump around*/
-  position: absolute;
-  left: 25%;
-  top: calc(50% + 25px);
-  max-height: calc(50% - 15px);
-  overflow-y: auto;
-  background: #fff
+width: 50%;
+list-style: none;
+font-size: 1.1em;
+color: rgb(105, 105, 105);
+border: 1px solid #ccc;
+border-top: none;
+/*so things don't jump around*/
+position: absolute;
+left: 25%;
+top: calc(50% + 25px);
+max-height: calc(50% - 15px);
+overflow-y: auto;
+background: #fff
 }
 .filter-select-list img {
-  margin-right: 30px;
+margin-right: 30px;
 }
 .tags {
-  font-size: 12px;
-  font-style: italic;
-  color: #c6c6c6;
-  margin-right: 10px;
-  position: relative;
-  top: -10px;
+font-size: 12px;
+font-style: italic;
+color: #c6c6c6;
+margin-right: 10px;
+position: relative;
+top: -10px;
 }
 .filter-select-list:hover .tags {
-  color: #fff;
+color: #fff;
 }
 .filter-select-list {
-  cursor: pointer;
-  padding: 5px 10px;
+cursor: pointer;
+padding: 5px 10px;
 }
 .artist-name {
-  display: inline-block;
-  position: absolute;
+display: inline-block;
+position: absolute;
 }
 .filter-select-list:hover {
-  background:  #C0C0C0;
-  color: #fff
+background:  #C0C0C0;
+color: #fff
 }
 .list-highlight,
 .list-highlight:hover {
-  background: rgb(55, 55, 55);
-  color: #fff
+background: rgb(55, 55, 55);
+color: #fff
 }
 @media only screen and (max-width: 768px) {
-  .filter-select,
-  #keyword {
-    width: 80%;
-  }
-  #keyword {
-    font-size: 1.3em
-  }
-  .filter-select {
-    font-size: 0.9em;
-    left: 10%;
-    top: calc(50% + 23px);
-  }
-  #keyword-button {
-    right: 11%
-  }
+.filter-select,
+#keyword {
+  width: 80%;
+}
+#keyword {
+  font-size: 1.3em
+}
+.filter-select {
+  font-size: 0.9em;
+  left: 10%;
+  top: calc(50% + 23px);
+}
+#keyword-button {
+  right: 11%
+}
 }
 @media only screen and (max-width: 480px) {
-  .filter-select,
-  #keyword {
-    width: 95%;
-  }
-  .filter-select {
-    left: 2.5%;
-  }
-  #keyword-button {
-    right: 3.5%
-  }
+.filter-select,
+#keyword {
+  width: 95%;
+}
+.filter-select {
+  left: 2.5%;
+}
+#keyword-button {
+  right: 3.5%
+}
 }
 
 // .offset {
