@@ -5,7 +5,7 @@
   }
   ::-webkit-scrollbar {
     width: 2px;
-    height: 3px;
+    height: 0px;
     padding-top: 5px;
 }
 
@@ -232,6 +232,12 @@
     width: 100%;
 }
 @media (min-width: 0px) and (max-width: 767px){
+    .responsive-icon{
+        flex-direction: row !important;
+        div{
+            margin-left: 0px !important;
+        }
+    }
     .fixeds{
         top: 130px;
         justify-content: left !important;
@@ -276,6 +282,12 @@
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .responsive-icon{
+        flex-direction: row !important;
+        div{
+            margin-left: 0px !important;
+        }
+    }
     .fixeds{
         top: 105px;
         justify-content: left !important;
