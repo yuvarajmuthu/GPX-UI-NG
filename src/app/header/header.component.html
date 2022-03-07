@@ -17,10 +17,7 @@
                             (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
                             [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
                         </ng-autocomplete>
-
                         <ng-template #itemTemplate let-item>
-
-
                             <div class="d-flex justify-content-start p-2">
                                 <div>
                                     <img src="{{item.image}}" class="search-profile">
@@ -30,42 +27,42 @@
                                 </div>
                             </div>
                         </ng-template>
-
                         <ng-template #notFoundTemplate let-notFound>
                             <div [innerHTML]="notFound"></div>
                         </ng-template>
                     </div>
                 </div>
             </div>
-            <span class="pl-3 hide-big"><img src="../../assets/profile.png" alt="" class="pointer profile-header  mt-1"></span>
+            <span class="pl-3 hide-big"><img src="../../assets/profile.png" alt=""
+                    class="pointer profile-header  mt-1"></span>
             <i class="material-icons"> <i class="fas fa-bars"></i></i>
             <nav class="font-22-bold header-side-menu">
                 <div class="shawdo">
-                    <div class="d-flex flex-column bd-highlight responsive-icon">
+                    <div class="d-flex flex-column bd-highlight">
                         <div class="bd-highlight mx-auto"><i class="fa fa-search"></i></div>
                         <div class="bd-highlight mx-auto"><a class="font-small">Find Representatives</a></div>
                     </div>
                 </div>
                 <div class="shawdo">
-                    <div class="d-flex flex-column bd-highlight responsive-icon">
+                    <div class="d-flex flex-column bd-highlight">
                         <div class="bd-highlight mx-auto"><i class="fa fa-users"></i></div>
                         <div class="bd-highlight mx-auto"><a class="font-small">My Circle</a></div>
                     </div>
                 </div>
                 <div class="shawdo">
-                    <div class="d-flex flex-column bd-highlight responsive-icon">
+                    <div class="d-flex flex-column bd-highlight">
                         <div class="bd-highlight mx-auto"><i class="fa fa-rss"></i></div>
                         <div class="bd-highlight mx-auto"><a class="font-small">News</a></div>
                     </div>
                 </div>
                 <div class="shawdo">
-                    <div class="d-flex flex-column bd-highlight responsive-icon">
+                    <div class="d-flex flex-column bd-highlight">
                         <div class="bd-highlight mx-auto"><i class="fa fa-link"></i></div>
                         <div class="bd-highlight mx-auto"><a class="font-small">Connections</a></div>
                     </div>
                 </div>
                 <div class="shawdo">
-                    <div class="d-flex flex-column bd-highlight responsive-icon">
+                    <div class="d-flex flex-column bd-highlight">
                         <div class="bd-highlight mx-auto"><i class="fa fa-bell"></i></div>
                         <div class="bd-highlight mx-auto"><a class="font-small">Notification</a></div>
                     </div>
@@ -84,31 +81,31 @@
 
 <!-- footer fix for small screen -->
 <div class="navbar fix-bottom hide-big" style="box-shadow: 0 4px 5px 2px #212529;">
-    <a >
+    <a>
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-home"></i></div>
             <div class="bd-highlight mx-auto"><a class="font-small">Home</a></div>
         </div>
     </a>
-    <a >
+    <a>
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-users"></i></div>
             <div class="bd-highlight mx-auto"><a class="font-small">My Network</a></div>
         </div>
     </a>
-    <a >
+    <a>
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-briefcase"></i></div>
             <div class="bd-highlight mx-auto"><a class="font-small">Jobs</a></div>
         </div>
     </a>
-    <a >
+    <a>
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-commenting"></i></div>
             <div class="bd-highlight mx-auto"><a class="font-small">Message</a></div>
         </div>
     </a>
-    <a >
+    <a>
         <div class="d-flex flex-column bd-highlight">
             <div class="bd-highlight mx-auto"><i class="fa fa-bell"></i></div>
             <div class="bd-highlight mx-auto"><a class="font-small">Notification</a></div>

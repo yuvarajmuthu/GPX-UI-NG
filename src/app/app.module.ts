@@ -12,6 +12,7 @@ import { RightsidemenuComponent } from './rightsidemenu/rightsidemenu.component'
 import { EventComponent } from './event/event.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
+import { RoleComponent } from './role/role.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FooterComponent } from './footer/footer.component';
     RightsidemenuComponent,
     EventComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    RoleComponent
   ],
   imports: [
     BrowserModule,
