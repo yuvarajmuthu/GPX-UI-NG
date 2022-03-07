@@ -5,6 +5,13 @@ header {
   // background-color: #ffffff;
   // box-shadow: 0px 1px 6px #00000038;
 }
+:host::ng-deep.autocomplete-container .input-container input{
+  height: 38px !important;
+  background-color:#eef3f8 !important;
+  padding: 0px !important;
+  border-radius: 0px 5px 5px 0px;
+  border: none !important;
+}
 .bg-search{
   background-color:#eef3f8;
 }
