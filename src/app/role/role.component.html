@@ -11,10 +11,10 @@
                     <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
                     <div class="font-14 color-grew pointer hover">Varachha, District</div>
                     <div class="d-flex flex-wrap my-2 font-12">
-                        <a class="mr-3 text-muted pointer"> <i class="fa fa-map-marker"></i> Gujrat</a>
-                        <a class="mr-3 text-muted pointer"> <i class="fa fa-bullhorn"></i> Form BJP</a>
-                        <a class="mr-3 text-muted pointer"> <i class="fa fa-calendar"></i> 28 Jan 2021 to 29 Dec
-                            2022</a>
+                        <a class="mr-3 text-muted pointer hover"> <i class="fa fa-map-marker"></i> Gujrat</a>
+                        <a class="mr-3 text-muted pointer hover"> <i class="fa fa-bullhorn"></i> Form BJP</a>
+                        <span class="mr-3 text-muted"> <i class="fa fa-calendar"></i> 28 Jan 2021 to 29 Dec
+                            2022</span>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     <span class="flex-shrink-0 mr-2">
                         <i class="fa fa-calendar"></i>
                     </span>
-                    <a class="text-muted pointer hover">28 Jan 2021 to 29 Dec 2022</a>
+                    <span class="text-muted">28 Jan 2021 to 29 Dec 2022</span>
                 </div>
             </div>
         </div>
@@ -278,10 +278,10 @@
                     <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
                     <div class="font-14 color-grew pointer hover">Varachha, District</div>
                     <div class="d-flex flex-wrap my-2 font-12">
-                        <a class="mr-3 text-muted pointer"> <i class="fa fa-map-marker"></i> Gujrat</a>
-                        <a class="mr-3 text-muted pointer"> <i class="fa fa-bullhorn"></i> Form BJP</a>
-                        <a class="mr-3 text-muted pointer"> <i class="fa fa-calendar"></i> 28 Jan 2021 to 29 Dec
-                            2022</a>
+                        <a class="mr-3 text-muted pointer hover"> <i class="fa fa-map-marker"></i> Gujrat</a>
+                        <a class="mr-3 text-muted pointer hover"> <i class="fa fa-bullhorn"></i> Form BJP</a>
+                        <span class="mr-3 text-muted"> <i class="fa fa-calendar"></i> 28 Jan 2021 to 29 Dec
+                            2022</span>
                     </div>
                 </div>
             </div>
@@ -292,7 +292,7 @@
                                 class="fa fa-plus-square w-auto"></i></span>
                     </a>
                     <a class="flex-shrink-1">
-                        <span class="icon-shaw pointer"><i class="fa fa-pen w-auto"></i></span>
+                        <span class="icon-shaw pointer"><i class="fa fa-pen w-auto" (click)="largeModal(largeDataModal)"></i></span>
                     </a>
                 </div>
             </div>
@@ -323,19 +323,21 @@
                                         <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
                                         <div class="font-14 color-grew pointer hover">Varachha, District</div>
                                         <div class="d-flex flex-wrap my-2 font-12">
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-map-marker"></i>
+                                            <a class="mr-3 text-muted pointer hover"> <i class="fa fa-map-marker"></i>
                                                 Gujrat</a>
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-bullhorn"></i> Form
+                                            <a class="mr-3 text-muted pointer hover"> <i class="fa fa-bullhorn"></i> Form
                                                 BJP</a>
                                         </div>
                                         <div class="font-14">
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-calendar"></i> 28 Jan
+                                            <span class="mr-3 text-muted"> <i class="fa fa-calendar"></i> 28 Jan
                                                 2021
                                                 to 29
-                                                Dec 2022</a>
+                                                Dec 2022</span>
                                         </div>
                                     </div>
-                                    <i class="fa fa-pen w-auto text-green flex-shrink-1 pr-2 pt-2"></i>
+                                    <div>
+                                        <i class="fa fa-pen w-auto hover-edit flex-shrink-1 pointer pr-2 pt-2"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card">
@@ -344,19 +346,21 @@
                                         <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
                                         <div class="font-14 color-grew pointer hover">Varachha, District</div>
                                         <div class="d-flex flex-wrap my-2 font-12">
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-map-marker"></i>
+                                            <a class="mr-3 text-muted pointer hover"> <i class="fa fa-map-marker"></i>
                                                 Gujrat</a>
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-bullhorn"></i> Form
+                                            <a class="mr-3 text-muted pointer hover"> <i class="fa fa-bullhorn"></i> Form
                                                 BJP</a>
                                         </div>
                                         <div class="font-14">
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-calendar"></i> 28 Jan
+                                            <span class="mr-3 text-muted"> <i class="fa fa-calendar"></i> 28 Jan
                                                 2021
                                                 to 29
-                                                Dec 2022</a>
+                                                Dec 2022</span>
                                         </div>
                                     </div>
-                                    <i class="fa fa-pen w-auto text-green flex-shrink-1 pr-2 pt-2"></i>
+                                    <div>
+                                        <i class="fa fa-pen w-auto hover-edit flex-shrink-1 pointer pr-2 pt-2"></i>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card">
@@ -365,19 +369,21 @@
                                         <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
                                         <div class="font-14 color-grew pointer hover">Varachha, District</div>
                                         <div class="d-flex flex-wrap my-2 font-12">
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-map-marker"></i>
+                                            <a class="mr-3 text-muted pointer hover"> <i class="fa fa-map-marker"></i>
                                                 Gujrat</a>
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-bullhorn"></i> Form
+                                            <a class="mr-3 text-muted pointer hover"> <i class="fa fa-bullhorn"></i> Form
                                                 BJP</a>
                                         </div>
                                         <div class="font-14">
-                                            <a class="mr-3 text-muted pointer"> <i class="fa fa-calendar"></i> 28 Jan
+                                            <span class="mr-3 text-muted"> <i class="fa fa-calendar"></i> 28 Jan
                                                 2021
                                                 to 29
-                                                Dec 2022</a>
+                                                Dec 2022</span>
                                         </div>
                                     </div>
-                                    <i class="fa fa-pen w-auto text-green flex-shrink-1 pr-2 pt-2"></i>
+                                    <div>
+                                        <i class="fa fa-pen w-auto hover-edit flex-shrink-1 pointer pr-2 pt-2"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>

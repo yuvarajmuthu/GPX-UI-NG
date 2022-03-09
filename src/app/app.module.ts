@@ -13,6 +13,8 @@ import { EventComponent } from './event/event.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { RoleComponent } from './role/role.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,10 @@ import { RoleComponent } from './role/role.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    NgMultiSelectDropDownModule.forRoot(),
     AppRoutingModule,
     NgbModalModule,
     AutocompleteLibModule,
