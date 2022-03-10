@@ -38,13 +38,43 @@
                             <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Last name">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Additional name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1"
-                                placeholder="Additional name">
+                            <label for="exampleInputPassword1">Place</label>
+                            <div class="input-group">
+                                <div class="ng-autocomplete">
+                                    <ng-autocomplete [data]="data" [searchKeyword]="keyword" placeholder="Place"
+                                        class="form-control border-0 bg-search p-0 rounded-right" (selected)='selectEvent($event)'
+                                        (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+                                        [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+                                    </ng-autocomplete>
+                                    <ng-template #itemTemplate let-item>
+                                        <div class="d-flex justify-content-start p-2">
+                                            <div>
+                                                <img src="{{item.image}}" class="search-profile">
+                                            </div>
+                                            <div>
+                                                <a [innerHTML]="item.name" class="p-2"></a>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                    <ng-template #notFoundTemplate let-notFound>
+                                        <div [innerHTML]="notFound"></div>
+                                    </ng-template>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Headline</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Headline">
+                            <label for="exampleInputPassword1">Area</label>
+                            <ng-multiselect-dropdown
+                            class="font-12"
+                            [placeholder]="'custom placeholder'"
+                            [settings]="dropdownSettings"
+                            [data]="dropdownList"
+                            [(ngModel)]="selectedItems"
+                            name="search"
+                            (onSelect)="onItemSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                          >
+                          </ng-multiselect-dropdown>
                         </div>
                         <button type="submit" class="btn button-blue font-14">Submit</button>
                     </form>
@@ -70,7 +100,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-start" [class.fixeds]="navFixed">
-                <div class="mr-2"><button class="btn button-blue font-14">Open to</button></div>
+                <div class="mr-2"><button class="btn button-outline-blue font-14">Open to</button></div>
                 <!-- <div class="mr-2"><button class="btn button-outline-blue font-14">Add profile
                             section</button></div> -->
                 <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown">
@@ -105,11 +135,11 @@
 </div>
 
 <!-- tab mobile -->
-<div class="d-flex flex-row bd-highlight fix-respo hide-big bg-white">
+<div class="d-flex flex-row bd-highlight fix-respo hide-big bg-white" [class.fixedstab]="navFixed">
     <div class="p-2 bd-highlight set-w-fix" [routerLink]="['/about']" routerLinkActive="active">Biography</div>
     <div class="p-2 bd-highlight set-w-fix" >Activities</div>
     <div class="p-2 bd-highlight set-w-fix" [routerLink]="['/event']" routerLinkActive="active">Twitter Feeds</div>
-    <div class="p-2 bd-highlight set-w-fix" >Roles</div>
+    <div class="p-2 bd-highlight set-w-fix" [routerLink]="['/role']" routerLinkActive="active" >Roles</div>
     <div class="p-2 bd-highlight set-w-fix" >Offices</div>
     <div class="p-2 bd-highlight set-w-fix" >Bills</div>
     <div class="p-2 bd-highlight set-w-fix">Settings</div>

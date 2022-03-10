@@ -142,6 +142,13 @@ body{
         font-weight: 500;   
     }
 }
+.hover-edit{
+    // font-weight: 500;   
+    &:hover{
+        color: #0db685 !important;
+        // font-weight: 500;   
+    }
+}
 .green-btn{
     color: white;
     background-color: #d7f9f1;
@@ -175,8 +182,9 @@ body{
     border-color: #0db685 !important;
     border: 0.5px solid #0db685;
     &:hover{
-        color: #0db685;
+        color: #d8f8f2;
         border-color: #0db685 !important;
+        background-color: #0db685;
         // border: 2px solid #0db685;
         box-shadow: 0 0 0 0.5px;
     }
@@ -188,10 +196,10 @@ body{
     background-color: #d8f8f2;
     color: #0db685;
     &:hover{
-        color: #0db685;
+        color: #d8f8f2;
         // background-color: #ebebeb;
         border-color: #536471 !important;
-        background-color: #d8f8f2;
+        background-color: #0db685;
         // border: 2px solid #536471;
         box-shadow: 0 0 0 0.5px;
     }
@@ -276,6 +284,11 @@ body{
     flex-direction: row;
     align-items: center;
     width: 100%;
+}
+.fixedstab{
+    position: fixed;
+    top: 173px;
+    margin-left: -9px;
 }
 .res-m-r{
     margin-right: 20px;
