@@ -8,16 +8,19 @@
     display: block;
 }
 
-.hover{
-    font-weight: 500;   
-    &:hover{
-        color: #0db685;
-        font-weight: 500;   
-    }
-}
+// .hover{
+//     font-weight: 500;   
+//     &:hover{
+//         color: #0db685;
+//         font-weight: 500;   
+//     }
+// }
 // span.text-dark{
 //     font-weight: 600;
 // }
+.example-chip-list {
+  width: 100%;
+}
 
 .prof-camera{
     position: relative;

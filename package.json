@@ -10,7 +10,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.1.2",
     "@angular/common": "~12.1.2",
     "@angular/compiler": "~12.1.2",
     "@angular/core": "~12.1.2",
@@ -21,6 +20,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "angular-ng-autocomplete": "^2.0.8",
     "bootstrap": "^4.5.0",
+    "ng-multiselect-dropdown": "^0.3.8",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
