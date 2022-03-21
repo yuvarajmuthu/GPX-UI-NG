@@ -1,0 +1,46 @@
+<div class="border-radius bg-white mb-3 p-3" >
+    <div class="d-flex align-items-start hover-card pointer p-3 rounded" (click)="commentPage()">
+        <div class="flex-shrink-0 mr-2">
+            <img src="../../../assets/profile.png" class="post-profile">
+        </div>
+        <div class="flex-shrink-1 w-100">
+            <div>
+                <span class="h6"> sonytv</span>
+                <span class="h6 text-green"> @SonyTV</span>
+                <p class="color-grew">
+                    16m
+                    Sai ke vachanon se judi katha sunne ke baad bhi nahi badla Rishabh ka mann, kya ab Sai ki leela se
+                    hoga
+                    koi chamatkaar? Jaanne ke liye dekhiye #MereSai Anmol Vachan Adhyay, Mon-Fri, raat 7 baje, sirf Sony
+                    par.
+                </p>
+            </div>
+            <div class="containers">
+                <img src="../../../assets/bg.jpg" class="w-100 rounded">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-around my-3 center-text">
+        <div>
+            <a class="edit-comment mr-1">
+                <span class="icon-shaw pointer">
+                    <i class='bx bx-chat'></i>
+                </span></a>10
+        </div>
+        <div>
+            <a class="edit-like mr-1">
+                <span class="icon-shaw pointer" (click)="like($event)">
+                    <i class='bx bx-heart' *ngIf="isLiked"></i>
+                    <i class='bx bxs-heart color-red' *ngIf="!isLiked"></i>
+                </span>
+            </a>5
+        </div>
+        <div>
+            <a class="edit-reply mr-1"><span class="icon-shaw pointer"><i class="bx bx-reply"></i></span></a>2
+        </div>
+        <div>
+            <a class="edit-share mr-1"><span class="icon-shaw pointer"><i class="bx bx-share-alt"></i></span></a>19
+        </div>
+    </div>
+</div>

@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'role',
     component: RoleComponent,
-  }
+  },
+  { path: 'post', loadChildren: () => import('./post/post.module').then(m => m.PostModule)},
 ];
 
 @NgModule({

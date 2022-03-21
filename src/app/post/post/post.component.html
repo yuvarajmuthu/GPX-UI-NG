@@ -1,0 +1,44 @@
+<div class="border-radius bg-white mb-3 p-3">
+    <div class="d-flex align-items-start">
+        <div class="flex-shrink-0 mr-2">
+            <img src="../../../assets/profile.png" class="post-profile">
+        </div>
+        <div class="flex-shrink-1 w-100">
+            <textarea (keyup)="autoGrowTextZone($event)" [mentionConfig]="mentionConfig" 
+                [(ngModel)]="textArea" class="font-24 w-100 border-0"
+                placeholder="Whats's happening?">
+                </textarea>
+            <!-- <div *ngIf="images.length==1"> -->
+            <div *ngFor='let url of images ;let index = index' class="containers">
+                <img [src]="url" class="w-100 rounded">
+                <a class="edit-icon mx-1 top-close" (click)="removeSelectedFile(index)">
+                    <span class="icon-shaw pointer">
+                        <i class="bx bx-x"></i>
+                    </span>
+                </a>
+            </div>
+            <!-- </div> -->
+            <div class="d-flex align-items-center bd-highlight py-3">
+                <div class="mr-2 bd-highlight">
+                    <!-- <input id="file" type="file" class="form-control" multiple="" (change)="onFileChange($event)"> -->
+                    <input #fileInputcover type="file" (change)="onFileChange($event)" style="display:none" />
+                    <a class="edit-icon mx-1">
+                        <span class="icon-shaw pointer" (click)="fileInputcover.click()">
+                            <i class="bx bx-images"></i>
+                        </span>
+                    </a>
+                    <a class="edit-icon mx-1" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
+                        <span class="icon-shaw pointer">
+                            <i class="bx bx-smile"></i>
+                        </span>
+                    </a>
+                    <emoji-mart class="emoji-mart set-box" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)"
+                        title="Choose your emoji"></emoji-mart>
+                </div>
+                <div class="bd-highlight ml-auto">
+                    <button class="btn button-outline-blue font-14 m-0">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
