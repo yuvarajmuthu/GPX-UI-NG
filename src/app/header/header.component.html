@@ -37,7 +37,7 @@
                     class="pointer profile-header  mt-1"></span>
             <i class="material-icons"> <i class="fas fa-bars"></i></i>
             <nav class="font-22-bold header-side-menu">
-                <div class="shawdo">
+                <div class="shawdo" [routerLink]="['searchLegislator']" routerLinkActive="active">
                     <div class="d-flex flex-column bd-highlight">
                         <div class="bd-highlight mx-auto"><i class="bx bx-search"></i></div>
                         <div class="bd-highlight mx-auto"><a class="font-small">Find Representatives</a></div>
@@ -49,7 +49,7 @@
                         <div class="bd-highlight mx-auto"><a class="font-small">My Circle</a></div>
                     </div>
                 </div>
-                <div class="shawdo">
+                <div class="shawdo" [routerLink]="['post/card']" routerLinkActive="active">
                     <div class="d-flex flex-column bd-highlight">
                         <div class="bd-highlight mx-auto"><i class="bx bx-rss"></i></div>
                         <div class="bd-highlight mx-auto"><a class="font-small">News</a></div>

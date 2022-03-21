@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  serviceUrl:'https://www.gpxservice.xyz',
+  searchServiceUrl:'https://www.gpxservice.xyz/search',
+  address:''
 };
