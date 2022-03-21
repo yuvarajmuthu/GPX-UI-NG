@@ -1,0 +1,115 @@
+[{
+	"id": 1,
+	"parent_Id": null,
+	"entityId": "user6@gmail.com",
+	"postType": "T",
+	"postText": "hi <span class='tagged-users' data-username='user5@gmail.com' data-entitytype='PUBLICUSER' readonly='true' contenteditable='false' value='user5 five'>user5 five</span><span>&nbsp;</span>😃 fine",
+	"createdDate": "2020-02-09T18:54:02.524Z",
+	"lastModifiedDate": "2020-02-09T18:54:02.524Z",
+	"totalComments": 5,
+	"likedBy":["u001","u002"],
+	"likedByCurrentUser":true,
+	"comments":[{
+		"id":2,
+		"parent_Id":1,
+		"entityId": "user13@gmail.com",
+	     "postType": "T",
+	     "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+	     "createdDate": "2020-02-10T18:54:02.524Z",
+		 "lastModifiedDate": "2020-02-10T18:54:02.524Z",
+		 "likedBy":["u001"],
+		 "likedByCurrentUser":true,
+		 "comments":[{
+			"id":3,
+			"parent_Id":2,
+			"entityId": "user13A@gmail.com",
+			 "postType": "T",
+			 "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+			 "createdDate": "2020-02-09T18:54:02.524Z",
+			 "lastModifiedDate": "2020-02-09T18:54:02.524Z",
+			 "likedBy":["u001"],
+			 "likedByCurrentUser":true
+			}]
+		},
+		{
+			"id":4,
+			"parent_Id":1,
+			"entityId": "user14@gmail.com",
+			 "postType": "T",
+			 "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+			 "createdDate": "2020-02-09T18:54:02.524Z",
+			 "lastModifiedDate": "2020-02-09T18:54:02.524Z",
+			 "likedBy":["u001"],
+			 "likedByCurrentUser":true
+		},
+		{
+			"id":5,
+			"parent_Id":1,
+			"entityId": "user15@gmail.com",
+			 "postType": "T",
+			 "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+			 "createdDate": "2020-02-09T18:54:02.524Z",
+			 "lastModifiedDate": "2020-02-09T18:54:02.524Z",
+			 "likedBy":["u001"],
+			 "likedByCurrentUser":true
+		}
+	]
+},
+{
+	"id": 6,
+	"parent_Id": null,
+	"entityId": "user12@gmail.com",
+	"postType": "T",
+	"postText": "hi <span class='tagged-users' data-username='user5@gmail.com' data-entitytype='PUBLICUSER' readonly='true' contenteditable='false' value='user5 five'>user5 five</span><span>&nbsp;</span>😃 fine",
+	"createdDate": "2020-02-09T18:54:02.524Z",
+	"lastModifiedDate": "2020-02-09T18:54:02.524Z",
+	"totalComments": 5,
+	"likedBy":["u001","u002"],
+	"likedByCurrentUser":true,
+	"comments":[{
+		"id":7,
+		"parent_Id":6,
+		"entityId": "user11@gmail.com",
+	     "postType": "T",
+	     "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+	     "createdDate": "2020-02-09T18:54:02.524Z",
+		 "lastModifiedDate": "2020-02-09T18:54:02.524Z",
+		 "likedBy":["u001"],
+		 "likedByCurrentUser":true,
+		 "comments":[{
+			"id":8,
+			"parent_Id":7,
+			"entityId": "user10@gmail.com",
+			 "postType": "T",
+			 "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+			 "createdDate": "2020-02-09T18:54:02.524Z",
+			 "lastModifiedDate": "2020-02-09T18:54:02.524Z",
+			 "likedBy":["u001"],
+			 "likedByCurrentUser":true
+			}]
+		},
+		{
+			"id":9,
+			"parent_Id":6,
+			"entityId": "user9@gmail.com",
+			 "postType": "T",
+			 "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+			 "createdDate": "2020-02-09T18:54:02.524Z",
+			 "lastModifiedDate": "2020-02-09T18:54:02.524Z",
+			 "likedBy":["u001"],
+			 "likedByCurrentUser":true
+		},
+		{
+			"id":10,
+			"parent_Id":6,
+			"entityId": "user9@gmail.com",
+			 "postType": "T",
+			 "postText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+			 "createdDate": "2020-02-09T18:54:02.524Z",
+			 "lastModifiedDate": "2020-02-09T18:54:02.524Z",
+			 "likedBy":["u001"],
+			 "likedByCurrentUser":true
+		}
+	]
+}
+]

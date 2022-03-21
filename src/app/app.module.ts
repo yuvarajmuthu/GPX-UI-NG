@@ -1,44 +1,60 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SidemenuComponent } from './sidemenu/sidemenu.component';
-import { RightsidemenuComponent } from './rightsidemenu/rightsidemenu.component';
+import {UserModule} from './components/user/user.module';
+
+import { AppComponent } from './app.component';
+//import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+//import { SidemenuComponent } from './sidemenu/sidemenu.component';
+//import { RightsidemenuComponent } from './rightsidemenu/rightsidemenu.component';
 import { EventComponent } from './event/event.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { RoleComponent } from './role/role.component';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import {SearchlegislatorsComponent} from './components/searchlegislators/searchlegislators.component';
+import {LegislatorComponent} from './components/legislator/legislator.component';
+import {GAddressSearchComponent} from './components/g-address-search/g-address-search.component';
+
+
+//import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    //HomeComponent,
     HeaderComponent,
-    SidemenuComponent,
-    RightsidemenuComponent,
+    //SidemenuComponent,
+    //RightsidemenuComponent,
     EventComponent,
     AboutComponent,
     FooterComponent,
-    RoleComponent
+    RoleComponent,
+    SearchlegislatorsComponent,
+    LegislatorComponent,
+    GAddressSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    NgMultiSelectDropDownModule.forRoot(),
+    //NgMultiSelectDropDownModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
     NgbModalModule,
     AutocompleteLibModule,
-    NgbModule
+    NgbModule,
+    UserModule
   ],
+    exports:[
+      UserModule],
   providers: [],
   bootstrap: [AppComponent]
 })

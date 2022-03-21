@@ -1,0 +1,52 @@
+[{
+  "firstName": "Charles First",
+  "full_name": "Charles S. Trump IV",
+  "id": "5f206f47f453cd8700f210c0",
+  "lastName": null,
+  "photoUrl": "http://www.legis.state.wv.us/images/members/2017/senate/trump_charles.jpg",
+  "profileAvatarImgFileId": null,
+  "profileBannerImgFileId": null,
+  "sourceSystem": "OPENSTATE",
+  "status": "PASSIVE",
+  "userType": "LEGISLATOR",
+  "username": "WVL000308"
+},
+{
+  "firstName": null,
+  "full_name": "Harry S. Truman",
+  "id": "5f206a1ff453cd8700f0f32d",
+  "lastName": null,
+  "photoUrl": "http://bioguide.congress.gov/bioguide/photo/T/T000387.jpg",
+  "profileAvatarImgFileId": null,
+  "profileBannerImgFileId": null,
+  "sourceSystem": "GOVTRACK",
+  "status": "PASSIVE",
+  "userType": "LEGISLATOREXECUTIVE",
+  "username": "T000387"
+},
+{
+  "firstName": null,
+  "full_name": "Donald J. Trump",
+  "id": "5f206a1ff453cd8700f0f394",
+  "lastName": null,
+  "photoUrl": null,
+  "profileAvatarImgFileId": null,
+  "profileBannerImgFileId": null,
+  "sourceSystem": "GOVTRACK",
+  "status": "PASSIVE",
+  "userType": "LEGISLATOREXECUTIVE",
+  "username": "412733.0"
+},
+{
+  "firstName": null,
+  "full_name": "Jay Trumbull",
+  "id": "5f206b2af453cd8700f12e0b",
+  "lastName": null,
+  "photoUrl": "http://www.flhouse.gov/FileStores/Web/Imaging/Member/4600.jpg",
+  "profileAvatarImgFileId": null,
+  "profileBannerImgFileId": null,
+  "sourceSystem": "OPENSTATE",
+  "status": "PASSIVE",
+  "userType": "LEGISLATOR",
+  "username": "FLL000591"
+  }]

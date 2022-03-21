@@ -1,0 +1,416 @@
+{
+   "createdDate":"2020-07-28 18:28:29",
+   "lastModifiedDate":"2020-07-28 18:28:29",
+   "userId":"5f206e4df453cd8700f1d830",
+   "username":"PAL000515",
+   "category":"LEGISLATURE",
+   "full_name":"Dan L. Miller1",
+   "displayName":"Dan L. Miller3",
+   "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+   "password":null,
+   "userType":"LEGISLATOR",
+   "status":"PASSIVE",
+   "profileManagedBy":null,
+   "members":["user6@gmail.com"],
+   "adminstrators":["user6@gmail.com"],
+   "circleUsers":null,
+   "selfProfile":false,
+   "showSettings":true,
+   "profileManaged":true,
+   "settings":{
+         "accessRestriction":true
+   },
+   "modifiedBy":null,
+   "firstName":null,
+   "lastName":null,
+   "emailId":null,
+   "phone":null,
+   "address":null,
+   "photoUrl":"http://www.legis.state.pa.us/images/members/200/1679.jpg",
+   "profileAvatarImgFileId":null,
+   "profileBannerImgFileId":null,
+   "sourceSystem":"OPENSTATE",
+   "sourceId":"PAL000515",
+   "tagName":null,
+   "connections":null,
+   "userProfile":null,
+   "role":{
+      "start_date":"2017-01-20",      
+      "end_date":"2021-01-20",
+      "district":"42",
+      "chamber":"lower",
+      "state":"pa",
+      "party":"Democratic",
+      "type":"member"
+
+   },
+   "profileTemplates":[
+      {
+         "createdDate":"2020-06-09 20:56:11",
+         "lastModifiedDate":"2020-06-09 20:56:11",
+         "id":"5edff76bf453cde2b4d0b672",
+         "profileTemplateId":"upRole",
+         "category":"LEGISLATOR",
+         "name":"Role",
+         "profileIcon":"fa fa-briefcase",
+         "properties":[
+            {
+               "propId":"start",
+               "displayLabel":"Start Date",
+               "type":"date"
+            },
+            {
+               "propId":"end",
+               "displayLabel":"End Date",
+               "type":"date"
+            },
+            {
+               "propId":"district",
+               "displayLabel":"District",
+               "type":"text"
+            },
+            {
+               "propId":"chamber",
+               "displayLabel":"Chamber",
+               "type":"text"
+            },
+            {
+               "propId":"state",
+               "displayLabel":"State",
+               "type":"text"
+            },
+            {
+               "propId":"party",
+               "displayLabel":"Party",
+               "type":"text"
+            },
+            {
+               "propId":"member",
+               "displayLabel":"Member",
+               "type":"text"
+            },
+            {
+               "propId":"committee",
+               "displayLabel":"Committee",
+               "type":"text"
+            },
+            {
+               "propId":"position",
+               "displayLabel":"Position",
+               "type":"text"
+            },
+            {
+               "propId":"type",
+               "displayLabel":"Type",
+               "type":"text"
+            }
+         ]
+      },
+      {
+         "createdDate":"2020-06-09 20:56:20",
+         "lastModifiedDate":"2020-06-09 20:56:20",
+         "id":"5edff774f453cde2b4d0b673",
+         "profileTemplateId":"upOffices",
+         "category":"LEGISLATOR",
+         "name":"Office",
+         "profileIcon":"fa fa-building",
+         "properties":[
+            {
+               "propId":"name",
+               "displayLabel":"Name",
+               "type":"text"
+            },
+            {
+               "propId":"type",
+               "displayLabel":"Type",
+               "type":"text"
+            },
+            {
+               "propId":"phone",
+               "displayLabel":"Phone",
+               "type":"text"
+            },
+            {
+               "propId":"address",
+               "displayLabel":"Address",
+               "type":"text"
+            },
+            {
+               "propId":"start",
+               "displayLabel":"Start Date",
+               "type":"date"
+            },
+            {
+               "propId":"end",
+               "displayLabel":"End Date",
+               "type":"date"
+            },
+            {
+               "propId":"email",
+               "displayLabel":"Email",
+               "type":"text"
+            },
+            {
+               "propId":"fax",
+               "displayLabel":"Fax",
+               "type":"text"
+            }
+         ]
+      },
+      {"profileTemplateId":"upMember","category":"LEGISLATIVE COMMITTEE","name":"Committee Members","profileIcon":"person","properties":[{"propId":"bioguide","displayLabel":"Bioguide Id","type":"text"},{"propId":"name","displayLabel":"Name","type":"text"},{"propId":"party","displayLabel":"Party","type":"text"},{"propId":"rank","displayLabel":"Rank","type":"text"},{"propId":"chamber","displayLabel":"Chamber","type":"text"},{"propId":"title","displayLabel":"Title","type":"text"}]}
+   ],
+   "profileDatas":[
+      {
+         "createdDate":null,
+         "lastModifiedDate":"2020-03-03 19:52:25",
+         "id":"",
+         "profileTemplateId":"upRole",
+         "data":{
+            "start":null,
+            "end":null,
+            "district":"42",
+            "chamber":"lower",
+            "state":"pa",
+            "party":"Democratic",
+            "member":null,
+            "committee":null,
+            "position":null,
+            "type":null
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":null,
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-03-03 21:37:21",
+         "lastModifiedDate":"2020-03-03 21:37:21",
+         "id":"5e5ece117e56cd6c488d3f4f",
+         "profileTemplateId":"upRole",
+         "data":{
+            "start":"1981-06-25",
+            "end":"1984-07-26",
+            "district":"45",
+            "chamber":"upper",
+            "state":"wa",
+            "party":"Democratic",
+            "member":"member",
+            "committee":null,
+            "position":null,
+            "type":null
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":null,
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-03-04 04:36:14",
+         "lastModifiedDate":"2020-03-04 04:36:14",
+         "id":"5e5f303e7e56cd6c488d3f50",
+         "profileTemplateId":"upRole",
+         "data":{
+            "start":"1980-12-01",
+            "end":"1984-11-05",
+            "district":"40",
+            "chamber":"lower",
+            "state":"OH",
+            "party":"Democratic",
+            "member":null,
+            "committee":null,
+            "position":null,
+            "type":null
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":null,
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-03-15 21:46:06",
+         "lastModifiedDate":"2020-03-15 21:46:06",
+         "id":"5e6ea21ef453cd3234f47611",
+         "profileTemplateId":"upRole",
+         "data":{
+            "start":"2003-01-07",
+            "end":"2009-01-03",
+            "district":null,
+            "chamber":null,
+            "state":"SC",
+            "party":"Republican",
+            "member":null,
+            "committee":"Youth wing",
+            "position":null,
+            "type":"sen"
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":null,
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-03-21 22:56:03",
+         "lastModifiedDate":"2020-03-21 22:56:03",
+         "id":"5e769b83f453cd6b9880d7b4",
+         "profileTemplateId":"upRole",
+         "data":{
+            "start":"1980-01-01",
+            "end":"1985-03-17",
+            "district":"31",
+            "chamber":"lower",
+            "state":"pa",
+            "party":"Democratic",
+            "member":null,
+            "committee":null,
+            "position":null,
+            "type":"member"
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":null,
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-03-21 23:14:58",
+         "lastModifiedDate":"2020-03-21 23:31:45",
+         "id":"5e769ff2f453cd6b9880d7b5",
+         "profileTemplateId":"upRole",
+         "data":{
+            "start":"1981-06-27",
+            "end":"1985-03-17",
+            "district":"31",
+            "chamber":"lower",
+            "state":"pa",
+            "party":"Democratic",
+            "member":null,
+            "committee":null,
+            "position":null,
+            "type":"member"
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":null,
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-07-28 18:28:29",
+         "lastModifiedDate":"2020-07-28 18:28:29",
+         "id":"5f206e4df453cd8700f1d832",
+         "profileTemplateId":"upRole",
+         "data":{
+            "term":"2017-2018",
+            "end_date":null,
+            "district":"42",
+            "chamber":"lower",
+            "state":"pa",
+            "party":"Democratic",
+            "type":"member",
+            "start_date":null
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":"LEGISLATOR",
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-07-28 18:28:29",
+         "lastModifiedDate":"2020-07-28 18:28:29",
+         "id":"5f206e4df453cd8700f1d833",
+         "profileTemplateId":"upOffices",
+         "data":{
+            "fax":"412-343-2050",
+            "name":"District Office",
+            "phone":"412-343-3870",
+            "address":"650 Washington Road Suite 102 Mt. Lebanon, PA 15228",
+            "type":"district",
+            "email":null
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":"LEGISLATOR",
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-07-28 18:28:29",
+         "lastModifiedDate":"2020-07-28 18:28:29",
+         "id":"5f206e4df453cd8700f1d834",
+         "profileTemplateId":"upOffices",
+         "data":{
+            "fax":"717-780-4756",
+            "name":"Capitol Office",
+            "phone":"717-783-1850",
+            "address":"116A East Wing PO Box 202042 Harrisburg, PA 17120-2042",
+            "type":"capitol",
+            "email":null
+         },
+         "dataList":null,
+         "entityId":"PAL000515",
+         "entityType":"LEGISLATOR",
+         "current":false,
+         "jsondata":{
+            "empty":false
+         }
+      },
+      {
+         "createdDate":"2020-07-28 18:28:29",
+         "lastModifiedDate":"2020-07-28 18:28:29",
+         "id":"5f206e4df453cd8700f1d832",
+         "profileTemplateId":"upOtherContacts",
+         "data":{
+            "Twitter":"RepDanMiller",
+            "Facebook":"RepDanMiller"
+         },
+         "entityId":"PAL000515"
+      },
+      {
+
+         "profileTemplateId": "upMember",
+         "data": {
+             "name": "Jeff Merkley",
+             "party": "majority",
+             "rank": 2,
+             "bioguide": "M001176"
+         },
+         "entityId": "SSAP01",
+         "entityType": "Member, LEGISLATIVE SUB COMMITTEE",
+         "current": false
+     },
+     {
+
+      "profileTemplateId": "upMember",
+      "data": {
+          "name": "Dianne Feinstein",
+          "party": "majority",
+          "rank": 3,
+          "bioguide": "F000062"
+      },
+      "entityId": "SSAP01",
+      "entityType": "Member, LEGISLATIVE SUB COMMITTEE",
+      "current": false
+  }
+   ]
+}

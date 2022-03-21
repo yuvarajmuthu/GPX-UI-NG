@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { EventComponent } from './event/event.component';
-import { HomeComponent } from './home/home.component';
-import { RoleComponent } from './role/role.component';
+
+import {SearchlegislatorsComponent} from './components/searchlegislators/searchlegislators.component';
 
 const routes: Routes = [
-  {
-    path: 'about',
-    component: AboutComponent,
+  { path: 'searchLegislator', 
+    component: SearchlegislatorsComponent
   },
+  //lazy loading
   {
-    path: 'event',
-    component: EventComponent,
+    path: 'user', 
+    loadChildren: () => import('./components/user/user.module').then(m => m.UserModule)
   },
-  {
-    path: 'role',
-    component: RoleComponent,
+  { 
+    path: 'post', 
+    loadChildren: () => import('./post/post.module').then(m => m.PostModule)
   }
 ];
 
