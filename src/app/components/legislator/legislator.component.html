@@ -1,0 +1,83 @@
+<!-- <div *ngIf="legislator">
+
+  <figure class="snip1344" (click)="gotoLegislator(legislator)">
+    <img src="{{legislator.photo_url}}" alt="profile-sample1" class="background"/>
+    <img src="{{legislator.photo_url}}" alt="profile-sample1" class="profile"/>
+    <figcaption>
+      <h3>{{legislator.full_name}}</h3>
+      <p>State: {{legislator.state}}</p>
+      <p>District: {{legislator.district}}</p>
+      <p>Chamber: {{legislator.chamber}}</p>
+      <p>Party: {{legislator.party}}</p>
+
+    </figcaption>
+  </figure>
+</div> -->
+
+<div class="card btn-3">
+  <div class="card-body text-center legislator-box-shadow btn-6">
+    <fieldset class="rating text-right">
+      <a href="javascript:void(0);" *ngIf="isInCircle"  title="Remove from your circle" (click)="removeFromCircle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a>
+      <a href="javascript:void(0);" *ngIf="!isInCircle"  title="Add to Circle" (click)="add2Circle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a>
+    </fieldset>
+    <!--<fieldset class="rating">
+
+      <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+
+    </fieldset>-->
+
+
+    <p class="">
+
+      <img class="img-fluid rounded rounded-circle img-custom-size-legislator cursor-default"
+           src="{{legislator['photoUrl']}}">
+      <!-- <img src="{{legislator.photo_url}}" alt="profile-sample1" class="background"/>
+      <img src="{{legislator.photo_url}}" alt="profile-sample1" class="profile"/> -->
+    </p>
+
+    <h4 class="card-title">{{legislator.full_name}}</h4>
+
+    <p class="card-text">
+      <!--
+      State: <a [routerLink]="['/user/',legislator.state]" href="javascript:void(0);"
+                                   class="hvr-underline-from-center wobble-top"
+                                   title="View this State">{{legislator.state}}</a>
+      <br/>
+      District: <a [routerLink]="['/user/',legislator.district]" href="javascript:void(0);"
+                   class="hvr-underline-from-center wobble-top" title="View this District">{{legislator.district}}</a>
+      <br/>
+      Chamber: <a [routerLink]="['/user/',legislator.chamber]" href="javascript:void(0);"
+                  class="hvr-underline-from-center wobble-top" title="View this Chamber">{{legislator.chamber}}</a>
+      <br/>
+      Party: <a [routerLink]="['/user/',legislator.party]" href="javascript:void(0);"
+                class="hvr-underline-from-center wobble-top" title="View this Party">{{legislator.party}}</a>
+      <br/>
+      <br/>
+    -->
+    <a [routerLink]="['/user/',legislator['role']['type']]" href="javascript:void(0);"
+      class="hvr-underline-from-center wobble-top" title="View this Party">{{legislator['role']['type']}}
+    </a>    
+    <br/>
+
+    <a [routerLink]="['/user/',legislator.division]" href="javascript:void(0);"
+      class="hvr-underline-from-center wobble-top" title="View this Party">{{legislator.division}}
+    </a>
+    <br/>
+    
+    <a [routerLink]="['/user/',legislator['role']['party']]" href="javascript:void(0);"
+                class="hvr-underline-from-center wobble-top" title="View this Party">{{legislator['role']['party']}}
+    </a>
+
+
+
+
+    </p>
+
+    <a href="javascript:void(0);" (click)="gotoLegislator(legislator)" title="View this Profile"
+       class="btn btn-secondary btn-sm">
+      <!-- <i class="fa fa-eye"></i> -->
+      View profile
+    </a>
+  </div>
+
+</div>
