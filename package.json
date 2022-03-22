@@ -19,6 +19,7 @@
     "@angular/router": "~12.1.2",
     "@ctrl/ngx-emoji-mart": "^6.2.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
+    "@types/google.maps": "^3.48.2",
     "angular-mentions": "^1.4.0",
     "angular-ng-autocomplete": "^2.0.8",
     "bootstrap": "^4.5.0",
