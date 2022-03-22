@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { UserComponent } from './user/user.component';
-
 import {UserRoutingModule} from './user-routing.module';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { UserstageComponent } from './userstage/userstage.component';
-
-import { HomeComponent } from '../../home/home.component';
+import { UserComponent } from './user/user.component';
 import { SidemenuComponent } from '../../sidemenu/sidemenu.component';
 import { RightsidemenuComponent } from '../../rightsidemenu/rightsidemenu.component';
+import { UserstageComponent } from './userstage/userstage.component';
+
+//import { HomeComponent } from '../../home/home.component';
 
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
@@ -34,7 +31,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
   declarations: [
     UserComponent, 
    UserstageComponent,
-   HomeComponent,
+   //HomeComponent,
    SidemenuComponent,
    RightsidemenuComponent
   ],
