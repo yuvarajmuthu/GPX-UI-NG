@@ -8,7 +8,7 @@ import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {UserModule} from './components/user/user.module';
 
 import { AppComponent } from './app.component';
-//import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 //import { SidemenuComponent } from './sidemenu/sidemenu.component';
 //import { RightsidemenuComponent } from './rightsidemenu/rightsidemenu.component';
@@ -27,7 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    //HomeComponent,
+    HomeComponent,
     HeaderComponent,
     //SidemenuComponent,
     //RightsidemenuComponent,
