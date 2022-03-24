@@ -115,7 +115,7 @@ export class DatashareService {
   isUserLogged() {
     let loggedUser = this.getCurrentUser();
     //console.log('loggedUser ', loggedUser);
-    return (loggedUser != null && loggedUser['token'] != null);
+    return (loggedUser != null && loggedUser['token'] != null && loggedUser['token'].length > 0);
   }
 
   getViewingUserId():string{
