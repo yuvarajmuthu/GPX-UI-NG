@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, Output, OnInit, ChangeDetectorRef, isDevMode} from '@angular/core';
+import {Component, EventEmitter, Input, Output, OnInit, ChangeDetectorRef, isDevMode, ViewChild,
+  ElementRef} from '@angular/core';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 //import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
@@ -62,6 +63,9 @@ export class SearchlegislatorsComponent  implements OnInit {
 
   loggedUsername: string = '';
   biodata:any=null;
+
+  @ViewChild('loadData') 
+  loadDataDiv: ElementRef<HTMLElement>;
 
   @Output()
   success = new EventEmitter();
@@ -144,6 +148,10 @@ export class SearchlegislatorsComponent  implements OnInit {
       }
 
     }
+  }
+
+  isDevMode(){
+    return isDevMode();
   }
 
   loadBioData(username:string){
@@ -294,10 +302,13 @@ export class SearchlegislatorsComponent  implements OnInit {
     //  });
   }
 
-  getAddress(addressEvent: Event) {
-    //console.log('Address - ' + addressEvent['formatted_address']);
-    //this.address = addressEvent['formatted_address'];
-    this.changeDetector.detectChanges();
+  getAddress(addressEvent: any) {
+    console.log('Address received - ' + addressEvent['formatted_address']);
+    this.address = addressEvent['formatted_address'];
+    //this.changeDetector.detectChanges();
+    this .loadDataDiv.nativeElement.click();
+    //this.loadCongressData();
+    
 
   }
 
@@ -605,6 +616,7 @@ this.processOCD(result);
           
     }
 
+    //this.changeDetector.detectChanges();
 
   }
  

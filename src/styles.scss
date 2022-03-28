@@ -526,3 +526,32 @@ body{
 .set-header-m{
     margin-top: 58px;
 }
+
+
+@media only screen and (max-width: 1200px) {
+    .filterPill{
+      white-space:nowrap; 
+      overflow-x:scroll;
+    }
+}
+
+.filterPill .button-color {
+    color: rgb(0 0 0 / 64%);
+   /* border: 1px solid #ebebeb;*/
+    margin-bottom: 10px;
+    background-color: rgba(0,0,0,0.08);
+    /*font-weight: 600;*/
+    font-size: 15px;
+    border-radius: 28px;
+    /*padding: 8px 20px;*/
+    margin-right: 5px;
+}
+
+.filterPill button:hover{
+    background-color: #00000061;
+  
+}
+
+.filterPill .active{
+    background-color: #00000061;
+}

@@ -2,8 +2,11 @@ import { Component, ViewChild, EventEmitter, Output, OnInit, AfterViewInit, Inpu
 import { FormGroup, FormBuilder, FormControl  } from '@angular/forms';
 //import { } from '@types/googlemaps';
 //import { } from 'googlemaps';
-//declare var google: any;
-declare const google:any;
+declare var google: any;
+//declare const google:any;
+//// <reference types="@types/google.maps" />
+//google.maps.Map;
+
 
 @Component({
   selector: 'app-g-address-search',
@@ -39,6 +42,7 @@ private getPlaceAutocomplete() {
 }
 
 invokeEvent(place: Object) {
+    console.log("selected address - ", place)
     this.setAddress.emit(place);
 }
 }

@@ -24,7 +24,7 @@ export class User {
     emailId: string = '';//GOOGLE-email
     phone: string = '';
     address: string = '';
-    token?: string = '';//GOOGLE-idToken
+    token?: any = '';//GOOGLE-idToken
     authToken:string = '';//GOOGLE
     provider:string = '';//GOOGLE
     sourceSystem: string = '';
