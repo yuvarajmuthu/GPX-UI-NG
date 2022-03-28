@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 
 import {SearchlegislatorsComponent} from './components/searchlegislators/searchlegislators.component';
 import {HomeComponent} from '../app/home/home.component';
+import { PrivacyComponent } from './components/legal/privacy/privacy.component';
+import { TermsComponent } from './components/legal/terms/terms.component';
 
 const routes: Routes = [
   { path: 'searchLegislator', 
@@ -16,8 +18,8 @@ const routes: Routes = [
  // {path: 'createpageoptions', component: CreatepageselectionComponent, canActivate: [AuthGuard]},
  // {path: 'request', loadChildren: './components/connection/connection.module#ConnectionModule', canActivate: [AuthGuard]},
   {path: 'home', component: HomeComponent},
-  //{path: 'privacy', component: PrivacyComponent},
-  //{path: 'terms', component: TermsComponent},
+  {path: 'privacy', component: PrivacyComponent},
+  {path: 'terms', component: TermsComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
   //lazy loading

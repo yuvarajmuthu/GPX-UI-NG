@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {JwtModule} from '@auth0/angular-jwt';
+
+import { SocialLoginModule, SocialAuthServiceConfig  } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {UserModule} from './components/user/user.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -22,7 +28,17 @@ import {GAddressSearchComponent} from './components/g-address-search/g-address-s
 
 
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import {MockHttpInterceptorService} from '../app/services/mock/mock-http-interceptor.service';
+import {AuthenticationService} from '../app/services/authentication.service';
+import {AuthGuard} from '../app/auth/auth.guard';
+
+export function tokenGetter() {
+  return localStorage.getItem('currentUserToken');
+}
+
+
+
 
 @NgModule({
   declarations: [
@@ -51,11 +67,55 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModalModule,
     AutocompleteLibModule,
     NgbModule,
-    UserModule
+    SocialLoginModule,
+    UserModule,
+    //Any requests sent using Angular's HttpClient will automatically have a token attached as an Authorization header.
+    JwtModule.forRoot({
+      config: {
+          skipWhenExpired: true,
+          //throwNoTokenError: true,
+          tokenGetter: tokenGetter,
+          //Authenticated requests should only be sent to whitelistedDomains
+          //DEV mode
+          allowedDomains: ['localhost:5000'],
+          //PROD mode
+          //allowedDomains: ['www.gpxservice.xyz'],
+          //specific routes that shouldn’t receive the JWT even if they are on a whitelisted domain
+          disallowedRoutes: ['localhost:5000/login','localhost:5000/user/tokenVerify']
+          //disallowedRoutes: ['https://www.gpxservice.xyz/login','https://www.gpxservice.xyz/user/tokenVerify']
+      }
+  })
   ],
     exports:[
       UserModule],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          //enable the interceptor only for DEV mode
+          {
+              provide: HTTP_INTERCEPTORS,
+              useClass: MockHttpInterceptorService,
+              multi: true
+          },  
+          AuthenticationService,
+          AuthGuard,        
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '300979965528-5oo12abv1dtekvh6ugtgmfvofm8h903p.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('3044465642432045')
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

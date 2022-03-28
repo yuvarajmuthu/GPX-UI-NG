@@ -1,99 +1,104 @@
 <div class="container">
-    
-    
-    <div class="col-md-12 col-sm-12 banner-text">
-      <div class="location-search">
-        <div>
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8 banner-text" style="font-size: 22px;font-family: monospace;color:gainsboro;">
-              Find Your Representatives</div>
-            <div class="col-md-2"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-11">
-              <div class="form-group">
-                <div class="input-with-icon">
-                  <app-g-address-search (setAddress)="getAddress($event)" adressType="geocode"></app-g-address-search>
-                  <i class="ti ti-location-pin"></i>
-                </div>
-              </div>
-            </div>
-  
-            <div class="col-md-1 small-padd">
-              <div class="form-group">
-                <div class="form-group">
-                  <button type="button" class="btn btn-primary" (click)="loadCongressData()"><i class="fa fa-search"></i></button>
-                </div>
-              </div>
-            </div>
-  
-          </div>
-  
+  <div class="col-md-12 col-sm-12 banner-text">
+    <div class="location-search">
+      <div>
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8 banner-text" style="font-size: 22px;font-family: monospace;color:gainsboro;">
+            Find Your Representatives</div>
+          <div class="col-md-2"></div>
         </div>
-      </div>
-    </div>
-  
+        <div class="row">
+          <div class="col-md-11">
+            <div class="form-group">
+              <div class="input-with-icon">
+                <app-g-address-search (setAddress)="getAddress($event)" adressType="geocode"></app-g-address-search>
+                
+              </div>
+            </div>
+          </div>
 
-    
-    <div *ngIf="searchAddress && !registration">
-      <div class="locationText">
-        Data based on the location <strong>{{searchAddress}}</strong>
+          <div class="col-md-1 small-padd" [ngClass]="{'hideSearchBtn': !isDevMode()}">
+            <div class="form-group">
+              <div class="form-group">
+                <button #loadData type="button" class="btn btn-primary" (click)="loadCongressData()"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        
+
+        </div>
+
       </div>
     </div>
-  
-    <div style="margin-top:5px" *ngIf="divisions && divisions.length > 0">
-      <!--
-        <div class="sub-title sub-title-size">
-        <ngb-alert type="primary" [dismissible]="false">
-          <strong>Category:</strong>
-        </ngb-alert>
-      </div>
-    -->
-      <div class="row" style="margin-left:1px">
-        <span class="filterPill"><button class="btn button-color" [ngClass]="{'active': selectedDivision == division}" (click)="selectDivision(division);"
-            *ngFor="let division of divisions">
-            {{ division }}
-          </button></span>
-      </div>
-  
-    </div>
-    <div style="margin-top:5px" *ngIf="divisionOffices && divisionOffices.length > 0">
-        <!--
-      <div class="sub-title sub-title-size">
-        <ngb-alert type="primary" [dismissible]="false">
-          <strong>Role:</strong>
-        </ngb-alert>  
-      </div>
-    -->
-      <div class="row" style="margin-left:1px">
-        <span class="filterPill"><button class="btn button-color" [ngClass]="{'active': selectedDivisionOffice == divisionOffice}"
-            (click)="selectDivisionOffice(divisionOffice);" *ngFor="let divisionOffice of divisionOffices">
-            {{ divisionOffice }}
-          </button></span>
-      </div>
-    </div>
-  
-    <div class="row">
-      <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 card-body legislator-box-shadow"
-        *ngFor="let legislator of legislators">
-        <app-legislator [legislator]=legislator></app-legislator>
-      </div>
-      <!--
-      <div *ngIf="divisionOffices && divisionOffices.length === 0">
-          <ngb-alert type="primary" [dismissible]="false">
-            Relevant data not available, you can contribute by adding data here.
-          </ngb-alert>      
-  
-        <button (click)="openDialog()" class="btn btn-md btn-secondary btn-custom-horizondal fa fa-plus" type="button">
-          Add Data
-        </button>
-      </div>
-    -->
-    </div>
-  
   </div>
-  
-  
-  
-  
+
+  <!-- <div class="row legisBoundary" style="margin-top: 20px;">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      Find Representatives:
+    </div>
+
+    <div class="address col-lg-9 col-md-9 col-sm-9 col-xs-9">
+      <app-g-address-search (setAddress)="getAddress($event)" adressType="geocode"></app-g-address-search>
+    </div>
+
+    <div class="col-xs-3">
+      <button type="button" class="" (click)="loadCongressData()"
+        [ngClass]="{ 'btn-legis btn-legis-select': congressData, 'btn-legis btn-secondary': !congressData  }">Find</button>
+    </div>
+  </div> -->
+  <div *ngIf="searchAddress && !registration">
+    <div class="locationText">
+      Data based on the location <strong>{{searchAddress}}</strong>
+    </div>
+  </div>
+
+  <div style="margin-top:5px" *ngIf="divisions && divisions.length > 0">
+    
+    <div class="sub-title sub-title-size">
+      <ngb-alert type="primary" [dismissible]="false">
+        <strong>Division</strong>
+      </ngb-alert>
+    </div>
+    <div class="row" style="margin-left:1px">
+      <span class="filterPill"><button class="btn button-color" [ngClass]="{'active': selectedDivision == division}" (click)="selectDivision(division);"
+          *ngFor="let division of divisions">
+          {{ division }}
+        </button></span>
+    </div>
+  </div>
+
+  <div style="margin-top:5px" *ngIf="divisionOffices && divisionOffices.length > 0">
+    <div class="sub-title sub-title-size">
+      <ngb-alert type="primary" [dismissible]="false">
+        <strong>Role</strong>
+      </ngb-alert>  
+    </div>
+    <div class="row" style="margin-left:1px">
+      <span class="filterPill"><button class="btn button-color" [ngClass]="{'active': selectedDivisionOffice == divisionOffice}"
+          (click)="selectDivisionOffice(divisionOffice);" *ngFor="let divisionOffice of divisionOffices">
+          {{ divisionOffice }}
+        </button></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 card-body legislator-box-shadow"
+      *ngFor="let legislator of legislators">
+      <app-legislator [legislator]=legislator></app-legislator>
+    </div>
+    <div *ngIf="divisionOffices && divisionOffices.length === 0">
+        <ngb-alert type="primary" [dismissible]="false">
+          Relevant data not available, you can contribute by adding data here.
+        </ngb-alert>      
+
+      <button (click)="openDialog()" class="btn btn-md btn-secondary btn-custom-horizondal fa fa-plus" type="button">
+        Add Data
+      </button>
+    </div>
+  </div>
+
+</div>
+
+
+

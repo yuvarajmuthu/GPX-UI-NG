@@ -16,8 +16,8 @@ export class MockHttpInterceptorService implements HttpInterceptor {
 
     function handleRoute() {
         switch (true) {
-            case url.endsWith('/users/register') && method === 'POST':
-                return null;//register();
+            //case url.endsWith('/users/register') && method === 'POST':
+            //    return null;//register();
             case url.endsWith('/login') && method === 'POST':
                 return login();
             default:
@@ -40,7 +40,7 @@ export class MockHttpInterceptorService implements HttpInterceptor {
         }, headers1);
   }
 
-  function ok(body?, headers?) {
+  function ok(body:any, headers:any) {
     return of(new HttpResponse({ status: 200, body, headers }))
   }
 
@@ -48,7 +48,7 @@ function unauthorized() {
     return throwError({ status: 401, error: { message: 'Unauthorised' } });
 }
 
-function error(message) {
+function error(message:any) {
     return throwError({ error: { message } });
 }
 
