@@ -25,7 +25,7 @@ import { ProfileData } from 'src/app/models/profiledata';
 @Component({
   selector: 'app-legislator',
   templateUrl: './legislator.component.html',
-  styleUrls: ['./legislator.component.css']
+  styleUrls: ['./legislator.component.scss']
 })
 export class LegislatorComponent implements OnInit {
   @Input() legislator: Legislator = new Legislator();

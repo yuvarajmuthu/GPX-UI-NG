@@ -50,8 +50,9 @@ border-top: 1px solid #e9edf3
 }
 
 .skin-dark-footer .footer-bottom {
-background: #d1e2f3;
-border-top: none
+//background: #d1e2f3;
+background: #a6ebd7;
+border-top: none;
 }
 
 ul.footer-bottom-social {
@@ -111,7 +112,7 @@ opacity: 1
 }
 .category-box .category-desc .category-icon {
   font-size: 40px;
-  color: #ff7c39;
+  color: #0db685;
   margin-bottom: 10px;
   transition: .6s cubic-bezier(0.45, 0.01, 0.1, 1.49);
 }
