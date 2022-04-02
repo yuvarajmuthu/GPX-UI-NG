@@ -79,16 +79,27 @@
                 <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown" [routerLink]="['user/123']">
                     <img src="../../assets/profile.png" alt="" class="pointer profile-header hide-small" ngbDropdownAnchor>
                     <div ngbDropdownMenu aria-labelledby="dropdownManual">
-                        <button ngbDropdownItem>Login</button>
-                        <button ngbDropdownItem>View Profile</button>
-                        <button ngbDropdownItem>Logout</button>
+                        <button ngbDropdownItem *ngIf="!isUserLogged" (click)="route('login')">Login</button>
+                        <button ngbDropdownItem *ngIf="!isUserLogged" (click)="route('register')">Register</button>
+                        <button ngbDropdownItem *ngIf="isUserLogged" (click)="loadUser()">View Profile</button>
+                        <button ngbDropdownItem *ngIf="isUserLogged" (click)="logout()">Logout</button>
                     </div>
                 </div>
                 <div class="mx-auto material-icons bd-divider">
                 </div>
-                <div class="mx-auto material-icons">
+                <div class="mx-auto material-icons" *ngIf="!isUserLogged">
                     <a class="font-small">
-                        <button class="btn button-blue font-14" [routerLink]="['login']">Login</button>
+                        <button class="btn button-blue font-14" (click)="route('login')">Login</button>
+                    </a>
+                </div>                
+                <div class="mx-auto material-icons" *ngIf="!isUserLogged">
+                    <a class="font-small">
+                        <button class="btn button-blue font-14" (click)="route('register')">Register</button>
+                    </a>
+                </div>                                
+                <div class="mx-auto material-icons" *ngIf="isUserLogged">
+                    <a class="font-small">
+                        <button class="btn button-blue font-14" (click)="logout()">Logout</button>
                     </a>
                 </div>                
                 
