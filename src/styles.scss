@@ -127,7 +127,12 @@ body{
 }
 .hover-card{
     &:hover{
-        background-color: #d8f8f257 !important;
+        background-color: #d8f8f2 !important;
+    }
+}
+.hover-underline{
+    &:hover{
+        text-decoration: underline;
     }
 }
 .edit-icon{
@@ -384,6 +389,9 @@ body{
     textarea:focus-visible {
         outline: unset;
     }
+    .modal-content{
+        border: none;
+     }
 @media (min-width: 0px) and (max-width: 767px){
     .shawdo .flex-column{
         flex-direction: row !important;

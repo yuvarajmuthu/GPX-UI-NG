@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-post',
@@ -8,6 +9,37 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
+  htmlContent = '';
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    enableToolbar: true,
+      showToolbar: false,
+    height: '5rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [
+      ['bold']
+      ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  };
   images : any[] = [];
   isEmojiPickerVisible=false;
   myForm = new FormGroup({

@@ -8,11 +8,11 @@ import { FormsModule } from '@angular/forms';
 //import {MatChipsModule} from '@angular/material/chips';
 
 
-//import { RegisterComponent } from './register/register.component';
-//import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 //import { CreatepageComponent } from './createpage/createpage.component';
 //import { GpsGlobalSearchComponent } from '../gps-global-search/gps-global-search.component';
-//import {GAddressSearchComponent} from '../../components/g-address-search/g-address-search.component';
+import {GAddressSearchComponent} from '../../components/g-address-search/g-address-search.component';
 
 //import { CKEditorModule } from 'ckeditor4-angular';
 
@@ -27,11 +27,16 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   //  CKEditorModule
   ],
-//  exports:[GpsGlobalSearchComponent, GAddressSearchComponent],
+  exports:[
+    //GpsGlobalSearchComponent, 
+    GAddressSearchComponent
+  ],
   declarations: [
-    //RegisterComponent, LoginComponent, 
+    RegisterComponent, 
+    LoginComponent, 
     //CreatepageComponent
-    //, GpsGlobalSearchComponent, GAddressSearchComponent
+    //, GpsGlobalSearchComponent, 
+    GAddressSearchComponent
   ],
   providers:[
 //    {provide:MAT_DIALOG_DATA, useValue:{}},

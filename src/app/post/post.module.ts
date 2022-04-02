@@ -10,6 +10,7 @@ import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { MentionModule } from 'angular-mentions';
 import { CardComponent } from './card/card.component';
 import { CommentComponent } from './comment/comment.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 // import { PostComponent } from './post.component';
 
 
@@ -26,7 +27,8 @@ import { CommentComponent } from './comment/comment.component';
     PickerModule,
     FormsModule,
     ReactiveFormsModule,
-    MentionModule 
+    MentionModule,
+    AngularEditorModule
   ]
 })
 export class PostModule { }
