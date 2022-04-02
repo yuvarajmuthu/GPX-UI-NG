@@ -1,12 +1,12 @@
-<div class="border-radius bg-white mb-3 p-3" >
-    <div class="d-flex align-items-start hover-card pointer p-3 rounded" (click)="commentPage()">
+<div class="border-radius bg-white mb-3 p-3 hover-card" (click)="commentPage($event)">
+    <div class="d-flex align-items-start  pointer p-3 rounded" >
         <div class="flex-shrink-0 mr-2">
             <img src="../../../assets/profile.png" class="post-profile">
         </div>
         <div class="flex-shrink-1 w-100">
             <div>
-                <span class="h6"> sonytv</span>
-                <span class="h6 text-green"> @SonyTV</span>
+                <span id="link1" class="h6 hover-underline"> sonytv</span>
+                <span id="link2" class="h6 hover-underline text-green"> @SonyTV</span>
                 <p class="color-grew">
                     16m
                     Sai ke vachanon se judi katha sunne ke baad bhi nahi badla Rishabh ka mann, kya ab Sai ki leela se
@@ -16,7 +16,14 @@
                 </p>
             </div>
             <div class="containers">
-                <img src="../../../assets/bg.jpg" class="w-100 rounded">
+                <img src="../../../assets/bg.jpg" id="image" class="w-100 rounded" >
+                <ng-template #largeSlider let-modal id="imgModal">
+                    <div class="slide-modal-content">
+                        <div class="image-row">
+                                <img class="images rounded" src="../../../assets/bg.jpg" style="width: 100%;">
+                        </div>
+                    </div>
+                </ng-template>
             </div>
         </div>
     </div>
@@ -25,22 +32,22 @@
         <div>
             <a class="edit-comment mr-1">
                 <span class="icon-shaw pointer">
-                    <i class='bx bx-chat'></i>
+                    <i class='bx bx-chat' id="message"></i>
                 </span></a>10
         </div>
         <div>
-            <a class="edit-like mr-1">
-                <span class="icon-shaw pointer" (click)="like($event)">
-                    <i class='bx bx-heart' *ngIf="isLiked"></i>
-                    <i class='bx bxs-heart color-red' *ngIf="!isLiked"></i>
+            <a class="edit-like mr-1" >
+                <span class="icon-shaw pointer" >
+                    <i class='bx bx-heart' id="like" *ngIf="isLiked"></i>
+                    <i class='bx bxs-heart color-red' id="like" *ngIf="!isLiked"></i>
                 </span>
             </a>5
         </div>
         <div>
-            <a class="edit-reply mr-1"><span class="icon-shaw pointer"><i class="bx bx-reply"></i></span></a>2
+            <a class="edit-reply mr-1"><span class="icon-shaw pointer"><i class="bx bx-reply" id="reply"></i></span></a>2
         </div>
         <div>
-            <a class="edit-share mr-1"><span class="icon-shaw pointer"><i class="bx bx-share-alt"></i></span></a>19
+            <a class="edit-share mr-1"><span class="icon-shaw pointer"><i class="bx bx-share-alt" id="share"></i></span></a>19
         </div>
     </div>
 </div>

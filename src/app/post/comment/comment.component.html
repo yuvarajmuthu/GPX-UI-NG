@@ -1,5 +1,5 @@
 <div>
-    <div>
+    <div class="pt-3">
         <h4><span class="mr-3"> <i class='bx bx-arrow-back pointer' [routerLink]="['/post/card']"></i></span> Home</h4>
         <hr>
     </div>
@@ -22,7 +22,14 @@
                     </p>
                 </div>
                 <div class="containers">
-                    <img src="../../../assets/bg.jpg" class="w-100 rounded">
+                    <img src="../../../assets/bg.jpg" class="w-100 rounded" (click)="openModal(largeSlider)">
+                    <ng-template #largeSlider let-modal id="imgModal" class="slide-modal">
+                        <div class="slide-modal-content">
+                            <div class="image-row">
+                                    <img class="images" src="../../../assets/bg.jpg" style="width: 100%;">
+                            </div>
+                        </div>
+                    </ng-template>
                 </div>
                 <div class="color-grew my-2">
                     9:59 AM · Mar 15, 2022
@@ -51,7 +58,7 @@
     </div>
     <app-post></app-post>
     <div class="border-radius bg-white mb-3 p-3">
-        <div class="d-flex align-items-start hover-card pointer">
+        <div class="d-flex align-items-start hover-card pointer m-2 p-2 rounded">
             <div class="flex-shrink-0 mr-2">
                 <img src="../../../assets/profile.png" class="post-profile">
             </div>
@@ -94,7 +101,7 @@
             </div>
         </div>
         <hr class="my-1">
-        <div class="d-flex align-items-start hover-card pointer">
+        <div class="d-flex align-items-start hover-card pointer m-2 p-2 rounded">
             <div class="flex-shrink-0 mr-2">
                 <img src="../../../assets/profile.png" class="post-profile">
             </div>
@@ -137,7 +144,7 @@
             </div>
         </div>
         <hr class="my-1">
-        <div class="d-flex align-items-start hover-card pointer">
+        <div class="d-flex align-items-start hover-card pointer m-2 p-2 rounded">
             <div class="flex-shrink-0 mr-2">
                 <img src="../../../assets/profile.png" class="post-profile">
             </div>

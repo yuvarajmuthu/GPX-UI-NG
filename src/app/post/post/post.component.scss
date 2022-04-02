@@ -12,3 +12,9 @@
     text-align: center;
     color: white;
   }
+  :host::ng-deep.angular-editor .angular-editor-wrapper .angular-editor-textarea{
+      border: none !important;
+  }
+  :host::ng-deep.angular-editor-textarea:focus-visible {
+    outline: unset !important;
+}
