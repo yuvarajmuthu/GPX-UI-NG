@@ -12,6 +12,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {UserModule} from './components/user/user.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {SecurityModule} from './components/security/security.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -24,7 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RoleComponent } from './role/role.component';
 import {SearchlegislatorsComponent} from './components/searchlegislators/searchlegislators.component';
 import {LegislatorComponent} from './components/legislator/legislator.component';
-import {GAddressSearchComponent} from './components/g-address-search/g-address-search.component';
+//import {GAddressSearchComponent} from './components/g-address-search/g-address-search.component';
 
 
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -53,7 +54,7 @@ export function tokenGetter() {
     RoleComponent,
     SearchlegislatorsComponent,
     LegislatorComponent,
-    GAddressSearchComponent
+    //GAddressSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +69,7 @@ export function tokenGetter() {
     AutocompleteLibModule,
     NgbModule,
     SocialLoginModule,
+    SecurityModule,
     UserModule,
     //Any requests sent using Angular's HttpClient will automatically have a token attached as an Authorization header.
     JwtModule.forRoot({
@@ -94,14 +96,6 @@ export function tokenGetter() {
       useValue: {
         autoLogin: false,
         providers: [
-          //enable the interceptor only for DEV mode
-          {
-              provide: HTTP_INTERCEPTORS,
-              useClass: MockHttpInterceptorService,
-              multi: true
-          },  
-          AuthenticationService,
-          AuthGuard,        
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
@@ -114,7 +108,17 @@ export function tokenGetter() {
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    },
+    //enable the interceptor only for DEV mode
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: MockHttpInterceptorService,
+        multi: true
+    },  
+    AuthenticationService,
+    AuthGuard        
+    
+    
   ],
   bootstrap: [AppComponent]
 })

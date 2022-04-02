@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header">
+                    <a href="javascript:void(0);" (click)="loadLoginComponent()" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                    <h4 class="card-title mt-2">Sign up</h4>
+                </header>
+
+                <article class="card-body">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()">
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Display name</label>
+                                <input type="text" class="form-control" placeholder="Display name" formControlName="full_name" [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }"/>
+                            </div> 
+                        </div>    
+                        <div class="form-group">
+                            <label>Username - Email address (or) Phone number</label>
+                            <input type="text" class="form-control" formControlName="username">
+                            <span class="text-danger" *ngIf="registerForm.controls['username'].hasError('required') && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">This field is required</span>
+                            <span class="text-danger" *ngIf="registerForm.controls['username'].hasError('pattern') && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">Please enter valid email address or phone number</span>
+
+                        </div> <!-- form-group end.// -->
+
+                        <div class="form-group">
+                            <label>Create password</label>
+                            <input class="form-control" type="password" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                        </div> <!-- form-group end.// -->
+                        
+ 
+                        <div class="form-group">
+                            <label>Location</label>
+                            <app-g-address-search (setAddress)="getAddress($event)" adressType="geocode"></app-g-address-search>
+
+                        </div>
+
+                            
+                        <div class="form-group">
+                            <button type="submit" [disabled]="loading" class="btn btn-primary btn-block">Sign Up</button>
+                        </div> <!-- form-group// -->
+                    </form>
+                </article> <!-- card-body end .// -->
+                <div class="border-top card-body text-center">Have an account? <a href="javascript:void(0);" (click)="loadLoginComponent()">Sign In</a></div>
+            </div> <!-- card.// -->
+        </div> <!-- col.//-->
+
+    </div> <!-- row.//-->
+
+
+</div>
+<!--container end.//-->

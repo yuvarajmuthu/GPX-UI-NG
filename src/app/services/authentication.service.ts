@@ -15,7 +15,6 @@ import { AlertService } from './alert.service';
 import { SocialAuthService  } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 
-
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
