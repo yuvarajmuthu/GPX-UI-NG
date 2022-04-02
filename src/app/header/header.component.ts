@@ -101,6 +101,11 @@ export class HeaderComponent implements OnInit {
   onFocused(e:any){
     // do something when input is focused
   }
+  
+  route(name: string) {
+    let routePath: string = '/' + name;
+    this.router.navigate([routePath]);
+  }
 
   updateUserNavBar() {
     if (!isDevMode() && this.isUserLogged) {
@@ -132,4 +137,23 @@ export class HeaderComponent implements OnInit {
         reader.readAsDataURL(image);
     }
   }   
+
+  logout() {
+
+    this.authenticationService.logout();
+    //this.missionService.loginChanged(false);
+    //this.alertService.success('Logout successful', true);
+    this.router.navigate(['/']);
+
+  }  
+
+  loadUser() {
+    //e.preventDefault();
+    let user: User = this.dataShareService.getCurrentUser();
+
+    console.log('logged in user username  - ' + user.username);
+    let routePath: string = '/user/' + user.username;
+    this.router.navigate([routePath]);
+    //return false;
+  }
 }

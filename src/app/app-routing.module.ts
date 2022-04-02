@@ -8,6 +8,7 @@ import { PrivacyComponent } from './components/legal/privacy/privacy.component';
 import { TermsComponent } from './components/legal/terms/terms.component';
 import {RegisterComponent} from './components/security/register/register.component';
 import {LoginComponent} from './components/security/login/login.component';
+import {AuthGuard} from '../app/auth/auth.guard';
 
 const routes: Routes = [
   { path: 'searchLegislator', 
@@ -32,7 +33,7 @@ const routes: Routes = [
   { 
     path: 'post', 
     loadChildren: () => import('./post/post.module').then(m => m.PostModule)
-    //, canActivate: [AuthGuard]
+    , canActivate: [AuthGuard]
   }
 ];
 
