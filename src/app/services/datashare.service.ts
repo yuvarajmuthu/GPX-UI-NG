@@ -16,7 +16,7 @@ export class DatashareService {
   public displayMode:boolean = false;
   
   private currentUserSubject = new BehaviorSubject<User>(new User()); 
-  private currentUserObservable = this.currentUserSubject.asObservable();
+  private currentUserObservable:Observable<User> = this.currentUserSubject.asObservable();
 
   //currentUserId will be set with logged in userid
   public currentUserId:string = 'yuvarajm1';//'u001'; 
@@ -78,7 +78,7 @@ export class DatashareService {
    this.currentUserId = userId;
   }
 
-  getCurrentUserObservable():any{
+  getCurrentUserObservable():Observable<User>{
    return this.currentUserObservable;
   }
 

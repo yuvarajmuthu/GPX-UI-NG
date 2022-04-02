@@ -34,8 +34,11 @@
                 </div>
             </div>
             <span class="pl-3 hide-big" [routerLink]="['user/123']"><img src="../../assets/profile.png" alt=""
-                    class="pointer profile-header  mt-1"></span>
-            <i class="material-icons"> <i class="fas fa-bars"></i></i>
+                    class="pointer profile-header  mt-1">
+            </span>
+            <i class="material-icons"> 
+                <i class="fas fa-bars"></i>
+            </i>
             <nav class="font-22-bold header-side-menu">
                 <div class="shawdo" [routerLink]="['searchLegislator']" routerLinkActive="active">
                     <div class="d-flex flex-column bd-highlight">
@@ -72,7 +75,23 @@
                         <button class="btn button-blue font-14">Create Page</button>
                     </a>
                 </div>
-                <span [routerLink]="['user/123']"><img src="../../assets/profile.png" alt="" class="pointer profile-header hide-small"></span>
+
+                <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown" [routerLink]="['user/123']">
+                    <img src="../../assets/profile.png" alt="" class="pointer profile-header hide-small" ngbDropdownAnchor>
+                    <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                        <button ngbDropdownItem>Login</button>
+                        <button ngbDropdownItem>View Profile</button>
+                        <button ngbDropdownItem>Logout</button>
+                    </div>
+                </div>
+                <div class="mx-auto material-icons bd-divider">
+                </div>
+                <div class="mx-auto material-icons">
+                    <a class="font-small">
+                        <button class="btn button-blue font-14" [routerLink]="['login']">Login</button>
+                    </a>
+                </div>                
+                
             </nav>
             <div class="black"></div>
         </header>

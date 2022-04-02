@@ -6,14 +6,16 @@ import {SearchlegislatorsComponent} from './components/searchlegislators/searchl
 import {HomeComponent} from '../app/home/home.component';
 import { PrivacyComponent } from './components/legal/privacy/privacy.component';
 import { TermsComponent } from './components/legal/terms/terms.component';
+import {RegisterComponent} from './components/security/register/register.component';
+import {LoginComponent} from './components/security/login/login.component';
 
 const routes: Routes = [
   { path: 'searchLegislator', 
     component: SearchlegislatorsComponent
   },
  // {path: 'circle', component: CircleComponent, canActivate: [AuthGuard]},
-//  {path: 'register', component: RegisterComponent},
- // {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
  // {path: 'createpage', component: CreatepageComponent, canActivate: [AuthGuard]},
  // {path: 'createpageoptions', component: CreatepageselectionComponent, canActivate: [AuthGuard]},
  // {path: 'request', loadChildren: './components/connection/connection.module#ConnectionModule', canActivate: [AuthGuard]},
