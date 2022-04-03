@@ -1,26 +1,22 @@
-<div class="border-radius bg-white mb-3 p-3 hover-card" (click)="commentPage($event)">
+<div class="border-radius bg-white mb-3 p-3 hover-card" (click)="commentPage($event,index)" *ngFor='let item of PostCardData ;let index = index'>
     <div class="d-flex align-items-start  pointer p-3 rounded" >
         <div class="flex-shrink-0 mr-2">
             <img src="../../../assets/profile.png" class="post-profile">
         </div>
         <div class="flex-shrink-1 w-100">
             <div>
-                <span id="link1" class="h6 hover-underline"> sonytv</span>
-                <span id="link2" class="h6 hover-underline text-green"> @SonyTV</span>
+                <span id="link1" class="h6 hover-underline"> {{item.Link}}</span>
+                <span id="link2" class="h6 hover-underline text-green"> {{item.Link1}}</span>
                 <p class="color-grew">
-                    16m
-                    Sai ke vachanon se judi katha sunne ke baad bhi nahi badla Rishabh ka mann, kya ab Sai ki leela se
-                    hoga
-                    koi chamatkaar? Jaanne ke liye dekhiye #MereSai Anmol Vachan Adhyay, Mon-Fri, raat 7 baje, sirf Sony
-                    par.
+                    {{item.Details}}
                 </p>
             </div>
             <div class="containers">
-                <img src="../../../assets/bg.jpg" id="image" class="w-100 rounded" >
+                <img src="{{item.url}}" id="image{{index}}" class="rounded postcard-img" style="">
                 <ng-template #largeSlider let-modal id="imgModal">
                     <div class="slide-modal-content">
                         <div class="image-row">
-                                <img class="images rounded" src="../../../assets/bg.jpg" style="width: 100%;">
+                                <img class="images rounded" id="image{{index}}" src="{{item.url}}" style="width: 100%;">
                         </div>
                     </div>
                 </ng-template>

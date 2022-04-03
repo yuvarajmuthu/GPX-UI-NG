@@ -8,26 +8,34 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./postcard.component.scss']
 })
 export class PostcardComponent implements OnInit {
-  public model = {
-    name: 'Hardik',
-    description: '<p>This is a sample form using CKEditor 4.</p>'
-  };
-  images = [
+  PostCardData = [
   {
     id: 1,
-    url: "../../../assets/profile.png"
+    url: "../../../assets/profile.png",
+    Link:"sonytv",
+    Link1:"@sonytv",
+    Details:" 16m Sai ke vachanon se judi katha sunne ke baad bhi nahi badla Rishabh ka mann, kya ab Sai ki leela se hoga koi chamatkaar? Jaanne ke liye dekhiye #MereSai Anmol Vachan Adhyay, Mon-Fri, raat 7 baje, sirf Sony par.",
   },
   {
     id: 2,
-    url: "../../../assets/images/avatar1.png"
+    url: "../../../assets/images/avatar1.png",
+    Link:"Max",
+    Link1:"@Paytem",
+    Details:" 16m Sai ke vachanon se judi katha sunne a koi chamatkaar? Jaanne ke liye dekhiye #MereSai Anmol Vachan Adhyay, Mon-Fri, raat 7 baje, sirf Sony par.",
   },
   {
     id: 3,
-    url: "../../../assets/profile.png"
+    url: "../../../assets/bg.jpg",
+    Link:"Xyz",
+    Link1:"@Twitter",
+    Details:" Rishabh ka mann, kya ab Sai ki leela se hoga koi chamatkaar? Jaanne ke liye dekhiye #MereSai Anmol Vachan Adhyay, Mon-Fri, raat 7 baje, sirf Sony par.",
   },
   {
     id: 4,
-    url: "../../../assets/images/avatar1.png"
+    url: "../../../assets/images/avatar1.png",
+    Link:"Opq",
+    Link1:"@sony",
+    Details:" 1 liye dekhiye #MereSai Anmol Vachan Adhyay, Mon-Fri, raat 7 baje, sirf Sony par.",
   }
 ];
 @ViewChild('largeSlider') editmodalShow: TemplateRef<any>;
@@ -43,7 +51,11 @@ export class PostcardComponent implements OnInit {
     console.log("Save button is clicked!", $event);  
     this.isLiked = !this.isLiked
   }
-  commentPage(event:any){
+  imageseleted:any
+  commentPage(event:any,index:any){
+    console.log(event.srcElement.id);
+    console.log('image'+index);
+    
     if(event.srcElement.id=='link1'){
       alert(event.srcElement.id);
     }
@@ -62,8 +74,10 @@ export class PostcardComponent implements OnInit {
     else if(event.srcElement.id=='share'){
       console.log("share");
     }
-    else if(event.srcElement.id=='image'){
+    else if(event.srcElement.id=='image'+index){
+      console.log(document.getElementById(event.srcElement.id));
       this.modalService.open(this.editmodalShow, { size: 'lg',centered: true });
+      
     }
     else{
       this.router.navigate(['/post/comment']);
