@@ -83,4 +83,7 @@ export class PostcardComponent implements OnInit {
       this.router.navigate(['/post/comment']);
     }
   }
+  modelPopupComment(largeDataModal: any) {
+    this.modalService.open(largeDataModal, { centered: true,windowClass: 'my-class' });
+  }
 }

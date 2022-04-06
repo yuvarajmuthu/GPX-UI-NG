@@ -1,5 +1,5 @@
 <div class="bg-header header" style="position: fixed;width: 100%;z-index: 1;top: 0;">
-    <div class="container">
+    <div class="header-mx">
         <header>
             <div class="logo">
                 <span class="mr-3" [routerLink]="['home']">
@@ -33,12 +33,14 @@
                     </div>
                 </div>
             </div>
-            <span class="pl-3 hide-big" [routerLink]="['user/123']"><img src="../../assets/profile.png" alt=""
-                    class="pointer profile-header  mt-1">
-            </span>
-            <i class="material-icons"> 
-                <i class="fas fa-bars"></i>
-            </i>
+            <div class="float-right">
+                <span class="pl-1 hide-big" [routerLink]="['user/123']"><img src="../../assets/profile.png" alt=""
+                        class="pointer profile-header  mt-1">
+                </span>
+                <i class="material-icons"> 
+                    <i class="fas fa-bars"></i>
+                </i>
+            </div>
             <nav class="font-22-bold header-side-menu">
                 <div class="shawdo" [routerLink]="['searchLegislator']" routerLinkActive="active">
                     <div class="d-flex flex-column bd-highlight">
