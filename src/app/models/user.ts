@@ -31,6 +31,10 @@ export class User {
     sourceId: string = '';
     profileDatas:ProfileData[] = [];
     otherContacts:any = [];
+    selfProfile:boolean = false;
+    showSettings:boolean = false;
+    profileTemplates = [];
+
 }
 
 export class role {
