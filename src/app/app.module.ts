@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 import { SocialLoginModule, SocialAuthServiceConfig  } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
@@ -33,6 +34,7 @@ import {LegislatorComponent} from './components/legislator/legislator.component'
 import {MockHttpInterceptorService} from '../app/services/mock/mock-http-interceptor.service';
 import {AuthenticationService} from '../app/services/authentication.service';
 import {AuthGuard} from '../app/auth/auth.guard';
+import { TwittertweetsComponent } from './components/twittertweets/twittertweets.component';
 
 export function tokenGetter() {
   return localStorage.getItem('currentUserToken');
@@ -54,6 +56,7 @@ export function tokenGetter() {
     RoleComponent,
     SearchlegislatorsComponent,
     LegislatorComponent,
+    TwittertweetsComponent,
     //GAddressSearchComponent
   ],
   imports: [
@@ -66,6 +69,7 @@ export function tokenGetter() {
     HttpClientModule,
     HttpClientJsonpModule,
     NgbModalModule,
+    NgxTwitterTimelineModule,
     AutocompleteLibModule,
     NgbModule,
     SocialLoginModule,

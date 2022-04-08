@@ -1,26 +1,23 @@
-<div class="border-radius bg-white mb-3 p-3 hover-card" (click)="commentPage($event)">
-    <div class="d-flex align-items-start  pointer p-3 rounded" >
+<div class="border-radius bg-white mb-3 p-3 hover-card" (click)="commentPage($event,index)"
+    *ngFor='let item of PostCardData ;let index = index'>
+    <div class="d-flex align-items-start  pointer p-3 rounded">
         <div class="flex-shrink-0 mr-2">
             <img src="../../../assets/profile.png" class="post-profile">
         </div>
         <div class="flex-shrink-1 w-100">
             <div>
-                <span id="link1" class="h6 hover-underline"> sonytv</span>
-                <span id="link2" class="h6 hover-underline text-green"> @SonyTV</span>
+                <span id="link1" class="h6 hover-underline"> {{item.Link}}</span>
+                <span id="link2" class="h6 hover-underline text-green"> {{item.Link1}}</span>
                 <p class="color-grew">
-                    16m
-                    Sai ke vachanon se judi katha sunne ke baad bhi nahi badla Rishabh ka mann, kya ab Sai ki leela se
-                    hoga
-                    koi chamatkaar? Jaanne ke liye dekhiye #MereSai Anmol Vachan Adhyay, Mon-Fri, raat 7 baje, sirf Sony
-                    par.
+                    {{item.Details}}
                 </p>
             </div>
             <div class="containers">
-                <img src="../../../assets/bg.jpg" id="image" class="w-100 rounded" >
+                <img src="{{item.url}}" id="image{{index}}" class="rounded postcard-img" style="">
                 <ng-template #largeSlider let-modal id="imgModal">
                     <div class="slide-modal-content">
                         <div class="image-row">
-                                <img class="images rounded" src="../../../assets/bg.jpg" style="width: 100%;">
+                            <img class="images rounded" id="image{{index}}" src="{{item.url}}" style="width: 100%;">
                         </div>
                     </div>
                 </ng-template>
@@ -28,7 +25,7 @@
         </div>
     </div>
     <hr>
-    <div class="d-flex justify-content-around my-3 center-text">
+    <div class="d-flex justify-content-around mt-3 center-text">
         <div>
             <a class="edit-comment mr-1">
                 <span class="icon-shaw pointer">
@@ -36,18 +33,34 @@
                 </span></a>10
         </div>
         <div>
-            <a class="edit-like mr-1" >
-                <span class="icon-shaw pointer" >
+            <a class="edit-like mr-1">
+                <span class="icon-shaw pointer">
                     <i class='bx bx-heart' id="like" *ngIf="isLiked"></i>
                     <i class='bx bxs-heart color-red' id="like" *ngIf="!isLiked"></i>
                 </span>
             </a>5
         </div>
         <div>
-            <a class="edit-reply mr-1"><span class="icon-shaw pointer"><i class="bx bx-reply" id="reply"></i></span></a>2
+            <a class="edit-reply mr-1"><span class="icon-shaw pointer"><i class="bx bx-reply"
+                        id="reply"></i></span></a>2
         </div>
         <div>
-            <a class="edit-share mr-1"><span class="icon-shaw pointer"><i class="bx bx-share-alt" id="share"></i></span></a>19
+            <a class="edit-share mr-1"><span class="icon-shaw pointer" (click)="modelPopupComment(ShareModal)"><i
+                        class="bx bx-share-alt" id="share"></i></span></a>19
         </div>
     </div>
 </div>
+
+<ng-template #ShareModal let-modal id="sharemodel">
+    <div class="modal-contents">
+    <div class="modal-body" >
+        <div>
+            <div> <i class="p-2 bx bx-share-alt" id="reply"></i>Share whatsapp</div>
+            <hr class="my-1">
+            <div> <i class="p-2 bx bx-link" id="reply"></i>Copy Link</div>
+            <hr class="my-1">
+            <div> <i class="p-2 bx bx-message" id="reply"></i>Direct Message</div>
+        </div>
+    </div>
+    </div>
+</ng-template>

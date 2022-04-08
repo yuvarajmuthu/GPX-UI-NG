@@ -7,6 +7,7 @@ import { AboutComponent } from '../../about/about.component';
 import { EventComponent } from '../../event/event.component';
 //import { HomeComponent } from '../../home/home.component';
 import { RoleComponent } from '../../role/role.component';
+import { TwittertweetsComponent } from '../../components/twittertweets/twittertweets.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
             {
               path: 'role',
               component: RoleComponent,
+            }
+            ,
+            {
+              path: 'twitter',
+              component: TwittertweetsComponent,
             }
           ]
      // }  
