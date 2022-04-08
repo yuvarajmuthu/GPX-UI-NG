@@ -78,8 +78,10 @@
                     </a>
                 </div>
 
-                <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown" [routerLink]="['user/123']">
-                    <img src="../../assets/profile.png" alt="" class="pointer profile-header hide-small" ngbDropdownAnchor>
+                <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown">
+                    <div [routerLink]="['user/123']">
+                        <img src="../../assets/profile.png" alt="" class="pointer profile-header hide-small" ngbDropdownAnchor>
+                    </div>
                     <div ngbDropdownMenu aria-labelledby="dropdownManual">
                         <button ngbDropdownItem *ngIf="!isUserLogged" (click)="route('login')">Login</button>
                         <button ngbDropdownItem *ngIf="!isUserLogged" (click)="route('register')">Register</button>

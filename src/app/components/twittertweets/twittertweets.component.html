@@ -1,0 +1,29 @@
+<!--
+
+Twitter handle {{twitterHandle}}
+<div id="TwitterCollapse" *ngIf="twitterHandleExist">                                                
+    <a class="twitter-timeline" href="{{twitterHandle}}">Tweets</a>
+    
+ </div>
+-->
+
+<div class="container">
+    <br><br>
+    <h1 class="text-center">Embed Twitter Timeline of Username</h1>
+    <br>
+    <div class="form-group container">
+      <input
+        class="form-control"
+        type="text"
+        #box
+        (keyup)="getValue(box.value)"
+        placeholder="Enter URL"
+        name="url"
+      />
+    </div>
+    <!-- You can now use the library component in app.component.html -->
+    <ngx-twitter-timeline
+      [data]="data"
+      [opts]="{ tweetLimit: 20 }"
+    ></ngx-twitter-timeline>
+  </div>
