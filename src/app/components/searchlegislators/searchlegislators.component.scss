@@ -5,7 +5,11 @@
   display: block;
     padding: .5rem 3rem;
 }
-
+.alert-primary {
+  color: #0db685;
+  background-color: #d8f8f2;
+  border-color: #0db685;
+}
 .hideSearchBtn{
   display: none;
 }

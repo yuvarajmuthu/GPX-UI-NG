@@ -55,11 +55,12 @@
     <div class="modal-contents">
     <div class="modal-body" >
         <div>
-            <div> <i class="p-2 bx bx-share-alt" id="reply"></i>Share whatsapp</div>
+            <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-share-alt" id="reply"></i>
+                <a href="https://api.whatsapp.com/send?text=enter message here">Share whatsapp</a></div>
             <hr class="my-1">
-            <div> <i class="p-2 bx bx-link" id="reply"></i>Copy Link</div>
+            <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-link" id="reply"></i>Copy Link</div>
             <hr class="my-1">
-            <div> <i class="p-2 bx bx-message" id="reply"></i>Direct Message</div>
+            <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-message" id="reply"></i>Direct Message</div>
         </div>
     </div>
     </div>

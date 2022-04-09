@@ -30,7 +30,7 @@ export class TwittertweetsComponent implements OnInit {
   twitterHandleExist:boolean = false;
   facebookHandle:string;
   data!:any
- 
+ twttr: any;
   constructor(
     private route: ActivatedRoute,
 
@@ -39,7 +39,9 @@ export class TwittertweetsComponent implements OnInit {
     private datashareService: DatashareService) { 
 
     }
-
+    ngAfterViewInit(): void {
+      this.twttr.widgets.load();
+  }
   ngOnInit(): void {
       this.loggedUsername = this.datashareService.getLoggedinUsername();
 
