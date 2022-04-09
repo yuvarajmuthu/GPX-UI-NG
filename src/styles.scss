@@ -408,7 +408,17 @@ textarea:focus-visible {
     margin-bottom: 5rem;
 }
 
+.d-margin{
+    margin-right: 90px;
+  }
 @media (min-width: 0px) and (max-width: 767px){
+    .autocomplete-container .suggestions-container{
+        right: 0;
+        position: fixed !important;
+    }
+    .d-margin{
+        margin-right: 15px;
+      }
     .my-class .modal-content {
         position: absolute ;
         bottom: 0px ;
@@ -455,7 +465,7 @@ textarea:focus-visible {
         font-size: 20px;
     }
     header > .logo{
-        width: 77%;
+        width: 78%;
     }
     .hide-small{
         display: none;
@@ -482,6 +492,9 @@ textarea:focus-visible {
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .d-margin{
+        margin-right: 15px;
+      }
     .my-class .modal-content {
         position: absolute ;
         bottom: 0px ;
@@ -528,7 +541,7 @@ textarea:focus-visible {
         font-size: 20px;
     }
      header > .logo{
-        width: 90%;
+        width: 88%;
     }
     .hide-small{
         display: none;
@@ -555,6 +568,9 @@ textarea:focus-visible {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px){
+    .d-margin{
+        margin-right: 15px;
+      }
     .header-mx{
         margin: 0px 8px 0px 8px;
     }
@@ -599,18 +615,39 @@ textarea:focus-visible {
     }
 }
 @media (min-width: 1200px) and (max-width: 1300px){
+    .d-margin{
+        margin-right: 20px;
+      }
      header > .logo{
-        width: 34% !important;
+        width: 36% !important;
     }
 }
 @media (min-width: 1301px) and (max-width: 1500px){
+    .d-margin{
+        margin-right: 20px;
+      }
      header > .logo{
         width: 40% !important;
     }
 }
-@media (min-width: 1500px){
+@media (min-width: 1500px) and (max-width: 1600px){
      header > .logo{
         width: 48% !important;
+    }
+}
+@media (min-width: 1600px) and (max-width: 1700px){
+     header > .logo{
+        width: 50% !important;
+    }
+}
+@media (min-width: 1700px) and (max-width: 1800px){
+     header > .logo{
+        width: 54% !important;
+    }
+}
+@media (min-width: 1800px) {
+    header > .logo{
+        width: 57% !important;
     }
 }
 @media only screen and (max-width: 1200px) {
@@ -621,22 +658,25 @@ textarea:focus-visible {
 }
 
 .filterPill .button-color {
-    color: rgb(0 0 0 / 64%);
-   /* border: 1px solid #ebebeb;*/
     margin-bottom: 10px;
-    background-color: rgba(0,0,0,0.08);
-    /*font-weight: 600;*/
-    font-size: 15px;
     border-radius: 28px;
-    /*padding: 8px 20px;*/
     margin-right: 5px;
+    color: #0db685;
+    background-color: white;
+    font-weight: 600 !important;
+    border-color: #0db685 !important;
+    border: 0.5px solid #0db685;
+    &:hover{
+        color: #d8f8f2;
+        border-color: #0db685 !important;
+        background-color: #0db685;
+        box-shadow: 0 0 0 0.5px;
+    }
 }
-
-.filterPill button:hover{
-    background-color: #00000061;
-  
-}
-
 .filterPill .active{
-    background-color: #00000061;
+    color: #d8f8f2;
+    border-color: #0db685 !important;
+    background-color: #0db685;
+    box-shadow: 0 0 0 0.5px;
+
 }
