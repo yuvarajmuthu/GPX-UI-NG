@@ -428,7 +428,7 @@ isInCircle(profileId:string, userId:string):Observable<any>{
   }else{
     serviceUrl = this.getUserService() + "/isInCircle/" + profileId + "/" + userId + "/";
   }
-  serviceUrl = this.getUserService() + "/isInCircle/" + profileId + "/" + userId + "/";
+  //serviceUrl = this.getUserService() + "/isInCircle/" + profileId + "/" + userId + "/";
   let headers      = new Headers({ 'Content-Type': 'application/json' });
   return this.http.get(serviceUrl, this.httpOptions);  
 }

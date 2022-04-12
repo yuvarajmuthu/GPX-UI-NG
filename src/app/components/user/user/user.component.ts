@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, isDevMode } from '@angular/core';
+import { Component, Input, isDevMode } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
+import {FormBuilder} from '@angular/forms';
 
 import {DatashareService} from '../../../services/datashare.service';
 import {UserService} from '../../../services/user.service';
@@ -10,6 +11,7 @@ import {ComponentcommunicationService} from '../../../services/componentcommunic
 
 import {User} from '../../../models/user';
 import {ProfileData} from '../../../models/profiledata'
+import { ProfileTemplate } from 'src/app/models/profileTemplate';
 
 
 @Component({
@@ -42,10 +44,10 @@ export class UserComponent{
     public isProfileTemplate: boolean = false;
     public connections = [];
     templateType = [];
-    public userData:User = new User();
-    private viewingUser:User = new User();
+    userData:User = new User();
+    //private viewingUser:User = new User();
     public profileTemplates = [];
-    public availableProfileTemplates = [];
+    availableProfileTemplates:ProfileTemplate[] = [];
     public profilesDatas:ProfileData[] = [];
     public isLegislator = false;
     operation: string = '';
@@ -90,7 +92,7 @@ export class UserComponent{
 
     postFormData: FormData;
     editLabel: string = '';
-    inEditMode:boolean = true;
+    inEditMode:boolean = false;
     followersCount:number = 0;
     followers: User[] = [];
     managedBy:string[] = [];
@@ -116,6 +118,10 @@ export class UserComponent{
     followCntrlCSS: string = '';
     followStatusCSS: string = '';
 
+    uploadForm: any = this.formBuilder.group({
+        file: ['']
+    });
+
   constructor(private  router: Router,
     private route: ActivatedRoute,
     private userService: UserService,
@@ -123,7 +129,9 @@ export class UserComponent{
     private profileService: ProfileService,
     private communicationService: ComponentcommunicationService,
     private legislatorsService: LegislatorService,
-    private datashareService: DatashareService) { 
+    private datashareService: DatashareService,
+    private formBuilder: FormBuilder
+    ) { 
 
     }
 
@@ -133,7 +141,10 @@ export class UserComponent{
       this.bannerImage = 'assets/images/user-banner1.jpg';
       this.profileSmImage = 'assets/images/avatar1.png'; 
       this.biodata = {};
-
+      
+      this.uploadForm = this.formBuilder.group({
+        file: ['']
+    });
       this.loggedUsername = this.datashareService.getLoggedinUsername();
 
       this.route.params.subscribe((params: Params) => {
@@ -209,7 +220,7 @@ isProfileInEditMode(){
 
         this.userService.getUserData(this.profileUserId, this.loggedUsername).subscribe(
             data => { 
-                this.viewingUser = this.userData = data;
+                this.userData = data;
 
                 //this.userData.description = 'Tst desc';
                 console.log('User data from service: ', this.userData);
@@ -262,6 +273,8 @@ isProfileInEditMode(){
                 this.profileService.getAvailableProfileTemplatesForEntity(this.userData['username'], this.category).subscribe(
                     data => {
                         this.availableProfileTemplates = data;
+                        console.log('*****availableProfileTemplates: ', this.availableProfileTemplates);
+
                     });
 
                 this.profilesDatas = this.userData['profileDatas'];
@@ -305,7 +318,7 @@ isProfileInEditMode(){
                 }
 
                 if(this.members && this.members.length > 0){
-                    this.userData['members'] = this.viewingUser['members'] = this.members;
+                    this.userData['members'] = this.members;
                 }
 /*
                 if(this.twitterHandle && this.twitterHandle.trim().length > 0){
@@ -319,8 +332,8 @@ isProfileInEditMode(){
                 this.loadBioDataTemplate(this.category);
                 //setting here so it can be accessed globally
 
-                this.datashareService.setViewingUser(this.viewingUser);//required for sharing the viewing user info to other user components
-                console.log('this.dataShareService.getViewingUser() ' + JSON.stringify(this.datashareService.getViewingUser()));
+                this.datashareService.setViewingUser(this.userData);//required for sharing the viewing user info to other user components
+                //console.log('this.dataShareService.getViewingUser() ' + JSON.stringify(this.datashareService.getViewingUser()));
                 
                 if(this.isUserLogged() && !this.isSelfProfile){
                     this.check4CircleStatus();
@@ -345,6 +358,54 @@ loadBioDataTemplate(category:string){
     });  
     }
 
+    
+    add2Circle() {
+
+        if(!this.isUserLogged()){
+            this.router.navigate(['login']);
+        }else{
+            var request:any = {};
+            request['username'] = this.loggedUsername;
+            request['modifiedBy'] = this.loggedUsername;
+            request['circlememberUsername'] = this.profileUserId;
+
+            console.log('add2Circle request ' + JSON.stringify(request));
+
+            this.userService.add2Circle(JSON.stringify(request)).subscribe(
+            (result) => {
+                this.isInCircle = true; 
+            },
+            (err) => {
+                console.log('Error ', err);
+            }); 
+        }
+
+    }
+    
+    removeFromCircle() {
+        
+        if(!this.loggedUsername){
+            this.router.navigate(['login']);
+        }else{
+            var request:any = {};
+            request['username'] = this.loggedUsername;
+            request['modifiedBy'] = this.loggedUsername;
+            request['circlememberUsername'] = this.profileUserId;
+
+            console.log('removeFromCircle request ' + JSON.stringify(request));
+
+            this.userService.removeFromCircle(JSON.stringify(request)).subscribe(
+            (result) => {
+                this.isInCircle = false; 
+            },
+            (err) => {
+                console.log('Error ', err);
+            }); 
+        }
+
+    }
+
+   
     check4CircleStatus() { 
         this.userService.isInCircle(this.profileUserId, this.loggedUsername).subscribe(
             (result) => {
@@ -354,6 +415,26 @@ loadBioDataTemplate(category:string){
                 console.log('Error ', err);
             }); 
 
+    }
+
+    onProfileSmImageSelected(event:any) {
+        console.log('file object ', event);
+        let reader = new FileReader();
+//      let formData = new FormData();  
+
+
+        if (event.target.files && event.target.files[0]) {
+            this.selectedProfileSmImage = event.target.files[0];
+            this.uploadForm.get('file').setValue(this.selectedProfileSmImage);
+
+            reader.readAsDataURL(this.selectedProfileSmImage);
+            reader.onload = (event) => {
+                this.profileSmImage = event?.target?.result;
+            };
+            this.profileSmImageChanged = true;
+
+            this.saveProfile();
+        }
     }
 
 getProfileSmImage(userId: string) {
@@ -375,6 +456,106 @@ createImageFromBlob(image: Blob) {
 
     if (image) {
         reader.readAsDataURL(image);
+    }
+}
+
+//show the connect option only for active profile
+connectionAction() {
+    if (this.loggedUser == null || !this.loggedUser.username) {
+        let routePath: string = '/login';
+        let returnUrl: string = '/user/' + this.profileUserId + '?follow';
+        this.router.navigate(['login'], {queryParams: {returnUrl: returnUrl}});
+    }
+
+    var followURequest:any = {};
+    //var sourceEntity = {};
+    //var targetEntity = {};
+
+
+
+    followURequest['sourceEntityId'] = this.loggedUser ? this.loggedUser.username : '';//this.datashareService.getCurrentUserId();
+    followURequest['targetEntityId'] = this.profileUserId;
+    followURequest['status'] = 'REQUESTED';
+    
+    console.log('Profile data ' + JSON.stringify(followURequest));
+
+    this.userService.connectUser(JSON.stringify(followURequest))
+        .subscribe(
+            (result) => {
+                console.log('followDistrict response ' + result);
+
+                if (result.status == 'REQUESTED') {
+                    this.requestedToFollow = true;
+                } else if (result.status == 'CONNECTED') {
+                    this.connected = true;
+                } else if (result.status == 'REJECTED') {
+                    this.followRequestRejected = true;
+                }
+                this.setFollowCntrlLabel();
+                this.setFollowCntrlCSS();
+                this.setFollowStatusCSS();
+
+            },
+            (err) => {
+                console.log('Error ', err);
+            });
+}
+
+followAction() {
+    if (this.loggedUser == null || !this.loggedUser.username) {
+        let routePath: string = '/login';
+        let returnUrl: string = '/user/' + this.profileUserId + '?follow';
+        this.router.navigate(['login'], {queryParams: {returnUrl: returnUrl}});
+    }
+
+    var followURequest:any = {};
+    //var sourceEntity = {};
+    //var targetEntity = {};
+
+
+
+    followURequest['sourceEntityId'] = this.loggedUser ? this.loggedUser.username : '';//this.datashareService.getCurrentUserId();
+    followURequest['targetEntityId'] = this.profileUserId;
+    followURequest['status'] = 'FOLLOWING';
+    
+    console.log('Profile data ' + JSON.stringify(followURequest));
+
+    this.userService.followPerson(JSON.stringify(followURequest))
+        .subscribe(
+            (result) => {
+                console.log('followDistrict response ' + result);
+
+                if (result.status == 'REQUESTED') {
+                    this.requestedToFollow = true;
+                } else if (result.status == 'FOLLOWING') {
+                    this.following = true;
+                } else if (result.status == 'REJECTED') {
+                    this.followRequestRejected = true;
+                }
+                this.setFollowCntrlLabel();
+                this.setFollowCntrlCSS();
+                this.setFollowStatusCSS();
+
+            },
+            (err) => {
+                console.log('Error ', err);
+            });
+}
+saveProfile() {
+    console.log(this.userData.role);
+    console.log('Saving user.component Profile');
+    //if image got change, submit that image
+    if (this.profileSmImageChanged) {
+        const uploadFormData = new FormData();
+
+        //uploadFormData.append("file", this.selectedProfileSmImage, this.selectedProfileSmImage.name);
+        uploadFormData.append('file', this.uploadForm.get('file').value);
+        uploadFormData.append('post', JSON.stringify(this.datashareService.getViewingUser()));
+
+        this.userService.updateUserSmProfileImage(uploadFormData)
+            .subscribe(data => {
+                console.log('User profile image got uploaded successfully, ', this.datashareService.getViewingUser());
+            });
     }
 }
 
@@ -502,4 +683,16 @@ addtwitterhandle(){
   });  
   }
 
+  //load the template based on tab selection
+  loadTemplate(type: string) {
+
+     console.log(type);
+ }
+
+     //add the Profile based on user selection
+    addProfileData(profileTemplateParam: any) {
+    
+        console.log(profileTemplateParam);
+
+    }
 }
