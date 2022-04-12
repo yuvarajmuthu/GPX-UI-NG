@@ -1,12 +1,25 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {FormBuilder} from '@angular/forms';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+
+
+import {DatashareService} from '../../../services/datashare.service';
+import {UserService} from '../../../services/user.service';
+import {ProfileService} from '../../../services/profile.service';
+import {PostService} from '../../../services/post.service';
+import {LegislatorService} from '../../../services/legislator.service';
+import {ComponentcommunicationService} from '../../../services/componentcommunication.service';
+
+
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UserComponent } from '../user/user.component';
 
 @Component({
   selector: 'app-userstage',
   templateUrl: './userstage.component.html',
   styleUrls: ['./userstage.component.scss']
 })
-export class UserstageComponent implements OnInit {
+export class UserstageComponent extends UserComponent implements OnInit{
 
   navFixed: boolean = false;
   private scrollOffset: number = 450;
@@ -32,9 +45,23 @@ export class UserstageComponent implements OnInit {
     dropdownList:Array<any> = [];
     selectedItems:Array<any> = [];
     dropdownSettings = {};
-  constructor(private modalService: NgbModal) { }
+
+  constructor(private modalService: NgbModal,
+    router: Router,
+    route: ActivatedRoute,
+    userService: UserService,
+    postService: PostService,
+    profileService: ProfileService,
+    communicationService: ComponentcommunicationService,
+    legislatorsService: LegislatorService,
+    datashareService: DatashareService,
+    formBuilder: FormBuilder) { 
+      super(router, route, userService, postService, profileService, communicationService, legislatorsService, datashareService, formBuilder);
+  }
   
   ngOnInit() {
+    super.ngOnInit();
+
     this.dropdownList = [
       { item_id: 1, item_text: 'Mumbai' },
       { item_id: 2, item_text: 'Bangaluru' },
@@ -55,7 +82,14 @@ export class UserstageComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
+
   }
+/*  
+  getUserData(){
+    console.log("userstage this.userData ", this.userData);
+    return this.userData.displayName;
+  }
+*/
   onItemSelect(item: any) {
     console.log(item);
   }
@@ -86,6 +120,7 @@ export class UserstageComponent implements OnInit {
     this.modalService.open(SectionModel, { centered: true });
     this.SectionName=Section
   }
+
   // showText() {
   //   this.isReadMore = !this.isReadMore
   // }

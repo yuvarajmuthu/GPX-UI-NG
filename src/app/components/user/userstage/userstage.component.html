@@ -1,22 +1,24 @@
 <div class="border-radius bg-white mb-3">
     <div>
         <img src="../../assets/bg.jpg" alt="" class="w-100 height-fix ">
-        <div class="cover-camera">
+        <div class="cover-camera" *ngIf="isProfileInEditMode()">
             <i class="bx bx-camera center-ion text-green pointer" (click)="fileInputcover.click()"></i>
             <input #fileInputcover type="file" (change)="onChangecover($event)" style="display:none" />
         </div>
     </div>
     <div>
         <div>
-            <div class="">
-                <img src="../../assets/profile.png" class="profile">
+            <div>
+                <img *ngIf="!isImageLoading" [src]="profileSmImage" class="profile">
                 <input type="file" style="display: none;" #profile>
-                <i class="bx bx-camera prof-camera text-green" (click)="fileInput.click()"></i>
+                <i class="bx bx-camera prof-camera text-green" (click)="fileInput.click()" *ngIf="isProfileInEditMode()"></i>
                 <div>
-                    <input #fileInput type="file" (change)="onChangeProfile($event)" style="display:none" />
+                    <input #fileInput type="file" (change)="onProfileSmImageSelected($event)" style="display:none" />
                 </div>
             </div>
         </div>
+
+        <!-- Edit Profile-->
         <div class="float-right mr-3">
             <button class="btn button-outline-blue font-14" (click)="largeModal(largeDataModal)"> Edit
                 Profile</button>
@@ -82,34 +84,55 @@
             </ng-template>
         </div>
     </div>
+
     <div class="p-3">
         <div class="header-start">
-            <div class="font-24 font-w-bold fix-on-header " [class.fixed]="navFixed"> Sagar Kakadiya <i
-                    class="bx bx-bookmark pointer" aria-hidden="true"></i>
+            <div class="font-24 font-w-bold fix-on-header " [class.fixed]="navFixed"> {{userData.displayName}} 
+                <span id="link2" class="h6 text-green"> @{{userData.username}}</span>
+                <i class="bx bx-bookmark pointer" aria-hidden="true"></i>
             </div>
-            <div class="font-16 pointer hover" [class.fixeddes]="navFixed">Student at Bhagwan Mahavir College of
-                Education, Surat</div>
-            <div class="font-16 color-grew">Bhagwan Mahavir College of Education, Surat</div>
-            <div class="font-14 color-grew">Gujarat, India .<span class="text-green font-w-bold pointer"> Contact
-                    info </span></div>
-            <div class="color-grew"> <i class="bx bx-calendar"></i> Joined December 2014</div>
+            <div *ngIf="category === 'LEGISLATURE' || category === 'legislature' || category === 'EXECUTIVE'  || category === 'executive' || category === 'municipalities'">
+                <div class="font-16 pointer hover" [class.fixeddes]="navFixed">
+                    <a class="text-green font-w-bold pointer" [routerLink]="['/user', userData.role.type]">{{userData.role.type}}</a> at 
+                    <a class="text-green font-w-bold pointer" [routerLink]="['/user', userData.role.party]">{{userData.role.party}}</a>
+                </div>
+                <div class="font-14 color-grew">District 
+                    <a class="text-green font-w-bold pointer" [routerLink]="['/user', userData.role.district]">{{userData.role.district}}</a>
+                    <span class="text-green font-w-bold pointer"> 
+                        <a class="text-green font-w-bold pointer" [routerLink]="['/user', userData.role.state]">  {{userData.role.state | uppercase}}</a>
+                    </span>
+                </div>
+                <div class="color-grew"> <i class="bx bx-calendar"></i> Joined December 2014
+                </div>
+            </div>
             <div class="d-flex justify-content-start">
-                <div class="mr-3 pointer button-outline-blue btn"><strong>74</strong><span class="text-dark"> Following </span>
+                <div *ngIf="!isSelfProfile" class="mr-2 pointer button-outline-blue btn" (click)="connectionAction()">{{connectCntrlLabel}}
                 </div>
-                <div class="mr-3 pointer button-outline-blue btn"><strong>14</strong><span class="text-dark"> Followers </span>
+                <div *ngIf="!isSelfProfile" class="mr-2 pointer button-outline-blue btn" (click)="followAction()">{{followCntrlLabel}}
                 </div>
+                <div class="mr-2 pointer button-outline-blue btn"><strong>{{followingsCount}}</strong><span class="text-dark"> Following </span>
+                </div>
+                <div class="mr-2 pointer button-outline-blue btn"><strong>{{followersCount}}</strong><span class="text-dark"> Followers </span>
+                </div>
+                <div class="mr-2 pointer button-outline-blue btn" (click)="loadTemplate('upMember')"><strong>{{members.length}}</strong><span class="text-dark"> Members </span>
+                </div>
+                <div *ngIf="!isSelfProfile && !isInCircle" class="mr-2 pointer button-outline-blue btn" (click)="add2Circle()">Add to Circle
+                </div>                
+                <div *ngIf="!isSelfProfile && isInCircle" class="mr-2 pointer button-outline-blue btn" (click)="removeFromCircle()">In Circle
+                </div>                                
             </div>
             <div class="d-flex justify-content-start" [class.fixeds]="navFixed">
+                <!--
                 <div class="mr-2"><button class="btn button-outline-blue font-14">Open to</button></div>
-                <!-- <div class="mr-2"><button class="btn button-outline-blue font-14">Add profile
+                 <div class="mr-2"><button class="btn button-outline-blue font-14">Add profile
                             section</button></div> -->
                 <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown">
                     <button class="btn button-outline-blue font-14 me-2" id="dropdownManual" ngbDropdownAnchor
                         (focus)="myDrop.open()">Add profile section</button>
                     <div ngbDropdownMenu aria-labelledby="dropdownManual">
-                        <button ngbDropdownItem (click)="OpenSection(SectionModel,'1')">Event-1</button>
-                        <button ngbDropdownItem (click)="OpenSection(SectionModel,'2')">Event-2</button>
-                        <button ngbDropdownItem (click)="OpenSection(SectionModel,'3')">Event-3</button>
+                        <button ngbDropdownItem *ngFor="let profileTemplate of availableProfileTemplates">
+                            {{profileTemplate.name}}
+                        </button>
                     </div>
                     <ng-template #SectionModel let-modal>
                         <div class="modal-header">
