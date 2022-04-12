@@ -30,7 +30,6 @@ export class TwittertweetsComponent implements OnInit {
   twitterHandleExist:boolean = false;
   facebookHandle:string;
   data!:any
- twttr: any;
   constructor(
     private route: ActivatedRoute,
 
@@ -39,9 +38,7 @@ export class TwittertweetsComponent implements OnInit {
     private datashareService: DatashareService) { 
 
     }
-    ngAfterViewInit(): void {
-      this.twttr.widgets.load();
-  }
+   
   ngOnInit(): void {
       this.loggedUsername = this.datashareService.getLoggedinUsername();
 
@@ -109,7 +106,8 @@ isUserLogged() {
 loadContactsData(contactsData:any){
   console.log("contactsData ", contactsData);
   if(contactsData && contactsData['Twitter']){
-      this.twitterHandle = "https://twitter.com/" + contactsData['Twitter'] +"?ref_src=twsrc%5Etfw";
+      // this.twitterHandle = "https://twitter.com/" + contactsData['Twitter'] +"?ref_src=twsrc%5Etfw";
+      this.twitterHandle = contactsData['Twitter'] ;
       
       this.twitterHandleExist = true;
   }
