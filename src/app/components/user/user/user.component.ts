@@ -122,15 +122,15 @@ export class UserComponent{
         file: ['']
     });
 
-  constructor(private  router: Router,
-    private route: ActivatedRoute,
-    private userService: UserService,
-    private postService: PostService,
-    private profileService: ProfileService,
-    private communicationService: ComponentcommunicationService,
-    private legislatorsService: LegislatorService,
-    private datashareService: DatashareService,
-    private formBuilder: FormBuilder
+  constructor(public router: Router,
+    public route: ActivatedRoute,
+    public userService: UserService,
+    public postService: PostService,
+    public profileService: ProfileService,
+    public communicationService: ComponentcommunicationService,
+    public legislatorsService: LegislatorService,
+    public datashareService: DatashareService,
+    public formBuilder: FormBuilder
     ) { 
 
     }

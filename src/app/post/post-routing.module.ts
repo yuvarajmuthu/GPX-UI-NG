@@ -7,7 +7,11 @@ import { PostcardComponent } from './postcard/postcard.component';
 
 const routes: Routes = [
   {
-    path: 'postcard',
+    path: '',
+    component: PostcardComponent,
+  },
+  {
+    path: 'news',
     component: PostcardComponent,
   },
   {
@@ -15,7 +19,7 @@ const routes: Routes = [
     component: PostComponent,
   },
   {
-    path: 'card',
+    path: 'stage',
     component: CardComponent,
   },
   {

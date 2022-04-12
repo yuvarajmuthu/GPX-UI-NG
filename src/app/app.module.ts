@@ -21,7 +21,7 @@ import { HeaderComponent } from './header/header.component';
 //import { SidemenuComponent } from './sidemenu/sidemenu.component';
 //import { RightsidemenuComponent } from './rightsidemenu/rightsidemenu.component';
 import { EventComponent } from './event/event.component';
-import { AboutComponent } from './about/about.component';
+//import { AboutComponent } from './components/user/about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { RoleComponent } from './role/role.component';
 import {SearchlegislatorsComponent} from './components/searchlegislators/searchlegislators.component';
@@ -51,7 +51,7 @@ export function tokenGetter() {
     //SidemenuComponent,
     //RightsidemenuComponent,
     EventComponent,
-    AboutComponent,
+    //AboutComponent,
     FooterComponent,
     RoleComponent,
     SearchlegislatorsComponent,
