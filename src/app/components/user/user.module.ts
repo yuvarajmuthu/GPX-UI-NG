@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { SidemenuComponent } from '../../sidemenu/sidemenu.component';
 import { RightsidemenuComponent } from '../../rightsidemenu/rightsidemenu.component';
 import { UserstageComponent } from './userstage/userstage.component';
+import { AboutComponent } from './about/about.component';
 
 //import { HomeComponent } from '../../home/home.component';
 
@@ -33,7 +34,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
    UserstageComponent,
    //HomeComponent,
    SidemenuComponent,
-   RightsidemenuComponent
+   RightsidemenuComponent,
+   AboutComponent
   ],
   //The entryComponents array is used to define only components that are not found in html and created dynamically with ComponentFactoryResolver.
   entryComponents:[UserstageComponent],
