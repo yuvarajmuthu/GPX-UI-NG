@@ -3,3 +3,12 @@
     font-weight: 500;
 
 }
+rect:nth-child(1n+2){
+    fill: #0db685 !important;
+  }
+  circle{
+    fill: #0db685 !important;
+  }
+  path{
+    fill: #0db685 !important;
+  }

@@ -31,10 +31,18 @@
   height: 50px;
 
   &:hover {
-    // background-color: #0db685;
-    // color: white;
-    // border-radius: 5px;
-    border: 2px solid #0db685;
+    background-color: #f3f6f9;
+    color: #0db685 !important;
+   
+   rect:nth-child(1n+2){
+     fill: #0db685 !important;
+   }
+   circle{
+     fill: #0db685 !important;
+   }
+   path{
+     fill: #0db685 !important;
+   }
   }
 }
 
@@ -52,12 +60,17 @@
 }
 
 .active {
-  // background-color: #0db685;
-  // color: white !important;
+  background-color: #f3f6f9;
+  color: #0db685 !important;
   // border-radius: 5px;
-  border: 2px solid #0db685;
+  border-left: 3px solid #0db685;
+  rect:nth-child(1n+2){
+    fill: #0db685 !important;
+  }
+  circle{
+    fill: #0db685 !important;
+  }
+  path{
+    fill: #0db685 !important;
+  }
 }
-// .center-text{
-//   display: flex;
-//     align-items: center;
-// }
