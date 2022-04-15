@@ -18,10 +18,29 @@
 // span.text-dark{
 //     font-weight: 600;
 // }
+#xyz{
+  left: unset !important;
+  right: 0px;
+  // z-index: unset;
+  background-color: #ffffff;
+    border: 0 solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.75rem;
+    -webkit-box-shadow: 0px 0px 50px 0px rgb(82 63 105 / 15%);
+    box-shadow: 0px 0px 50px 0px rgb(82 63 105 / 15%);
+}
+.dropdown-item:focus, .dropdown-item:hover{
+  color: #0db685 ;
+}
 .example-chip-list {
   width: 100%;
 }
-
+.profiles{
+  border-radius: 10px;
+  width: 100%;
+    max-width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
 .prof-camera{
     position: relative;
     left: -30px;
@@ -53,3 +72,71 @@
       display: flex;
       overflow-x: auto;
     }
+    #dropdownManu::after{
+      display: none;
+    
+  }
+  rect:nth-child(1n+2){
+    fill: #0db685 !important;
+  }
+  circle{
+    fill: #0db685 !important;
+  }
+  path{
+    fill: #0db685 !important;
+  }
+  .badge{
+    justify-content: center;
+    align-items: center;
+    color: #0BB783;
+    background-color: #D7F9EF;
+    border-radius: 0.75rem;
+    // padding: 0.50em 0.8em;
+  }
+  .badges{
+    justify-content: center;
+    align-items: center;
+    color: #0BB783;
+    background-color: #D7F9EF;
+    border-radius: 0.75rem;
+    padding: 0.50em 0.8em;
+    display: inline-block;
+    // padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+  }
+  // .row{
+  //   .col-md-3:nth-child(1){
+
+  //     .badges{
+  //       color: #FFA800;
+  //       background-color: #FFF4DE;
+  //     }
+  //   }
+  //   .col-md-3:nth-child(2){
+
+  //     .badges{
+  //       color: #F64E60;
+  //       background-color: #FFE2E5;
+  //     }
+  //   }
+  //   .col-md-3:nth-child(3){
+
+  //     .badges{
+  //       color: #8950FC;
+  //       background-color: #EEE5FF;
+  //     }
+  //   }
+  // }
+  .line{
+    border-right: 0.2px solid #0db685;
+    height: 50px;
+    // position: absolute;
+    // left: 25%;
+    // margin-left: -3px;
+    top: 0;
+  }

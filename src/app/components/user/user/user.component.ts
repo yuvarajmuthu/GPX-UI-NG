@@ -247,7 +247,7 @@ isProfileInEditMode(){
                
                 //load profile small image
 
-                this.profileSmImage = 'assets/images/avatar1.png'; 
+                this.profileSmImage = 'assets/images/userprofile.jpg'; 
 
                 if (!isDevMode()){
                     if(this.userData != null && this.userData['photoUrl'] != null){
