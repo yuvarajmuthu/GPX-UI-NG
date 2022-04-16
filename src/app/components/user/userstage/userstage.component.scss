@@ -71,6 +71,8 @@
     border-bottom: 1px solid #0db685;
       display: flex;
       overflow-x: auto;
+      left: 8px;
+      width: 100%;
     }
     #dropdownManu::after{
       display: none;

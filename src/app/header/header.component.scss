@@ -1,5 +1,5 @@
 .padding-left{
-  padding-left: 40px;
+  padding-left: 48px;
 }
 rect:nth-child(1n+2){
   fill: #0db685 !important;
@@ -9,6 +9,10 @@ circle{
 }
 path{
   fill: #0db685 !important;
+}
+svg {
+  width: 24px;
+  height: 24px;
 }
 header {
   width: 100%;
