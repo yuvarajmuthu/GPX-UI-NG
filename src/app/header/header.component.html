@@ -41,7 +41,7 @@
                 </div>
             </div>
             <!-- <div class="float-right"> -->
-                <span class="pl-1 hide-big set-profile-icon" [routerLink]="['user/123']"><img src="../../assets/profile.png" alt=""
+                <span class="pl-1 hide-big set-profile-icon" [routerLink]="['user/123/about']"><img src="../../assets/profile.png" alt=""
                         class="pointer profile-header  mt-1">
                 </span>
                 <i class="material-icons"> 
@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown">
-                    <div [routerLink]="['user/123']">
+                    <div [routerLink]="['user/123/about']">
                         <img src="../../assets/profile.png" alt="" class="pointer profile-header hide-small" ngbDropdownAnchor>
                     </div>
                     <div ngbDropdownMenu aria-labelledby="dropdownManual">
@@ -169,31 +169,57 @@
 <div class="navbar fix-bottom hide-big" style="box-shadow: 0 4px 5px 2px #212529;">
     <a>
         <div class="d-flex flex-column bd-highlight" [routerLink]="['searchLegislator']" routerLinkActive="active">
-            <div class="bd-highlight mx-auto"><i class="fa fa-search"></i></div>
+            <div class="bd-highlight mx-auto">
+                <span class="svg-icon svg-icon-primary svg-icon-2x">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" height="30px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <rect x="0" y="0" width="24" height="24"/>
+                        <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                        <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero"/>
+                    </g>
+                </svg><!--end::Svg Icon--></span>
+            </div>
             <div class="bd-highlight mx-auto"><a class="font-small">FindRep</a></div>
         </div>
     </a>
     <a>
         <div class="d-flex flex-column bd-highlight">
-            <div class="bd-highlight mx-auto"><i class="fa fa-users"></i></div>
+            <div class="bd-highlight mx-auto"><i class="fa fa-users" style="color: #0db685;"></i></div>
             <div class="bd-highlight mx-auto"><a class="font-small">My Circle</a></div>
         </div>
     </a>
     <a>
         <div class="d-flex flex-column bd-highlight" [routerLink]="['post/stage']" routerLinkActive="active">
-            <div class="bd-highlight mx-auto"><i class="fa fa-rss"></i></div>
+            <div class="bd-highlight mx-auto">
+                <span class="svg-icon svg-icon-primary svg-icon-2x">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <rect x="0" y="0" width="24" height="24"/>
+                        <circle fill="#000000" cx="6" cy="18" r="3"/>
+                        <path d="M16.5,21 L13.5,21 C13.5,15.2010101 8.79898987,10.5 3,10.5 L3,7.5 C10.4558441,7.5 16.5,13.5441559 16.5,21 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                        <path d="M22.5,21 L19.5,21 C19.5,12.163444 11.836556,4.5 3,4.5 L3,1.5 C13.4934102,1.5 22.5,10.5065898 22.5,21 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                    </g>
+                </svg><!--end::Svg Icon--></span>
+            </div>
             <div class="bd-highlight mx-auto"><a class="font-small">News</a></div>
         </div>
     </a>
     <a>
         <div class="d-flex flex-column bd-highlight">
-            <div class="bd-highlight mx-auto"><i class="fa fa-link"></i></div>
+            <div class="bd-highlight mx-auto"><i class="fa fa-link" style="color: #0db685;"></i></div>
             <div class="bd-highlight mx-auto"><a class="font-small">Connections</a></div>
         </div>
     </a>
     <a>
         <div class="d-flex flex-column bd-highlight">
-            <div class="bd-highlight mx-auto"><i class="fa fa-bell"></i></div>
+            <div class="bd-highlight mx-auto">
+                <span class="svg-icon svg-icon-primary svg-icon-2x"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <path d="M17,12 L18.5,12 C19.3284271,12 20,12.6715729 20,13.5 C20,14.3284271 19.3284271,15 18.5,15 L5.5,15 C4.67157288,15 4,14.3284271 4,13.5 C4,12.6715729 4.67157288,12 5.5,12 L7,12 L7.5582739,6.97553494 C7.80974924,4.71225688 9.72279394,3 12,3 C14.2772061,3 16.1902508,4.71225688 16.4417261,6.97553494 L17,12 Z" fill="#000000"/>
+                        <rect fill="#000000" opacity="0.3" x="10" y="16" width="4" height="4" rx="2"/>
+                    </g>
+                </svg><!--end::Svg Icon--></span>
+            </div>
             <div class="bd-highlight mx-auto"><a class="font-small">Notification</a></div>
         </div>
     </a>

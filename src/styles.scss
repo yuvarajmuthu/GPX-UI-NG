@@ -397,7 +397,7 @@ hr{
 }
 .fixedstab{
     position: fixed;
-    top: 173px;
+    top: 153px;
     margin-left: -9px;
 }
 .res-m-r{
@@ -438,6 +438,35 @@ textarea:focus-visible {
   }
 
 @media (min-width: 0px) and (max-width: 767px){
+    .emoji-mart{
+        font-size: 14px !important;
+        right: 15px;
+        width: 240px !important;
+        
+    }
+    .emoji-mart-search input{
+        font-size: 14px !important;
+    }
+    .emoji-mart-title-label{
+        font-size: 14px !important;
+    }
+    .emoji-mart-category .emoji-mart-emoji span{
+        width: 16px !important;
+        height: 16px !important;
+    }
+    .emoji-mart-emoji span{
+        width: 25px !important;
+        height: 25px !important;
+    }
+    .set-box{
+        position: unset !important;
+    }
+    h4{
+        font-size: 20px;
+    }
+    .font-20{
+        font-size: 14px;
+    }
     svg{
         width: 18px;
         height: 18px;
@@ -475,8 +504,10 @@ textarea:focus-visible {
     }
     .shawdo .flex-column{
         flex-direction: row !important;
+        // justify-content: center;
         div{
             margin-left: 0px !important;
+            margin-right: 15px !important;
         }
     }
     .image-logo{
@@ -487,20 +518,22 @@ textarea:focus-visible {
         margin-right: 11px;
     }
     .fixeds{
-        top: 130px;
+        top: 110px;
         justify-content: left !important;
         padding-left: 14%;
         left: 0;
     }
     .fixed{
         padding-left: 14%;
-        height: 115px;
+        height: 95px;
+        padding-top: 8px;
     }
     .fixeddes{
         padding-left: 14%;
+        top: 94px;
     }
     .font-24{
-        font-size: 20px;
+        font-size: 18px;
     }
     header > .logo{
         width: 78%;
@@ -524,12 +557,41 @@ textarea:focus-visible {
             margin-top: 10px;
             margin-bottom: 10px;
             .font-small{
-                font-size: 18px !important;
+                font-size: 14px !important;
             }
         }
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .emoji-mart{
+        font-size: 14px !important;
+        // right: 15px;
+        // width: 240px !important;
+        
+    }
+    .emoji-mart-search input{
+        font-size: 14px !important;
+    }
+    .emoji-mart-title-label{
+        font-size: 14px !important;
+    }
+    .emoji-mart-category .emoji-mart-emoji span{
+        width: 16px !important;
+        height: 16px !important;
+    }
+    .emoji-mart-emoji span{
+        width: 25px !important;
+        height: 25px !important;
+    }
+    // .set-box{
+    //     position: unset !important;
+    // }
+    h4{
+        font-size: 20px;
+    }
+    .font-20{
+        font-size: 15px;
+    }
     .profiles{
         width: 100%;
         max-width: 80px !important;
@@ -584,7 +646,7 @@ textarea:focus-visible {
         padding-left: 10%;
     }
     .font-24{
-        font-size: 20px;
+        font-size: 18px;
     }
      header > .logo{
         width: 88%;
@@ -614,6 +676,9 @@ textarea:focus-visible {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px){
+    .font-20{
+        font-size: 18px;
+    }
     .d-margin{
         margin-right: 15px;
       }

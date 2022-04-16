@@ -1,14 +1,14 @@
 <div class="border-radius bg-white mb-3 p-3 hover-card" (click)="commentPage($event,index)"
     *ngFor='let item of PostCardData ;let index = index'>
-    <div class="d-flex align-items-start  pointer p-3 rounded">
+    <div class="d-flex align-items-start  pointer p-1 rounded">
         <div class="flex-shrink-0 mr-2">
             <img src="../../../assets/profile.png" class="post-profile">
         </div>
         <div class="flex-shrink-1 w-100">
             <div>
-                <span id="link1" class="h6 hover-underline"> {{item.Link}}</span>
-                <span id="link2" class="h6 hover-underline text-green"> {{item.Link1}}</span>
-                <p class="color-grew">
+                <span id="link1" class="font-20 hover-underline"> {{item.Link}}</span>
+                <span id="link2" class="font-20 hover-underline text-green"> {{item.Link1}}</span>
+                <p class="color-grew font-20">
                     {{item.Details}}
                 </p>
             </div>
