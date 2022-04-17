@@ -92,7 +92,7 @@ export class UserComponent{
 
     postFormData: FormData;
     editLabel: string = '';
-    inEditMode:boolean = false;
+    inEditMode:boolean = true;
     followersCount:number = 0;
     followers: User[] = [];
     managedBy:string[] = [];
@@ -486,7 +486,7 @@ connectionAction() {
 
                 if (result.status == 'REQUESTED') {
                     this.requestedToFollow = true;
-                } else if (result.status == 'CONNECTED') {
+                } else if (result.status == 'CONNECTED') {//THIS MAY NOT HAPPEN ?
                     this.connected = true;
                 } else if (result.status == 'REJECTED') {
                     this.followRequestRejected = true;
@@ -572,8 +572,10 @@ getRelationStatus(entity: string, profileId: string) {
                   this.requestAwaiting = true;
               } else if (result == 'FOLLOWING') {
                   this.following = true;
+              } else if (result == 'CONNECTED') {
+                this.connected = true;
               } else if (result == 'REJECTED') {
-                  this.followRequestRejected = true;
+                this.followRequestRejected = true;
               }
               this.setFollowCntrlLabel();
               this.setFollowCntrlCSS();

@@ -9,8 +9,12 @@
                 <div (click)="showText()" class="text-green pointer font-12 text-right"> {{ isReadMore
                     ? 'Read More': 'Read Less' }}</div>
             </div>
-            <div class="ml-auto p-2" (click)="largeModalAbout(largeDataModalAbout)"><i
-                    class="bx bx-pencil pointer"></i></div>
+            
+            <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon" (click)="largeModalAbout(largeDataModalAbout)">
+                <a class="flex-shrink-1">
+                    <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto"></i></span>
+                </a>
+            </div>
             <ng-template #largeDataModalAbout let-modal>
                 <div class="modal-header">
                     <h5 class="modal-title mt-0">About</h5>
