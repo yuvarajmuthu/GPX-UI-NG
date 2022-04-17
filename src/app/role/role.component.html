@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="p-2 ml-auto edit-icon">
+        <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
             <div class="d-flex">
                 <a class="mr-3 flex-shrink-0">
                     <span class="icon-shaw pointer" (click)="largeModal(largeDataModal)"><i
@@ -52,7 +52,7 @@
                     </div>
 
                 </div>
-                <div class="p-2 ml-auto edit-icon">
+                <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
                     <div class="d-flex">
                         <a class="mr-1 flex-shrink-0">
                             <span class="icon-shaw pointer" (click)="largeModal(largeDataModal)"><i
@@ -183,7 +183,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-2 ml-auto edit-icon">
+            <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
                 <div class="d-flex">
                     <a class="mr-3 flex-shrink-0">
                         <span class="icon-shaw pointer" (click)="largeModal(largeDataModal)"><i
@@ -285,7 +285,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-2 ml-auto edit-icon">
+            <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
                 <div class="d-flex">
                     <a class="mr-3 flex-shrink-0">
                         <span class="icon-shaw pointer" (click)="largeModal(largeDataModal)"><i
@@ -335,8 +335,42 @@
                                                 Dec 2022</span>
                                         </div>
                                     </div>
-                                    <div>
-                                        <i class="bx bx-pencil w-auto hover-edit flex-shrink-1 pointer pr-2 pt-2"></i>
+                                    <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
+                                        <div class="d-flex">
+                                            
+                                            <a class="flex-shrink-1">
+                                                <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="d-flex">
+                                    <div class="p-3 flex-shrink-0">
+                                        <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
+                                        <div class="font-14 color-grew pointer hover">Varachha, District</div>
+                                        <div class="d-flex flex-wrap my-2 font-12">
+                                            <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
+                                                Gujrat</a>
+                                            <a class="mr-3 text-muted pointer hover"> <i class="bx bx-bullhorn"></i> Form
+                                                BJP</a>
+                                        </div>
+                                        <div class="font-14">
+                                            <span class="mr-3 text-muted"> <i class="bx bx-calendar"></i> 28 Jan
+                                                2021
+                                                to 29
+                                                Dec 2022</span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
+                                        <div class="d-flex">
+                                            
+                                            <a class="flex-shrink-1">
+                                                <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -358,31 +392,13 @@
                                                 Dec 2022</span>
                                         </div>
                                     </div>
-                                    <div>
-                                        <i class="bx bx-pencil w-auto hover-edit flex-shrink-1 pointer pr-2 pt-2"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="d-flex">
-                                    <div class="p-3 flex-shrink-0">
-                                        <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
-                                        <div class="font-14 color-grew pointer hover">Varachha, District</div>
-                                        <div class="d-flex flex-wrap my-2 font-12">
-                                            <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
-                                                Gujrat</a>
-                                            <a class="mr-3 text-muted pointer hover"> <i class="bx bx-bullhorn"></i> Form
-                                                BJP</a>
+                                    <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
+                                        <div class="d-flex">
+                                            
+                                            <a class="flex-shrink-1">
+                                                <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
+                                            </a>
                                         </div>
-                                        <div class="font-14">
-                                            <span class="mr-3 text-muted"> <i class="bx bx-calendar"></i> 28 Jan
-                                                2021
-                                                to 29
-                                                Dec 2022</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <i class="bx bx-pencil w-auto hover-edit flex-shrink-1 pointer pr-2 pt-2"></i>
                                     </div>
                                 </div>
                             </div>
