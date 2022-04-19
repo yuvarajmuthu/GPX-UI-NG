@@ -27,7 +27,7 @@ import { RoleComponent } from './role/role.component';
 import {SearchlegislatorsComponent} from './components/searchlegislators/searchlegislators.component';
 import {LegislatorComponent} from './components/legislator/legislator.component';
 //import {GAddressSearchComponent} from './components/g-address-search/g-address-search.component';
-
+import {GlobalSearchComponent} from './components/global-search/global-search.component';
 
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
@@ -57,7 +57,8 @@ export function tokenGetter() {
     SearchlegislatorsComponent,
     LegislatorComponent,
     TwittertweetsComponent,
-    //GAddressSearchComponent
+    //GAddressSearchComponent,
+    GlobalSearchComponent
   ],
   imports: [
     BrowserModule,

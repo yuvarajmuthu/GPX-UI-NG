@@ -92,20 +92,11 @@ export class HeaderComponent implements OnInit {
     this.modalService.open(largeDataModal, { centered: true });
   }
   selectEvent(item:any) {
-    console.log(item);
-    
-    // do something with selected item
+    console.log(item.username);
+    let routePath= '/user/'+item.username+"/";
+    this.router.navigate([routePath]);
   }
 
-  onChangeSearch(val: string) {
-    // fetch remote data from here
-    // And reassign the 'data' which is binded to 'data' property.
-  }
-  
-  onFocused(e:any){
-    // do something when input is focused
-  }
-  
   route(name: string) {
     let routePath: string = '/' + name;
     this.router.navigate([routePath]);
