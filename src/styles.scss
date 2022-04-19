@@ -92,6 +92,9 @@ hr{
 .font-16{
     font-size: 16px;
 }
+.font-18{
+    font-size: 18px;
+}
 .font-20{
     font-size: 20px;
 }
@@ -227,10 +230,10 @@ hr{
     border-radius: 50%;
 }
 .hover{
-    font-weight: 500;   
+    // font-weight: 500;   
     &:hover{
         color: #0db685 !important;
-        font-weight: 500;   
+        // font-weight: 500;   
     }
 }
 .hover-edit{
@@ -372,9 +375,9 @@ hr{
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 58px;
+    height: 92px;
     left: 0;
-    padding-left: 18%;
+    padding-left: 26%;
 }
 .fixeddes{
     position: fixed;
@@ -383,17 +386,42 @@ hr{
     flex-direction: row;
     width: 100%;
     left: 0;
-    padding-left: 18%;
+    padding-left: 26%;
 }
 .fixeds{
     position: fixed;
-    top: 58px;
-    // background-color: white;
-    // z-index: 1;
-    justify-content: center !important;
+    top: 105px;
+    justify-content: start !important;
+    padding-left: 26%;
+    left: 0;
     flex-direction: row;
     align-items: center;
     width: 100%;
+}
+.fix-profile{
+    position: fixed;
+    top: 70px;
+    justify-content: left !important;
+    z-index: 1;
+    left: 19%;
+    max-width: 60px !important;
+    height: 60px !important;
+}
+.fix-camera{
+    position: fixed !important;
+    top: 70px;
+    justify-content: left !important;
+    z-index: 1;
+    left: 18%;
+    top: 136px;
+}
+.fix-edit{
+    position: fixed !important;
+    justify-content: left !important;
+    z-index: 1;
+    // left: 20px;
+    left: 53%;
+    top: 61px;
 }
 .fixedstab{
     position: fixed;
@@ -436,11 +464,41 @@ textarea:focus-visible {
 .d-margin{
     margin-right: 90px;
   }
-
+#dropdownManualsecond{
+    padding: 3px 12px;
+}
+.scrolltop{
+    bottom: 82px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    background-color: #ffffff;
+    justify-content: center;
+    display: flex;
+    z-index: 1;
+    border: 2px solid #06c07c;
+}
 @media (min-width: 0px) and (max-width: 767px){
+    .padding-left{
+        padding-left: 32px !important;
+      }
+    .font-18{
+        font-size: 14px;
+    }
+    .circle{
+        top: 0 !important;
+    }
+    #dropdownManualsecond{
+        padding: 5px 4px;
+    }
+    .btn{
+        padding: 2px 4px;
+    }
     .emoji-mart{
         font-size: 14px !important;
-        right: 15px;
+        right: 35px;
         width: 240px !important;
         
     }
@@ -459,7 +517,7 @@ textarea:focus-visible {
         height: 25px !important;
     }
     .set-box{
-        position: unset !important;
+        margin-top: 38px;
     }
     h4{
         font-size: 20px;
@@ -471,9 +529,9 @@ textarea:focus-visible {
         width: 18px;
         height: 18px;
     }
-    .line{
-        border-right: unset !important;
-    }
+    // .line{
+    //     border-right: unset !important;
+    // }
     .profiles{
         width: 100%;
         max-width: 80px !important;
@@ -520,16 +578,42 @@ textarea:focus-visible {
     .fixeds{
         top: 110px;
         justify-content: left !important;
-        padding-left: 14%;
+        padding-left: 27%;
         left: 0;
     }
+    .fix-profile{
+        position: fixed;
+        top: 70px;
+        justify-content: left !important;
+        z-index: 1;
+        left: 30px;
+        max-width: 60px !important;
+        height: 60px !important;
+    }
+    .fix-camera{
+        position: fixed !important;
+        top: 70px;
+        justify-content: left !important;
+        z-index: 1;
+        left: 20px;
+        top: 135px;
+    }
+    .fix-edit{
+        position: fixed !important;
+        top: 70px;
+        justify-content: left !important;
+        z-index: 1;
+        left: unset;
+        right: 20px;
+        top: 61px;
+    }
     .fixed{
-        padding-left: 14%;
+        padding-left: 27%;
         height: 95px;
         padding-top: 8px;
     }
     .fixeddes{
-        padding-left: 14%;
+        padding-left: 27%;
         top: 94px;
     }
     .font-24{
@@ -563,11 +647,20 @@ textarea:focus-visible {
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .padding-left{
+        padding-left: 48px !important;
+    }
+    .font-18{
+        font-size: 14px;
+    }
+    .circle{
+        top: 0 !important;
+    }
+    #dropdownManualsecond{
+        padding: 5px 4px;
+    }
     .emoji-mart{
         font-size: 14px !important;
-        // right: 15px;
-        // width: 240px !important;
-        
     }
     .emoji-mart-search input{
         font-size: 14px !important;
@@ -583,9 +676,6 @@ textarea:focus-visible {
         width: 25px !important;
         height: 25px !important;
     }
-    // .set-box{
-    //     position: unset !important;
-    // }
     h4{
         font-size: 20px;
     }
@@ -596,9 +686,6 @@ textarea:focus-visible {
         width: 100%;
         max-width: 80px !important;
         height: 80px !important;
-    }
-    .line{
-        border-right: unset !important;
     }
     .d-margin{
         margin-right: 15px;
@@ -634,16 +721,41 @@ textarea:focus-visible {
     }
     .fixeds{
         top: 105px;
-        justify-content: left !important;
-        padding-left: 10%;
+        justify-content: start !important;
+        padding-left: 20%;
         left: 0;
     }
     .fixed{
-        padding-left: 10%;
+        padding-left: 20%;
         height: 95px;
     }
     .fixeddes{
-        padding-left: 10%;
+        padding-left: 20%;
+    }
+    .fix-profile{
+        position: fixed;
+        top: 70px;
+        justify-content: left !important;
+        z-index: 1;
+        left: 65px;
+        max-width: 60px !important;
+        height: 60px !important;
+    }
+    .fix-camera{
+        position: fixed !important;
+        top: 70px;
+        justify-content: left !important;
+        z-index: 1;
+        left: 55px;
+        top: 135px;
+    }
+    .fix-edit{
+        position: fixed !important;
+        top: 70px;
+        justify-content: left !important;
+        z-index: 1;
+        left: 53%;
+        top: 61px;
     }
     .font-24{
         font-size: 18px;
@@ -676,6 +788,25 @@ textarea:focus-visible {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px){
+    .padding-left{
+        padding-left: 43px !important;
+    }
+    .bd-highlight i{
+        font-size: 20px !important;
+    }
+    svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+      #dropdownManualsecond{
+        padding: 5px 4px;
+    }
+    .font-14{
+        font-size: 11px;
+    }
+    .fix-edit{
+        left: 43%;
+        }
     .font-20{
         font-size: 18px;
     }
@@ -693,7 +824,7 @@ textarea:focus-visible {
         font-size: 22px;
     }
      header > .logo{
-        width: 22%;
+        width: 21%;
     }
     .hide-big{
         display: none !important;
@@ -701,6 +832,24 @@ textarea:focus-visible {
    .header-side-menu{
        display: flex;align-items: center;
    }
+   .fix-profile{
+    left: 21%;
+    }
+    .fix-camera{
+        left: 20%;
+    }
+    .fix-edit{
+        left: 58%;
+    }
+    .fixed{
+        padding-left: 28%;
+    }
+    .fixeddes{
+        padding-left: 28%;
+    }
+    .fixeds{
+        padding-left: 28%;
+    }
 }
 @media (min-width: 1200px) {
     .header-mx{
@@ -731,7 +880,7 @@ textarea:focus-visible {
         margin-right: 20px;
       }
      header > .logo{
-        width: 36% !important;
+        width: 33% !important;
     }
 }
 @media (min-width: 1301px) and (max-width: 1500px){
@@ -739,12 +888,12 @@ textarea:focus-visible {
         margin-right: 20px;
       }
      header > .logo{
-        width: 40% !important;
+        width: 38% !important;
     }
 }
 @media (min-width: 1500px) and (max-width: 1600px){
      header > .logo{
-        width: 48% !important;
+        width: 47% !important;
     }
 }
 @media (min-width: 1600px) and (max-width: 1700px){
@@ -768,7 +917,26 @@ textarea:focus-visible {
       overflow-x:scroll;
     }
 }
-
+@media (min-width: 1350px) {
+    .fix-profile{
+        left: 28%;
+    }
+    .fix-camera{
+        left: 27%;
+    }
+    .fix-edit{
+        left: 65%;
+    }
+    .fixed{
+        padding-left: 33%;
+    }
+    .fixeddes{
+        padding-left: 33%;
+    }
+    .fixeds{
+        padding-left: 33%;
+    }
+}
 .filterPill .button-color {
     margin-bottom: 10px;
     border-radius: 28px;

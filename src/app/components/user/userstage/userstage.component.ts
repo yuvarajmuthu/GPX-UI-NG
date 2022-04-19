@@ -22,7 +22,7 @@ import { UserComponent } from '../user/user.component';
 export class UserstageComponent extends UserComponent implements OnInit{
 
   navFixed: boolean = false;
-  private scrollOffset: number = 450;
+  private scrollOffset: number = 280;
   SectionName=''
   keyword = 'name';
   data = [
@@ -114,6 +114,9 @@ export class UserstageComponent extends UserComponent implements OnInit{
   }
   largeModal(largeDataModal: any) {
     this.modalService.open(largeDataModal, { centered: true });
+  }
+  largeModalProfile(largerProfile: any) {
+    this.modalService.open(largerProfile, { centered: true });
   }
   
   OpenSection(SectionModel: any,Section:any) {
