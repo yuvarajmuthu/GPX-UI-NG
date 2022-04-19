@@ -31,9 +31,7 @@
   height: 50px;
 
   &:hover {
-    background-color: #f3f6f9;
-    color: #0db685 !important;
-   
+    background-color: #d8f8f2;
    rect:nth-child(1n+2){
      fill: #0db685 !important;
    }
@@ -60,9 +58,7 @@
 }
 
 .active {
-  background-color: #f3f6f9;
-  color: #0db685 !important;
-  // border-radius: 5px;
+  background-color: #d8f8f2;
   border-left: 3px solid #0db685;
   rect:nth-child(1n+2){
     fill: #0db685 !important;

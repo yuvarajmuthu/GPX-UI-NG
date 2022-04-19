@@ -16,6 +16,7 @@ import {catchError, debounceTime, distinctUntilChanged, map, tap, switchMap} fro
 
 import {User} from '../../app/models/user';
 import { IfStmt } from '@angular/compiler';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-header',
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
   isImageLoading: boolean = false;
 
   constructor(private  router: Router,
+    private modalService: NgbModal,
     private missionService: ComponentcommunicationService,
     private dataShareService: DatashareService,
     private userService: UserService,
@@ -86,7 +88,9 @@ export class HeaderComponent implements OnInit {
      }
   ];
 
-
+  modelPopupComment(largeDataModal: any) {
+    this.modalService.open(largeDataModal, { centered: true });
+  }
   selectEvent(item:any) {
     console.log(item);
     

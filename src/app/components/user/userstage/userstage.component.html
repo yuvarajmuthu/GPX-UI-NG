@@ -1,18 +1,25 @@
 
 <!-- ----------------------------------------------second ------------------------------------------------------------------------- -->
 <div class="border-radius bg-white mb-3">
-    <div class="p-3">
+    <div class="p-2">
         <div class="d-flex justify-content-between">
             <div class="flex-shrink-0 ">
                 <div class="p-2">
-                    <img *ngIf="!isImageLoading" [src]="profileSmImage" class="profiles">
+                    <img *ngIf="!isImageLoading" [src]="profileSmImage" (click)="largeModalProfile(largerProfile)" class="profiles pointer" [class.fix-profile]="navFixed">
+                    <ng-template #largerProfile let-modal id="imgModal">
+                        <div class="slide-modal-content">
+                            <div class="image-row">
+                                <img class="images rounded" src="{{profileSmImage}}" style="width: 100%;">
+                            </div>
+                        </div>
+                    </ng-template>
                 </div>
                 <input type="file" style="display: none;" #profile>
-                <i class="bx bx-camera prof-camera text-green" (click)="fileInput.click()"
+                <i class="bx bx-camera prof-camera text-green" (click)="fileInput.click()" [class.fix-camera]="navFixed"
                     *ngIf="isProfileInEditMode()"></i>
-                <div>
+               
                     <input #fileInput type="file" (change)="onProfileSmImageSelected($event)" style="display:none" />
-                </div>
+               
             </div>
             <div class="flex-shrink-1 p-2 flex-fill">
                 <div class="d-flex flex-wrap justify-content-between align-items-start">
@@ -20,18 +27,9 @@
                         <div class="font-20 fix-on-header " [class.fixed]="navFixed">
                             {{userData.displayName}}
                             <span id="link2" class="font-14 text-green"> @{{userData.username}}</span>
-                            <span class="svg-icon svg-icon-primary svg-icon-2x mx-1">
-                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/General/Bookmark.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24" />
-                                        <path
-                                            d="M8,4 L16,4 C17.1045695,4 18,4.8954305 18,6 L18,17.726765 C18,18.2790497 17.5522847,18.726765 17,18.726765 C16.7498083,18.726765 16.5087052,18.6329798 16.3242754,18.4639191 L12.6757246,15.1194142 C12.2934034,14.7689531 11.7065966,14.7689531 11.3242754,15.1194142 L7.67572463,18.4639191 C7.26860564,18.8371115 6.63603827,18.8096086 6.26284586,18.4024896 C6.09378519,18.2180598 6,17.9769566 6,17.726765 L6,6 C6,4.8954305 6.8954305,4 8,4 Z"
-                                            fill="#000000" />
-                                    </g>
-                                </svg>
-                                <!--end::Svg Icon-->
+                            <span class="circle mx-2">
+                                <i class="bx bx-star text-green pointer" *ngIf="!isSelfProfile && !isInCircle" (click)="add2Circle()"></i>
+                                <i class="bx bxs-star text-green pointer" *ngIf="!isSelfProfile && isInCircle" (click)="removeFromCircle()"></i>
                             </span>
                         </div>
                         <div
@@ -57,31 +55,11 @@
                     </div>
                    
                     <!-- Edit Profile-->
-                    <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon" (click)="largeModal(largeDataModal)">
+                    <div *ngIf="isProfileInEditMode()" class="edit-icon edit-icon-fix" [class.fix-edit]="navFixed" (click)="largeModal(largeDataModal)">
                         <a class="flex-shrink-1">
                             <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto"></i></span>
                         </a>
                     </div>
-
-                    <div class="float-right mr-3 my-1 align-items-start">
-                        <!--
-                        <button class="btn button-outline-blue font-14" (click)="largeModal(largeDataModal)">
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24" />
-                                        <path
-                                            d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z"
-                                            fill="#000000" fill-rule="nonzero"
-                                            transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) " />
-                                        <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1" />
-                                    </g>
-                                </svg>
-                            </span>
-                            Edit Profile
-                        </button>
-                    -->
                         <ng-template #largeDataModal let-modal>
                             <div class="modal-header">
                                 <h5 class="modal-title mt-0">Large modal</h5>
@@ -140,22 +118,17 @@
                                 </form>
                             </div>
                         </ng-template>
-                    </div>
                 </div>
             </div>
         </div>
-        <!--
-        <hr class="my-1">
-        -->
         <!--Add here-->
         <div class="row pt-2">
-            <div class="col-md-3 col-6 line">
-                <div class="d-flex flex-column bd-highlight">
+            <div class="col-md-3 col-4 line">
+                <div class="d-flex flex-column bd-highlight shaw-bg">
                     <div class="bd-highlight mx-auto pt-1">
                         <span class="navi-icon mr-2">
                             <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/Communication/Shield-user.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <rect x="0" y="0" width="24" height="24" />
@@ -170,21 +143,20 @@
                                             fill="#000000" opacity="0.3" />
                                     </g>
                                 </svg>
-                                <!--end::Svg Icon-->
                             </span>
                         </span>
-                        <span class="font-14 mr-3 text-green pointer">
+                        <span class="font-14 text-green">
                             Following
                         </span>
 
                     </div>
-                    <div class="bd-highlight mx-auto pointer">
+                    <div class="bd-highlight mx-auto">
                         <span class="badges">{{followingsCount}}</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-6 line">
-                <div class="d-flex flex-column bd-highlight">
+            <div class="col-md-3 col-4 line">
+                <div class="d-flex flex-column bd-highlight shaw-bg">
                     <div class="bd-highlight mx-auto pt-1">
                         <span class="navi-icon mr-2">
                             <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -204,18 +176,18 @@
                                 <!--end::Svg Icon-->
                             </span>
                         </span>
-                        <span class="font-14 mr-3 text-green pointer">
+                        <span class="font-14 text-green">
                             Followers
                         </span>
 
                     </div>
-                    <div class="bd-highlight mx-auto pointer">
+                    <div class="bd-highlight mx-auto">
                         <span class="badges">{{followersCount}}</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-6 line">
-                <div class="d-flex flex-column bd-highlight" (click)="loadTemplate('upMember')">
+            <div class="col-md-3 col-4">
+                <div class="d-flex flex-column bd-highlight shaw-bg" (click)="loadTemplate('upMember')">
                     <div class="bd-highlight mx-auto pt-1">
                         <span class="navi-icon mr-2">
                             <span class="svg-icon svg-icon-md svg-icon-primary">
@@ -235,85 +207,21 @@
                                 <!--end::Svg Icon-->
                             </span>
                         </span>
-                        <span class="font-14 mr-3 text-green pointer">
+                        <span class="font-14 text-green">
                             Members
                         </span>
 
                     </div>
-                    <div class="bd-highlight mx-auto pointer">
+                    <div class="bd-highlight mx-auto">
                         <span class="badges">{{members.length}}</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-6">
-                <div class="d-flex flex-column bd-highlight" *ngIf="!isSelfProfile && !isInCircle"
-                    (click)="add2Circle()">
-                    <div class="bd-highlight mx-auto pt-1">
-                        <span class="navi-icon mr-2">
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/Home/Book-open.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24" />
-                                        <path
-                                            d="M13.6855025,18.7082217 C15.9113859,17.8189707 18.682885,17.2495635 22,17 C22,16.9325178 22,13.1012863 22,5.50630526 L21.9999762,5.50630526 C21.9999762,5.23017604 21.7761292,5.00632908 21.5,5.00632908 C21.4957817,5.00632908 21.4915635,5.00638247 21.4873465,5.00648922 C18.658231,5.07811173 15.8291155,5.74261533 13,7 C13,7.04449645 13,10.79246 13,18.2438906 L12.9999854,18.2438906 C12.9999854,18.520041 13.2238496,18.7439052 13.5,18.7439052 C13.5635398,18.7439052 13.6264972,18.7317946 13.6855025,18.7082217 Z"
-                                            fill="#000000" />
-                                        <path
-                                            d="M10.3144829,18.7082217 C8.08859955,17.8189707 5.31710038,17.2495635 1.99998542,17 C1.99998542,16.9325178 1.99998542,13.1012863 1.99998542,5.50630526 L2.00000925,5.50630526 C2.00000925,5.23017604 2.22385621,5.00632908 2.49998542,5.00632908 C2.50420375,5.00632908 2.5084219,5.00638247 2.51263888,5.00648922 C5.34175439,5.07811173 8.17086991,5.74261533 10.9999854,7 C10.9999854,7.04449645 10.9999854,10.79246 10.9999854,18.2438906 L11,18.2438906 C11,18.520041 10.7761358,18.7439052 10.4999854,18.7439052 C10.4364457,18.7439052 10.3734882,18.7317946 10.3144829,18.7082217 Z"
-                                            fill="#000000" opacity="0.3" />
-                                    </g>
-                                </svg>
-                                <!--end::Svg Icon-->
-                            </span>
-                        </span>
-                        <span class="font-14 mr-3 text-green pointer">
-                            Add to Circle
-                        </span>
-
-                    </div>
-                    <div class="bd-highlight mx-auto pointer">
-                        <i class="fa fa-users"></i>
-                    </div>
-                </div>
-                <div class="d-flex flex-column bd-highlight" *ngIf="!isSelfProfile && isInCircle"
-                    (click)="removeFromCircle()">
-                    <div class="bd-highlight mx-auto pt-1">
-                        <span class="navi-icon mr-2">
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/Home/Book-open.svg--><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24" />
-                                        <path
-                                            d="M13.6855025,18.7082217 C15.9113859,17.8189707 18.682885,17.2495635 22,17 C22,16.9325178 22,13.1012863 22,5.50630526 L21.9999762,5.50630526 C21.9999762,5.23017604 21.7761292,5.00632908 21.5,5.00632908 C21.4957817,5.00632908 21.4915635,5.00638247 21.4873465,5.00648922 C18.658231,5.07811173 15.8291155,5.74261533 13,7 C13,7.04449645 13,10.79246 13,18.2438906 L12.9999854,18.2438906 C12.9999854,18.520041 13.2238496,18.7439052 13.5,18.7439052 C13.5635398,18.7439052 13.6264972,18.7317946 13.6855025,18.7082217 Z"
-                                            fill="#000000" />
-                                        <path
-                                            d="M10.3144829,18.7082217 C8.08859955,17.8189707 5.31710038,17.2495635 1.99998542,17 C1.99998542,16.9325178 1.99998542,13.1012863 1.99998542,5.50630526 L2.00000925,5.50630526 C2.00000925,5.23017604 2.22385621,5.00632908 2.49998542,5.00632908 C2.50420375,5.00632908 2.5084219,5.00638247 2.51263888,5.00648922 C5.34175439,5.07811173 8.17086991,5.74261533 10.9999854,7 C10.9999854,7.04449645 10.9999854,10.79246 10.9999854,18.2438906 L11,18.2438906 C11,18.520041 10.7761358,18.7439052 10.4999854,18.7439052 C10.4364457,18.7439052 10.3734882,18.7317946 10.3144829,18.7082217 Z"
-                                            fill="#000000" opacity="0.3" />
-                                    </g>
-                                </svg>
-                                <!--end::Svg Icon-->
-                            </span>
-                        </span>
-                        <span class="font-14 mr-3 text-green pointer">
-                            In Circle
-                        </span>
-
-                    </div>
-                    <div class="bd-highlight mx-auto pointer">
-                        <i class="fa fa-users" style="color: #0db685;"></i>
-                    </div>
-                </div>
-            </div>
         </div>
-<!--<hr class="mb-0 mt-2">-->
     <!--END-->
-<!--        <hr class="my-1"> -->
-        <div class="d-flex justify-content-start">
+        <div class="d-flex justify-content-start pb-2">
             <!--Connect button - Begin-->
-            <div *ngIf="!isSelfProfile && userData.status == 'ACTIVE'" (click)="connectionAction()" class="pointer button-outline-blue btn mr-2">
+            <div *ngIf="!isSelfProfile && userData.status == 'ACTIVE'" (click)="connectionAction()" class="pointer button-outline-blue btn mr-1">
                 <span class="mr-1">
                     <span class="svg-icon svg-icon-warning ">
                         <span class="svg-icon svg-icon-lg">
@@ -352,7 +260,7 @@
             </div>
             <!--Connect button - end-->
             <!--Follow button - Begin-->
-            <div *ngIf="!connected && !isSelfProfile" (click)="followAction()" class="pointer button-outline-blue btn mr-2">
+            <div *ngIf="!connected && !isSelfProfile" (click)="followAction()" class="pointer button-outline-blue btn mr-1">
                 <span class="mr-1">
                     <span class="svg-icon svg-icon-primary svg-icon-2x">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px"
@@ -572,24 +480,18 @@
                 </div>
             </div>
             <!-- ... more button - end-->
-            
-           
         </div>
- 
-
-       
     </div>
-
 </div>
 
 
 <!-- tab mobile -->
 <div class="d-flex flex-row bd-highlight fix-respo hide-big bg-white mb-3" [class.fixedstab]="navFixed">
-    <div class="p-2 bd-highlight set-w-fix" [routerLink]="['./about']" routerLinkActive="active">About</div>
-    <div class="p-2 bd-highlight set-w-fix">Activities</div>
-    <div class="p-2 bd-highlight set-w-fix" [routerLink]="['./event']" routerLinkActive="active">Twitter Feeds</div>
-    <div class="p-2 bd-highlight set-w-fix" [routerLink]="['./role']" routerLinkActive="active">Roles</div>
-    <div class="p-2 bd-highlight set-w-fix">Offices</div>
-    <div class="p-2 bd-highlight set-w-fix">Bills</div>
-    <div class="p-2 bd-highlight set-w-fix">Settings</div>
+    <div class="p-2 bd-highlight set-w-fix font-20" [routerLink]="['./about']" routerLinkActive="active">About</div>
+    <div class="p-2 bd-highlight set-w-fix font-20">Activities</div>
+    <div class="p-2 bd-highlight set-w-fix font-20" [routerLink]="['./event']" routerLinkActive="active">Twitter Feeds</div>
+    <div class="p-2 bd-highlight set-w-fix font-20" [routerLink]="['./role']" routerLinkActive="active">Roles</div>
+    <div class="p-2 bd-highlight set-w-fix font-20">Offices</div>
+    <div class="p-2 bd-highlight set-w-fix font-20">Bills</div>
+    <div class="p-2 bd-highlight set-w-fix font-20">Settings</div>
 </div>
