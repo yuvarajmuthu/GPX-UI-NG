@@ -35,7 +35,7 @@
       <img src="{{legislator.photo_url}}" alt="profile-sample1" class="profile"/> -->
     </p>
 
-    <h4 class="card-title">{{legislator.full_name}}</h4>
+    <h3 class="font-20">{{legislator.full_name}}</h3>
 
     <p class="card-text">
       <!--
@@ -55,17 +55,17 @@
       <br/>
     -->
     <a [routerLink]="['/user/',legislator['role']['type']]" href="javascript:void(0);"
-      class="hvr-underline-from-center wobble-top" title="View this Party">{{legislator['role']['type']}}
+      class="hvr-underline-from-center wobble-top text-green font-14" title="View this Party">{{legislator['role']['type']}}
     </a>    
     <br/>
 
     <a [routerLink]="['/user/',legislator.division]" href="javascript:void(0);"
-      class="hvr-underline-from-center wobble-top" title="View this Party">{{legislator.division}}
+      class="hvr-underline-from-center wobble-top text-green font-14" title="View this Party">{{legislator.division}}
     </a>
     <br/>
     
     <a [routerLink]="['/user/',legislator['role']['party']]" href="javascript:void(0);"
-                class="hvr-underline-from-center wobble-top" title="View this Party">{{legislator['role']['party']}}
+                class="hvr-underline-from-center wobble-top text-green font-14" title="View this Party">{{legislator['role']['party']}}
     </a>
 
 
@@ -74,7 +74,7 @@
     </p>
 
     <a href="javascript:void(0);" (click)="gotoLegislator(legislator)" title="View this Profile"
-       class="btn btn-secondary btn-sm">
+       class="btn button-blue font-14">
       <!-- <i class="fa fa-eye"></i> -->
       View profile
     </a>
