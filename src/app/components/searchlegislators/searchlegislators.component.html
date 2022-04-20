@@ -47,16 +47,16 @@
   </div> -->
   <div *ngIf="searchAddress && !registration">
     <div class="locationText">
-      Data based on the location <strong class="text-green">{{searchAddress}}</strong>
+      Data based on the location <span class="text-green">{{searchAddress}}</span>
     </div>
   </div>
 
   <div style="margin-top:5px" *ngIf="divisions && divisions.length > 0">
 
     <div class="sub-title sub-title-size">
-      <ngb-alert type="primary" [dismissible]="false">
-        <strong>Division</strong>
-      </ngb-alert>
+      <!-- <ngb-alert type="primary" [dismissible]="false"> -->
+        <h3 class="font-18">Division :</h3>
+      <!-- </ngb-alert> -->
     </div>
     <div class="row" style="margin-left:1px">
       <span class="filterPill"><button class="btn button-color" [ngClass]="{'active': selectedDivision == division}"
@@ -68,9 +68,9 @@
 
   <div style="margin-top:5px" *ngIf="divisionOffices && divisionOffices.length > 0">
     <div class="sub-title sub-title-size">
-      <ngb-alert type="primary" [dismissible]="false">
-        <strong>Role</strong>
-      </ngb-alert>
+      <!-- <ngb-alert type="primary" [dismissible]="false"> -->
+        <h3 class="font-18">Role :</h3>
+      <!-- </ngb-alert> -->
     </div>
     <div class="row" style="margin-left:1px">
       <span class="filterPill"><button class="btn button-color"
