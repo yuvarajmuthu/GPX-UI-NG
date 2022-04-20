@@ -17,6 +17,7 @@ import { UserComponent } from '../components/user/user/user.component';
   styleUrls: ['./role.component.scss']
 })
 export class RoleComponent extends UserComponent implements OnInit {
+  roles: JSON[] = [];
 
   constructor(router: Router,
     route: ActivatedRoute,
@@ -32,7 +33,20 @@ export class RoleComponent extends UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadTemplateData();  
   }
+
+  loadTemplateData() {
+    this.userService.getRoles(this.profileUserId)
+        .subscribe((data) => {
+            this.roles = data;
+
+            //this.changeDetector.detectChanges();
+
+        });
+
+}
+
   keyword = 'name';
   data = [
     {
