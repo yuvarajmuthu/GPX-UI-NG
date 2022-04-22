@@ -210,7 +210,7 @@ p {
           position: fixed;
           top: 0;
           right: -300px;
-          width: 300px;
+          width: 282px;
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           height: 100%;
           transition: right 0.3s ease;
@@ -261,9 +261,11 @@ p {
           background-color: rgba(0, 0, 0, 0.1);
           cursor: pointer;
   }
+
   header .material-icons:hover + nav,
   nav:hover {
           right: 0;
+         
   }
   header .black {
           transition: background-color 0.3s ease;

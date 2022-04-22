@@ -13,20 +13,20 @@
                     <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
                     <div class="font-14 color-grew pointer hover">Varachha, District</div>
                     <div class="d-flex flex-wrap my-2 font-12">
-                        <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i> Gujrat</a>
-                        <a class="mr-3 text-muted pointer hover"> <i class="bx bx-bullhorn"></i> Form BJP</a>
-                        <span class="mr-3 text-muted"> <i class="bx bx-calendar"></i> 28 Jan 2021 to 29 Dec
+                        <a class="text-muted pointer hover"> <i class="bx bx-map-marker"></i> Gujrat</a>
+                        <a class="text-muted pointer hover"> <i class="bx bx-bullhorn"></i> Form BJP</a>
+                        <span class="text-muted"> <i class="bx bx-calendar"></i> 28 Jan 2021 to 29 Dec
                             2022</span>
                     </div>
                 </div>
             </div>
             <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
                 <div class="d-flex">
-                    <a class="mr-3 flex-shrink-0">
+                    <a class="flex-shrink-0">
                         <span class="icon-shaw pointer" (click)="largeModal(largeDataModal)"><i
                                 class="bx bx-plus w-auto"></i></span>
                     </a>
-                    <a class="flex-shrink-1">
+                    <a class="flex-shrink-1 ml-1">
                         <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
                     </a>
                 </div>
@@ -35,21 +35,21 @@
         <div class="box">
             <div class="container">
                 <div class="d-flex ">
-                    <div class="flex-shrink-0">
-                        <div class="lines" *ngFor="let role of roles">
+                    <div class="flex-shrink-0 mt-2">
+                        <div class="lines" *ngFor="let role of roles; last as isLast">
                             <div class="dots p-2">
                                 <i class="bx bx-envelope w-auto text-green"></i>
                             </div>
-                            <div class="lin ml-3"></div>
+                            <div class="lin ml-3" *ngIf="!isLast"></div>
 
                         </div>
                     </div>
                     <div class="flex-shrink-1">
                         <div class="cards">
                             <div class="card" *ngFor="let role of roles">
-                                <div class="d-flex">
-                                    <div class="p-3 flex-shrink-0">
-                                        <div class="font-16 pointer hover">Kishor Kanani (Kumar)</div>
+                                <div class="row m-0 py-2">
+                                    <div class="col-10" style="position: unset;">
+                                        <div class="font-18 pointer hover">Kishor Kanani (Kumar)</div>
                                         <div class="font-14 color-grew pointer hover">Varachha, District</div>
                                         <div class="d-flex flex-wrap my-2 font-12">
                                             <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
@@ -58,16 +58,15 @@
                                                 BJP</a>
                                         </div>
                                         <div class="font-14">
-                                            <span class="mr-3 text-muted"> <i class="bx bx-calendar"></i> 28 Jan
+                                            <span class="text-muted"> <i class="bx bx-calendar"></i> 28 Jan
                                                 2021
                                                 to 29
                                                 Dec 2022</span>
                                         </div>
                                     </div>
-                                    <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
-                                        <div class="d-flex">
-                                            
-                                            <a class="flex-shrink-1">
+                                    <div *ngIf="isProfileInEditMode()" class="edit-icon col-2 p-0" style="position: unset;">
+                                        <div class="">
+                                            <a class="">
                                                 <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
                                             </a>
                                         </div>
