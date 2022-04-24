@@ -33,8 +33,7 @@ const routes: Routes = [
             {
               path: 'twitter',
               component: TwittertweetsComponent,
-            }
-            ,
+            },
             {
               path: 'news',
               component: PostcardComponent,

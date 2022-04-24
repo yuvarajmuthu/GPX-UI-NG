@@ -23,13 +23,14 @@ export class DatashareService {
   //public currentUser = {};
   
   public viewingUserId:string = ''; //SHOULD BE DEPRECATED
-  public viewingUser = {};
+  public viewingUser:User = new User();
   public viewingDistrict = {};
   public viewingEntity:any; //can obsolete viewingUser / viewingDistrict
   
   public currentDistrictId:string = 'g0010';
   public selectedLegislatorId:string = 'g0010';
   legislator: Legislator = new Legislator();
+  inEditMode:boolean;
 
   //private userLogged:boolean = false;
 
@@ -126,14 +127,22 @@ export class DatashareService {
    this.viewingUserId = userId;
   }
 
-  getViewingUser():any{
+  getViewingUser():User{
    return this.viewingUser;
   }
 
-  setViewingUser(user:any){
+  setViewingUser(user:User){
    this.viewingUser = user;
   }
 
+  //represents if the user profile currently in edit mode or not
+  setEditMode(value:boolean){
+    this.inEditMode = value;
+  }
+
+  isProfileInEditMode(){
+    return this.inEditMode;
+  }
   // isUserLogged():boolean{
   //   return this.userLogged;
   //  }

@@ -10,6 +10,7 @@ import { SidemenuComponent } from '../../sidemenu/sidemenu.component';
 import { RightsidemenuComponent } from '../../rightsidemenu/rightsidemenu.component';
 import { UserstageComponent } from './userstage/userstage.component';
 import { AboutComponent } from './about/about.component';
+import { RoleComponent } from '../../role/role.component';
 
 //import { HomeComponent } from '../../home/home.component';
 
@@ -30,12 +31,13 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ],
   //Any component as well as directives and pipes need to be added in declarations array  
   declarations: [
-    UserComponent, 
+   UserComponent, 
    UserstageComponent,
    //HomeComponent,
    SidemenuComponent,
    RightsidemenuComponent,
-   AboutComponent
+   AboutComponent,
+   RoleComponent
   ],
   //The entryComponents array is used to define only components that are not found in html and created dynamically with ComponentFactoryResolver.
   entryComponents:[UserstageComponent],

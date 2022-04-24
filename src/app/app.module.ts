@@ -53,7 +53,7 @@ export function tokenGetter() {
     EventComponent,
     //AboutComponent,
     FooterComponent,
-    RoleComponent,
+    //RoleComponent,
     SearchlegislatorsComponent,
     LegislatorComponent,
     TwittertweetsComponent,
@@ -75,7 +75,7 @@ export function tokenGetter() {
     NgbModule,
     SocialLoginModule,
     SecurityModule,
-    UserModule,
+    //UserModule,
     //Any requests sent using Angular's HttpClient will automatically have a token attached as an Authorization header.
     JwtModule.forRoot({
       config: {
@@ -94,7 +94,8 @@ export function tokenGetter() {
   })
   ],
     exports:[
-      UserModule],
+      //UserModule
+    ],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',
