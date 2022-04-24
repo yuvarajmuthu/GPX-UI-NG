@@ -1,4 +1,4 @@
-import { Injectable, ViewContainerRef, EmbeddedViewRef, ViewRef } from '@angular/core';
+import { Injectable, ViewContainerRef, EmbeddedViewRef, ViewRef, EventEmitter } from '@angular/core';
 
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
@@ -33,6 +33,8 @@ export class ComponentcommunicationService {
   connectionRequestCancelChanged$ = this.connectionRequestCancelSource.asObservable(); 
   manageUserRemove$ = this.manageUserRemove.asObservable();
   biodataChanged$ = this.biodataChange.asObservable();
+
+  userdataLoadEvent: EventEmitter<boolean> = new EventEmitter();
 
   // Service message broadcast
   announceMission(mission: string) {
@@ -78,4 +80,8 @@ export class ComponentcommunicationService {
   // removeProfileTemplateMission(viewRef: ViewRef) {
   //   this.missionConfirmedSource.next(viewRef);
   // }
+
+  userdataLoadCompletionSignal(value:boolean) {
+    this.userdataLoadEvent.emit(value);
+  }
 }

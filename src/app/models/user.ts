@@ -1,4 +1,5 @@
 import { ProfileData } from "./profiledata";
+import { ProfileTemplate } from "./profileTemplate";
 
 export class User {
     id: number=-1;
@@ -33,7 +34,7 @@ export class User {
     otherContacts:any = [];
     selfProfile:boolean = false;
     showSettings:boolean = false;
-    profileTemplates = [];
+    profileTemplates:ProfileTemplate[] = [];
 
 }
 

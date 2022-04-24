@@ -22,7 +22,8 @@ import { ProfileTemplate } from 'src/app/models/profileTemplate';
 export class UserComponent{
 
 
-    @Input() profileUserId: string = '';
+    @Input() 
+    public profileUserId: string = '';
     isEditDescIcon = false;
     isEditDesc = false;
     legisId: string = '';
@@ -46,7 +47,7 @@ export class UserComponent{
     templateType = [];
     userData:User = new User();
     //private viewingUser:User = new User();
-    public profileTemplates = [];
+    public profileTemplates:ProfileTemplate[] = [];
     availableProfileTemplates:ProfileTemplate[] = [];
     public profilesDatas:ProfileData[] = [];
     public isLegislator = false;
@@ -132,7 +133,12 @@ export class UserComponent{
     public datashareService: DatashareService,
     public formBuilder: FormBuilder
     ) { 
-
+        communicationService.userProfileEditChanged$.subscribe(
+            editmode => {
+                console.log('Received edit-save Profile message ' + editmode);
+                this.inEditMode = editmode;
+                this.datashareService.setEditMode(editmode);
+            });
     }
 
   ngOnInit(): void {
@@ -185,8 +191,11 @@ isProfileEditable() {
             }); 
 
     }
+
+    return this.isEditable;
 }
 
+//OBSOLETE ?
 isProfileInEditMode(){
     return this.inEditMode;
 }
@@ -267,6 +276,8 @@ isProfileInEditMode(){
                 //getting the data for this user profile
                 //this.profilesData = this.viewingUser['profilesData'] = this.userData['profileData'];
                 this.profileTemplates = this.userData['profileTemplates'];
+                console.log("User profileTemplates: ", this.profileTemplates);
+
                 //this.viewingUser['profileTemplates'] = this.profileTemplates;
 
                 //list the templates that are available to use, ignores the one that are already used
@@ -312,6 +323,7 @@ isProfileInEditMode(){
                     if(profileData['profileTemplateId'] === 'upMember' &&
                         profileData['data'] &&
                         profileData['data']['bioguide']){
+
                         this.members.push(profileData['data']['bioguide']);
                     }
 
@@ -341,6 +353,8 @@ isProfileInEditMode(){
 
                 //setting Activities page as default view
                 //this.showActivities();
+
+                this.communicationService.userdataLoadCompletionSignal(true);
             }
         );
 
