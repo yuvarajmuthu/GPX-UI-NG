@@ -30,7 +30,7 @@ export class DatashareService {
   public currentDistrictId:string = 'g0010';
   public selectedLegislatorId:string = 'g0010';
   legislator: Legislator = new Legislator();
-  inEditMode:boolean;
+  isEditMode:boolean;
 
   //private userLogged:boolean = false;
 
@@ -137,11 +137,11 @@ export class DatashareService {
 
   //represents if the user profile currently in edit mode or not
   setEditMode(value:boolean){
-    this.inEditMode = value;
+    this.isEditMode = value;
   }
 
   isProfileInEditMode(){
-    return this.inEditMode;
+    return this.isEditMode;
   }
   // isUserLogged():boolean{
   //   return this.userLogged;
@@ -185,13 +185,6 @@ export class DatashareService {
 
   }
 
-  editProfile(data:boolean){
-    this.viewingEntity['isProfileEditMode'] = data;
-  }
-
-  isProfileEditable():boolean{
-    return this.viewingEntity['isProfileEditMode'];
-  } 
 
   checkPermissions():boolean {
       if(this.selected_permission == 'Editor') {

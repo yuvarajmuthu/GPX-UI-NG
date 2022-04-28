@@ -22,7 +22,10 @@
                 </div>
             </div>
         -->
-            <div *ngIf="isProfileInEditMode()" class="p-2 ml-auto edit-icon">
+        
+            <h3 class="font-18">Roles</h3>
+
+            <div *ngIf="isEditMode" class="p-2 ml-auto edit-icon">
                 <div class="d-flex">
                     <a class="flex-shrink-0">
                         <span class="icon-shaw pointer" (click)="largeModal(largeDataModal)"><i
@@ -53,18 +56,34 @@
                             <div class="card" *ngFor="let role of roles">
                                 <div class="row m-0 py-2">
                                     <div class="col-10" style="position: unset;">
-                                        <div class="font-18 pointer hover">{{role.data.type}}</div>
-                                        <div class="d-flex flex-wrap my-2 font-12">
-                                            <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
+                                        <div  *ngFor="let displayProperty of displayProperties">
+                                            {{displayProperty['propId']}}, {{role.data[displayProperty['propId']]}}
+                                        </div>
+                                        <div *ngIf="role.data.type" class="font-18 pointer hover">
+                                            {{role.data.type}}
+                                        </div>
+                                        <div *ngIf="role.data.district" class="d-flex flex-wrap my-2 font-12">
+                                            <i class="bx bx-map"></i>
+                                            District <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
                                                 {{role.data.district}}</a>
                                             <a class="mr-3 text-muted pointer hover"> <i class="bx bx-bullhorn"></i> {{role.data.state}}</a>
-                                        </div>                                        <div class="font-14 color-grew pointer hover">{{role.data.party}}</div>
-                                        
-                                        <div class="font-14">
-                                            <span class="text-muted"> <i class="bx bx-calendar"></i> {{role.data.start}} to {{role.data.end}}</span>
+                                        </div>                                        
+                                        <div *ngIf="role.data.party" class="font-14 color-grew pointer hover">
+                                            <i class="bx bx-flag"></i>
+                                            {{role.data.party}}
                                         </div>
+                                        <div *ngIf="role.data.start" class="font-14">
+                                            <span class="text-muted"> 
+                                            <i class="bx bx-calendar"></i> 
+                                            {{role.data.start}} to {{role.data.end}}</span>
+                                        </div>
+                                        <!--
+                                        <div *ngIf="!role.data.type && !role.data.district && !role.data.party && !role.data.start && !role.data.end" class="font-14 color-grew pointer hover">
+
+                                        </div>
+                                        -->
                                     </div>
-                                    <div *ngIf="isProfileInEditMode()" class="edit-icon col-2 p-0" style="position: unset;">
+                                    <div *ngIf="isEditMode" class="edit-icon col-2 p-0" style="position: unset;">
                                         <div class="">
                                             <a class="">
                                                 <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
