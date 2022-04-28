@@ -134,8 +134,10 @@
                     <div ngbDropdownMenu aria-labelledby="dropdownManual">
                         <button ngbDropdownItem *ngIf="!isUserLogged" (click)="route('login')">Login</button>
                         <button ngbDropdownItem *ngIf="!isUserLogged" (click)="route('register')">Register</button>
+                        <!--
                         <button ngbDropdownItem *ngIf="isUserLogged" (click)="loadUser()">View Profile</button>
                         <button ngbDropdownItem *ngIf="isUserLogged" (click)="loadUser()">Edit Profile</button>
+                        -->
                         <button ngbDropdownItem *ngIf="isUserLogged" (click)="logout()">Logout</button>
                     </div>
                 </div>

@@ -154,6 +154,7 @@ export class UserComponent{
       this.loggedUsername = this.datashareService.getLoggedinUsername();
 
       this.route.params.subscribe((params: Params) => {
+          //user profile page change, so reset to false - read mode
           this.communicationService.userProfileChanged(false);
 
           this.profileUserId = params['id'];
@@ -165,19 +166,40 @@ export class UserComponent{
   }
 
     editProfile() {
-        this.datashareService.editProfile(true);
+        this.datashareService.setEditMode(true);
         this.communicationService.userProfileChanged(true);
 
     }
 
 cancelEditProfile() {
 
-    this.datashareService.editProfile(false);
+    this.datashareService.setEditMode(false);
     this.communicationService.userProfileChanged(false);
 
 
 }
+saveProfile() {
+    /*
+    console.log(this.userData.role);
+    console.log('Saving user.component Profile');
+    //if image got change, submit that image
+    if (this.profileSmImageChanged) {
+        const uploadFormData = new FormData();
 
+        //uploadFormData.append("file", this.selectedProfileSmImage, this.selectedProfileSmImage.name);
+        uploadFormData.append('file', this.uploadForm.get('file').value);
+        uploadFormData.append('post', JSON.stringify(this.datashareService.getViewingUser()));
+
+        this.userService.updateUserSmProfileImage(uploadFormData)
+            .subscribe(data => {
+                console.log('User profile image got uploaded successfully, ', this.datashareService.getViewingUser());
+            });
+    }
+    */
+    this.datashareService.setEditMode(false);
+    this.communicationService.userProfileChanged(false);
+
+}
 isProfileEditable() {
     if(this.isSelfProfile){
         this.isEditable = true;
@@ -555,23 +577,7 @@ followAction() {
                 console.log('Error ', err);
             });
 }
-saveProfile() {
-    console.log(this.userData.role);
-    console.log('Saving user.component Profile');
-    //if image got change, submit that image
-    if (this.profileSmImageChanged) {
-        const uploadFormData = new FormData();
 
-        //uploadFormData.append("file", this.selectedProfileSmImage, this.selectedProfileSmImage.name);
-        uploadFormData.append('file', this.uploadForm.get('file').value);
-        uploadFormData.append('post', JSON.stringify(this.datashareService.getViewingUser()));
-
-        this.userService.updateUserSmProfileImage(uploadFormData)
-            .subscribe(data => {
-                console.log('User profile image got uploaded successfully, ', this.datashareService.getViewingUser());
-            });
-    }
-}
 
 getRelationStatus(entity: string, profileId: string) {
 

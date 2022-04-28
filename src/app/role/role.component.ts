@@ -25,27 +25,35 @@ export class RoleComponent implements OnInit {
   displayProperties = [];
   currentUser:User;
   eventSubscription: any;
+  isEditMode:boolean;
+
+
   constructor(public router: Router,
     public route: ActivatedRoute,
     public userService: UserService,
     public postService: PostService,
     public profileService: ProfileService,
-    public communicationService: ComponentcommunicationService,
+    private communicationService: ComponentcommunicationService,
     public legislatorsService: LegislatorService,
-    public datashareService: DatashareService,
+    private datashareService: DatashareService,
     public formBuilder: FormBuilder,
     private modalService: NgbModal
     //,@Inject(UserComponent) private parent: UserComponent
     ) { 
       //super(router, route, userService, postService, profileService, communicationService, legislatorsService, datashareService, formBuilder);
-      this.eventSubscription = this.communicationService.userdataLoadEvent.subscribe(data => {
+      this.eventSubscription = communicationService.userdataLoadEvent.subscribe(data => {
         if(data){
-          this.currentUser = this.datashareService.getViewingUser();
+          this.currentUser = datashareService.getViewingUser();
           this.eventSubscription.unsubscribe();
   
           this.loadData(); 
   
         }
+    
+      });
+
+      communicationService.userProfileEditChanged$.subscribe(data => {
+        this.isEditMode = data;
     
       });
 
@@ -56,6 +64,8 @@ export class RoleComponent implements OnInit {
     //console.log("profileUserId: ", this.parent.userData.username);
 
     this.currentUser = this.datashareService.getViewingUser();
+    this.isEditMode = this.datashareService.isProfileInEditMode();
+
     if(this.currentUser.username){
       this.eventSubscription.unsubscribe();
 
@@ -144,7 +154,5 @@ export class RoleComponent implements OnInit {
     this.modalService.open(largeDataModal, { centered: true });
   }
 
-  isProfileInEditMode(){
-    this.datashareService.isProfileInEditMode();
-  }
+
 }

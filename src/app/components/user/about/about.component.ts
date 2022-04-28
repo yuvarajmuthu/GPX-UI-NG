@@ -9,31 +9,61 @@ import {ProfileService} from '../../../services/profile.service';
 import {PostService} from '../../../services/post.service';
 import {LegislatorService} from '../../../services/legislator.service';
 import {ComponentcommunicationService} from '../../../services/componentcommunication.service';
-import { UserComponent } from '../user/user.component';
+//import { UserComponent } from '../user/user.component';
+
+import {User} from '../../../models/user';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent extends UserComponent implements OnInit {
-  isReadMore = true
+export class AboutComponent implements OnInit {
+  isReadMore = true;
+  userData:User;
+  currentUser:User;
+  eventSubscription: any;
+  isEditMode:boolean;
+
   constructor(router: Router,
     route: ActivatedRoute,
     userService: UserService,
     postService: PostService,
     profileService: ProfileService,
-    communicationService: ComponentcommunicationService,
+    private communicationService: ComponentcommunicationService,
     legislatorsService: LegislatorService,
-    datashareService: DatashareService,
+    private datashareService: DatashareService,
     formBuilder: FormBuilder,
     private modalService: NgbModal) { 
-      super(router, route, userService, postService, profileService, communicationService, legislatorsService, datashareService, formBuilder);
+      //super(router, route, userService, postService, profileService, communicationService, legislatorsService, datashareService, formBuilder);
+      this.eventSubscription = communicationService.userdataLoadEvent.subscribe(data => {
+        if(data){
+          this.currentUser = datashareService.getViewingUser();
+          this.eventSubscription.unsubscribe();
+  
+          this.loadData(); 
+  
+        }
+    
+      });
 
+      communicationService.userProfileEditChanged$.subscribe(data => {
+        this.isEditMode = data;
+    
+      });
   }
 
   ngOnInit(): void {
-    super.ngOnInit();
+    //super.ngOnInit();
+    this.currentUser = this.datashareService.getViewingUser();
+    this.isEditMode = this.datashareService.isProfileInEditMode();
+    if(this.currentUser.username){
+      this.eventSubscription.unsubscribe();
+
+      this.loadData(); 
+
+    }
+
   }
   
   showText() {
@@ -42,4 +72,9 @@ export class AboutComponent extends UserComponent implements OnInit {
   largeModalAbout(largeDataModalAbout: any) {
     this.modalService.open(largeDataModalAbout, { centered: true });
   }
+
+  loadData(){
+    this.userData = this.currentUser;
+  }
+
 }
