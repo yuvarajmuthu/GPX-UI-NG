@@ -5,7 +5,9 @@ fieldset, label {
   margin: 0;
   padding: 0;
 }
-
+a:hover{
+  color: #0db685;
+}
 .rating {
   border: none;
   margin-right: auto;
@@ -74,12 +76,12 @@ fieldset, label {
   transform: translateZ(0);
   box-shadow: 0 0 1px transparent;
 }
-.wobble-top:hover {
-  animation-name: wobble-top;
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
-}
+// .wobble-top:hover {
+//   animation-name: wobble-top;
+//   animation-duration: 1s;
+//   animation-timing-function: ease-in-out;
+//   animation-iteration-count: 1;
+// }
 .legislator-box-shadow:hover{
   /*border: 1px solid green;*/
   -webkit-box-shadow: -2px 2px 43px -11px rgba(0,0,0,0.75);
@@ -95,7 +97,7 @@ fieldset, label {
 .rating > input:checked ~ label,
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
-  color: #028ece;
+  color: #0db685;
 }
 
 /* hover previous stars in list */
@@ -103,14 +105,14 @@ fieldset, label {
 .rating > input:checked ~ label:hover,
 .rating > label:hover ~ input:checked ~ label,
 .rating > input:checked ~ label:hover ~ label {
-  color: #028ece;
+  color: #0db685;
 }
 .star-css{
   color:#6c757d;
 }
 .star-css:hover,.active{
   transition: 0.5s;
-  color:#007bff;
+  color:#0db685;
 }
 .snip1344 {
   font-family: 'Open Sans', Arial, sans-serif;

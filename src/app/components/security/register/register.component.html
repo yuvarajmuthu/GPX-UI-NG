@@ -1,22 +1,23 @@
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container m-t-reg">
+    <h3 class="font-20 my-3 mx-4 text-center">Welcome to GoPolitix</h3>
+    <div class="row d-flex align-items-center">
         <div class="col-md-6">
             <div class="card">
-                <header class="card-header">
-                    <a href="javascript:void(0);" (click)="loadLoginComponent()" class="float-right btn btn-outline-primary mt-1">Log in</a>
-                    <h4 class="card-title mt-2">Sign up</h4>
-                </header>
+                <div class="my-3 mx-4">
+                    <a href="javascript:void(0);" (click)="loadLoginComponent()" class="float-right btn btn-outline-primary mt-1 pointer font-14">Log in</a>
+                    <h3 class="font-20">Sign up</h3>
+                </div>
 
-                <article class="card-body">
+                <article class="card-body border-top py-2">
                     <form [formGroup]="registerForm" (ngSubmit)="register()">
                         <div class="form-row">
                             <div class="col form-group">
-                                <label>Display name</label>
+                                <label class="font-14">Display name</label>
                                 <input type="text" class="form-control" placeholder="Display name" formControlName="full_name" [ngClass]="{ 'is-invalid': submitted && f.full_name.errors }"/>
                             </div> 
                         </div>    
                         <div class="form-group">
-                            <label>Username - Email address (or) Phone number</label>
+                            <label class="font-14">Username - Email address (or) Phone number</label>
                             <input type="text" class="form-control" formControlName="username">
                             <span class="text-danger" *ngIf="registerForm.controls['username'].hasError('required') && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">This field is required</span>
                             <span class="text-danger" *ngIf="registerForm.controls['username'].hasError('pattern') && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">Please enter valid email address or phone number</span>
@@ -24,27 +25,29 @@
                         </div> <!-- form-group end.// -->
 
                         <div class="form-group">
-                            <label>Create password</label>
+                            <label class="font-14">Create password</label>
                             <input class="form-control" type="password" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
                         </div> <!-- form-group end.// -->
                         
  
                         <div class="form-group">
-                            <label>Location</label>
+                            <label class="font-14">Location</label>
                             <app-g-address-search (setAddress)="getAddress($event)" adressType="geocode"></app-g-address-search>
 
                         </div>
 
                             
-                        <div class="form-group">
-                            <button type="submit" [disabled]="loading" class="btn btn-primary btn-block">Sign Up</button>
+                        <div class="form-group w-50 mx-auto">
+                            <button type="submit" [disabled]="loading" class="btn btn-outline-primary btn-block font-18">Sign Up</button>
                         </div> <!-- form-group// -->
                     </form>
                 </article> <!-- card-body end .// -->
-                <div class="border-top card-body text-center">Have an account? <a href="javascript:void(0);" (click)="loadLoginComponent()">Sign In</a></div>
+                <div class="border-top py-3 text-center font-18">Have an account? <a class="font-14 pointer" (click)="loadLoginComponent()">Sign In</a></div>
             </div> <!-- card.// -->
         </div> <!-- col.//-->
-
+        <div class="col-md-6 hide-small">
+            <img src="../../../../assets/images/login.svg" alt="">
+          </div>
     </div> <!-- row.//-->
 
 

@@ -1,3 +1,7 @@
+
+.btn{
+  padding: 4px 7px !important;
+}
 .border-right{
   border-right:2px solid black;
 }
@@ -140,3 +144,27 @@ input-with-icon {
   position: relative;
   width: 100%;
 }
+
+a:hover{
+  color: #0db685;
+  text-decoration: unset;
+}
+.wave-li-blue{
+  background: linear-gradient(to bottom left, #fff 0%, #fff 50%, #e1f0ff 50%, #e1f0ff 100%);
+}
+.wave-li-firogi{
+  background: linear-gradient(to bottom left, #fff 0%, #fff 50%, #c9f7f5 50%, #c9f7f5 100%);
+}
+.wave-li-yellow{
+  background: linear-gradient(to bottom left, #fff 0%, #fff 50%, #fff4de 50%, #fff4de 100%);
+}
+.wave-li-blues{
+  background: linear-gradient(to bottom left, #fff 0%, #fff 50%, #e1f0ff 50%, #007cf9 100%);
+}
+.wave-li-firogis{
+  background: linear-gradient(to bottom left, #fff 0%, #fff 50%, #c9f7f5 50%, #00fff4 100%);
+}
+.wave-li-yellows{
+  background: linear-gradient(to bottom left, #fff 0%, #fff 50%, #fff4de 50%, #ffaa00 100%);
+}
+

@@ -5,7 +5,7 @@
         <div>
           <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8 banner-text" style="font-size: 22px;color:gainsboro;">
+            <div class="col-md-8 banner-text font-20" style="font-size: 22px;color:gainsboro;">
               Find Your Representatives</div>
             <div class="col-md-2"></div>
           </div>
@@ -46,7 +46,7 @@
     </div>
   </div> -->
   <div *ngIf="searchAddress && !registration">
-    <div class="locationText">
+    <div class="locationText font-18">
       Data based on the location <span class="text-green">{{searchAddress}}</span>
     </div>
   </div>
@@ -55,12 +55,13 @@
 
     <div class="sub-title sub-title-size">
       <!-- <ngb-alert type="primary" [dismissible]="false"> -->
-        <h3 class="font-18">Division :</h3>
+      <h3 class="font-18 text-green"># Division :</h3>
       <!-- </ngb-alert> -->
     </div>
     <div class="row" style="margin-left:1px">
-      <span class="filterPill"><button class="btn button-color" [ngClass]="{'active': selectedDivision == division}"
-          (click)="selectDivision(division);" *ngFor="let division of divisions">
+      <span class="filterPill"><button class="btn button-color font-14"
+          [ngClass]="{'active': selectedDivision == division}" (click)="selectDivision(division);"
+          *ngFor="let division of divisions">
           {{ division }}
         </button></span>
     </div>
@@ -69,11 +70,11 @@
   <div style="margin-top:5px" *ngIf="divisionOffices && divisionOffices.length > 0">
     <div class="sub-title sub-title-size">
       <!-- <ngb-alert type="primary" [dismissible]="false"> -->
-        <h3 class="font-18">Role :</h3>
+      <h3 class="font-18 text-green"># Role :</h3>
       <!-- </ngb-alert> -->
     </div>
     <div class="row" style="margin-left:1px">
-      <span class="filterPill"><button class="btn button-color"
+      <span class="filterPill"><button class="btn button-color font-14"
           [ngClass]="{'active': selectedDivisionOffice == divisionOffice}"
           (click)="selectDivisionOffice(divisionOffice);" *ngFor="let divisionOffice of divisionOffices">
           {{ divisionOffice }}
@@ -97,4 +98,380 @@
     </div>
   </div>
 
+</div>
+
+<div *ngIf="legislators.length">
+<!-- First -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 p-2">
+      <div class="row  card-profile m-0 p-3">
+        <div class="col-4">
+          <img src="../../../assets/profile.png" alt="" class="img">
+        </div>
+        <div class="col-8">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2">
+      <div class="row  card-profile m-0 p-3">
+        <div class="col-4">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img">
+        </div>
+        <div class="col-8">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2">
+      <div class="row  card-profile m-0 p-3">
+        <div class="col-4">
+          <img src="../../../assets/profile.png" alt="" class="img">
+        </div>
+        <div class="col-8">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- second -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 p-2">
+      <div class="row  card-profile m-0 p-3">
+        <div class="col-5 wave-li-blue">
+          <img src="../../../assets/profile.png" alt="" class="img" style="border-radius: 50%;">
+        </div>
+        <div class="col-7">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2">
+      <div class="row  card-profile m-0 p-3">
+        <div class="col-5 wave-li-firogi">
+          <img src="../../../assets/images/avatar1.png" alt="" class="img" style="border-radius: 50%;">
+        </div>
+        <div class="col-7">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2">
+      <div class="row  card-profile m-0 p-3">
+        <div class="col-5 wave-li-yellow">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%;">
+        </div>
+        <div class="col-7">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- third -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4 p-2">
+      <div class="text-center card-profile m-0 p-3">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2">
+      <div class="text-center card-profile m-0 p-3">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2">
+      <div class="text-center card-profile m-0 p-3">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- four -->
+<div class="container ">
+  <div class="row">
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-blue">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #3699FF!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-firogi">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #1BC5BD!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-yellow">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #FFA800!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- five -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-blues">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #3699FF!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-firogis">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #1BC5BD!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-yellows">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #FFA800!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- six -->
+<div class="container ">
+  <div class="row">
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-blue" style="border-radius: 100% 0% 0% 0%;">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #3699FF!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-firogi" style="border-radius: 45% 0% 45% 0%;">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #1BC5BD!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+    <div class="col-md-4 p-2 mt-5">
+      <div class="text-center card-profile m-0 p-3 wave-li-yellow" style="border-radius: 100% 100% 0% 0%;">
+        <div class="" style="margin-top: -70px;">
+          <img src="../../../assets/images/userprofile.jpg" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+        </div>
+        <div class="py-2">
+          <div class="font-20">Robert P. Casey Jr.</div>
+          <div class="font-14"> <a class="pointer color-grew"> U.S. Senator </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Pennsylvania </a></div>
+          <div class="font-14"> <a class="pointer color-grew"> Democratic Party </a></div>
+          <div class="btn button-blue font-14 my-2">
+            View profile
+          </div>
+        </div>
+      </div>
+      <div class="star-tag" style="background-color: #FFA800!important;">
+        <i class="fa fa-star text-white pointer"></i>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

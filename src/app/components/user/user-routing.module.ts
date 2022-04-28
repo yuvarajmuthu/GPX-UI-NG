@@ -9,6 +9,7 @@ import { EventComponent } from '../../event/event.component';
 import { RoleComponent } from '../../role/role.component';
 import { TwittertweetsComponent } from '../../components/twittertweets/twittertweets.component';
 import { PostcardComponent } from '../../post/postcard/postcard.component';
+import { InterestComponent } from './interest/interest.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
             {
               path: 'news',
               component: PostcardComponent,
+            },
+            {
+              path: 'interest',
+              component: InterestComponent,
             }
           ]
      // }  

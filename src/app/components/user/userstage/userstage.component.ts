@@ -84,6 +84,11 @@ export class UserstageComponent extends UserComponent implements OnInit{
     };
 
   }
+  color:string = 'bx-star';
+
+changeStyle($event:any){
+  this.color = $event.type == 'mouseover' ? 'bxs-star' : 'bx-star';
+}
 /*  
   getUserData(){
     console.log("userstage this.userData ", this.userData);
