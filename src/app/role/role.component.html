@@ -56,32 +56,53 @@
                             <div class="card" *ngFor="let role of roles">
                                 <div class="row m-0 py-2">
                                     <div class="col-10" style="position: unset;">
-                                        <div  *ngFor="let displayProperty of displayProperties">
+                                        <!---->
+                                            <!--
                                             {{displayProperty['propId']}}, {{role.data[displayProperty['propId']]}}
-                                        </div>
+                        
+                                        <span *ngIf="displayProperty.propId == 'start' && role[displayProperty.propId]" class="subtle"><i class="fa fa-calendar"></i>{{role[displayProperty.propId]}}</span>
+                      <span *ngIf="displayProperty.propId == 'end' && role[displayProperty.propId]" class="subtle"> to {{role[displayProperty.propId]}}</span>
+                      <span *ngIf="displayProperty.propId != 'start' && displayProperty.propId != 'end' && role[displayProperty.propId]" class="subtle date-time">
+                          <i class="fa fa-users" *ngIf="displayProperty.propId == 'committee' && role[displayProperty.propId]"></i>
+                          <i class="fa fa-flag" *ngIf="displayProperty.propId == 'party' && role[displayProperty.propId]"></i>
+                          <i class="fa fa-map" *ngIf="displayProperty.propId == 'district' && role[displayProperty.propId]"></i>
+              
+                           {{role[displayProperty.propId]}}</span>
+                           -->
+                           <!---->
                                         <div *ngIf="role.data.type" class="font-18 pointer hover">
                                             {{role.data.type}}
                                         </div>
+                                        <div *ngIf="role.data.chamber" class="d-flex flex-wrap my-2 font-12">
+                                            Chamber <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
+                                                {{role.data.chamber}}</a>
+                                        </div>                                        
+                                        <div *ngIf="role.data.committee" class="d-flex flex-wrap my-2 font-12">
+                                            Committee <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
+                                                {{role.data.committee}}</a>
+                                        </div>                                        
                                         <div *ngIf="role.data.district" class="d-flex flex-wrap my-2 font-12">
                                             <i class="bx bx-map"></i>
                                             District <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
                                                 {{role.data.district}}</a>
-                                            <a class="mr-3 text-muted pointer hover"> <i class="bx bx-bullhorn"></i> {{role.data.state}}</a>
+                                            <a *ngIf="role.data.state" class="mr-3 text-muted pointer hover"> <i class="bx bx-bullhorn"></i> {{role.data.state}}</a>
                                         </div>                                        
                                         <div *ngIf="role.data.party" class="font-14 color-grew pointer hover">
                                             <i class="bx bx-flag"></i>
-                                            {{role.data.party}}
+                                            {{role.data.party}} Party
                                         </div>
                                         <div *ngIf="role.data.start" class="font-14">
                                             <span class="text-muted"> 
-                                            <i class="bx bx-calendar"></i> 
-                                            {{role.data.start}} to {{role.data.end}}</span>
+                                                <i class="bx bx-calendar"></i> 
+                                                {{role.data.start}} to {{role.data.end}}
+                                            </span>
                                         </div>
                                         <!--
                                         <div *ngIf="!role.data.type && !role.data.district && !role.data.party && !role.data.start && !role.data.end" class="font-14 color-grew pointer hover">
 
                                         </div>
                                         -->
+
                                     </div>
                                     <div *ngIf="isEditMode" class="edit-icon col-2 p-0" style="position: unset;">
                                         <div class="">
@@ -106,11 +127,33 @@
 
 <ng-template #largeDataModal let-modal>
     <div class="modal-header">
-        <h5 class="modal-title mt-0">Large modal</h5>
+        <h5 class="modal-title mt-0">New Role:</h5>
 
         <div (click)="modal.dismiss('Cross click')"><i class="bx bx-x"></i> </div>
     </div>
     <div class="modal-body">
+        
+        <form [formGroup]="roleForm"> 
+            
+            <div class="form-group row" *ngFor="let displayProperty of displayProperties">
+              
+                <label for="{{displayProperty['propId']}}">{{displayProperty['displayLabel']}}</label>
+        <!--      
+              <div *ngIf="displayProperty['type'] === 'text'" class="input-group">
+                  <input *ngIf="role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control" placeholder="{{role.data[displayProperty['propId']]}}">
+                  <input *ngIf="!role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control">
+
+              </div>
+              <div *ngIf="displayProperty['type'] === 'date'" class="input-group">
+                <input type='date' *ngIf="role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control" placeholder="{{role.data[displayProperty['propId']]}}">
+                <input type='date' *ngIf="!role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control">
+              </div>
+            -->
+            </div> 
+            
+      </form>
+  
+  <!--
         <form>
             <div class="form-group">
                 <label for="exampleInputEmail1">Title (Member)</label>
@@ -179,8 +222,9 @@
                 <label for="exampleInputPassword1">End-Date</label>
                 <input type="date" class="form-control" id="exampleInputPassword1" placeholder="End-Date">
             </div>
-            <button type="submit" class="btn button-blue font-14">Submit</button>
+            <button type="submit" (click)="modal.dismiss('Cross click')" class="btn button-blue font-14">Submit</button>
         </form>
+        -->
     </div>
 </ng-template>
 

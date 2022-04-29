@@ -1,7 +1,7 @@
-import { Component, OnInit, OnChanges, Inject } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnChanges, Inject } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import {FormBuilder} from '@angular/forms';
+import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {DatashareService} from '../services/datashare.service';
 import {UserService} from '../services/user.service';
@@ -12,7 +12,7 @@ import {ComponentcommunicationService} from '../services/componentcommunication.
 //import { UserComponent } from '../components/user/user/user.component';
 
 import {Role} from '../models/role';
-import {User} from '../models/user';
+import {role, User} from '../models/user';
 
 @Component({
   selector: 'app-role',
@@ -27,6 +27,8 @@ export class RoleComponent implements OnInit {
   eventSubscription: any;
   isEditMode:boolean;
 
+  roleForm: FormGroup;
+
 
   constructor(public router: Router,
     public route: ActivatedRoute,
@@ -36,7 +38,8 @@ export class RoleComponent implements OnInit {
     private communicationService: ComponentcommunicationService,
     public legislatorsService: LegislatorService,
     private datashareService: DatashareService,
-    public formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
+    private changeDetector: ChangeDetectorRef,
     private modalService: NgbModal
     //,@Inject(UserComponent) private parent: UserComponent
     ) { 
@@ -47,6 +50,8 @@ export class RoleComponent implements OnInit {
           this.eventSubscription.unsubscribe();
   
           this.loadData(); 
+          this.createFormGroup(new Role());
+
   
         }
     
@@ -72,11 +77,19 @@ export class RoleComponent implements OnInit {
       this.loadData(); 
 
     }
-
-
-
   }
 
+  createFormGroup(role:Role) {
+    this.roleForm = this.formBuilder.group({});
+
+    this.displayProperties.forEach((element, index) => {
+        let value = role[element['propId']];
+        console.log('element[propId] ', element['propId'], ' this.role[element[propId]] ', role[element['propId']]);
+        this.roleForm.setControl(element['propId'], new FormControl(value));
+    });
+    this.changeDetector.detectChanges();
+  }
+  
   loadData() {
     this.loadDisplayProperties();
 
