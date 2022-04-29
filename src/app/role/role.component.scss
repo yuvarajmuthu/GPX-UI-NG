@@ -13,7 +13,7 @@
 @media (min-width: 0px) and (max-width: 360px){
   .lines {
     .lin {
-        height: 140px !important;
+        height: 120px !important;
     }
 }
 }
@@ -101,8 +101,8 @@
           border-radius: 7px;
         }
         .dots {
-          width: 35px;
-          height: 35px;
+          width: 70px;
+          height: 70px;
           background-color: #D7F9EF !important;
           border-radius: 50px;
         }
@@ -113,11 +113,11 @@
           margin-left: 5.3px;
         }
         .lin {
-          height: 140px;
+          height: 107px;
           width: 2px;
           // background: #D1D6E6;
           background-color: #D7F9EF;
-          margin-left: 5.3px;
+          margin-left: 33px;
         }
       }
       .cards {
@@ -125,8 +125,8 @@
         // transform: translateY(-50px);
         margin-top: -50px;
         .card {
-          // width: 249px;
-          // height: 93px;
+          width: 280px;
+          height: 170px;
           // padding-top: 25px;
           
             position: unset;

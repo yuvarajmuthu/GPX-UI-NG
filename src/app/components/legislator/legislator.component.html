@@ -14,12 +14,12 @@
   </figure>
 </div> -->
 
-<div class="card btn-3">
+<!-- <div class="card btn-3">
   <div class="card-body text-center legislator-box-shadow btn-6">
     <fieldset class="rating text-right">
       <a href="javascript:void(0);" *ngIf="isInCircle"  title="Remove from your circle" (click)="removeFromCircle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a>
       <a href="javascript:void(0);" *ngIf="!isInCircle"  title="Add to Circle" (click)="add2Circle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a>
-    </fieldset>
+    </fieldset> -->
     <!--<fieldset class="rating">
 
       <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
@@ -27,17 +27,17 @@
     </fieldset>-->
 
 
-    <p class="">
+    <!-- <p class="">
 
       <img class="img-fluid rounded rounded-circle img-custom-size-legislator cursor-default"
-           src="{{legislator['photoUrl']}}">
+           src="{{legislator['photoUrl']}}"> -->
       <!-- <img src="{{legislator.photo_url}}" alt="profile-sample1" class="background"/>
       <img src="{{legislator.photo_url}}" alt="profile-sample1" class="profile"/> -->
-    </p>
+    <!-- </p>
 
     <h3 class="font-20">{{legislator.full_name}}</h3>
 
-    <p class="card-text">
+    <p class="card-text"> -->
       <!--
       State: <a [routerLink]="['/user/',legislator.state]" href="javascript:void(0);"
                                    class="hvr-underline-from-center wobble-top"
@@ -54,7 +54,7 @@
       <br/>
       <br/>
     -->
-    <a [routerLink]="['/user/',legislator['role']['type']]" href="javascript:void(0);"
+    <!-- <a [routerLink]="['/user/',legislator['role']['type']]" href="javascript:void(0);"
       class="hvr-underline-from-center wobble-top color-grew font-14" title="View this Party">{{legislator['role']['type']}}
     </a>    
     <br/>
@@ -74,11 +74,34 @@
     </p>
 
     <a href="javascript:void(0);" (click)="gotoLegislator(legislator)" title="View this Profile"
-       class="btn button-blue font-14">
+       class="btn button-blue font-14"> -->
       <!-- <i class="fa fa-eye"></i> -->
-      View profile
+      <!-- View profile
     </a>
   </div>
 
+</div> -->
+
+<div class="">
+  <div class="text-center card-profile m-0 p-3 wave-li-firogi" style="border-radius: 45% 0% 45% 0%;">
+    <div class="" style="margin-top: -70px;">
+      <img src="{{legislator['photoUrl']}}" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+    </div>
+    <div class="py-2">
+      <div class="font-20">{{legislator.full_name}}</div>
+      <div class="font-14"> <a [routerLink]="['/user/',legislator['role']['type']]" class="pointer color-grew"> {{legislator['role']['type']}} </a></div>
+      <div class="font-14"> <a [routerLink]="['/user/',legislator.division]" class="pointer color-grew"> {{legislator.division}} </a></div>
+      <div class="font-14"> <a [routerLink]="['/user/',legislator['role']['party']]" class="pointer color-grew"> {{legislator['role']['party']}} </a></div>
+      <div class="btn button-blue font-14 my-2" (click)="gotoLegislator(legislator)" title="View this Profile">
+        View profile
+      </div>
+    </div>
+  </div>
+  <div class="star-tag" style="background-color: #1BC5BD!important;">
+    <i class="fa fa-star text-white pointer" *ngIf="isInCircle"  title="Remove from your circle" (click)="removeFromCircle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }"></i>
+    <i class="fa fa-star text-white pointer " *ngIf="!isInCircle"  title="Add to Circle" (click)="add2Circle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }"></i>
+    <!-- <a href="javascript:void(0);" *ngIf="isInCircle"  title="Remove from your circle" (click)="removeFromCircle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a>
+    <a href="javascript:void(0);" *ngIf="!isInCircle"  title="Add to Circle" (click)="add2Circle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a> -->
+  </div>
 </div>
 

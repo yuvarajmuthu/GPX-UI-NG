@@ -1,6 +1,7 @@
 
 <!--Design5 - Begin-->
 <div class="main">
+    <h3 class="font-18 my-3">Roles</h3>
     <div class="timeline">
         <div class="d-flex bd-highlight p-3">
             <!--
@@ -23,7 +24,7 @@
             </div>
         -->
         
-            <h3 class="font-18">Roles</h3>
+            <!-- <h3 class="font-18">Roles</h3> -->
 
             <div *ngIf="isEditMode" class="p-2 ml-auto edit-icon">
                 <div class="d-flex">
@@ -45,9 +46,9 @@
                     <div class="flex-shrink-0 mt-2">
                         <div class="lines" *ngFor="let role of roles; last as isLast">
                             <div class="dots p-2">
-                                <i class="bx bx-envelope w-auto text-green"></i>
+                                <i class="bx bx-envelope text-green font-size-icon" ></i>
                             </div>
-                            <div class="lin ml-3" *ngIf="!isLast"></div>
+                            <div class="lin" *ngIf="!isLast"></div>
 
                         </div>
                     </div>
@@ -73,27 +74,27 @@
                                         <div *ngIf="role.data.type" class="font-18 pointer hover">
                                             {{role.data.type}}
                                         </div>
-                                        <div *ngIf="role.data.chamber" class="d-flex flex-wrap my-2 font-12">
-                                            Chamber <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
+                                        <div *ngIf="role.data.chamber" class="d-flex flex-wrap my-2 font-14">
+                                            Chamber <a class="mr-3 text-green pointer hover"> <i class="bx bx-map-marker"></i>
                                                 {{role.data.chamber}}</a>
                                         </div>                                        
-                                        <div *ngIf="role.data.committee" class="d-flex flex-wrap my-2 font-12">
-                                            Committee <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
+                                        <div *ngIf="role.data.committee" class="d-flex flex-wrap my-2 font-14">
+                                            Committee <a class="mr-3 text-green pointer hover"> <i class="bx bx-map-marker text-green mr-1"></i>
                                                 {{role.data.committee}}</a>
                                         </div>                                        
-                                        <div *ngIf="role.data.district" class="d-flex flex-wrap my-2 font-12">
-                                            <i class="bx bx-map"></i>
-                                            District <a class="mr-3 text-muted pointer hover"> <i class="bx bx-map-marker"></i>
+                                        <div *ngIf="role.data.district" class="d-flex flex-wrap my-2 font-14">
+                                            <i class="bx bx-map text-green mr-2"style="line-height: 1.5;"></i>
+                                            District <a class="mr-3 text-green pointer hover"> <i class="bx bx-map-marker text-green mr-1"></i>
                                                 {{role.data.district}}</a>
-                                            <a *ngIf="role.data.state" class="mr-3 text-muted pointer hover"> <i class="bx bx-bullhorn"></i> {{role.data.state}}</a>
+                                            <a *ngIf="role.data.state" class="mr-3 text-green pointer hover"> <i class="bx bx-bullhorn"></i> {{role.data.state}}</a>
                                         </div>                                        
-                                        <div *ngIf="role.data.party" class="font-14 color-grew pointer hover">
-                                            <i class="bx bx-flag"></i>
+                                        <div *ngIf="role.data.party" class="font-14 pointer hover">
+                                            <i class="bx bx-flag text-green mr-1"></i>
                                             {{role.data.party}} Party
                                         </div>
                                         <div *ngIf="role.data.start" class="font-14">
-                                            <span class="text-muted"> 
-                                                <i class="bx bx-calendar"></i> 
+                                            <span class="text-green"> 
+                                                <i class="bx bx-calendar mr-1"></i> 
                                                 {{role.data.start}} to {{role.data.end}}
                                             </span>
                                         </div>
