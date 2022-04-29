@@ -9,7 +9,11 @@
     height: 0px;
     padding-top: 5px;
 }
-
+.form-control:focus{
+    border-color: #d7f9f1;
+    // box-shadow: 0 0 0 0.2rem rgb(215 249 241);
+    box-shadow: 0 0 0 0.2rem rgb(215 249 241);
+}
 ::-webkit-scrollbar-thumb {
     border-radius: 4px;
     -webkit-box-shadow: inset 0 0 5px transparent;
@@ -233,6 +237,7 @@ hr{
     // font-weight: 500;   
     &:hover{
         color: #0db685 !important;
+        text-decoration: unset;
         // font-weight: 500;   
     }
 }
@@ -492,7 +497,30 @@ textarea:focus-visible {
     text-decoration: none;
     background-color: #d7f9f1;
 }
+.font-size-icon{
+    font-size: 55px;
+}
 @media (min-width: 0px) and (max-width: 767px){
+.font-size-icon{
+    font-size: 35px;
+}
+.lines {
+    margin-left: 5px !important;
+    .dots {
+      width: 50px !important;
+      height: 50px !important;
+    }
+    .lin {
+      margin-left: 24px !important;
+    }
+  }
+  .cards {
+    margin-left: 18px !important;
+    .card {
+      width: 220px !important;
+      height: 160px !important;
+    }
+  }
     .checkmark{
         margin-left: 58% !important;
         padding-left: 3px;
@@ -503,7 +531,7 @@ textarea:focus-visible {
     }
     .lines {
         .lin {
-            height: 98px !important;
+            height: 120px !important;
         }
     }
     .padding-left{
@@ -672,13 +700,24 @@ textarea:focus-visible {
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .font-size-icon{
+        font-size: 35px;
+    }
+    .lines {
+        margin-left: 5px !important;
+        .dots {
+          width: 50px !important;
+          height: 50px !important;
+        }
+      }
     .lock-postion{
         margin-left: 80px !important;
         margin-top: -21px !important;
     }
     .lines {
         .lin {
-            height: 98px !important;
+            height: 128px !important;
+            margin-left: 24px !important;
         }
     }
     .padding-left{
@@ -822,6 +861,26 @@ textarea:focus-visible {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px){
+    .font-size-icon{
+        font-size: 35px;
+    }
+    .lines {
+        margin-left: 5px !important;
+        .dots {
+          width: 50px !important;
+          height: 50px !important;
+        }
+        .lin {
+          margin-left: 24px !important;
+        }
+      }
+      .cards {
+        margin-left: 18px !important;
+        .card {
+          width: 250px !important;
+          height: 160px !important;
+        }
+      }
     .checkmark{
         margin-left: 70px !important;
     }
@@ -998,8 +1057,9 @@ textarea:focus-visible {
     }
 }
 .filterPill .active{
-    color: #ffffff;
-    background-color: #0db685;
+    // color: #ffffff;
+    // background-color: #0db685;
+    background-color: #d7f9ef;
     border-color: #0db685 ;
     // border: 0.5px solid #0db685;
 }
