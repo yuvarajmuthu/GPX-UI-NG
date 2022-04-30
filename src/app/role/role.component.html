@@ -29,7 +29,7 @@
             <div *ngIf="isEditMode" class="p-2 ml-auto edit-icon">
                 <div class="d-flex">
                     <a class="flex-shrink-0">
-                        <span class="icon-shaw pointer" (click)="largeModal(largeDataModal)"><i
+                        <span class="icon-shaw pointer" (click)="openModal(roleModal, null)"><i
                                 class="bx bx-plus w-auto"></i></span>
                     </a>
                     <!--
@@ -108,7 +108,7 @@
                                     <div *ngIf="isEditMode" class="edit-icon col-2 p-0" style="position: unset;">
                                         <div class="">
                                             <a class="">
-                                                <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
+                                                <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="openModal(roleModal, role.data)"></i></span>
                                             </a>
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@
 </div>
 <!--Design5 - End-->
 
-<ng-template #largeDataModal let-modal>
+<ng-template #roleModal let-modal>
     <div class="modal-header">
         <h5 class="modal-title mt-0">New Role:</h5>
 
@@ -138,19 +138,46 @@
             
             <div class="form-group row" *ngFor="let displayProperty of displayProperties">
               
-                <label for="{{displayProperty['propId']}}">{{displayProperty['displayLabel']}}</label>
-        <!--      
+              <label for="{{displayProperty['propId']}}">{{displayProperty['displayLabel']}}</label>
+              
               <div *ngIf="displayProperty['type'] === 'text'" class="input-group">
                   <input *ngIf="role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control" placeholder="{{role.data[displayProperty['propId']]}}">
                   <input *ngIf="!role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control">
 
               </div>
+              
               <div *ngIf="displayProperty['type'] === 'date'" class="input-group">
                 <input type='date' *ngIf="role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control" placeholder="{{role.data[displayProperty['propId']]}}">
                 <input type='date' *ngIf="!role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control">
               </div>
-            -->
+
+              <div *ngIf="displayProperty['type'] === 'search'" class="input-group">
+                <div class="ng-autocomplete">
+                    <ng-autocomplete [data]="data" [searchKeyword]="keyword" placeholder="Search"
+                        class="form-control border-0 bg-search p-0 rounded-right" (selected)='selectEvent($event)'
+                        (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+                        [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+                    </ng-autocomplete>
+                    <ng-template #itemTemplate let-item>
+                        <div class="d-flex justify-content-start p-2">
+                            <div>
+                                <img src="{{item.image}}" class="search-profile">
+                            </div>
+                            <div>
+                                <a [innerHTML]="item.name" class="p-2"></a>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template #notFoundTemplate let-notFound>
+                        <div [innerHTML]="notFound"></div>
+                    </ng-template>
+                </div>
+              </div>
+            
             </div> 
+
+            <button type="submit" (click)="getFormData(roleForm);modal.dismiss('Cross click')" class="btn button-blue font-14">Submit</button>
+
             
       </form>
   

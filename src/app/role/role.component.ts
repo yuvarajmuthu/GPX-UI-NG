@@ -12,7 +12,7 @@ import {ComponentcommunicationService} from '../services/componentcommunication.
 //import { UserComponent } from '../components/user/user/user.component';
 
 import {Role} from '../models/role';
-import {role, User} from '../models/user';
+import {User} from '../models/user';
 
 @Component({
   selector: 'app-role',
@@ -22,6 +22,7 @@ import {role, User} from '../models/user';
 export class RoleComponent implements OnInit {
   profileTemplateId:string = 'upRole';
   roles:Role[] = [];
+  role:Role | null;
   displayProperties = [];
   currentUser:User;
   eventSubscription: any;
@@ -163,9 +164,26 @@ export class RoleComponent implements OnInit {
   onFocused(e:any){
     // do something when input is focused
   }
-  largeModal(largeDataModal: any) {
-    this.modalService.open(largeDataModal, { centered: true });
+
+  //role object will be passed from individual Role card
+  openModal(roleModal: any, role:any|null) {
+    //this.role = role;
+    if(role != null)
+      this.createFormGroup(role);
+    else
+      this.createFormGroup(new Role());  
+
+    this.modalService.open(roleModal, { centered: true });
+    //this.changeDetector.detectChanges();
+
   }
 
+  getFormData(roleForm:FormGroup):any{
+
+    console.log("Object.assign({}, roleForm.value) ", Object.assign({}, this.roleForm.value));
+    const result: {} = Object.assign({}, this.roleForm.value);
+    console.log("Role form ", result);
+    return result;
+  }
 
 }
