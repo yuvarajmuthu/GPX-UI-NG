@@ -118,7 +118,7 @@
                                     <div *ngIf="isEditMode" class="edit-icon col-2 p-0" style="position: unset;">
                                         <div class="">
                                             <a class="">
-                                                <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="openModal(roleModal, role.data)"></i></span>
+                                                <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="openModal(roleModal, role)"></i></span>
                                             </a>
                                         </div>
                                     </div>
@@ -136,6 +136,7 @@
 </div>
 <!--Design5 - End-->
 
+<!--Only in Edit mode-->
 <ng-template #roleModal let-modal>
     <div class="modal-header">
         <h5 class="modal-title mt-0">New Role:</h5>
@@ -146,22 +147,19 @@
         
         <form [formGroup]="roleForm"> 
             
-            <div class="form-group row" *ngFor="let displayProperty of displayProperties">
+            <div class="form-group" *ngFor="let displayProperty of displayProperties">
               
               <label for="{{displayProperty['propId']}}">{{displayProperty['displayLabel']}}</label>
               
-              <div *ngIf="displayProperty['type'] === 'text'" class="input-group">
-                  <input *ngIf="role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control" placeholder="{{role.data[displayProperty['propId']]}}">
-                  <input *ngIf="!role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control">
-
+              <div *ngIf="displayProperty['type'] === 'text'">
+                  <input id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control">
               </div>
               
-              <div *ngIf="displayProperty['type'] === 'date'" class="input-group">
-                <input type='date' *ngIf="role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control" placeholder="{{role.data[displayProperty['propId']]}}">
-                <input type='date' *ngIf="!role" id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control">
+              <div *ngIf="displayProperty['type'] === 'date'">
+                <input type='date' id="{{displayProperty['propId']}}" [formControlName]="displayProperty['propId']" class="form-control">
               </div>
 
-              <div *ngIf="displayProperty['type'] === 'search'" class="input-group">
+              <div *ngIf="displayProperty['type'] === 'search'">
                 <div class="ng-autocomplete">
                     <ng-autocomplete [data]="data" [searchKeyword]="keyword" placeholder="Search"
                         class="form-control border-0 bg-search p-0 rounded-right" (selected)='selectEvent($event)'
@@ -186,7 +184,7 @@
             
             </div> 
 
-            <button type="submit" (click)="getFormData(roleForm);modal.dismiss('Cross click')" class="btn button-blue font-14">Submit</button>
+            <button type="submit" (click)="saveProfile();modal.dismiss('Cross click')" class="btn button-blue font-14">Submit</button>
 
             
       </form>

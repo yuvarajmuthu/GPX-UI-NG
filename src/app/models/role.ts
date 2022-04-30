@@ -1,8 +1,9 @@
 export class Role {
+    id:string;
     profileTemplateId:string;
     entityId:string;
     current:boolean;
-    data:Roledata;
+    data:Roledata = new Roledata();
 
 }
 
