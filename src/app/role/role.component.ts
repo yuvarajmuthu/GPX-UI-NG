@@ -11,7 +11,7 @@ import {LegislatorService} from '../services/legislator.service';
 import {ComponentcommunicationService} from '../services/componentcommunication.service';
 //import { UserComponent } from '../components/user/user/user.component';
 
-import {Role} from '../models/role';
+import {Role, Roledata} from '../models/role';
 import {User} from '../models/user';
 
 @Component({
@@ -22,7 +22,7 @@ import {User} from '../models/user';
 export class RoleComponent implements OnInit {
   profileTemplateId:string = 'upRole';
   roles:Role[] = [];
-  role:Role | null;
+  roleInAction:Role;
   displayProperties = [];
   currentUser:User;
   eventSubscription: any;
@@ -80,17 +80,6 @@ export class RoleComponent implements OnInit {
     }
   }
 
-  createFormGroup(role:Role) {
-    this.roleForm = this.formBuilder.group({});
-
-    this.displayProperties.forEach((element, index) => {
-        let value = role[element['propId']];
-        console.log('element[propId] ', element['propId'], ' this.role[element[propId]] ', role[element['propId']]);
-        this.roleForm.setControl(element['propId'], new FormControl(value));
-    });
-    this.changeDetector.detectChanges();
-  }
-  
   loadData() {
     this.loadDisplayProperties();
 
@@ -178,12 +167,47 @@ export class RoleComponent implements OnInit {
 
   }
 
-  getFormData(roleForm:FormGroup):any{
+  createFormGroup(role:Role) {
+    this.roleForm = this.formBuilder.group({});
+    this.roleInAction = role;
 
-    console.log("Object.assign({}, roleForm.value) ", Object.assign({}, this.roleForm.value));
-    const result: {} = Object.assign({}, this.roleForm.value);
-    console.log("Role form ", result);
+    if(role.data){
+      this.displayProperties.forEach((element, index) => {
+          let value = role.data[element['propId']];
+          console.log('element[propId] ', element['propId'], ' this.role.data[element[propId]] ', role.data[element['propId']]);
+          this.roleForm.setControl(element['propId'], new FormControl(value));
+      });
+      this.changeDetector.detectChanges();
+    }
+  }
+
+  getFormData():Roledata{
+
+    //console.log("Object.assign({}, roleForm.value) ", Object.assign({}, this.roleForm.value));
+    const result: Roledata = Object.assign({}, this.roleForm.value);
+    console.log("Role form data ", result);
     return result;
+  }
+
+  saveProfile(){
+//    let data = new Role();
+//    if(this.roleInAction && this.roleInAction.id){
+//        this.data["id"] = this.role['id']; //primary key
+//    }
+//    this.data["profileTemplateId"] = this.id; //unique key
+//    this.data["entityId"] = this.profileUserId; // how about for user updating other passive profile ?
+    this.roleInAction.data = this.getFormData();
+    console.log("Data " + JSON.stringify(this.roleInAction));
+    this.userService.updateProfileData(this.roleInAction).subscribe((response) => {
+      
+      console.log('Role updated sucessfully');
+      //this.isProfileInEditMode = false;
+      //this.role = this.data["data"];
+      this.changeDetector.detectChanges();
+
+    } 
+    );
+
   }
 
 }
