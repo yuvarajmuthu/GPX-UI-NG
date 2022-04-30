@@ -24,7 +24,11 @@ export class InterestComponent implements OnInit {
     'Trade',
   ]
   color:string = 'select';
+  checkBoxSelect='Abortion'
   ngOnInit(): void {
   }
 
+  selectInterest(value:any){
+      this.checkBoxSelect=value
+  }
 }

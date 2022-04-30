@@ -72,16 +72,13 @@
     box-shadow: 0 0.1rem 1rem 0.25rem rgb(0 0 0 / 20%) !important;
     cursor: pointer;
   }
-.active{
-  box-shadow: 0 0.1rem 1rem 0.25rem rgb(0 0 0 / 20%) !important;
-  // filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
-}
+// .active{
+//   box-shadow: 0 0.1rem 1rem 0.25rem rgb(0 0 0 / 20%) !important;
+//   // filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+// }
 
  
-  .select-icons:hover{
-    box-shadow: 0 0.1rem 1rem 0.25rem rgb(13 182 133) !important;
-    cursor: pointer;
-  }
+ 
 
 
   .selects-icons{
@@ -177,51 +174,3 @@
       padding-top: 15px;
       color: #0db685;
      }
-
-     .select-icons{
-      background: #d7f9f1;
-      border-radius: 30% 0% 50% 0%;
-      height: 100px;
-      width: 100px;
-    }
-    
-     .select-blue{
-      background: #a7ddf5;
-      border-radius: 30% 0% 50% 0%;
-      height: 100px;
-      width: 100px;
-    }
-    .select-blue:hover{
-      box-shadow: 0 0.1rem 1rem 0.25rem rgb(54 153 255) !important;
-      cursor: pointer;
-    }
-     .select-red{
-      background: #FFE2E5;
-      border-radius: 30% 0% 50% 0%;
-      height: 100px;
-      width: 100px;
-    }
-      .select-red:hover{
-        box-shadow: 0 0.1rem 1rem 0.25rem rgb(246 78 96) !important;
-      cursor: pointer;
-    }
-     .select-yellow{
-      background: #FFF4DE;
-      border-radius: 30% 0% 50% 0%;
-      height: 100px;
-      width: 100px;
-    }
-      .select-yellow:hover{
-        box-shadow: 0 0.1rem 1rem 0.25rem rgb(255 168 0) !important;
-      cursor: pointer;
-    }
-     .select-black{
-      background: #D1D3E0;
-      border-radius: 30% 0% 50% 0%;
-      height: 100px;
-      width: 100px;
-    }
-      .select-black:hover{
-        box-shadow: 0 0.1rem 1rem 0.25rem rgb(24 28 50) !important;
-      cursor: pointer;
-    }

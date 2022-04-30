@@ -501,11 +501,15 @@ textarea:focus-visible {
     font-size: 55px;
 }
 @media (min-width: 0px) and (max-width: 767px){
+    .plr-respo{
+        padding-left: 7px;
+        padding-right: 0px;
+    }
 .font-size-icon{
     font-size: 35px;
 }
 .lines {
-    margin-left: 5px !important;
+    margin-left: 0px !important;
     .dots {
       width: 50px !important;
       height: 50px !important;
@@ -704,7 +708,7 @@ textarea:focus-visible {
         font-size: 35px;
     }
     .lines {
-        margin-left: 5px !important;
+        margin-left: 0px !important;
         .dots {
           width: 50px !important;
           height: 50px !important;
@@ -865,7 +869,7 @@ textarea:focus-visible {
         font-size: 35px;
     }
     .lines {
-        margin-left: 5px !important;
+        margin-left: 0px !important;
         .dots {
           width: 50px !important;
           height: 50px !important;
@@ -1090,5 +1094,74 @@ textarea:focus-visible {
         border-bottom-left-radius: 0.42rem;
         text-align: center;
         background-color: #1BC5BD !important;
+  }
+
+  
+  .select-green{
+    background: #d7f9f1;
+    border-radius: 30% 0% 50% 0%;
+    height: 100px;
+    width: 100px;
+  }
+  .select-green:hover{
+    box-shadow: 0 0.1rem 1rem 0.25rem rgb(13 182 133) !important;
+    cursor: pointer;
+  }
+   .active-select-green{
+    box-shadow: 0 0.1rem 1rem 0.25rem rgb(13 182 133) !important;
+    cursor: pointer;
+  }
+  
+   .select-blue{
+    background: #a7ddf5;
+    border-radius: 30% 0% 50% 0%;
+    height: 100px;
+    width: 100px;
+  }
+  .select-blue:hover{
+    box-shadow: 0 0.1rem 1rem 0.25rem rgb(54 153 255) !important;
+    cursor: pointer;
+  }
+  .active-select-blue{
+    box-shadow: 0 0.1rem 1rem 0.25rem rgb(54 153 255) !important;
+  }
+   .select-red{
+    background: #FFE2E5;
+    border-radius: 30% 0% 50% 0%;
+    height: 100px;
+    width: 100px;
+  }
+    .select-red:hover{
+      box-shadow: 0 0.1rem 1rem 0.25rem rgb(246 78 96) !important;
+    cursor: pointer;
+  }
+  .active-select-red{
+      box-shadow: 0 0.1rem 1rem 0.25rem rgb(246 78 96) !important;
+  }
+   .select-yellow{
+    background: #FFF4DE;
+    border-radius: 30% 0% 50% 0%;
+    height: 100px;
+    width: 100px;
+  }
+    .select-yellow:hover{
+      box-shadow: 0 0.1rem 1rem 0.25rem rgb(255 168 0) !important;
+    cursor: pointer;
+  }
+  .active-select-yellow{
+      box-shadow: 0 0.1rem 1rem 0.25rem rgb(255 168 0) !important;
+  }
+   .select-black{
+    background: #D1D3E0;
+    border-radius: 30% 0% 50% 0%;
+    height: 100px;
+    width: 100px;
+  }
+    .select-black:hover{
+      box-shadow: 0 0.1rem 1rem 0.25rem rgb(24 28 50) !important;
+    cursor: pointer;
+  }
+  .active-select-black{
+      box-shadow: 0 0.1rem 1rem 0.25rem rgb(24 28 50) !important;
   }
   
