@@ -1,9 +1,31 @@
 
 <!--Design5 - Begin-->
 <div class="main">
-    <h3 class="font-18 my-3">Roles</h3>
+    <div class="d-flex bd-highlight">
+        <div class="bd-highlight">
+            <h3 class="font-18 my-3">Roles</h3>
+        </div>
+        
+        <div class="ml-auto bd-highlight">
+            <div *ngIf="isEditMode" class="p-2 ml-auto edit-icon">
+                <div class="d-flex">
+                    <a class="flex-shrink-0">
+                        <span class="icon-shaw pointer" (click)="openModal(roleModal, null)"><i
+                                class="bx bx-plus w-auto"></i></span>
+                    </a>
+                    <!--
+                    <a class="flex-shrink-1 ml-1">
+                        <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
+                    </a>
+                    -->
+                </div>
+            </div>
+        </div>
+      </div>
+    
+   
     <div class="timeline">
-        <div class="d-flex bd-highlight p-3">
+        <div class="d-flex bd-highlight p-2">
             <!--
             <div class="d-flex ">
                 <div class="flex-shrink-0 res-m-r">
@@ -26,19 +48,7 @@
         
             <!-- <h3 class="font-18">Roles</h3> -->
 
-            <div *ngIf="isEditMode" class="p-2 ml-auto edit-icon">
-                <div class="d-flex">
-                    <a class="flex-shrink-0">
-                        <span class="icon-shaw pointer" (click)="openModal(roleModal, null)"><i
-                                class="bx bx-plus w-auto"></i></span>
-                    </a>
-                    <!--
-                    <a class="flex-shrink-1 ml-1">
-                        <span class="icon-shaw pointer"><i class="bx bx-pencil w-auto" (click)="largeModal(largeDataModal)"></i></span>
-                    </a>
-                    -->
-                </div>
-            </div>
+           
         </div>
         <div class="box">
             <div class="container">
@@ -56,7 +66,7 @@
                         <div class="cards">
                             <div class="card" *ngFor="let role of roles">
                                 <div class="row m-0 py-2">
-                                    <div class="col-10" style="position: unset;">
+                                    <div class="col-10 plr-respo" style="position: unset;">
                                         <!---->
                                             <!--
                                             {{displayProperty['propId']}}, {{role.data[displayProperty['propId']]}}
@@ -71,7 +81,7 @@
                            {{role[displayProperty.propId]}}</span>
                            -->
                            <!---->
-                                        <div *ngIf="role.data.type" class="font-18 pointer hover">
+                                        <div *ngIf="role.data.type" class="font-18 pointer hover bold font-w-bold">
                                             {{role.data.type}}
                                         </div>
                                         <div *ngIf="role.data.chamber" class="d-flex flex-wrap my-2 font-14">
@@ -88,11 +98,11 @@
                                                 {{role.data.district}}</a>
                                             <a *ngIf="role.data.state" class="mr-3 text-green pointer hover"> <i class="bx bx-bullhorn"></i> {{role.data.state}}</a>
                                         </div>                                        
-                                        <div *ngIf="role.data.party" class="font-14 pointer hover">
+                                        <div *ngIf="role.data.party" class="font-14 my-2 pointer hover">
                                             <i class="bx bx-flag text-green mr-1"></i>
                                             {{role.data.party}} Party
                                         </div>
-                                        <div *ngIf="role.data.start" class="font-14">
+                                        <div *ngIf="role.data.start" class="font-14 my-2">
                                             <span class="text-green"> 
                                                 <i class="bx bx-calendar mr-1"></i> 
                                                 {{role.data.start}} to {{role.data.end}}
