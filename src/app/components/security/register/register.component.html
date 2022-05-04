@@ -1,10 +1,11 @@
 <div class="container m-t-reg">
-    <h3 class="font-20 my-3 mx-4 text-center">Welcome to GoPolitix</h3>
+    <!-- <h3 class="font-20 my-3 mx-4 text-center">Welcome to GoPolitix</h3> -->
     <div class="row d-flex align-items-center">
         <div class="col-md-6">
+            <div class="title-reg my-3"><span>Go</span>Politix</div>
             <div class="card">
                 <div class="my-3 mx-4">
-                    <a href="javascript:void(0);" (click)="loadLoginComponent()" class="float-right btn button-blue font-14 mt-1 pointer">Log in</a>
+                    <!-- <a href="javascript:void(0);" (click)="loadLoginComponent()" class="float-right btn button-blue font-14 mt-1 pointer">Log in</a> -->
                     <h3 class="font-20">Sign up</h3>
                 </div>
 
@@ -37,12 +38,27 @@
                         </div>
 
                             
-                        <div class="form-group w-50 mx-auto">
+                        <!-- <div class="form-group w-50 mx-auto">
                             <button type="submit" [disabled]="loading" class="btn button-blue btn-block font-18">Sign Up</button>
-                        </div> <!-- form-group// -->
+                        </div> -->
+
+                        <div class="row">
+                            <div class="col-6">
+                              <div class="form-group w-50 mx-auto">
+                                <button type="submit" [disabled]="loading" class="btn button-blue btn-block font-18">Sign Up</button>
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div class="form-group w-50 mx-auto">
+                                <button type="button" class="btn button-blue btn-block font-18">Next</button>
+                              </div>
+                            </div>
+                          </div>
                     </form>
                 </article> <!-- card-body end .// -->
-                <div class="border-top py-3 text-center font-18">Have an account? <a class="font-14 pointer" (click)="loadLoginComponent()">Sign In</a></div>
+                <div class="border-top py-3 text-center font-18">Have an account?  <a href="javascript:void(0);" (click)="loadLoginComponent()" class="btn button-blue font-14 mt-1 pointer">Log in</a></div>
+                <!-- <div class="border-top my-3 mx-4 text-center font-18">Have an account? <a href="javascript:void(0);"
+                     class="float-right btn button-blue font-14 mt-1" (click)="loadLoginComponent()">Log in</a></div> -->
             </div> <!-- card.// -->
         </div> <!-- col.//-->
         <div class="col-md-6 hide-small">

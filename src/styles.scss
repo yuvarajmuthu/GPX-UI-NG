@@ -476,8 +476,8 @@ textarea:focus-visible {
     padding: 3px 12px;
 }
 .scrolltop{
-    bottom: 82px;
-    right: 20px;
+    bottom: 60px;
+    right: 130px;
     width: 50px;
     height: 47px;
     border-radius: 50%;
@@ -501,6 +501,10 @@ textarea:focus-visible {
     font-size: 55px;
 }
 @media (min-width: 0px) and (max-width: 767px){
+    .scrolltop{
+        bottom: 82px;
+        right: 20px;
+    }
     .plr-respo{
         padding-left: 7px;
         padding-right: 0px;
@@ -704,6 +708,10 @@ textarea:focus-visible {
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .scrolltop{
+        bottom: 82px;
+        right: 20px;
+    }
     .font-size-icon{
         font-size: 35px;
     }
@@ -865,6 +873,14 @@ textarea:focus-visible {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px){
+    .scrolltop{
+        bottom: 82px;
+        right: 20px;
+        .w-h-fix{
+            width: 45px !important;
+            height: 46px !important;
+        }
+    }
     .font-size-icon{
         font-size: 35px;
     }

@@ -16,6 +16,7 @@ import { RoleComponent } from '../../role/role.component';
 
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { InterestComponent } from './interest/interest.component';
+import { ManagedComponent } from './managed/managed.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { InterestComponent } from './interest/interest.component';
    RightsidemenuComponent,
    AboutComponent,
    RoleComponent,
-   InterestComponent
+   InterestComponent,
+   ManagedComponent
   ],
   //The entryComponents array is used to define only components that are not found in html and created dynamically with ComponentFactoryResolver.
   entryComponents:[UserstageComponent],
