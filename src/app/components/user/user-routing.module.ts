@@ -10,6 +10,7 @@ import { RoleComponent } from '../../role/role.component';
 import { TwittertweetsComponent } from '../../components/twittertweets/twittertweets.component';
 import { PostcardComponent } from '../../post/postcard/postcard.component';
 import { InterestComponent } from './interest/interest.component';
+import { ManagedComponent } from './managed/managed.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
             {
               path: 'interest',
               component: InterestComponent,
+            },
+            {
+              path: 'manage',
+              component: ManagedComponent,
             }
           ]
      // }  

@@ -1,0 +1,48 @@
+<h3 class="font-18 my-3"> Managed by</h3>
+<div class="ng-autocomplete">
+        <ng-autocomplete [data]="data" [searchKeyword]="keyword" placeholder="Select"
+                (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)'
+                (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate">
+        </ng-autocomplete>
+
+        <ng-template #itemTemplate let-item>
+                <div class="d-flex justify-content-start p-2">
+                        <div>
+                                <img src="{{item.image}}" class="search-profile">
+                        </div>
+                        <div>
+                                <a [innerHTML]="item.name" class="p-2"></a>
+                        </div>
+                </div>
+        </ng-template>
+
+        <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+        </ng-template>
+</div>
+
+
+<div class="container">
+        <div class="row mt-3">
+                <div class="col-md-6 p-2 mt-5" *ngFor="let item of selectArray;let i=index">
+                        <div class="text-center card-profile m-0 p-3 wave-li-firogi">
+                                <div class="" style="margin-top: -70px;">
+                                        <img src="{{item.image}}" alt="" class="img"
+                                                style="border-radius: 50%; border: 3px solid #cceef2;">
+                                </div>
+                                <div class="py-2">
+                                        <div class="font-20">{{item.name}}</div>
+                                        <div class="font-14 color-grew hover pointer">  abc@gmail.com </div>
+                                        <span><strong>129</strong> Followers</span>  &nbsp;
+                                        <span><strong>239</strong> Following</span>
+                                </div>
+                                <div class="btn button-blue font-14 my-2" (click)="remove(i)">
+                                        <i class="fa fa-trash pointer text-success"></i> &nbsp; Remove
+                                </div>
+                        </div>
+                        <div class="star-tag" style="background-color: #1BC5BD!important;">
+                                <i class="fa fa-star text-white pointer"></i>
+                        </div>
+                </div>
+        </div>
+</div>
