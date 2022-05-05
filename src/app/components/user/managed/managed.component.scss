@@ -10,3 +10,37 @@
   .fa-star:hover{
     color: black !important;
   }
+
+  .padding-left{
+    padding-left: 48px;
+  }
+  rect:nth-child(1n+2){
+    fill: #0db685 !important;
+  }
+  circle{
+    fill: #0db685 !important;
+  }
+  path{
+    fill: #0db685 !important;
+  }
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+  :host::ng-deep.autocomplete-container .input-container input{
+    height: 38px !important;
+    background-color:#eef3f8 !important;
+    padding: 0px !important;
+    border-radius: 0px 5px 5px 0px;
+    border: none !important;
+  }
+  .bg-search{
+    background-color:#eef3f8;
+ 
+  }
+  :host::ng-deep.autocomplete-container .suggestions-container{
+    position: absolute !important;
+}
+.input-group-append .btn, .input-group-prepend .btn{
+  z-index: unset;
+}

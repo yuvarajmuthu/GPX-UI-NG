@@ -1180,4 +1180,6 @@ textarea:focus-visible {
   .active-select-black{
       box-shadow: 0 0.1rem 1rem 0.25rem rgb(24 28 50) !important;
   }
-  
+  .set-pos{
+    position: inherit;
+  }
