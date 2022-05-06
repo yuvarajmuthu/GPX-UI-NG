@@ -1,0 +1,272 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <h4 class="card-title mt-2">Create a page</h4>
+        </header>
+
+        <article class="card-body">
+          <form  [formGroup]="userCreationForm" *ngIf="category === 'USER'" (ngSubmit)="createUser()">
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Display Name</label>
+                <input type="text" class="form-control" placeholder="Display Name" formControlName="full_name"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>User Name</label>
+                <input type="text" class="form-control" placeholder="User Name" formControlName="username"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>First name</label>
+                <input type="text" class="form-control" placeholder="First name" formControlName="firstName" required/>
+              </div>
+              <div class="col form-group">
+                <label>Last name</label>
+                <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Description</label>
+                <!--
+                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
+                -->
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Access Restriction</label>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="accessRestriction">
+                  <label class="custom-control-label" for="customSwitch1">Public[OFF] / Private[ON]</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" [disabled]="!userCreationForm.valid" class="btn btn-primary btn-block"> Continue  </button>
+            </div>
+          </form>
+
+          <form *ngIf="category === 'LEGISLATURE'" [formGroup]="userCreationForm" (ngSubmit)="createUser()">
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Display Name</label>
+                <input type="text" class="form-control" placeholder="Display Name" formControlName="full_name"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>User Name</label>
+                <input type="text" class="form-control" placeholder="User Name" formControlName="username"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>First name</label>
+                <input type="text" class="form-control" placeholder="First name" formControlName="firstName" required/>
+              </div>
+              <div class="col form-group">
+                <label>Last name</label>
+                <input type="text" class="form-control" placeholder="Last name" formControlName="lastName" required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label class="create-page-label">Party</label>
+                <app-gps-global-search  placeholder="Party" from="createPage" category="party" (valueChange)='selectedParty($event)' [inputvalue]=""></app-gps-global-search>
+
+              </div>
+
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label class="create-page-label">District</label>
+                <app-gps-global-search  placeholder="District" from="createPage" category="district" (valueChange)='selectedDistrict($event)' [inputvalue]=""></app-gps-global-search>
+
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col form-group">
+                <label class="create-page-label">Role</label>
+                <!-- <app-gps-global-search  placeholder="Role" from="createPage" (valueChange)='selectedRole($event)' category="userType" [inputvalue]="data.division"></app-gps-global-search> -->
+                <mat-chip-list *ngIf="data.division" aria-label="Fish selection">
+                  <mat-chip>{{data.division}}</mat-chip>
+                </mat-chip-list>
+                
+                <app-gps-global-search *ngIf="!data.division" placeholder="Role" from="createPage" (valueChange)='selectedRole($event)' category="userType" [inputvalue]=""></app-gps-global-search>
+              
+
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label class="create-page-label">State</label>
+                <app-gps-global-search  placeholder="State" from="createPage" (valueChange)='selectedState($event)' category="state" [inputvalue]=""></app-gps-global-search>
+
+ 
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Description</label>
+                <!--
+                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
+                -->
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Access Restriction</label>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="accessRestriction">
+                  <label class="custom-control-label" for="customSwitch1">Public[OFF] / Private[ON]</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" [disabled]="!userCreationForm.valid" class="btn btn-primary btn-block"> Continue  </button>
+            </div>
+          </form>
+
+          <form *ngIf="category === 'POLITICAL PARTY'" [formGroup]="userCreationForm" (ngSubmit)="createUser()">
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Party Name</label>
+                <input type="text" class="form-control" placeholder="Display Name" formControlName="full_name" required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Party Id</label>
+                <input type="text" class="form-control" placeholder="Party Name" formControlName="username"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Description</label>
+                <!--
+                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
+                -->
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Access Restriction</label>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="accessRestriction">
+                  <label class="custom-control-label" for="customSwitch1">Public[OFF] / Private[ON]</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" [disabled]="!userCreationForm.valid" class="btn btn-primary btn-block"> Continue  </button>
+            </div>
+          </form>
+
+          <form *ngIf="category === 'LEGISLATIVE DISTRICT'" [formGroup]="userCreationForm" (ngSubmit)="createUser()">
+            <div class="form-row">
+              <div class="col form-group">
+                <label>District Name</label>
+                <input type="text" class="form-control" placeholder="Display Name" formControlName="full_name" required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>District Id</label>
+                <input type="text" class="form-control" placeholder="District Id" formControlName="username"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Description</label>
+<!--
+                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
+-->
+
+
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Access Restriction</label>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="accessRestriction">
+                  <label class="custom-control-label" for="customSwitch1">Public[OFF] / Private[ON]</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" [disabled]="!userCreationForm.valid" class="btn btn-primary btn-block"> Continue  </button>
+            </div>
+          </form>
+
+          <form *ngIf="category === 'GROUP'" [formGroup]="userCreationForm" (ngSubmit)="createUser()">
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Group Name</label>
+                <input type="text" class="form-control" placeholder="Group Name" formControlName="full_name" required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Group Id</label>
+                <input type="text" class="form-control" placeholder="Group Id" formControlName="username"/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Description</label>
+                <!--
+                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
+                -->
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col form-group">
+                <label>Access Restriction</label>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="accessRestriction">
+                  <label class="custom-control-label" for="customSwitch1">Public[OFF] / Private[ON]</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" [disabled]="!userCreationForm.valid" class="btn btn-primary btn-block"> Continue  </button>
+            </div>
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+

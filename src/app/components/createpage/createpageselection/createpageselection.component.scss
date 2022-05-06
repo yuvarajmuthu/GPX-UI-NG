@@ -1,0 +1,115 @@
+
+.custom-control{
+  padding-bottom: 10px;
+}
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  height: 100vh;
+}
+button{
+  display: inline-block;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 20px 30px;
+ /*background: rgba(0,0,0,0.09);*/
+  /*background: transparent;*/
+}
+button:hover{
+  /*background: rgba(0,0,0,0.09);*/
+  background: transparent;
+}
+span{
+  display: block;
+  padding: 25px 80px;
+}
+button::before, button::after{
+  content:"";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: rgb(2, 142, 206);
+}
+
+span::before, span::after{
+  content:"";
+  width:2px;
+  height:0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: rgb(2, 142, 206);
+}
+button:hover::before, button:hover::after{
+  width: 100%;
+}
+button:hover span::before, button:hover span::after{
+  height: 100%;
+}
+
+button > p{
+  color: rgb(2, 142, 206);
+}
+button > span{
+  color: black;
+}
+.create-page-title {
+  position: relative;
+  top: 20px ;
+}
+button > span > .fa{
+  font-size: 60px;
+}
+button > em{
+  font-size: 15px;
+}
+button{
+  padding-bottom: 20px;
+}
+
+/*----- button 1 -----*/
+.btn-1::before, .btn-1::after{
+  transition-delay: 0.2s;
+}
+.btn-1 span::before, .btn-1 span::after{
+  transition-delay: 0s;
+}
+.btn-1::before{
+  right: 0;
+  top: 0;
+}
+.btn-1::after{
+  left: 0;
+  bottom: 0;
+}
+.btn-1 span::before{
+  left: 0;
+  top: 0;
+}
+.btn-1 span::after{
+  right: 0;
+  bottom: 0;
+}
+.btn-1:hover::before, .btn-1:hover::after{
+  transition-delay: 0s;
+}
+.btn-1:hover span::before, .btn-1:hover span::after{
+  transition-delay: 0.2s;
+}
+
+

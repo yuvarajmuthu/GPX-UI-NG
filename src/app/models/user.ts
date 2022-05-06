@@ -35,6 +35,7 @@ export class User {
     selfProfile:boolean = false;
     showSettings:boolean = false;
     profileTemplates:ProfileTemplate[] = [];
+    accessRestriction:{};
 
 }
 
