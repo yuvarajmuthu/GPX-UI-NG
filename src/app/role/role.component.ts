@@ -23,6 +23,7 @@ export class RoleComponent implements OnInit {
   profileTemplateId:string = 'upRole';
   roles:Role[] = [];
   roleInAction:Role;
+  title:string;
   displayProperties = [];
   currentUser:User;
   eventSubscription: any;
@@ -51,7 +52,7 @@ export class RoleComponent implements OnInit {
           this.eventSubscription.unsubscribe();
   
           this.loadData(); 
-          this.createFormGroup(new Role());
+          //this.createFormGroup(new Role(), 'New Role:');
 
   
         }
@@ -158,19 +159,20 @@ export class RoleComponent implements OnInit {
   openModal(roleModal: any, role:any|null) {
     //this.role = role;
     if(role != null)
-      this.createFormGroup(role);
+      this.createFormGroup(role, 'Edit Role:');
     else
-      this.createFormGroup(new Role());  
+      this.createFormGroup(new Role(), 'New Role:');  
 
     this.modalService.open(roleModal, { centered: true });
     //this.changeDetector.detectChanges();
 
   }
 
-  createFormGroup(role:Role) {
+  createFormGroup(role:Role, title:string) {
     this.roleForm = this.formBuilder.group({});
     this.roleInAction = role;
-
+    //this.roleForm.setControl('title', new FormControl(title));
+    this.title = title;
     if(role.data){
       this.displayProperties.forEach((element, index) => {
           let value = role.data[element['propId']];
