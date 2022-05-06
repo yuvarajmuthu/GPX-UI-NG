@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { FormGroup,FormControl,Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {AppConstants} from '../../app.constant.enum';
 //import {CKEditor4} from 'ckeditor4-angular/ckeditor'; 
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 import {UserService} from '../../services/user.service';
 import {PostService} from '../../services/post.service';
@@ -16,6 +17,7 @@ import {Route} from '@angular/router';
 
 import {User} from '../../models/user';
 import { ProfileData } from 'src/app/models/profiledata';
+import { ProfileTemplate } from 'src/app/models/profileTemplate';
 
 @Component({
   selector: 'app-createpage',
@@ -23,19 +25,57 @@ import { ProfileData } from 'src/app/models/profiledata';
   styleUrls: ['./createpage.component.scss']
 })
 export class CreatepageComponent implements OnInit {
+  desc: string = '';
 
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    enableToolbar: true,
+      showToolbar: false,
+    height: '5rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [
+      ['bold']
+      ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  };
   public editorData = '';
     
   //public onChange(event: CKEditor4.EventInfo) {
   //    console.log(event.editor.getData());
   //}
 
-  userCreationForm = new FormGroup({});
-  profileTemplate={};
-  profileTemplateData=null;
+  //userCreationForm = new FormGroup({});
+  userCreationForm: FormGroup;
 
-  biodataTemplate={};
-  biodataTemplateData:any={};
+  profileTemplate:ProfileTemplate=new ProfileTemplate();
+  profileTemplateData:ProfileData=new ProfileData();
+
+  biodataTemplate:ProfileTemplate=new ProfileTemplate();
+  biodataTemplateData:ProfileData=new ProfileData();
+
+  profileDatasList:ProfileData[] = [];
+
+
+
   user = new User();
   searchUsers:any;
   keyword = 'firstName';
@@ -108,9 +148,16 @@ export class CreatepageComponent implements OnInit {
     private alertService: AlertService,
     private postService: PostService,
     //public dialogRef: MatDialogRef<CreatepageComponent>,
-    private profileService: ProfileService) {
+    private profileService: ProfileService,
+    private formBuilder: FormBuilder,
+    ) {
       //this.category = this.data.category;
      }
+
+     autoGrowTextZone(e:any) {
+      e.target.style.height = "5px";
+      e.target.style.height = (e.target.scrollHeight + 5)+"px";
+    }
 
   selectedParty(userDetails:any){
     console.log('Party ', userDetails);
@@ -145,6 +192,8 @@ export class CreatepageComponent implements OnInit {
 
       }else if(page == 'person'){
         this.category = this.constants.USERCATEGRORY_USER;
+        this.userCreationForm = this.formBuilder.group({});
+
         this.userCreationForm = this.createPersonPageForm;
         this.profileTemplateIdDefault = 'upDefault';
       }else if(page == 'legislator'){
@@ -162,7 +211,7 @@ export class CreatepageComponent implements OnInit {
         this.profileTemplateIdDefault = 'upDefault';
       }
 
-      this.loadBioDataTemplate(this.profileTemplateIdDefault, this.category);
+      this.loadProfileTemplate(this.profileTemplateIdDefault, this.category);
       
       if(this.category === this.constants.USERCATEGRORY_LEGISLATURE){
         this.loadProfileTemplate(this.upRoleProfileTemplateId, this.category);
@@ -170,26 +219,36 @@ export class CreatepageComponent implements OnInit {
 
     });
   }
-
+/*
   onChangeSearch(e){
     this.postService.getTagUsers(e)
     .subscribe((data:any) => {
         this.searchUsers = data;
     });
   }
-
+*/
   createUser(){
-    let profileDatasList:ProfileData[] = [];
     let members:Array<string> = [];
     let settings:any = {};
+
+    this.user = Object.assign({}, this.userCreationForm.value);
+
     //generate template data for upDefault
-    this.generateBioProfileTemplateData(this.profileTemplateIdDefault);
+    this.generateProfileTemplateData(this.profileTemplateIdDefault);
     //generate template data for upRole
     if(this.category === this.constants.USERCATEGRORY_LEGISLATURE){
       this.generateProfileTemplateData(this.upRoleProfileTemplateId);
     }
-    this.user = this.userCreationForm.value;
-    this.user.profileDatas = profileDatasList;
+/*
+    if(this.biodataTemplateData){
+      profileDatasList.push(this.biodataTemplateData);
+    } 
+
+    if(this.profileTemplateData){
+      profileDatasList.push(this.profileTemplateData);
+    }  
+*/
+    this.user.profileDatas = this.profileDatasList;
     this.user.status = 'ACTIVE'; // since a User is creating a page, should the page be in ACTIVE status ?
 
     settings['accessRestriction'] = this.user.accessRestriction;
@@ -200,13 +259,6 @@ export class CreatepageComponent implements OnInit {
       this.user['members'] = members;
     }
 
-    if(this.biodataTemplateData){
-      profileDatasList.push(this.biodataTemplateData);
-    } 
-
-    if(this.profileTemplateData){
-      profileDatasList.push(this.profileTemplateData);
-    }  
 
     console.log('Creating User with info ', this.user);
 
@@ -225,11 +277,12 @@ export class CreatepageComponent implements OnInit {
 
   }
 
+    //OBSOLETE ?
   generateBioProfileTemplateData(profileTemplateId:string){
     if(this.biodataTemplate){
-      this.biodataTemplateData = {};
-      let data={};
-      let propId:string="";
+      this.biodataTemplateData = new ProfileData();
+      let data:any={};
+      let propId:string='';
       let properties:[] = this.biodataTemplate['properties'];
       for (let property of properties) {
         if(this.userCreationForm.value[property['propId']]){
@@ -239,20 +292,31 @@ export class CreatepageComponent implements OnInit {
           data[propId] = this.userCreationForm.value[property['propId']];
         }
       }
-      this.biodataTemplateData['entityId'] = this.userCreationForm.get('username').value;
-      this.biodataTemplateData['profileTemplateId'] = profileTemplateId;
+      
+      if(this.userCreationForm.get('username')){
+        //this.biodataTemplateData.entityId = this.userCreationForm.get('username').value;
+      }
+
+      this.biodataTemplateData.profileTemplateId = profileTemplateId;
       //this.biodataTemplateData['entityType'] = this.biodataTemplate['type'];
 
-      this.biodataTemplateData['data'] = data;
+      this.biodataTemplateData.data = data;
     }
   }
 
   generateProfileTemplateData(profileTemplateId:string){
     if(this.profileTemplate){
-      this.profileTemplateData = {};
-      let data={};
+      this.profileTemplateData=new ProfileData();
+      let data:any={};
       let propId:string="";
-      let properties:[] = this.profileTemplate['properties'];
+      let properties:[] = [];
+
+      if(this.upRoleProfileTemplateId === profileTemplateId){
+        properties = this.profileTemplate['properties'];
+      }else{
+        properties = this.biodataTemplate['properties'];
+      }
+      
       console.log("Generating ProfileTemplateData...");
       for (let property of properties) {
         if(this.userCreationForm.value[property['propId']]){
@@ -261,14 +325,15 @@ export class CreatepageComponent implements OnInit {
           data[propId] = this.userCreationForm.value[property['propId']];
         }
       }
-      this.profileTemplateData['entityId'] = this.userCreationForm.get('username').value;
+      this.profileTemplateData['entityId'] = this.user.username;
       this.profileTemplateData['profileTemplateId'] = profileTemplateId;
-      //this.profileTemplateData['entityType'] = this.profileTemplate['type'];
 
       this.profileTemplateData['data'] = data;
+      this.profileDatasList.push(this.profileTemplateData);
     }
   }
 
+  //OBSOLETE ?
   loadBioDataTemplate(profileTemplateId:string, category:string){
     this.profileService.getProfileTemplateByCategory(profileTemplateId, category)
     .subscribe((response) => {
@@ -280,7 +345,11 @@ export class CreatepageComponent implements OnInit {
   loadProfileTemplate(profileTemplateId:string, category:string){
     this.profileService.getProfileTemplateByCategory(profileTemplateId, category)
     .subscribe((response) => {
+      if(this.upRoleProfileTemplateId === profileTemplateId){
         this.profileTemplate = response;
+      }else{
+        this.biodataTemplate = response;
+      }
 
     });
   }

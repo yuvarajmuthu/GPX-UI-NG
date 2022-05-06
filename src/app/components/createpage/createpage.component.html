@@ -5,8 +5,9 @@
         <header class="card-header">
           <h4 class="card-title mt-2">Create a page</h4>
         </header>
-
         <article class="card-body">
+
+
           <form  [formGroup]="userCreationForm" *ngIf="category === 'USER'" (ngSubmit)="createUser()">
             <div class="form-row">
               <div class="col form-group">
@@ -36,9 +37,7 @@
             <div class="form-row">
               <div class="col form-group">
                 <label>Description</label>
-                <!--
-                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
-                -->
+                <angular-editor placeholder="Whats's happening?" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" formControlName="description" [config]="config"></angular-editor>
               </div>
             </div>
 
@@ -86,8 +85,9 @@
             <div class="form-row">
               <div class="col form-group">
                 <label class="create-page-label">Party</label>
+                <!--
                 <app-gps-global-search  placeholder="Party" from="createPage" category="party" (valueChange)='selectedParty($event)' [inputvalue]=""></app-gps-global-search>
-
+-->
               </div>
 
             </div>
@@ -95,20 +95,22 @@
             <div class="form-row">
               <div class="col form-group">
                 <label class="create-page-label">District</label>
+                <!--
                 <app-gps-global-search  placeholder="District" from="createPage" category="district" (valueChange)='selectedDistrict($event)' [inputvalue]=""></app-gps-global-search>
-
+                -->
               </div>
             </div>
             <div class="form-row">
               <div class="col form-group">
                 <label class="create-page-label">Role</label>
-                <!-- <app-gps-global-search  placeholder="Role" from="createPage" (valueChange)='selectedRole($event)' category="userType" [inputvalue]="data.division"></app-gps-global-search> -->
+                <!--
+                <app-gps-global-search  placeholder="Role" from="createPage" (valueChange)='selectedRole($event)' category="userType" [inputvalue]="data.division"></app-gps-global-search> 
                 <mat-chip-list *ngIf="data.division" aria-label="Fish selection">
                   <mat-chip>{{data.division}}</mat-chip>
                 </mat-chip-list>
-                
+            
                 <app-gps-global-search *ngIf="!data.division" placeholder="Role" from="createPage" (valueChange)='selectedRole($event)' category="userType" [inputvalue]=""></app-gps-global-search>
-              
+       -->
 
               </div>
             </div>
@@ -116,8 +118,9 @@
             <div class="form-row">
               <div class="col form-group">
                 <label class="create-page-label">State</label>
+              <!--
                 <app-gps-global-search  placeholder="State" from="createPage" (valueChange)='selectedState($event)' category="state" [inputvalue]=""></app-gps-global-search>
-
+-->
  
               </div>
             </div>
@@ -125,9 +128,9 @@
             <div class="form-row">
               <div class="col form-group">
                 <label>Description</label>
-                <!--
-                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
-                -->
+               
+                <angular-editor placeholder="Whats's happening?" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" formControlName="description" [config]="config"></angular-editor>
+           
               </div>
             </div>
             
@@ -164,9 +167,9 @@
             <div class="form-row">
               <div class="col form-group">
                 <label>Description</label>
-                <!--
-                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
-                -->
+               
+                <angular-editor placeholder="Whats's happening?" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" formControlName="description" [config]="config"></angular-editor>
+            
               </div>
             </div>
 
@@ -203,9 +206,9 @@
             <div class="form-row">
               <div class="col form-group">
                 <label>Description</label>
-<!--
-                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
--->
+
+                <angular-editor placeholder="Whats's happening?" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" formControlName="description" [config]="config"></angular-editor>
+
 
 
               </div>
@@ -244,9 +247,9 @@
             <div class="form-row">
               <div class="col form-group">
                 <label>Description</label>
-                <!--
-                <ckeditor [config]="{ removeButtons: 'Maximize' }" (change)="onChange($event)" [ngModel]="editorData" (ngModelChange)="editorData= $event"  formControlName="description"></ckeditor>
-                -->
+              
+                <angular-editor placeholder="Whats's happening?" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" formControlName="description" [config]="config"></angular-editor>
+              
               </div>
             </div>
 
@@ -264,6 +267,7 @@
               <button type="submit" [disabled]="!userCreationForm.valid" class="btn btn-primary btn-block"> Continue  </button>
             </div>
           </form>
+        
         </article>
       </div>
     </div>

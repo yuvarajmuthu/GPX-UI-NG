@@ -11,6 +11,8 @@ import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-logi
 import { AppRoutingModule } from './app-routing.module';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 import {UserModule} from './components/user/user.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SecurityModule} from './components/security/security.module';
@@ -28,6 +30,8 @@ import {SearchlegislatorsComponent} from './components/searchlegislators/searchl
 import {LegislatorComponent} from './components/legislator/legislator.component';
 //import {GAddressSearchComponent} from './components/g-address-search/g-address-search.component';
 import {GlobalSearchComponent} from './components/global-search/global-search.component';
+import { CreatepageComponent } from './components/createpage/createpage.component';
+
 
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
@@ -58,7 +62,8 @@ export function tokenGetter() {
     LegislatorComponent,
     TwittertweetsComponent,
     //GAddressSearchComponent,
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    CreatepageComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +78,7 @@ export function tokenGetter() {
     NgxTwitterTimelineModule,
     AutocompleteLibModule,
     NgbModule,
+    AngularEditorModule,
     SocialLoginModule,
     SecurityModule,
     //UserModule,
