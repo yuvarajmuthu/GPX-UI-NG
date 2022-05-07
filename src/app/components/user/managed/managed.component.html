@@ -17,15 +17,15 @@
                 </button>
         </span>
         <div class="ng-autocomplete padding-left">
-                <ng-autocomplete [data]="data" [searchKeyword]="keyword" placeholder="Select"
+                <ng-autocomplete [data]="data" [searchKeyword]="keyword" placeholder="Select" [class.fixed-search]="navFixed"
                         class="set-search-position form-control border-0 bg-search p-0 rounded-right"
                         (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)'
                         (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
                         [notFoundTemplate]="notFoundTemplate">
                 </ng-autocomplete>
 
-                <ng-template #itemTemplate let-item class="sss">
-                        <div class="d-flex justify-content-start p-2">
+                <ng-template #itemTemplate let-item class="sss" >
+                        <div class="d-flex justify-content-start p-2" [class.fixed-search]="navFixed">
                                 <div>
                                         <img src="{{item.image}}" class="search-profile">
                                 </div>

@@ -41,6 +41,12 @@
   :host::ng-deep.autocomplete-container .suggestions-container{
     position: absolute !important;
 }
+.fixed-search{
+  display: none !important;
+  // .autocomplete-container .suggestions-container{
+  //   display: none !important;
+  // }
+}
 .input-group-append .btn, .input-group-prepend .btn{
   z-index: unset;
 }
