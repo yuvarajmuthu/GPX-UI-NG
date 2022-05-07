@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AlertService } from 'src/app/services/alert.service';
 import Swal from 'sweetalert2';
 
@@ -8,7 +8,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./managed.component.scss']
 })
 export class ManagedComponent implements OnInit {
-
+  navFixed: boolean = false;
+  private scrollOffset: number = 280;
   constructor(private alertService: AlertService) { }
   keyword = 'name';
   data = [
@@ -33,7 +34,13 @@ export class ManagedComponent implements OnInit {
 
   ngOnInit(): void {
   }
- 
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.navFixed = (window.pageYOffset
+      || document.documentElement.scrollTop
+      || document.body.scrollTop || 0
+    ) > this.scrollOffset;
+  }
   selectEvent(item:any) {
     console.log(item);
     this.selectArray.push(item)
