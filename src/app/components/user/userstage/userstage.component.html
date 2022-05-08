@@ -368,7 +368,7 @@
                             <!--end::Svg Icon-->
                         </span>
                     </button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownManu" id="xyz" style=" ">
+                    <div ngbDropdownMenu aria-labelledby="dropdownManu" id="xyz" [class.fixed-popup]="navFixed">
                         <div class="py-2">
                             <div ngbDropdownItem class="pointer" *ngIf="!isProfileInEditMode()"
                                 (click)="editProfile()">
