@@ -22,7 +22,7 @@ import { UserComponent } from '../user/user.component';
 export class UserstageComponent extends UserComponent implements OnInit{
 
   navFixed: boolean = false;
-  private scrollOffset: number = 280;
+  private scrollOffset: number = 200;
   SectionName=''
   keyword = 'name';
   data = [

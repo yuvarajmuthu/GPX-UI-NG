@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class ManagedComponent implements OnInit {
   navFixed: boolean = false;
-  private scrollOffset: number = 280;
+  private scrollOffset: number = 200;
   constructor(private alertService: AlertService) { }
   keyword = 'name';
   data = [
