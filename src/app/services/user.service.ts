@@ -389,7 +389,7 @@ getCircleUsersCategory(userId:string):Observable<any>{
   }else{
     serviceUrl = this.getUserService() +"/getCircleUsers/"+userId+"/";
   }
-  serviceUrl = this.getUserService() +"/getCircleUsers/"+userId+"/";
+
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
     tap(_ => this.log(`fetched getCircleUsersCategory`)),

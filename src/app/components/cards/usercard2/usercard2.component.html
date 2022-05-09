@@ -1,0 +1,38 @@
+<!--
+  https://bootsnipp.com/snippets/7nV1l
+-->
+<div class="box5">
+  <div class="row userMain">
+          <div class="userBlock">
+              <div class="backgrounImg">
+                  <img src="https://preview.ibb.co/miQjb7/photography4.jpg">
+              </div>
+              <div class="userImg">
+                  <img [src]="profileSmImage"
+                  alt="Place image title" width="40" height="40"
+                  *ngIf="!isImageLoading">
+              </div>
+              <div class="userDescription">
+                  <h5>{{user.full_name}}</h5>
+                  <p>{{user.username}}</p>
+                 
+                  
+                   <div class="followrs">
+                      <span class="number">{{followersCount}}</span>
+                       <span>Followers</span>
+                   </div>
+                   
+                   <a *ngIf="!isSelfProfile" [routerLink]="">
+                       <span class="badge badge-pill badge-primary pointer"  (click)="followEntity()">{{followCntrlLabel}}</span>
+                   </a>
+              </div>
+              <div *ngIf="!isSelfProfile" >
+                <ul class="icon">
+                  <li><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning" title="View Profile"> View Profile </a></li>
+                  <li><a *ngIf="manageMembers" [routerLink]="" (click)="removMember()" class="fa fa-trash-o bg-warning" title="View Profile"> View Profile </a></li>
+                </ul>
+              </div>
+             
+          </div>
+    </div>
+  </div>  

@@ -1,0 +1,28 @@
+<p class="top-alignment">
+  <ngb-alert type="primary" [dismissible]="false">
+    You can setup your own Circle, so the favorite profiles can be quickly accessed from here.
+    <h6>Just select 'Add to Circle' from any profile.</h6>
+  </ngb-alert>
+</p>
+
+<div *ngIf="circleUsersInfo === null">
+Your Circle is empty.
+</div>
+
+<div *ngIf="circleUsersInfo != null" class="container">
+  <div class="row">
+
+      <span class="filterPill"><button class="btn button-color" [ngClass]="{'active': circleCatagoryActive == circleUserCategory}" (click)="loadCircleUsersByCategory(circleUserCategory)"
+        *ngFor="let circleUserCategory of circleUserCategories">
+        {{circleUserCategory}}
+      </button></span>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 card-body legislator-box-shadow" *ngFor="let circleUser of circleUsers">
+      
+      <app-usercard2 [username]="circleUser"></app-usercard2>
+      
+    </div>
+  </div>
+</div>  

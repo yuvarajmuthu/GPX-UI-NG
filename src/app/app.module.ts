@@ -31,7 +31,10 @@ import {LegislatorComponent} from './components/legislator/legislator.component'
 //import {GAddressSearchComponent} from './components/g-address-search/g-address-search.component';
 import {GlobalSearchComponent} from './components/global-search/global-search.component';
 import { CreatepageComponent } from './components/createpage/createpage.component';
-
+import {ConnectionlistComponent} from './components/connection/connectionlist/connectionlist.component';
+import {ConnectionrequestComponent} from './components/connection/connectionrequest/connectionrequest.component';
+import { CircleComponent } from './components/circle/circle.component';
+import {Usercard2Component} from './components/cards/usercard2/usercard2.component';
 
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
@@ -63,7 +66,11 @@ export function tokenGetter() {
     TwittertweetsComponent,
     //GAddressSearchComponent,
     GlobalSearchComponent,
-    CreatepageComponent
+    CreatepageComponent,
+    ConnectionlistComponent,
+    ConnectionrequestComponent,
+    CircleComponent,
+    Usercard2Component
   ],
   imports: [
     BrowserModule,
