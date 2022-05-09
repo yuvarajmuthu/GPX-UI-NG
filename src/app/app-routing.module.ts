@@ -10,6 +10,8 @@ import {RegisterComponent} from './components/security/register/register.compone
 import {LoginComponent} from './components/security/login/login.component';
 import {CreatepageselectionComponent} from './components/createpage/createpageselection/createpageselection.component';
 import { CreatepageComponent } from './components/createpage/createpage.component';
+import {ConnectionlistComponent} from './components/connection/connectionlist/connectionlist.component';
+import {CircleComponent} from './components/circle/circle.component';
 
 import {AuthGuard} from '../app/auth/auth.guard';
 
@@ -17,8 +19,11 @@ const routes: Routes = [
   { path: 'searchLegislator', 
     component: SearchlegislatorsComponent
   },
+  
+  {path: 'connections', component: ConnectionlistComponent, canActivate: [AuthGuard]},
   {path: 'createpageoptions', component: CreatepageselectionComponent, canActivate: [AuthGuard]},
   {path: 'createpage', component: CreatepageComponent, canActivate: [AuthGuard]},
+  {path: 'circle', component: CircleComponent, canActivate: [AuthGuard]},
    // {path: 'circle', component: CircleComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},

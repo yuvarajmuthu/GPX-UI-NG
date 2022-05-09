@@ -1,0 +1,41 @@
+<div class="box5">
+  <div class="userMain card">
+      <div class="">
+          <div class="userBlock">
+              <div class="backgrounImg">
+                  <img src="https://preview.ibb.co/miQjb7/photography4.jpg">
+              </div>
+              <div class="userImg">
+                 <!--
+                   <img src="https://image.ibb.co/es4AG7/author4.jpg">
+                  -->
+                  <img [src]="profileSmImage"
+                  alt="Place image title"
+                  *ngIf="!isImageLoading">
+              </div>
+              <div class="userDescription">
+                <h5>{{user.full_name}}</h5>
+                <p>{{user.username}}</p>
+               
+                <div class="card-body">
+                  <p>{{followersCount}} Followers</p>
+                </div>
+
+                   <div *ngIf="relationStatus === 'approvalPending'">
+                     <ul class="icon">
+                       <li><a [routerLink]="" (click)="acceptRequest()" class="fa fa-check bg-primary" title="Accept"> Accept </a></li>
+                       <li><a [routerLink]="" (click)="denyRequest()" class="fa fa-ban bg-danger" title="Not Interested"> Not Interested </a></li>
+                       <li><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning" title="View Profile"> View Profile </a></li>
+                     </ul>
+                   </div>
+
+                   <div *ngIf="relationStatus != 'approvalPending'">
+                     <ul class="icon">
+                       <li><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning" title="View Profile"> View Profile </a></li>
+                     </ul>
+                   </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>

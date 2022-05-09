@@ -1,0 +1,99 @@
+.card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 34, 51, 0.1);
+  box-shadow: 2px 4px 10px 0 rgba(0, 34, 51, 0.05), 2px 4px 10px 0 rgba(0, 34, 51, 0.05);
+  border-radius: 0.15rem;
+}
+
+/* Tabs Card */
+
+.tab-card {
+  border: 1px solid #eee;
+}
+
+.tab-card-header {
+  background: none;
+}
+
+/* Default mode */
+.tab-card-header > .nav-tabs {
+  border: none;
+  margin: 0px;
+}
+
+.tab-card-header > .nav-tabs > li {
+  margin-right: 0px;
+  padding: 1px 34px;
+}
+
+.tab-card-header > .nav-tabs > li > a {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-right: 0;
+  color: #737373;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .tab-card-header > .nav-tabs > li > a , .search-legislator-navpills {
+    padding: 0px 6px 0px 6px;
+  }
+  .tab-card-header > .nav-tabs > li {
+    margin-right: 0px;
+    padding: 0px 0px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .tab-card-header > .nav-tabs > li > a , .search-legislator-navpills {
+    padding: 0px 6px 0px 6px;
+  }
+  .tab-card-header > .nav-tabs > li {
+    margin-right: 0px;
+    padding: 0px 0px;
+  }
+  .top-alignment{
+    margin-top:45px;
+  }
+
+}
+
+
+
+.custom-resize-card {
+  padding: 15px;
+}
+
+.tab-card-header > .nav-tabs > li > a.show {
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
+}
+
+.tab-card-header > .nav-tabs > li > a:hover {
+  color: #007bff;
+}
+
+/*.tab-card-header > .nav-tabs > li > a:active, a:active {
+  border: 1px solid #028ece;
+  border-radius: 10px;
+}*/
+.tab-card-header > .tab-content {
+  padding-bottom: 0;
+}
+
+.li-justify-content-center {
+  justify-content: center;
+}
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  border-bottom: none !important;
+}
+/*For Badge Active Purpose*/
+.badge-active{
+  background-color: #007bff !important;
+}
+
+.cursor-hand{
+  cursor: pointer;
+}
