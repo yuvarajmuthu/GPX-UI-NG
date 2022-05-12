@@ -131,13 +131,16 @@
 .banner-text {
     text-align: center;
 }
+:host::ng-deep.addressSearchInput{
+  border-radius: 15px !important;
+}
 .location-search {
     background: #00000061;
     padding: 20px 27px;
     border-radius: 4px;
     padding-bottom: 7px;
-    -webkit-box-shadow: 0 0 0 8px rgb(255 255 255 / 20%);
-    box-shadow: 0 0 0 8px rgb(255 255 255 / 20%);
+    // -webkit-box-shadow: 0 0 0 8px rgb(255 255 255 / 20%);
+    // box-shadow: 0 0 0 8px rgb(255 255 255 / 20%);
 }
 
 input-with-icon {
