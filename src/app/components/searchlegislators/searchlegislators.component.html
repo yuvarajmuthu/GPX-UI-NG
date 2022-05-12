@@ -1,18 +1,24 @@
-<div class="container set-header-m">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 mt-3 banner-text">
-      <div class="location-search">
+
+<section class="my-4">
+  <div class="bg-white bg-imge-search" style="background-color: #ccc;">
+  <div class="container">
+    
+  
+<div class="row">
+  <div class="col-md-12 col-sm-12 mt-3 banner-text">
+      <!-- <div class="row"> -->
+      <!-- <div class="col-md-2"></div> -->
+      <!-- <div class="col-md-8 banner-text font-20" style="font-size: 22px;"> -->
+        <h5 class="text-green"> Find Your Representatives</h5>
+      <!-- </div> -->
+      <!-- <div class="col-md-2"></div> -->
+      <!-- </div> -->
+      <div class="" style="border-radius: 15px;">
         <div>
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8 banner-text font-20" style="font-size: 22px;color:gainsboro;">
-              Find Your Representatives</div>
-            <div class="col-md-2"></div>
-          </div>
           <div class="row">
             <div class="col-md-11">
               <div class="form-group">
-                <div class="input-with-icon">
+                <div class="input-with-icon" style="box-shadow: 0px 1px 6px #00000038;    border-radius: 15px;">
                   <app-g-address-search (setAddress)="getAddress($event)" adressType="geocode"></app-g-address-search>
                 </div>
               </div>
@@ -30,7 +36,10 @@
       </div>
     </div>
   </div>
-
+</div>
+  </div>
+</section>
+  <div class="container ">
   <!-- <div class="row legisBoundary" style="margin-top: 20px;">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       Find Representatives:
@@ -81,24 +90,23 @@
         </button></span>
     </div>
   </div>
-<div class="container">
+  <div class="container">
 
-  <div class="row">
-    <div class="col-lg-4 p-2 mt-5"
-      *ngFor="let legislator of legislators">
-      <app-legislator [legislator]=legislator></app-legislator>
-    </div>
-    <div *ngIf="divisionOffices && divisionOffices.length === 0">
-      <ngb-alert type="primary" [dismissible]="false">
-        Relevant data not available, you can contribute by adding data here.
-      </ngb-alert>
+    <div class="row">
+      <div class="col-lg-4 p-2 mt-5" *ngFor="let legislator of legislators">
+        <app-legislator [legislator]=legislator></app-legislator>
+      </div>
+      <div *ngIf="divisionOffices && divisionOffices.length === 0">
+        <ngb-alert type="primary" [dismissible]="false">
+          Relevant data not available, you can contribute by adding data here.
+        </ngb-alert>
 
-      <button (click)="openDialog()" class="btn btn-md btn-secondary btn-custom-horizondal fa fa-plus" type="button">
-        Add Data
-      </button>
+        <button (click)="openDialog()" class="btn btn-md btn-secondary btn-custom-horizondal fa fa-plus" type="button">
+          Add Data
+        </button>
+      </div>
     </div>
   </div>
-</div>
 
 </div>
 

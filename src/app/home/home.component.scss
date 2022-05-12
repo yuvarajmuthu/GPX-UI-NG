@@ -3,11 +3,138 @@
   height: auto;
 }
 
-.banner{
-  background-image: url("/assets/images/network6.png");
-
+.line-1{
+  position: relative;
+  top: 50%;  
+  width: 24em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255,255,255,.75);
+  font-size: 180%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);    
 }
 
+/* Animation */
+.anim-typewriter{
+animation: typewriter 4s steps(44) 1s 1 normal both,
+           blinkTextCursor 500ms steps(44) infinite normal;
+}
+// @keyframes typewriter{
+// from{width: 0;}
+// to{width: 24em;}
+// }
+// @keyframes blinkTextCursor{
+// from{border-right-color: rgba(255,255,255,.75);}
+// to{border-right-color: transparent;}
+// }
+.type {
+  display:inline-flex;
+}
+
+.type span {
+  word-break: break-all;
+  height: 1.2em;
+  width:0%;
+  font-size: 50px;
+  overflow: hidden;
+  animation:t 4s linear infinite alternate;
+}
+.type span:before {
+  content:" ";
+  display:inline-block;
+}
+
+@keyframes t{
+  90%,100% {width:100%}
+}
+.round{
+  // border-radius: 50%;
+  width: 50%;
+  border: 5px solid #00d7ad;
+  -webkit-border-radius: 70px 70px 70px 70px;
+  box-shadow: 0px 1px 6px #00000038;
+    img {
+      width: 100%;
+        box-shadow: 0px 1px 6px #00000038;
+        position: relative;
+        -webkit-border-radius: 70px 70px 70px 70px;
+        -moz-border-radius: 70px 70px 70px 70px;
+        -ms-border-radius: 70px 70px 70px 70px;
+        -o-border-radius: 70px 70px 70px 70px;
+        border-radius: 70px 70px 70px 70px;
+        /* -webkit-transition: all 0.5s ease-out; */
+        -moz-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out;
+        transition: all 0.5s ease-out;
+    }
+}
+
+// $slider-name: typing-slider;
+// $slides: 20;
+// $typing-duration: 5s;
+// $tab-letters: 16; //number of characters in each paragraph
+// $slider-font-size: 4rem;
+// $background: #fff;
+// @keyframes cursor {
+//   from, to { border-color: transparent; }
+//   50% { border-color: black; }
+// }
+
+// @keyframes typing {
+//   from { width: 100%; }
+//   90%, to { width: 0; }
+// }
+
+// @keyframes slide {
+//   #{100% / $slides} { font-size: $slider-font-size; letter-spacing: 3px; }
+//   to { font-size: 0; letter-spacing: 0; }
+// }
+
+// .#{$slider-name} {
+//   font-family: Consolas, monospace;
+//   font-weight: bold;
+//   text-align: center;
+//   white-space: nowrap;
+// }
+
+// .#{$slider-name} p {
+//   position: relative;
+//   display: inline;
+//   font-size: 0;
+//   text-transform: uppercase;
+//   letter-spacing: 0;
+//   animation: slide $typing-duration * $slides step-start infinite;
+// }
+
+// .#{$slider-name} p::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   border-left: 3px solid black;
+//   background-color: $background;
+//   animation: typing $typing-duration infinite,
+//              cursor 1s infinite;
+// }
+
+// @each $letters in $tab-letters {
+//   $i: index($tab-letters, $letters);
+//   .#{$slider-name} p:nth-child(#{$i}) {
+//     animation-delay:  $typing-duration * ($i - 1);
+//     &::after {
+//       animation-delay: $typing-duration * ($i - 1);
+//       animation-timing-function: steps(#{$letters}), step-end;
+//     }
+//   }
+// }
+.bg-imge-search{
+  // background-image: url("/assets/images/network6.png");
+  // background: linear-gradient(to bottom left, #fff 0%, #fff 50%, #c9f7f5 50%, #c9f7f5 100%);
+
+}
 .footer-widget ul {
 padding: 0;
 margin: 0
@@ -30,7 +157,8 @@ color: #fff
 footer.skin-dark-footer .footer-widget ul li a,
 footer.skin-dark-footer,
 footer.skin-dark-footer a {
-color: #858b9f;
+  background-color: #fff;
+color: #0db685;
 transition: all ease .4s;
 font-size: 14px
 }
