@@ -1,13 +1,14 @@
 <div class="border-radius bg-white mb-3 p-3">
     <div class="d-flex align-items-start" style="overflow: auto;">
         <div class="flex-shrink-0 mr-2">
-            <img src="../../../assets/profile.png" class="post-profile">
+            
+            <img [src]="profileSmImage" class="post-profile">
         </div>
         <div class="flex-shrink-1 w-100">
             <!-- <textarea (keyup)="autoGrowTextZone($event)" [mentionConfig]="mentionConfig" [(ngModel)]="textArea"
                 class="font-24 w-100 border-0" placeholder="Whats's happening?">
                 </textarea> -->
-            <angular-editor placeholder="Whats's happening?" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" [mentionConfig]="mentionConfig" [(ngModel)]="textArea" [config]="config"></angular-editor>
+            <angular-editor placeholder="{{placeholder}}" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" [mentionConfig]="mentionConfig" [(ngModel)]="textArea" [config]="config"></angular-editor>
             <!-- <div *ngIf="images.length==1"> -->
             <div *ngFor='let url of images ;let index = index' class="containers">
                 <img [src]="url" class="w-100 rounded">

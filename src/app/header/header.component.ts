@@ -24,14 +24,17 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  loggedUser = {} as User;
+  loggedUsername:string|any;
   isUserLogged: boolean;
   profileSmImage: any = 'assets/images/avatar1.png';
   isImageLoading: boolean = false;
+  routerLink:string;
 
   constructor(private  router: Router,
     private modalService: NgbModal,
     private missionService: ComponentcommunicationService,
-    private dataShareService: DatashareService,
+    private datashareService: DatashareService,
     private userService: UserService,
     private alertService: AlertService,
     private postService:PostService,
@@ -46,12 +49,16 @@ export class HeaderComponent implements OnInit {
 
 
 
-      dataShareService.getCurrentUserObservable().subscribe(
+      datashareService.getCurrentUserObservable().subscribe(
       data => {
-          console.log('Change in User object, in app.componen ');
+
           if (data && (Object.keys(data).length > 0) && localStorage.getItem('currentUserToken')) {
               data.token = localStorage.getItem('currentUserToken');
+              this.loggedUsername = localStorage.getItem('currentUserName');
               this.isUserLogged = true;
+
+              console.log('Change in User object, this.loggedUsername ', this.loggedUsername);
+
           } else {
               this.isUserLogged = false;
           }
@@ -68,7 +75,15 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loggedUser = this.datashareService.getCurrentUser();
+    this.loggedUsername = this.datashareService.getLoggedinUsername();
+    console.log("this.loggedUser ", this.loggedUser);
+    console.log("this.loggedUsername ", this.loggedUsername);
+    this.routerLink = "user/"+this.loggedUser.username;
+    console.log("this.routerLink ", this.routerLink);
+    //this.isUserLogged = (this.loggedUser != null && this.loggedUser['token'] != null);
   }
+
   keyword = 'name';
   data = [
     {
@@ -104,7 +119,7 @@ export class HeaderComponent implements OnInit {
 
   updateUserNavBar() {
     if (!isDevMode() && this.isUserLogged) {
-        let user: User = this.dataShareService.getCurrentUser();
+        let user: User = this.datashareService.getCurrentUser();
         this.getProfileSmImage(user.username);
     } else {
         this.profileSmImage = 'assets/images/avatar1.png';
@@ -144,7 +159,7 @@ export class HeaderComponent implements OnInit {
 
   loadUser() {
     //e.preventDefault();
-    let user: User = this.dataShareService.getCurrentUser();
+    let user: User = this.datashareService.getCurrentUser();
 
     console.log('logged in user username  - ' + user.username);
     let routePath: string = '/user/' + user.username;

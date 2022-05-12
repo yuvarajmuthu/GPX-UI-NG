@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, isDevMode } from '@angular/core';
 
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+
+import {DatashareService} from '../../services/datashare.service';
+import {UserService} from '../../services/user.service';
+
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-post',
@@ -9,6 +14,13 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
+  @Input() isComment: boolean;
+  placeholder:string;
+  profileSmImage: any = 'assets/images/userprofile.jpg';
+  isImageLoading: boolean = false;
+  currentUser:User;
+
+
   htmlContent = '';
   config: AngularEditorConfig = {
     editable: true,
@@ -60,9 +72,53 @@ export class PostComponent implements OnInit {
       },
   ]
 }
-  constructor() { }
+  constructor(
+    private datashareService: DatashareService,
+    public userService: UserService
+  ) { }
 
   ngOnInit(): void {
+    this.currentUser = this.datashareService.getViewingUser();
+
+    if(this.isComment){
+      this.placeholder = "Please comment here";
+    }else{
+      this.placeholder = "Whats's happening?";
+    }
+
+    if (!isDevMode()){
+        if(this.currentUser != null && this.currentUser['photoUrl'] != null){
+            this.profileSmImage = this.currentUser['photoUrl'];
+        }else{
+            //this.getProfileSmImage(this.viewingUser['userId']);
+            if(this.currentUser.profileAvatarImgFileId){
+                this.getProfileSmImage(this.currentUser.profileAvatarImgFileId);
+            }
+        }
+    }
+
+  }
+
+  getProfileSmImage(userId: string) {
+    this.isImageLoading = true;
+    this.userService.getImage(userId).subscribe(data => {
+        this.createImageFromBlob(data);
+        this.isImageLoading = false;
+    }, error => {
+        this.isImageLoading = false;
+        console.log(error);
+    });
+  }
+
+  createImageFromBlob(image: Blob) {
+      let reader = new FileReader();
+      reader.addEventListener('load', () => {
+          this.profileSmImage = reader.result;
+      }, false);
+
+      if (image) {
+          reader.readAsDataURL(image);
+      }
   }
   get f(){
     return this.myForm.controls;
