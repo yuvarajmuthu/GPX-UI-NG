@@ -1,13 +1,51 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, AfterViewInit, Input, TemplateRef, ViewChild, isDevMode } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import {PostService} from '../../services/post.service';
+import {DatashareService} from '../../services/datashare.service';
+import {UserService} from '../../services/user.service';
+
+import {Post} from '../../models/post';
+
 
 @Component({
   selector: 'app-postcard',
   templateUrl: './postcard.component.html',
   styleUrls: ['./postcard.component.scss']
 })
-export class PostcardComponent implements OnInit {
+export class PostcardComponent implements AfterViewInit{
+  @Input() post: Post;
+  @Input() idx: string;
+  @Input() isComment : boolean;
+  @Input() selfActivities:boolean;
+  modalData:Post;
+
+  isShowAllPosts:boolean = false;
+  
+  posts: Post[] = [];
+  postsByPage : Post[]=[];
+  pageNumber: number = 1;
+
+  parentPost:any;
+  allPosts : Post[] = [];
+  isPosts = true;
+  postViewDetails=[];
+
+  profileSmImage: any = 'assets/profile.png';//'assets/images/avatar1.png';
+  isImageLoading: boolean = false;
+  postImage: any = 'assets/profile.png';//'assets/images/avatar1.png';
+  isPostImageLoading: boolean = false;
+  entityId: string;
+  numbers: number[] = [];
+  todayDate : Date = new Date();
+  postText : any;
+
+  liked: boolean = false;
+  likedCount:number = 0;
+  commentsCount:number = 0;
+  imageseleted:any
+
   PostCardData = [
   {
     id: 1,
@@ -40,10 +78,63 @@ export class PostcardComponent implements OnInit {
 ];
 @ViewChild('largeSlider') editmodalShow: TemplateRef<any>;
   isLiked = false;
-  constructor(private router: Router,private modalService: NgbModal) { }
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private modalService: NgbModal,
+    private postService: PostService,
+    private dataShareService: DatashareService,
+    private userService: UserService
+    ) { 
 
-  ngOnInit(): void {
   }
+
+  ngAfterViewInit(){
+    this.entityId = this.dataShareService.getLoggedinUsername();
+    if (this.post && this.post.postType) {
+      //this.postText = this.sanitizer.bypassSecurityTrustHtml(this.post.postText);
+      console.log(this.postText);
+      if (this.post.postType.indexOf('V') !== -1) {
+          this.post['containsVideo'] = true;
+      }
+
+      //Get image
+      if (this.post.postType.indexOf('I') !== -1) {
+          this.post['containsImage'] = true;
+          if (!isDevMode() && this.post['relatedFiles']) {
+              this.getPostImage(this.post['relatedFiles'][0]);
+          }
+
+      }
+      if (this.post.postType.indexOf('T') !== -1) {
+          this.post['containsText'] = true;
+      }
+    }
+
+    //Get posted entity image
+    if (!isDevMode() && this.post.entityId) {
+      this.getProfileSmImage(this.post.entityId);
+    }
+
+    //LIKE count
+    if(this.post.likedBy){
+      this.likedCount = this.post.likedBy.length
+    }
+
+    //check if logged in user LIKED the Post
+    if(this.entityId && this.post.likedBy && this.post.likedBy.indexOf(this.entityId) != -1){
+      this.liked = true;    
+    }
+
+    //COMMENT count
+    this.getCommentsCount();
+   
+}
+
+getPost(pageNumber:string): void {
+  
+}
+
+
   //  openModal(largeSlider: any) {
   //   this.modalService.open(largeSlider, { size: 'lg',centered: true });
   // }
@@ -51,7 +142,7 @@ export class PostcardComponent implements OnInit {
     console.log("Save button is clicked!", $event);  
     this.isLiked = !this.isLiked
   }
-  imageseleted:any
+
   commentPage(event:any,index:any){
     console.log(event.srcElement.id);
     console.log('image'+index);
@@ -83,7 +174,62 @@ export class PostcardComponent implements OnInit {
       this.router.navigate(['/post/comment']);
     }
   }
-  modelPopupComment(largeDataModal: any) {
-    this.modalService.open(largeDataModal, { centered: true,windowClass: 'my-class' });
+
+  modelPopup(modal: any, post:Post|any) {
+    this.modalData = post;
+    this.modalService.open(modal, { centered: true});
+  }
+
+  getCommentsCount() {
+    this.postService.getCommentsCount(String(this.post.id))
+    .subscribe((data:any) => {
+        this.commentsCount = data;
+        console.log("Comments count for " + this.post.id + ": " + data);
+
+    });
+}
+
+  getProfileSmImage(userId: string) {
+    this.isImageLoading = true;
+    this.userService.getImage(userId).subscribe(data => {
+        this.createImageFromBlob(data);
+        this.isImageLoading = false;
+    }, error => {
+        this.isImageLoading = false;
+        console.log(error);
+    });
+  }
+
+  createImageFromBlob(image: Blob) {
+      let reader = new FileReader();
+      reader.addEventListener('load', () => {
+          this.profileSmImage = reader.result;
+      }, false);
+
+      if (image) {
+          reader.readAsDataURL(image);
+      }
+  }
+
+  getPostImage(imageId: string) {
+      this.isPostImageLoading = true;
+      this.postService.getImage(imageId).subscribe(data => {
+          this.createPostImageFromBlob(data);
+          this.isPostImageLoading = false;
+      }, error => {
+          this.isPostImageLoading = false;
+          console.log(error);
+      });
+  }
+
+  createPostImageFromBlob(image: Blob) {
+      let reader = new FileReader();
+      reader.addEventListener('load', () => {
+          this.postImage = reader.result;
+      }, false);
+
+      if (image) {
+          reader.readAsDataURL(image);
+      }
   }
 }

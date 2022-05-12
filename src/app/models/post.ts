@@ -16,7 +16,11 @@ export class Post {
 	public imageFile:any;
 	public comments: any;
 	public totalComments:number=-1;
-
+	public containsVideo:boolean;
+	public containsImage:boolean;
+	public containsText:boolean;
+	public relatedFiles:string[];
+	public lastModifiedDate:Date;
 	constructor(
 
 	){}

@@ -1,33 +1,39 @@
-<div class="border-radius bg-white mb-3 p-3 hover-card" (click)="commentPage($event,index)"
-    *ngFor='let item of PostCardData ;let index = index'>
+<div>
     <div class="d-flex align-items-start  pointer p-1 rounded">
         <div class="flex-shrink-0 mr-2">
-            <img src="../../../assets/profile.png" class="post-profile">
+            <img [src]="profileSmImage" class="post-profile">
         </div>
         <div class="flex-shrink-1 w-100">
             <div>
-                <span id="link1" class="font-20 hover-underline"> {{item.Link}}</span>
-                <span id="link2" class="font-20 hover-underline text-green"> {{item.Link1}}</span>
+                <!--<span id="link1" class="font-20 hover-underline"> {{post.entityId}}</span>-->
+                <span id="link2" class="font-20 hover-underline text-green">{{post.entityId}} </span>
+                <div> <small><i class="bx bx-time"></i> {{post.lastModifiedDate}}</small></div>
                 <p class="color-grew font-20">
-                    {{item.Details}}
+                    {{post.postText}}
                 </p>
             </div>
-            <div class="containers">
-                <img src="{{item.url}}" id="image{{index}}" class="rounded postcard-img" style="">
+            <div *ngIf="post && post['containsImage']" class="containers">
+                <!--
+                <img src="{{post.postImage}}" id="image{{index}}" class="rounded postcard-img" style="">
+                -->
+                <img [src]="postImage" class="rounded postcard-img">
+
                 <ng-template #largeSlider let-modal id="imgModal">
                     <div class="slide-modal-content">
+                        <!--
                         <div class="image-row">
-                            <img class="images rounded" id="image{{index}}" src="{{item.url}}" style="width: 100%;">
+                            <img class="images rounded" id="image{{index}}" src="{{post.postImage}}" style="width: 100%;">
                         </div>
+                        -->
                     </div>
                 </ng-template>
             </div>
         </div>
     </div>
     <hr>
-    <div class="d-flex justify-content-around mt-3 center-text">
+    <div *ngIf="!isComment" class="d-flex justify-content-around center-text">
         <div>
-            <a class="edit-comment mr-1">
+            <a class="edit-comment mr-1" (click)="modelPopup(commentModal, post)">
                 <span class="icon-shaw pointer">
                     <i class='bx bx-chat' id="message"></i>
                 </span></a>10
@@ -45,13 +51,13 @@
                         id="reply"></i></span></a>2
         </div>
         <div>
-            <a class="edit-share mr-1"><span class="icon-shaw pointer" (click)="modelPopupComment(ShareModal)"><i
+            <a class="edit-share mr-1"><span class="icon-shaw pointer" (click)="modelPopup(shareModal, null)"><i
                         class="bx bx-share-alt" id="share"></i></span></a>19
         </div>
     </div>
 </div>
 
-<ng-template #ShareModal let-modal id="sharemodel">
+<ng-template #shareModal let-modal id="sharemodel">
     <div class="modal-contents">
     <div class="modal-body" >
         <div>
@@ -63,5 +69,37 @@
             <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-message" id="reply"></i>Direct Message</div>
         </div>
     </div>
+    </div>
+</ng-template>
+
+<ng-template #commentModal let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title mt-0">Comment</h5>
+
+        <div (click)="modal.dismiss('Cross click')"><i class="bx bx-x"></i> </div>
+    </div>
+    <div class="modal-body">
+        <!--
+        <div>
+            <div class="d-flex align-items-start">
+                <div class="flex-shrink-0 mr-2">
+                    <img src="../../../assets/profile.png" class="post-profile">
+                </div>
+                <div class="flex-shrink-1 w-100">
+                    <div>
+                        <h6> sonytv</h6>
+                        <h6 class="text-green"> @SonyTV</h6>
+                        <p class="font-20">
+                            16m Sai ke vachanon se judi katha sunne ke baad bhi nahi badla Rishabh ka mann, kya ab Sai ki
+                            leela
+                        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+-->
+    <app-postcard [post]=post [isComment]=true></app-postcard>
+    <app-post [isComment]=true></app-post>
     </div>
 </ng-template>

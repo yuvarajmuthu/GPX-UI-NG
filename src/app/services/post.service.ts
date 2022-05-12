@@ -371,6 +371,7 @@ export class PostService  extends AbstractService{
 
   }
 
+  //Obsolete ?
   getSharedPost(postId:string){
     let url = "";
     if(this.devMode){

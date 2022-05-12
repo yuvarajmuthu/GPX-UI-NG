@@ -48,8 +48,8 @@
             </div>
 
             <!-- <div class="float-right"> -->
-                <span class="pl-1 hide-big set-profile-icon" [routerLink]="['user/123/about']"><img src="../../assets/profile.png" alt=""
-                        class="pointer profile-header  mt-1">
+                <span class="pl-1 hide-big set-profile-icon" [routerLink]="isUserLogged ? [routerLink] : []">
+                    <img src="../../assets/profile.png" alt="" class="pointer profile-header  mt-1">
                 </span>
                 <i class="material-icons"> 
                     <i class="fas fa-bars"></i>
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown">
-                    <div [routerLink]="['user/123/about']">
+                    <div [routerLink]="isUserLogged ? [routerLink] : []">
                         <img src="../../assets/profile.png" alt="" class="pointer profile-header hide-small" ngbDropdownAnchor>
                     </div>
                     <div ngbDropdownMenu aria-labelledby="dropdownManual">
