@@ -499,6 +499,15 @@ textarea:focus-visible {
     display: flex;
     height: 47px !important;
 }
+.scrolltop-homes{
+    bottom: 200px;
+    right: 314px;
+    border-radius: 50%;
+    position: fixed;
+    justify-content: center;
+    display: flex;
+    height: 47px !important;
+}
 .dropdown-item:focus, .dropdown-item:hover{
     text-decoration: none;
     background-color: #d7f9f1;
@@ -612,6 +621,13 @@ textarea:focus-visible {
     // -webkit-border-radius: 227px 20px 227px 227px;
 }
 @media (min-width: 0px) and (max-width: 767px){
+    .margin-remove{
+        margin: 0!important;
+    }
+    .set-search{
+        position: absolute;
+        bottom: -386px;
+    }
     .video-h-w{
         width: 285px;
         height: 285px;
