@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+//OBSOLETE?
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',

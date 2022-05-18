@@ -10,12 +10,12 @@ import { AbstractService } from './abstract.service';
 @Injectable({
     providedIn: 'root'
 })
-export class AlertService extends AbstractService {
+export class AlertService {
     private subject = new Subject<Alert>();
     private keepAfterRouteChange = false;
 
     constructor(private router: Router) {
-        super();
+        
 /*        // clear alert messages on route change unless 'keepAfterRouteChange' flag is true
       router.events.subscribe(event => {
           if (event instanceof NavigationStart) {
@@ -36,7 +36,7 @@ export class AlertService extends AbstractService {
             position: 'bottom-end',
             showConfirmButton: false,
             timerProgressBar: true,
-            timer: 5000
+            timer: 1300
         });
         successToast.fire(title, message, icon);
     }
@@ -48,20 +48,61 @@ export class AlertService extends AbstractService {
     }
 
     success(message: string, keepAfterRouteChange = false) {
-        this.alert(AlertType.Success, message, keepAfterRouteChange);
+        //this.alert(AlertType.Success, message, keepAfterRouteChange);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: message,
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
 
     error(message: string, keepAfterRouteChange = false) {
-        this.alert(AlertType.Error, message, keepAfterRouteChange);
+        //this.alert(AlertType.Error, message, keepAfterRouteChange);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: message,
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
 
     info(message: string, keepAfterRouteChange = false) {
-        this.alert(AlertType.Info, message, keepAfterRouteChange);
+        //this.alert(AlertType.Info, message, keepAfterRouteChange);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'info',
+            title: message,
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
 
     warn(message: string, keepAfterRouteChange = false) {
-        this.alert(AlertType.Warning, message, keepAfterRouteChange);
+        //this.alert(AlertType.Warning, message, keepAfterRouteChange);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: message,
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
+
+    question(message: string, keepAfterRouteChange = false) {
+        return Swal.fire({
+            title: 'Are you sure?',
+            text: message,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#0db685',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        })
+    }
+
 
     alert(type: AlertType, message: string, keepAfterRouteChange = false) {
         this.keepAfterRouteChange = keepAfterRouteChange;

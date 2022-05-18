@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CardComponent } from './card/card.component';
-import { CommentComponent } from './comment/comment.component';
 import { PostComponent } from './post/post.component';
+import { CommentComponent } from './comment/comment.component';
+import { NewPostComponent } from './newpost/newpost.component';
 import { PostcardComponent } from './postcard/postcard.component';
 
 const routes: Routes = [
@@ -15,12 +15,12 @@ const routes: Routes = [
     component: PostcardComponent,
   },
   {
-    path: 'post',
-    component: PostComponent,
+    path: 'newpost',
+    component: NewPostComponent,
   },
   {
     path: 'stage',
-    component: CardComponent,
+    component: PostComponent,
   },
   {
     path: 'comment',

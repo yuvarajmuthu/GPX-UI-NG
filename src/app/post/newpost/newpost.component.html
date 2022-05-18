@@ -1,0 +1,54 @@
+<div class="border-radius bg-white mb-3 p-3">
+    <div class="d-flex align-items-start" style="overflow: auto;">
+        <div class="flex-shrink-0 mr-2">
+            
+            <img [src]="profileSmImage" class="post-profile">
+        </div>
+        <div class="flex-shrink-1 w-100">
+            <!-- <textarea (keyup)="autoGrowTextZone($event)" [mentionConfig]="mentionConfig" [(ngModel)]="textArea"
+                class="font-24 w-100 border-0" placeholder="Whats's happening?">
+                </textarea> -->
+            <angular-editor placeholder="{{placeholder}}" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" [mentionConfig]="mentionConfig" [(ngModel)]="textArea" [config]="config"></angular-editor>
+            <!-- <div *ngIf="images.length==1"> -->
+            <div *ngFor='let url of images ;let index = index' class="containers">
+                <img [src]="url" class="w-100 rounded">
+                <a class="edit-icon mx-1 top-close" (click)="removeSelectedFile(index)">
+                    <span class="icon-shaw pointer">
+                        <i class="bx bx-x"></i>
+                    </span>
+                </a>
+            </div>
+            <!-- </div> -->
+
+            <!--Post action control - Add image, Emoji, Post button -->
+            <div class="d-flex align-items-center bd-highlight py-3">
+                <div class="mr-2 bd-highlight">
+                    <!-- <input id="file" type="file" class="form-control" multiple="" (change)="onFileChange($event)"> -->
+                    <input #fileInputcover type="file" (change)="onFileChange($event)" style="display:none" />
+                    <a class="edit-icon mx-1">
+                        <span class="icon-shaw pointer" (click)="fileInputcover.click()">
+                            <i class="bx bx-images"></i>
+                        </span>
+                    </a>
+                    <a class="edit-icon mx-1" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
+                        <span class="icon-shaw pointer">
+                            <i class="bx bx-smile"></i>
+                        </span>
+                    </a>
+                    <emoji-mart class="emoji-mart set-box" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)"
+                        title="Choose your emoji"></emoji-mart>
+                </div>
+                <div class="bd-highlight ml-auto">
+                    <button class="btn button-outline-blue font-14 m-0" (click)="submitPost()">
+                        <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/Map/Direction2.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="20" height="20"/>
+                                <path d="M14,13.381038 L14,3.47213595 L7.99460483,15.4829263 L14,13.381038 Z M4.88230018,17.2353996 L13.2844582,0.431083506 C13.4820496,0.0359007077 13.9625881,-0.12427877 14.3577709,0.0733126292 C14.5125928,0.15072359 14.6381308,0.276261584 14.7155418,0.431083506 L23.1176998,17.2353996 C23.3152912,17.6305824 23.1551117,18.1111209 22.7599289,18.3087123 C22.5664522,18.4054506 22.3420471,18.4197165 22.1378777,18.3482572 L14,15.5 L5.86212227,18.3482572 C5.44509941,18.4942152 4.98871325,18.2744737 4.84275525,17.8574509 C4.77129597,17.6532815 4.78556182,17.4288764 4.88230018,17.2353996 Z" fill="#0db685" fill-rule="nonzero" transform="translate(14.000087, 9.191034) rotate(-315.000000) translate(-14.000087, -9.191034) "/>
+                            </g>
+                        </svg><!--end::Svg Icon--></span>
+                        Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

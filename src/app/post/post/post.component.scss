@@ -1,29 +1,13 @@
-.set-box{
-    position: absolute;
-    // display: block;
-    // left: 0;
-}
-.top-close{
-    position: absolute;
-    top: 20px;
-    left: 15px;
-}
-.containers {
-    position: relative;
-    text-align: center;
-    color: white;
+.w-h-fix{
+    width: 45px;
+    height: 46px;
   }
-  :host::ng-deep.angular-editor .angular-editor-wrapper .angular-editor-textarea{
-      border: none !important;
+  rect:nth-child(1n+2){
+    fill: #0db685 !important;
   }
-  :host::ng-deep.angular-editor-textarea:focus-visible {
-    outline: unset !important;
-}
-.emoji-mart{
-    background-color: #ffffff;
-    border: 0 solid rgba(0, 0, 0, 0.15);
-    border-radius: 0.75rem;
-    -webkit-box-shadow: 0px 0px 50px 0px rgb(82 63 105 / 15%);
-    box-shadow: 0px 0px 50px 0px rgb(82 63 105 / 15%);
-    // font-size: 14px;
-}
+  circle{
+    fill: #0db685 !important;
+  }
+  path{
+    fill: #0db685 !important;
+  }

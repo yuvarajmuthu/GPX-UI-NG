@@ -36,6 +36,7 @@ export class User {
     showSettings:boolean = false;
     profileTemplates:ProfileTemplate[] = [];
     accessRestriction:{};
+    interest:String[]=[];
 
 }
 

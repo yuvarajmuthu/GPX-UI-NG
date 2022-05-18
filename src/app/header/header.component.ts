@@ -58,6 +58,8 @@ export class HeaderComponent implements OnInit {
               this.isUserLogged = true;
 
               console.log('Change in User object, this.loggedUsername ', this.loggedUsername);
+              this.updateUserNavBar();
+
 
           } else {
               this.isUserLogged = false;
@@ -75,13 +77,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loggedUser = this.datashareService.getCurrentUser();
-    this.loggedUsername = this.datashareService.getLoggedinUsername();
-    console.log("this.loggedUser ", this.loggedUser);
-    console.log("this.loggedUsername ", this.loggedUsername);
-    this.routerLink = "user/"+this.loggedUser.username;
-    console.log("this.routerLink ", this.routerLink);
-    //this.isUserLogged = (this.loggedUser != null && this.loggedUser['token'] != null);
+    //this.updateUserNavBar();
   }
 
   keyword = 'name';
@@ -118,11 +114,18 @@ export class HeaderComponent implements OnInit {
   }
 
   updateUserNavBar() {
-    if (!isDevMode() && this.isUserLogged) {
+
+    if (this.isUserLogged) {
+      this.routerLink = "user/"+this.loggedUsername;
+      console.log("this.routerLink ", this.routerLink);
+      if (!isDevMode()) {
         let user: User = this.datashareService.getCurrentUser();
-        this.getProfileSmImage(user.username);
-    } else {
-        this.profileSmImage = 'assets/images/avatar1.png';
+        this.getProfileSmImage(this.loggedUsername);
+      }else{
+        this.profileSmImage = 'assets/images/userprofile.jpg'; 
+      }
+    }else{
+      this.profileSmImage = 'assets/images/avatar1.png';
     }
   }
 

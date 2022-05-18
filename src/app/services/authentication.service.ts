@@ -10,7 +10,7 @@ import { User } from './../models/user';
 import {AbstractService} from './abstract.service';
 import {DatashareService} from "./datashare.service";
 import { ComponentcommunicationService }     from './componentcommunication.service';
-import { AlertService } from './alert.service';
+//import { AlertService } from './alert.service';
 
 import { SocialAuthService  } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
@@ -35,14 +35,15 @@ export class AuthenticationService extends AbstractService{
   constructor (private http: HttpClient, 
     private dataShareService:DatashareService,
     private componentcommunicationService: ComponentcommunicationService,
-    private alertService: AlertService,
+    //private alertService: AlertService,
     private jwtHelper: JwtHelperService,
     private extAuthService: SocialAuthService ) {
       super();
       this.serviceUrl = dataShareService.getServiceUrl();
 
       if(jwtHelper.isTokenExpired()){
-        this.alertService.success('User session expired', true);
+        //this.alertService.success('User session expired', true);
+        this.logError('User session expired');
         //this.logout();
         
       }
@@ -181,9 +182,10 @@ return this.http.post(loginServiceUrl, user, this.httpOptions)
       localStorage.removeItem('currentUserToken');
       localStorage.removeItem('currentUserName');
       //this.currentUserSubject.next(null);
-      this.dataShareService.setCurrentUser(null as any);
+      this.dataShareService.setCurrentUser(null);
       this.componentcommunicationService.loginChanged(false);
-      this.alertService.success('You are logged out.', true);
+      //this.alertService.success('You are logged out.', true);
+      this.log('You are logged out.');
   }
 
   //OBSOLETE

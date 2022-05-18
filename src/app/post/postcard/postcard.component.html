@@ -8,9 +8,15 @@
                 <!--<span id="link1" class="font-20 hover-underline"> {{post.entityId}}</span>-->
                 <span id="link2" class="font-20 hover-underline text-green">{{post.entityId}} </span>
                 <div> <small><i class="bx bx-time"></i> {{post.lastModifiedDate}}</small></div>
+                <!--
                 <p class="color-grew font-20 text-break">
                     {{post.postText}}
                 </p>
+-->
+                <angular-editor class="font-24 w-100 border-0"  [(ngModel)]="post.postText"></angular-editor>
+
+
+
             </div>
             <div *ngIf="post && post['containsImage']" class="containers">
                 <!--
@@ -72,6 +78,7 @@
     </div>
 </ng-template>
 
+<!-- Commenting for a Post in a Modal - Current Post with disabled controls and New comment component-->
 <ng-template #commentModal let-modal>
     <div class="modal-header">
         <h5 class="modal-title mt-0">Comment</h5>
@@ -99,7 +106,7 @@
             </div>
         </div>
 -->
-    <app-postcard [post]=post [isComment]=true></app-postcard>
-    <app-post [isComment]=true></app-post>
+        <app-postcard [post]=post [isComment]=true></app-postcard>
+        <app-newpost [isComment]=true></app-newpost>
     </div>
 </ng-template>
