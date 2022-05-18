@@ -88,7 +88,7 @@ export class DatashareService {
     return this.currentUserSubject.getValue();
   }
  
-  setCurrentUser(user:User){
+  setCurrentUser(user:User|any){
    //this.currentUser = user;
    this.currentUserSubject.next(user);
   }

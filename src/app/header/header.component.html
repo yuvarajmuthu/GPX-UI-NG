@@ -49,7 +49,7 @@
 
             <!-- <div class="float-right"> -->
                 <span class="pl-1 hide-big set-profile-icon" [routerLink]="isUserLogged ? [routerLink] : []">
-                    <img src="../../assets/profile.png" alt="" class="pointer profile-header  mt-1">
+                    <img [src]="profileSmImage" alt="" class="pointer profile-header  mt-1">
                 </span>
                 <i class="material-icons"> 
                     <i class="fas fa-bars"></i>
@@ -133,7 +133,7 @@
 
                 <div class="d-inline-block mr-2" ngbDropdown #myDrop="ngbDropdown">
                     <div [routerLink]="isUserLogged ? [routerLink] : []">
-                        <img src="../../assets/profile.png" alt="" class="pointer profile-header hide-small" ngbDropdownAnchor>
+                        <img [src]="profileSmImage" alt="" class="pointer profile-header hide-small" ngbDropdownAnchor>
                     </div>
                     <div ngbDropdownMenu aria-labelledby="dropdownManual">
                         <button ngbDropdownItem *ngIf="!isUserLogged" (click)="route('login')">Login</button>

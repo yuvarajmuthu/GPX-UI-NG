@@ -1,6 +1,5 @@
 export class Post {
 	public id:number=-1;
-	public parent_Id: number=-1;
 	public entityId:string = '';
 	public parentPostId:string = '';		
 	public userId: string = '';

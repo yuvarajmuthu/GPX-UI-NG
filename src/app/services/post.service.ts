@@ -107,7 +107,7 @@ export class PostService  extends AbstractService{
 
     //serviceUrl = '/assets/json/fromService/post.json'; 
 
-    console.log("gonna get posts");
+    //console.log("gonna get posts");
 
 
     return this.http.get(serviceUrl, { responseType: 'json', params: {
@@ -128,7 +128,7 @@ export class PostService  extends AbstractService{
             return postsPromise;      
               }), 
               */
-      tap(_ => this.log(`fetched getActivities`)),
+      //tap(_ => this.log(`fetched getActivities`)),
       catchError(this.handleError<any>(`Error in getActivities()`))
     );                         
   }

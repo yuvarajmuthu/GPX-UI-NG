@@ -3,7 +3,7 @@
 	"parent_Id": null,
 	"entityId": "user6@gmail.com",
 	"postType": "T",
-	"postText": "hi <span class='tagged-users' data-username='user5@gmail.com' data-entitytype='PUBLICUSER' readonly='true' contenteditable='false' value='user5 five'>user5 five</span><span>&nbsp;</span>😃 fine",
+	"postText": "<font face='Arial'>Test link&#160;</font>http://localhost:4200/post/stage message",
 	"createdDate": "2020-02-09T18:54:02.524Z",
 	"lastModifiedDate": "2020-02-09T18:54:02.524Z",
 	"totalComments": 5,

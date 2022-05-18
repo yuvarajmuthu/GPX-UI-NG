@@ -151,6 +151,7 @@ export class UserComponent{
       this.uploadForm = this.formBuilder.group({
         file: ['']
     });
+    //setting the right value ?
       this.loggedUsername = this.datashareService.getLoggedinUsername();
 
       this.route.params.subscribe((params: Params) => {

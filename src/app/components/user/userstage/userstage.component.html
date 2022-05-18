@@ -351,7 +351,7 @@
             </div>
             <!-- Add profile section button - End-->
             <!-- ... more button - Begin-->
-            <div>
+            <div *ngIf="isEditable">
                 <div class="d-inline-block mr-2" ngbDropdown #myDrops="ngbDropdown">
                     <button class="btn light-green-shawdo font-14 me-2" id="dropdownManu" ngbDropdownAnchor
                         (focus)="myDrops.open()">

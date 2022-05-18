@@ -61,6 +61,7 @@ export class ManagedComponent implements OnInit {
     // do something when input is focused
   }
   remove(i:any){
+    /*
       Swal.fire({
           title: 'Are you sure?',
           text: "You won't be able to revert this!",
@@ -75,5 +76,12 @@ export class ManagedComponent implements OnInit {
               this.alertService.ToastMessage('Deleted', 'Your card has been deleted.', 'success');
           }
       })
+*/
+      this.alertService.question("User will be removed from this profile.").then((result) => {
+        if (result.isConfirmed) {
+          this.selectArray.splice(i, 1);
+          this.alertService.ToastMessage('Deleted', 'User has been removed from this profile.', 'success');
+        }
+    })
   }
 }

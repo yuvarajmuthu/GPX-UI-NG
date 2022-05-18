@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtModule} from '@auth0/angular-jwt';
@@ -42,6 +42,8 @@ import {MockHttpInterceptorService} from '../app/services/mock/mock-http-interce
 import {AuthenticationService} from '../app/services/authentication.service';
 import {AuthGuard} from '../app/auth/auth.guard';
 import { TwittertweetsComponent } from './components/twittertweets/twittertweets.component';
+
+export let AppInjector: Injector;
 
 export function tokenGetter() {
   return localStorage.getItem('currentUserToken');
@@ -141,4 +143,8 @@ export function tokenGetter() {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(private injector: Injector) {
+    AppInjector = this.injector;
+  }
+}

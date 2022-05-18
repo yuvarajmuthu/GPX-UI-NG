@@ -1,52 +1,47 @@
-<div class="border-radius bg-white mb-3 p-3">
-    <div class="d-flex align-items-start" style="overflow: auto;">
-        <div class="flex-shrink-0 mr-2">
-            
-            <img [src]="profileSmImage" class="post-profile">
-        </div>
-        <div class="flex-shrink-1 w-100">
-            <!-- <textarea (keyup)="autoGrowTextZone($event)" [mentionConfig]="mentionConfig" [(ngModel)]="textArea"
-                class="font-24 w-100 border-0" placeholder="Whats's happening?">
-                </textarea> -->
-            <angular-editor placeholder="{{placeholder}}" class="font-24 w-100 border-0" (keyup)="autoGrowTextZone($event)" [mentionConfig]="mentionConfig" [(ngModel)]="textArea" [config]="config"></angular-editor>
-            <!-- <div *ngIf="images.length==1"> -->
-            <div *ngFor='let url of images ;let index = index' class="containers">
-                <img [src]="url" class="w-100 rounded">
-                <a class="edit-icon mx-1 top-close" (click)="removeSelectedFile(index)">
-                    <span class="icon-shaw pointer">
-                        <i class="bx bx-x"></i>
-                    </span>
-                </a>
-            </div>
-            <!-- </div> -->
-            <div class="d-flex align-items-center bd-highlight py-3">
-                <div class="mr-2 bd-highlight">
-                    <!-- <input id="file" type="file" class="form-control" multiple="" (change)="onFileChange($event)"> -->
-                    <input #fileInputcover type="file" (change)="onFileChange($event)" style="display:none" />
-                    <a class="edit-icon mx-1">
-                        <span class="icon-shaw pointer" (click)="fileInputcover.click()">
-                            <i class="bx bx-images"></i>
-                        </span>
-                    </a>
-                    <a class="edit-icon mx-1" (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
-                        <span class="icon-shaw pointer">
-                            <i class="bx bx-smile"></i>
-                        </span>
-                    </a>
-                    <emoji-mart class="emoji-mart set-box" *ngIf="isEmojiPickerVisible" (emojiSelect)="addEmoji($event)"
-                        title="Choose your emoji"></emoji-mart>
-                </div>
-                <div class="bd-highlight ml-auto">
-                    <button class="btn button-outline-blue font-14 m-0">
-                        <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/Map/Direction2.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <rect x="0" y="0" width="20" height="20"/>
-                                <path d="M14,13.381038 L14,3.47213595 L7.99460483,15.4829263 L14,13.381038 Z M4.88230018,17.2353996 L13.2844582,0.431083506 C13.4820496,0.0359007077 13.9625881,-0.12427877 14.3577709,0.0733126292 C14.5125928,0.15072359 14.6381308,0.276261584 14.7155418,0.431083506 L23.1176998,17.2353996 C23.3152912,17.6305824 23.1551117,18.1111209 22.7599289,18.3087123 C22.5664522,18.4054506 22.3420471,18.4197165 22.1378777,18.3482572 L14,15.5 L5.86212227,18.3482572 C5.44509941,18.4942152 4.98871325,18.2744737 4.84275525,17.8574509 C4.77129597,17.6532815 4.78556182,17.4288764 4.88230018,17.2353996 Z" fill="#0db685" fill-rule="nonzero" transform="translate(14.000087, 9.191034) rotate(-315.000000) translate(-14.000087, -9.191034) "/>
-                            </g>
-                        </svg><!--end::Svg Icon--></span>
-                        Post</button>
-                </div>
-            </div>
-        </div>
+<div class="mb-5rem container set-header-m">
+    <!--
+    <div class="pt-3">
+        <h4>Home</h4>
+        <hr class="my-2">
+    </div>
+    -->
+    <app-newpost></app-newpost>
+    <div class="border-radius bg-white mb-3 p-3 hover-card"
+    *ngFor='let post of posts ;let index = index'>
+        <app-postcard *ngIf="isPosts" [post]="post" [selfActivities]="selfActivities" (click)="commentPage($event,index)"></app-postcard>
     </div>
 </div>
+
+<!-- Add New Post - in scroll mode -->
+<div class="scrolltop pointer" (click)="modelPopup(largeDataModal)">
+    <div>
+        <!-- <span class="svg-icon svg-icon-primary svg-icon-2x">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-h-fix" viewBox="0 0 24 24" version="1.1">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <rect x="0" y="0" width="24" height="24"/>
+                <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+                <rect fill="#000000" x="4" y="11" width="16" height="2" rx="1"/>
+                <rect fill="#000000" opacity="0.3" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) " x="4" y="11" width="16" height="2" rx="1"/>
+            </g>
+        </svg>
+    </span> -->
+    <span class="svg-icon svg-icon-primary svg-icon-2x">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="w-h-fix" viewBox="0 0 24 24" version="1.1">
+            
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect x="0" y="0" width="24" height="24"/>
+                    <path d="M12,19 C15.8659932,19 19,15.8659932 19,12 C19,8.13400675 15.8659932,5 12,5 C8.13400675,5 5,8.13400675 5,12 C5,15.8659932 8.13400675,19 12,19 Z M12,21 C7.02943725,21 3,16.9705627 3,12 C3,7.02943725 7.02943725,3 12,3 C16.9705627,3 21,7.02943725 21,12 C21,16.9705627 16.9705627,21 12,21 Z" fill="#000000" fill-rule="nonzero"/>
+                    <path d="M12,9.66666667 C11.3333333,8.64514991 11,7.88126102 11,7.375 C11,6.61560847 11.4477153,6 12,6 C12.5522847,6 13,6.61560847 13,7.375 C13,7.88126102 12.6666667,8.64514991 12,9.66666667 Z M12,14 C12.6666667,15.0215168 13,15.7854056 13,16.2916667 C13,17.0510582 12.5522847,17.6666667 12,17.6666667 C11.4477153,17.6666667 11,17.0510582 11,16.2916667 C11,15.7854056 11.3333333,15.0215168 12,14 Z M14.3333333,12 C15.3548501,11.3333333 16.118739,11 16.625,11 C17.3843915,11 18,11.4477153 18,12 C18,12.5522847 17.3843915,13 16.625,13 C16.118739,13 15.3548501,12.6666667 14.3333333,12 Z M10,12 C8.97848324,12.6666667 8.21459435,13 7.70833333,13 C6.9489418,13 6.33333333,12.5522847 6.33333333,12 C6.33333333,11.4477153 6.9489418,11 7.70833333,11 C8.21459435,11 8.97848324,11.3333333 10,12 Z M13.6499158,10.3500842 C13.9008327,9.15635823 14.2052815,8.38050496 14.5632621,8.02252436 C15.100233,7.48555345 15.8521164,7.36683502 16.2426407,7.75735931 C16.633165,8.1478836 16.5144465,8.89976702 15.9774756,9.43673792 C15.619495,9.79471852 14.8436418,10.0991673 13.6499158,10.3500842 Z M10.5857864,13.4142136 C10.3348695,14.6079395 10.0304208,15.3837928 9.67244018,15.7417734 C9.13546928,16.2787443 8.38358587,16.3974627 7.99306157,16.0069384 C7.60253728,15.6164141 7.72125572,14.8645307 8.25822662,14.3275598 C8.61620722,13.9695792 9.39206049,13.6651305 10.5857864,13.4142136 Z M13.6499158,13.6499158 C14.8436418,13.9008327 15.619495,14.2052815 15.9774756,14.5632621 C16.5144465,15.100233 16.633165,15.8521164 16.2426407,16.2426407 C15.8521164,16.633165 15.100233,16.5144465 14.5632621,15.9774756 C14.2052815,15.619495 13.9008327,14.8436418 13.6499158,13.6499158 Z M10.5857864,10.5857864 C9.39206049,10.3348695 8.61620722,10.0304208 8.25822662,9.67244018 C7.72125572,9.13546928 7.60253728,8.38358587 7.99306157,7.99306157 C8.38358587,7.60253728 9.13546928,7.72125572 9.67244018,8.25822662 C10.0304208,8.61620722 10.3348695,9.39206049 10.5857864,10.5857864 Z" fill="#000000" opacity="0.3"/>
+                </g>
+            
+    </svg><!--end::Svg Icon--></span>
+    </div>
+</div>
+
+<!-- Modal for new Post -->
+<ng-template #largeDataModal let-modal >
+    <div class="remove-m">
+        <app-newpost></app-newpost>
+    </div>
+</ng-template>
+
