@@ -39,7 +39,7 @@ export class ProfileService extends AbstractService{
       return this.http.get(serviceUrl, this.httpOptions)
       .pipe(
         //map((response:Response) => response.json()), 
-        tap(_ => this.log(`fetched getProfileTemplate`)),
+        //tap(_ => this.log(`fetched getProfileTemplate`)),
         catchError(this.handleError<any>(`Error in getProfileTemplate()`))
       );                            
   }
@@ -56,7 +56,7 @@ export class ProfileService extends AbstractService{
     return this.http.get(serviceUrl, { responseType: 'json', params: {
       category: category
     } }).pipe(
-      tap(_ => this.log(`fetched getProfileTemplateByCategory`)),
+      //tap(_ => this.log(`fetched getProfileTemplateByCategory`)),
       catchError(this.handleError<any>(`Error in getProfileTemplateByCategory()`))
     );
 
@@ -76,7 +76,7 @@ export class ProfileService extends AbstractService{
     return this.http.get(serviceUrl, { responseType: 'json', params: {
       category: category
     } }).pipe(
-      tap(_ => this.log(`fetched getAvailableProfileTemplatesForEntity`)),
+      //tap(_ => this.log(`fetched getAvailableProfileTemplatesForEntity`)),
       catchError(this.handleError<any>(`Error in getAvailableProfileTemplatesForEntity()`))
     );
 
@@ -90,7 +90,7 @@ export class ProfileService extends AbstractService{
     return this.http.get(serviceUrl, { responseType: 'json', params: {
       category: category
     } }).pipe(
-      tap(_ => this.log(`fetched getAvailableProfileTemplates`)),
+      //tap(_ => this.log(`fetched getAvailableProfileTemplates`)),
       catchError(this.handleError<any>(`Error in getAvailableProfileTemplates()`))
     );
 }

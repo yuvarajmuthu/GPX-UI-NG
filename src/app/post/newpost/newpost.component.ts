@@ -216,12 +216,18 @@ export class NewPostComponent implements OnInit {
     }
 
     this.postService.postComment(this.postFormData)
-        .subscribe((data:any) => {
-          this.resetForm();
+        .subscribe(
+          (data:any) => {
+            this.resetForm();
 
-          this.alertService.success('Successfully posted.', true);
-      
-        });
+            this.alertService.success('Successfully posted.', true);
+        
+          },
+          (err) => {
+            console.log(err);
+            this.alertService.ToastErrorMessage('Error', err.message, true);
+          }
+        );
     }
 
 }

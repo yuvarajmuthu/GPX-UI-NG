@@ -117,7 +117,7 @@ getLegislature(searchParam:string, type:string):Observable<any>{
     console.log('getLegislature API - ' + url);
     return this.http.get(url, this.httpOptions)
     .pipe(
-      tap(_ => this.log(`fetched Legislator`)),
+      //tap(_ => this.log(`fetched Legislator`)),
       catchError(this.handleError<any>(`Error in getLegislature()`))
     );
                 
