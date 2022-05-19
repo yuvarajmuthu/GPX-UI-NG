@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, isDevMode } from '@angular/core';
-
 import { FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 import {DatashareService} from '../../services/datashare.service';
@@ -21,6 +22,7 @@ import Swal from 'sweetalert2';
 export class NewPostComponent implements OnInit {
   @Input() isComment: boolean;
   @Input() parentPostId: string;
+  @Input() modalRef: NgbModalRef;
 
 
   placeholder:string;
@@ -89,7 +91,9 @@ export class NewPostComponent implements OnInit {
     private userService: UserService,
     private postService: PostService,
     private alertService: AlertService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private modalService: NgbModal,
+
   ) { 
     //this.postFormGroup = this.formBuilder.group({});
 
@@ -231,6 +235,10 @@ export class NewPostComponent implements OnInit {
         .subscribe(
           (data:any) => {
             this.resetForm();
+
+            if(this.isComment)
+              //this.modalService.dismissAll();
+              this.modalRef.close();
 
             this.alertService.success('Successfully posted.', true);
         
