@@ -33,7 +33,11 @@
  
                         <div class="form-group">
                             <label class="font-14">Location</label>
-                            <app-g-address-search (setAddress)="getAddress($event)" adressType="geocode"></app-g-address-search>
+                            <div class="form-group">
+                                <div class="input-with-icon" >
+                                  <app-g-address-search (setAddress)="getAddress($event)" adressType="geocode"></app-g-address-search>
+                                </div>
+                              </div>
 
                         </div>
 

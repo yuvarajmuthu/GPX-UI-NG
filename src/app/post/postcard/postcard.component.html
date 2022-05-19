@@ -13,7 +13,7 @@
                     {{post.postText}}
                 </p>
 -->
-                <angular-editor class="font-24 w-100 border-0"  [(ngModel)]="post.postText"></angular-editor>
+<angular-editor class="font-20 w-100 border-0"  [(ngModel)]="post.postText" [config]="config"></angular-editor>
 
 
 
@@ -22,21 +22,19 @@
                 <!--
                 <img src="{{post.postImage}}" id="image{{index}}" class="rounded postcard-img" style="">
                 -->
-                <img [src]="postImage" class="rounded postcard-img">
+                <img [src]="postImage" id="image" class="rounded postcard-img" (click)="modelPopupImage(largeSlider)">
 
-                <ng-template #largeSlider let-modal id="imgModal">
+                <ng-template #largeSlider let-modal >
                     <div class="slide-modal-content">
-                        <!--
                         <div class="image-row">
-                            <img class="images rounded" id="image{{index}}" src="{{post.postImage}}" style="width: 100%;">
+                            <img class="images rounded" [src]="postImage" style="width: 100%;">
                         </div>
-                        -->
                     </div>
                 </ng-template>
             </div>
         </div>
     </div>
-    <hr>
+    <hr class="mt-0">
     <div *ngIf="!isComment" class="d-flex justify-content-around center-text">
         <div>
             <a class="edit-comment mr-1" (click)="modelPopup(commentModal, post)">
@@ -106,7 +104,7 @@
             </div>
         </div>
 -->
-        <app-postcard [post]=post [isComment]=true></app-postcard>
+        <app-postcard [post]=post [isComment]=true class="model-img"></app-postcard>
         <app-newpost [isComment]=true></app-newpost>
     </div>
 </ng-template>

@@ -37,3 +37,6 @@
   .title-reg{
     font-size: 45px;
   }
+  :host::ng-deep.set-reg-icon{
+    padding: 7px 0px 0px 12px !important;
+  }

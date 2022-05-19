@@ -4,4 +4,22 @@
 //         background-color: #d8f8f257 !important;
 //     }
 // }
-
+:host::ng-deep.angular-editor-textarea{
+    border: none !important;
+    padding-bottom: 0px !important;
+    resize: none;
+    padding-left: 0px !important;
+    min-height: 3rem !important;
+}
+:host::ng-deep.angular-editor-textarea:after{
+    display: none !important;
+}
+.model-img .containers img{
+    width: 100% !important;
+}
+.angular-editor-textarea{
+    outline: 0!important;
+}
+:host::ng-deep.angular-editor-wrapper{
+    word-break: break-word;
+}

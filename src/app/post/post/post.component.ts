@@ -148,8 +148,8 @@ getPost(pageNumber:string): void {
       console.log("share");
     }
     else if(event.srcElement.id=='image'+index){
-      console.log(document.getElementById(event.srcElement.id));
-      this.modalService.open(this.editmodalShow, { size: 'lg',centered: true });
+      // console.log(document.getElementById(event.srcElement.id));
+      // this.modalService.open(this.editmodalShow, { size: 'lg',centered: true });
       
     }
     else{
