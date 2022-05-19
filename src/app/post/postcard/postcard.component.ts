@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {PostService} from '../../services/post.service';
 import {DatashareService} from '../../services/datashare.service';
 import {UserService} from '../../services/user.service';
+import {AlertService}  from '../../services/alert.service';
 
 import {Post} from '../../models/post';
 
@@ -83,7 +84,8 @@ export class PostcardComponent implements AfterViewInit{
     private modalService: NgbModal,
     private postService: PostService,
     private dataShareService: DatashareService,
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
     ) { 
 
   }
@@ -186,6 +188,10 @@ getPost(pageNumber:string): void {
         this.commentsCount = data;
         console.log("Comments count for " + this.post.id + ": " + data);
 
+    },
+    (err) => {
+      console.log(err);
+      this.alertService.ToastErrorMessage('Error', err.message, true);
     });
 }
 

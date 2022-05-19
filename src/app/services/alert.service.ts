@@ -41,7 +41,15 @@ export class AlertService {
         successToast.fire(title, message, icon);
     }
 
-
+    ToastErrorMessage(title: any, message: any, icon: any) {
+        const successToast = Swal.mixin({
+            toast: true,
+            position: 'top',
+            showConfirmButton: true,
+            timerProgressBar: false
+        });
+        successToast.fire(title, message, icon);
+    }
 
     getAlert(): Observable<any> {
         return this.subject.asObservable();
@@ -50,7 +58,7 @@ export class AlertService {
     success(message: string, keepAfterRouteChange = false) {
         //this.alert(AlertType.Success, message, keepAfterRouteChange);
         Swal.fire({
-            position: 'top-end',
+            position: 'top',
             icon: 'success',
             title: message,
             showConfirmButton: false,
@@ -60,6 +68,7 @@ export class AlertService {
 
     error(message: string, keepAfterRouteChange = false) {
         //this.alert(AlertType.Error, message, keepAfterRouteChange);
+        /*
         Swal.fire({
             position: 'top-end',
             icon: 'error',
@@ -67,12 +76,14 @@ export class AlertService {
             showConfirmButton: false,
             timer: 1500
           })
+          */
+          this.ToastErrorMessage('Error', message, 'error');
     }
 
     info(message: string, keepAfterRouteChange = false) {
         //this.alert(AlertType.Info, message, keepAfterRouteChange);
         Swal.fire({
-            position: 'top-end',
+            position: 'top',
             icon: 'info',
             title: message,
             showConfirmButton: false,
@@ -83,7 +94,7 @@ export class AlertService {
     warn(message: string, keepAfterRouteChange = false) {
         //this.alert(AlertType.Warning, message, keepAfterRouteChange);
         Swal.fire({
-            position: 'top-end',
+            position: 'top',
             icon: 'warning',
             title: message,
             showConfirmButton: false,

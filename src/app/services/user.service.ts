@@ -90,7 +90,7 @@ export class UserService extends AbstractService{
     return this.http.get(url, this.httpOptions)
     .pipe(
       //map((response:Response) => response.json()), 
-      tap(_ => this.log(`fetched getUserData`)),
+      //tap(_ => this.log(`fetched getUserData`)),
       catchError(this.handleError<any>(`Error in getUserData()`))
     );                         
   }
@@ -102,7 +102,7 @@ export class UserService extends AbstractService{
     return this.http.post(serviceUrl, request, this.httpOptions)
     .pipe(
       //map((response:Response) => response.json()),
-      tap(_ => this.log(`posted followDistrict`)),
+      //tap(_ => this.log(`posted followDistrict`)),
       catchError(this.handleError<any>(`Error in followDistrict()`))
     );                 
   }
@@ -115,7 +115,7 @@ export class UserService extends AbstractService{
     return this.http.post(serviceUrl, request, this.httpOptions)
     .pipe(
       //map((response:Response) => response.json()),
-      tap(_ => this.log(`posted followPerson`)),
+      //tap(_ => this.log(`posted followPerson`)),
       catchError(this.handleError<any>(`Error in followPerson()`))
     );                 
   }
@@ -128,7 +128,7 @@ export class UserService extends AbstractService{
     return this.http.post(serviceUrl, request, this.httpOptions)
     .pipe(
       //map((response:Response) => response.json()),
-      tap(_ => this.log(`posted connectUser`)),
+      //tap(_ => this.log(`posted connectUser`)),
       catchError(this.handleError<any>(`Error in connectUser()`))
     );                 
   }
@@ -195,7 +195,7 @@ getManagedBy(entityId:string):Observable<any>{
   return this.http.get(serviceUrl, { responseType: 'json', params: {
     entityId: entityId
   } }).pipe(
-    tap(_ => this.log(`fetched getFollowers`)),
+    //tap(_ => this.log(`fetched getFollowers`)),
     catchError(this.handleError<any>(`Error in getFollowers()`))
   );
   
@@ -217,7 +217,7 @@ getFollowers(entityId:string):Observable<any>{
   return this.http.get(serviceUrl, { responseType: 'json', params: {
     entityId: entityId
   } }).pipe(
-    tap(_ => this.log(`fetched getFollowers`)),
+    //tap(_ => this.log(`fetched getFollowers`)),
     catchError(this.handleError<any>(`Error in getFollowers()`))
   );
   
@@ -255,7 +255,7 @@ getFollowings(entityId:string):Observable<any>{
   return this.http.get(serviceUrl, { responseType: 'json', params: {
     entityId: entityId
   } }).pipe(
-    tap(_ => this.log(`fetched getFollowings`)),
+    //tap(_ => this.log(`fetched getFollowings`)),
     catchError(this.handleError<any>(`Error in getFollowings()`))
   );
   
@@ -271,7 +271,7 @@ getConnections(entityId:string, action:string):Observable<any>{
   return this.http.get(serviceUrl, { responseType: 'json', params: {
     action: action
   } }).pipe(
-    tap(_ => this.log(`fetched getConnectionRequests`)),
+    //tap(_ => this.log(`fetched getConnectionRequests`)),
     catchError(this.handleError<any>(`Error in getConnectionRequests()`))
   );
   
@@ -293,7 +293,7 @@ getBiodata(userId:string):Observable<any>{
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
     //map((response:Response) => response.json()),
-    tap(_ => this.log(`fetched getBiodata`)),
+    //tap(_ => this.log(`fetched getBiodata`)),
     catchError(this.handleError<any>(`Error in getBiodata()`))
   );                
 }
@@ -311,7 +311,7 @@ getRoles(userId:string):Observable<any>{
   let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`fetched getRoles`)),
+    //tap(_ => this.log(`fetched getRoles`)),
     catchError(this.handleError<any>(`Error in getRoles()`))
   );                
 }
@@ -329,7 +329,7 @@ getOffices(userId:string):Observable<any>{
   let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`fetched getOffices`)),
+    //tap(_ => this.log(`fetched getOffices`)),
     catchError(this.handleError<any>(`Error in getOffices()`))
   );                
 }
@@ -348,7 +348,7 @@ getVotes(userId:string):Observable<any>{
   let headers      = new Headers({ 'Content-Type': 'application/json' });
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`fetched getVotes`)),
+    //tap(_ => this.log(`fetched getVotes`)),
     catchError(this.handleError<any>(`Error in getVotes()`))
   );                
 }
@@ -377,7 +377,7 @@ getCircleUsers(userId:string):Observable<any>{
 
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`fetched getCircleUsers`)),
+    //tap(_ => this.log(`fetched getCircleUsers`)),
     catchError(this.handleError<any>(`Error in getCircleUsers()`))
   );  
 }
@@ -392,7 +392,7 @@ getCircleUsersCategory(userId:string):Observable<any>{
 
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`fetched getCircleUsersCategory`)),
+    //tap(_ => this.log(`fetched getCircleUsersCategory`)),
     catchError(this.handleError<any>(`Error in getCircleUsersCategory()`))
   );  
 }
@@ -404,7 +404,7 @@ addMember(request:string):Observable<any>{
   return this.http.post(serviceUrl,  request, this.httpOptions )
   .pipe(
     //map((response:Response) => response.json()),
-    tap(_ => this.log(`addMember successful`)),
+    //tap(_ => this.log(`addMember successful`)),
     catchError(this.handleError<any>(`Error in addMember()`))
   );
 }
@@ -416,7 +416,7 @@ removeMember(request:string):Observable<any>{
   return this.http.post(serviceUrl,  request, this.httpOptions )
   .pipe(
     //map((response:Response) => response.json()),
-    tap(_ => this.log(`removeMember successful`)),
+    //tap(_ => this.log(`removeMember successful`)),
     catchError(this.handleError<any>(`Error in removeMember()`))
   );
 }
@@ -445,7 +445,7 @@ isProfileEditable(profileId:string, userId:string):Observable<any>{
   let headers      = new Headers({ 'Content-Type': 'application/json' });
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`in isProfileEditable`)),
+    //tap(_ => this.log(`in isProfileEditable`)),
     catchError(this.handleError<any>(`Error in isProfileEditable()`))
   );  
 }
@@ -462,7 +462,7 @@ getManagedByUsers(userId:string):Observable<any>{
   let headers      = new Headers({ 'Content-Type': 'application/json' });
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`fetched getManagedByUsers`)),
+    //tap(_ => this.log(`fetched getManagedByUsers`)),
     catchError(this.handleError<any>(`Error in getManagedByUsers()`))
   );  
 }
@@ -478,7 +478,7 @@ getSettings(userId:string):Observable<any>{
   let headers      = new Headers({ 'Content-Type': 'application/json' });
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`fetched getSettings`)),
+    //tap(_ => this.log(`fetched getSettings`)),
     catchError(this.handleError<any>(`Error in getSettings()`))
   );  
 }
@@ -490,7 +490,7 @@ updateSettings(request:string):Observable<any>{
   return this.http.post(serviceUrl,  request, this.httpOptions )
   .pipe(
     //map((response:Response) => response.json()),
-    tap(_ => this.log(`updateSettings successful`)),
+    //tap(_ => this.log(`updateSettings successful`)),
     catchError(this.handleError<any>(`Error in updateSettings()`))
   );
 }
@@ -507,7 +507,7 @@ getEvents(userId:string):Observable<any>{
   let headers      = new Headers({ 'Content-Type': 'application/json' });
   return this.http.get(serviceUrl, this.httpOptions)
   .pipe(
-    tap(_ => this.log(`fetched getEvents`)),
+    //tap(_ => this.log(`fetched getEvents`)),
     catchError(this.handleError<any>(`Error in getEvents()`))
   );                
 }
@@ -534,7 +534,7 @@ getEvents(userId:string):Observable<any>{
     return this.http.get(serviceUrl, {params: myParams, headers: new HttpHeaders({ 'Content-Type': 'application/json' })})
     .pipe(
       //map((response:Response) => response.json()),
-      tap(_ => this.log(`fetched getRelation`)),
+      //tap(_ => this.log(`fetched getRelation`)),
       catchError(this.handleError<any>(`Error in getRelation()`))
     );                
   }
@@ -557,7 +557,7 @@ registerUser(user: any):Observable<any> {
    return this.http.post(this.serviceUrl, user, this.httpOptions)
     .pipe(
       //map((response:Response) => response.json()),
-      tap(_ => this.log(`Successfully registered User`))
+      //tap(_ => this.log(`Successfully registered User`))
       //,
       //catchError(this.handleError<any>(`Error in registering User()`))
     );
@@ -603,7 +603,7 @@ gTokenVerify(token: string):Observable<any> {
             }
           }
         }),
-        tap(_ => this.log(`response from gTokenVerify`)),
+        //tap(_ => this.log(`response from gTokenVerify`)),
         catchError(this.handleError<any>(`Error in gTokenVerify`))
       );
   
@@ -647,7 +647,7 @@ gTokenVerify(token: string):Observable<any> {
               }
             }
           }),
-          tap(_ => this.log(`response from tokenVerify`)),
+          //tap(_ => this.log(`response from tokenVerify`)),
           catchError(this.handleError<any>(`Error in tokenVerify`))
         );
     
@@ -667,7 +667,7 @@ updateUserSmProfileImage(request:FormData):Observable<any>{
   return this.http.post(serviceUrl,  request )
   .pipe(
     //map((response:Response) => response.json()),
-    tap(_ => this.log(`User profile image got uploaded successfully`)),
+    //tap(_ => this.log(`User profile image got uploaded successfully`)),
     catchError(this.handleError<any>(`Error in updateUserSmProfileImage()`))
   );
 }
@@ -679,7 +679,7 @@ updateConnectionAction(request:Connection):Observable<any>{
   return this.http.post(serviceUrl, request, this.httpOptions)
   .pipe(
     //map((response:Response) => response.json()),
-    tap(_ => this.log(`posted updateConnectionAction`)),
+    //tap(_ => this.log(`posted updateConnectionAction`)),
     catchError(this.handleError<any>(`Error in updateConnectionAction()`))
   );
 }
@@ -691,7 +691,7 @@ updateProfileData(request:any):Observable<any>{
   return this.http.post(serviceUrl, request, this.httpOptions)
   .pipe(
     //map((response:Response) => response.json()),
-    tap(_ => this.log(`posted updateProfileData`)),
+    //tap(_ => this.log(`posted updateProfileData`)),
     catchError(this.handleError<any>(`Error in updateProfileData()`))
   );
 }
@@ -703,7 +703,7 @@ updateProfileDataSelective(request:any):Observable<any>{
   return this.http.post(serviceUrl, request, this.httpOptions)
   .pipe(
     //map((response:Response) => response.json()),
-    tap(_ => this.log(`posted updateProfileDataSelective`)),
+    //tap(_ => this.log(`posted updateProfileDataSelective`)),
     catchError(this.handleError<any>(`Error in updateProfileDataSelective`))
   );
 }

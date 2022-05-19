@@ -227,11 +227,14 @@ export class PostService  extends AbstractService{
     serviceUrl = this.serviceUrl + "/getCommentsCount?postId=" + postId;
 
     console.log("in getCommentsCount - serviceUrl ", serviceUrl);
-
-    return this.http.get(serviceUrl, this.httpOptions).pipe(
+/*
+    return this.http.get(serviceUrl, this.httpOptions)
+    .pipe(
       tap(_ => this.log(`fetched getCommentsCount`)),
       catchError(this.handleError<any>(`Error in getCommentsCount()`))
     );                     
+*/
+    return this.http.get(serviceUrl, this.httpOptions);                     
   }
 
   getLikedCount(postId:string):Observable<any> {
@@ -292,19 +295,19 @@ export class PostService  extends AbstractService{
     }
 
     postComment(postFormData:FormData):Observable<any>{
-    const httpOptions = {
-      headers: new HttpHeaders({ "Accept": "application/json" })
-    }  
-    let url = "";
-    this.serviceUrl = this.dataShareService.getServiceUrl() + "/post";
+      const httpOptions = {
+        headers: new HttpHeaders({ "Accept": "application/json" })
+      }  
+      let url = "";
+      this.serviceUrl = this.dataShareService.getServiceUrl() + "/post";
 
 
-    if(this.devMode){
-      url = '/assets/json/fromService/newcomment.json'; 
-    }else{
+      if(this.devMode){
+        url = '/assets/json/fromService/newcomment.json'; 
+      }else{
+        url = this.serviceUrl;
+      }
       url = this.serviceUrl;
-    }
-    url = this.serviceUrl;
 
     /*
     return this.http.get(url,httpOptions).
@@ -315,13 +318,14 @@ export class PostService  extends AbstractService{
              return throwError( 'Something went wrong!' );
            })
         );
-        */
+        
     return this.http.post(this.serviceUrl, postFormData, httpOptions)
     .pipe(
-      //map((response:Response) => response.json()),
       tap(_ => this.log(`posted Comment`)),
       catchError(this.handleError<any>(`Error in postComment()`))
     );           
+*/
+      return this.http.post(this.serviceUrl, postFormData, httpOptions);           
     }
 
   postLike(postId:string, entityId:string):Observable<any> {
