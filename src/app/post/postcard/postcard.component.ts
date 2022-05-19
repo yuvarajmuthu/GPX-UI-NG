@@ -8,6 +8,7 @@ import {UserService} from '../../services/user.service';
 import {AlertService}  from '../../services/alert.service';
 
 import {Post} from '../../models/post';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 
 @Component({
@@ -21,7 +22,10 @@ export class PostcardComponent implements AfterViewInit{
   @Input() isComment : boolean;
   @Input() selfActivities:boolean;
   modalData:Post;
-
+  config: AngularEditorConfig = {
+    editable: false,
+    showToolbar: false,
+  };
   isShowAllPosts:boolean = false;
   
   posts: Post[] = [];
@@ -159,21 +163,21 @@ getPost(pageNumber:string): void {
       this.isLiked = !this.isLiked
     }
     else if(event.srcElement.id=='message'){
-      console.log("message");
+      alert("message");
     }
     else if(event.srcElement.id=='reply'){
-      console.log("reply");
+      alert("reply");
     }
     else if(event.srcElement.id=='share'){
-      console.log("share");
+      alert("share");
     }
     else if(event.srcElement.id=='image'+index){
-      console.log(document.getElementById(event.srcElement.id));
-      this.modalService.open(this.editmodalShow, { size: 'lg',centered: true });
+      // console.log(document.getElementById(event.srcElement.id));
+      // this.modalService.open(this.editmodalShow, { size: 'lg',centered: true });
       
     }
     else{
-      this.router.navigate(['/post/comment']);
+      // this.router.navigate(['/post/comment']);
     }
   }
 
@@ -181,7 +185,9 @@ getPost(pageNumber:string): void {
     this.modalData = post;
     this.modalService.open(modal, { centered: true});
   }
-
+  modelPopupImage(modal: any) {
+    this.modalService.open(modal, { size: 'lg' });
+  }
   getCommentsCount() {
     this.postService.getCommentsCount(String(this.post.id))
     .subscribe((data:any) => {

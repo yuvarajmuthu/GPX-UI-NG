@@ -123,5 +123,18 @@
 	"commentLevel":0,
 	"createdDate":{"$date":"2021-03-06T21:33:12.386Z"},
 	"lastModifiedDate":"2021-03-06T21:33:12.584Z",
+	"_class":"com.jpw.springboot.model.Post"
+},
+{
+	"_id":{"$oid":"6043f518942e3152658dea53"},
+	"entityId":"thirukkural.rasigan@gmail.com",
+	"post":true,
+	"postType":"TI",
+	"postText":"<span class='css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0'>Play the </span><span class='r-18u37iz'><a dir='ltr' href='https://twitter.com/hashtag/RewardMi?src=hashtag_click' role='link' class='css-4rbku5 css-18t94o4 css-901oao css-16my406 r-1cvl2hr r-1loqt21 r-poiln3 r-bcqeeo r-qvutc0'>#RewardMi</a></span><span class='css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0'> game and earn Mi tokens. Earn more and redeem them for discount coupons and F-codes. Play now! </span><a dir='ltr' href='https://t.co/h6mHDYmm0Z' rel='noopener noreferrer' target='_blank' role='link' class='css-4rbku5 css-18t94o4 css-901oao css-16my406 r-1cvl2hr r-1loqt21 r-poiln3 r-bcqeeo r-qvutc0'><span aria-hidden='true' class='css-901oao css-16my406 r-poiln3 r-hiw28u r-qvk6io r-bcqeeo r-qvutc0'>http://</span>event.mi.com/in/rewardmigam<span aria-hidden='true' class='css-901oao css-16my406 r-poiln3 r-hiw28u r-qvk6io r-bcqeeo r-qvutc0'>e/</span></a>",
+	"taggedEntityId":["gmail.com"],
+	"relatedFiles":["6043f518942e3152658dea54"],
+	"commentLevel":0,
+	"createdDate":{"$date":"2021-03-06T21:33:12.386Z"},
+	"lastModifiedDate":"2021-03-06T21:33:12.584Z",
 	"_class":"com.jpw.springboot.model.Post"}
 ]

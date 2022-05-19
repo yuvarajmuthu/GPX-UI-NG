@@ -63,6 +63,7 @@ export class NewPostComponent implements OnInit {
       },
     ]
   };
+  postForm: FormGroup;
   images : any[] = [];
   isEmojiPickerVisible=false;
   myForm = new FormGroup({
@@ -96,6 +97,9 @@ export class NewPostComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.postForm = this.formBuilder.group({
+      textArea: [null, [Validators.required]],
+    });
     //this.postFormGroup = this.formBuilder.group({file: ['']});
     //this.postFormData = new FormData();
     this.resetForm();
@@ -120,7 +124,7 @@ export class NewPostComponent implements OnInit {
     }
 
   }
-
+  get NewpostForm() { return this.postForm.controls; }
   resetForm(){
     this.images = [];
     this.postFormData = new FormData();
@@ -199,6 +203,14 @@ export class NewPostComponent implements OnInit {
   }
 
   submitPost() {
+    // if (this.postForm.invalid) {
+    //   console.log('--------------------hi----------------');
+      
+    //   console.log(this.NewpostForm.textArea.value);
+    //   return;
+    //   console.log(this.NewpostForm.textArea.value);
+    // }
+    
     this.post.entityId = this.datashareService.getLoggedinUsername();
   
     this.post.postText = this.textArea;
