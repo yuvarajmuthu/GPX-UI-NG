@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit, Input, TemplateRef, ViewChild, isDevMode } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef  } from '@ng-bootstrap/ng-bootstrap';
 
 import {PostService} from '../../services/post.service';
 import {DatashareService} from '../../services/datashare.service';
@@ -18,10 +18,12 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 })
 export class PostcardComponent implements AfterViewInit{
   @Input() post: Post;
-  @Input() idx: string;
+  //@Input() idx: string;
   @Input() isComment : boolean;
   @Input() selfActivities:boolean;
-  modalData:Post;
+  //modalData:Post;
+  modalReference: NgbModalRef;
+
   config: AngularEditorConfig = {
     editable: false,
     showToolbar: false,
@@ -131,8 +133,9 @@ export class PostcardComponent implements AfterViewInit{
       this.liked = true;    
     }
 
-    //COMMENT count
-    this.getCommentsCount();
+    //COMMENT count - not required when Post is opened in Comment mode as the count will not be shown
+    if(!this.isComment)
+      this.getCommentsCount();
    
 }
 
@@ -182,12 +185,15 @@ getPost(pageNumber:string): void {
   }
 
   modelPopup(modal: any, post:Post|any) {
-    this.modalData = post;
-    this.modalService.open(modal, { centered: true});
+    //this.modalData = post;
+    //this.modal = modal;
+    this.modalReference = this.modalService.open(modal, { centered: true});
   }
+
   modelPopupImage(modal: any) {
     this.modalService.open(modal, { size: 'lg' });
   }
+  
   getCommentsCount() {
     this.postService.getCommentsCount(String(this.post.id))
     .subscribe((data:any) => {

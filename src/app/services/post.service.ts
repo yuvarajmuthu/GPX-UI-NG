@@ -309,7 +309,10 @@ export class PostService  extends AbstractService{
       }
       url = this.serviceUrl;
 
-    /*
+  
+
+          return this.http.post(this.serviceUrl, postFormData, httpOptions);           
+  /*
     return this.http.get(url,httpOptions).
         pipe(
            map((data: NewComment[]) => {
@@ -321,11 +324,10 @@ export class PostService  extends AbstractService{
         
     return this.http.post(this.serviceUrl, postFormData, httpOptions)
     .pipe(
-      tap(_ => this.log(`posted Comment`)),
+      //tap(_ => this.log(`posted Comment`)),
       catchError(this.handleError<any>(`Error in postComment()`))
     );           
 */
-      return this.http.post(this.serviceUrl, postFormData, httpOptions);           
     }
 
   postLike(postId:string, entityId:string):Observable<any> {
