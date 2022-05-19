@@ -163,13 +163,13 @@ getPost(pageNumber:string): void {
       this.isLiked = !this.isLiked
     }
     else if(event.srcElement.id=='message'){
-      console.log("message");
+      alert("message");
     }
     else if(event.srcElement.id=='reply'){
-      console.log("reply");
+      alert("reply");
     }
     else if(event.srcElement.id=='share'){
-      console.log("share");
+      alert("share");
     }
     else if(event.srcElement.id=='image'+index){
       // console.log(document.getElementById(event.srcElement.id));

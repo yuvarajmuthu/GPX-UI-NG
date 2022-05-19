@@ -137,12 +137,13 @@ getPost(pageNumber:string): void {
     }
     else if(event.srcElement.id=='like'){
       this.isLiked = !this.isLiked
+      alert("Like");
     }
     else if(event.srcElement.id=='message'){
       console.log("message");
     }
     else if(event.srcElement.id=='reply'){
-      console.log("reply");
+      alert("reply");
     }
     else if(event.srcElement.id=='share'){
       console.log("share");
