@@ -148,7 +148,10 @@ getPost(pageNumber:string): void {
     else if(event.srcElement.id=='share'){
       console.log("share");
     }
-    else if(event.srcElement.id=='image'+index){
+    else if(event.srcElement.id=='text'){
+      console.log("text");
+    }
+    else if(event.srcElement.id=='image'){
       // console.log(document.getElementById(event.srcElement.id));
       // this.modalService.open(this.editmodalShow, { size: 'lg',centered: true });
       

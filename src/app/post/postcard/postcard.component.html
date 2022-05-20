@@ -1,30 +1,26 @@
-<div>
-    <div class="d-flex align-items-start  pointer p-1 rounded">
-        <div class="flex-shrink-0 mr-2">
+<div (click)="commentPage($event)">
+    <div class="d-flex align-items-start  pointer p-1 rounded" id="newpage">
+        <div class="flex-shrink-0 mr-2" id="newpage">
             <img [src]="profileSmImage" class="post-profile">
         </div>
-        <div class="flex-shrink-1 w-100">
-            <div>
+        <div class="flex-shrink-1 w-100" id="newpage">
+            <!-- <div> -->
                 <!--<span id="link1" class="font-20 hover-underline"> {{post.entityId}}</span>-->
                 <span id="link2" class="font-20 hover-underline text-green">{{post.entityId}} </span>
-                <div> <small><i class="bx bx-time"></i> {{post.lastModifiedDate}}</small></div>
-                <!--
-                <p class="color-grew font-20 text-break">
+                <div id="newpage"> <small id="newpage"><i class="bx bx-time"></i> {{post.lastModifiedDate}}</small></div>
+                <!-- <p class="color-grew font-20 text-break">
                     {{post.postText}}
-                </p>
--->
-<angular-editor class="font-20 w-100 border-0"  [(ngModel)]="post.postText" [config]="config"></angular-editor>
-
-
-
-            </div>
-            <div *ngIf="post && post['containsImage']" class="containers">
+                </p> -->
+                <angular-editor class="font-20 w-100 border-0" id="text" [(ngModel)]="post.postText" [config]="config">
+                </angular-editor>
+            <!-- </div> -->
+            <div *ngIf="post && post['containsImage']" class="containers" id="newpage">
                 <!--
                 <img src="{{post.postImage}}" id="image{{index}}" class="rounded postcard-img" style="">
                 -->
                 <img [src]="postImage" id="image" class="rounded postcard-img" (click)="modelPopupImage(largeSlider)">
 
-                <ng-template #largeSlider let-modal >
+                <ng-template #largeSlider let-modal>
                     <div class="slide-modal-content">
                         <div class="image-row">
                             <img class="images rounded" [src]="postImage" style="width: 100%;">
@@ -35,7 +31,7 @@
         </div>
     </div>
     <hr class="mt-0">
-    <div *ngIf="!isComment" class="d-flex justify-content-around center-text">
+    <div *ngIf="!isComment" id="newpage" class="d-flex justify-content-around center-text">
         <div>
             <a class="edit-comment mr-1" (click)="modelPopup(commentModal, post)">
                 <span class="icon-shaw pointer">
@@ -63,16 +59,20 @@
 
 <ng-template #shareModal let-modal id="sharemodel">
     <div class="modal-contents">
-    <div class="modal-body" >
-        <div>
-            <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-share-alt" id="reply"></i>
-                <a href="https://api.whatsapp.com/send?text=enter message here">Share whatsapp</a></div>
-            <hr class="my-1">
-            <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-link" id="reply"></i>Copy Link</div>
-            <hr class="my-1">
-            <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-message" id="reply"></i>Direct Message</div>
+        <div class="modal-body">
+            <div>
+                <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-share-alt"
+                        id="reply"></i>
+                    <a href="https://api.whatsapp.com/send?text=enter message here">Share whatsapp</a>
+                </div>
+                <hr class="my-1">
+                <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-link"
+                        id="reply"></i>Copy Link</div>
+                <hr class="my-1">
+                <div class="pointer" (click)="modal.dismiss('Cross click')"> <i class="p-2 bx bx-message"
+                        id="reply"></i>Direct Message</div>
+            </div>
         </div>
-    </div>
     </div>
 </ng-template>
 

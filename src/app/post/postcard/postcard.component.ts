@@ -152,9 +152,9 @@ getPost(pageNumber:string): void {
     this.isLiked = !this.isLiked
   }
 
-  commentPage(event:any,index:any){
+  commentPage(event:any){
     console.log(event.srcElement.id);
-    console.log('image'+index);
+    console.log(event.view.getSelection().type);
     
     if(event.srcElement.id=='link1'){
       alert(event.srcElement.id);
@@ -164,26 +164,34 @@ getPost(pageNumber:string): void {
     }
     else if(event.srcElement.id=='like'){
       this.isLiked = !this.isLiked
+      alert("like");
     }
     else if(event.srcElement.id=='message'){
-      alert("message");
+      // alert("message");
     }
     else if(event.srcElement.id=='reply'){
       alert("reply");
     }
     else if(event.srcElement.id=='share'){
-      alert("share");
+      // alert("share");
     }
-    else if(event.srcElement.id=='image'+index){
+    
+    else if(event.srcElement.id=='image'){
       // console.log(document.getElementById(event.srcElement.id));
       // this.modalService.open(this.editmodalShow, { size: 'lg',centered: true });
       
     }
-    else{
-      // this.router.navigate(['/post/comment']);
+    else if(event.srcElement.id=='newpage'){
+      if (event.view.getSelection().type == 'Caret') {
+      this.router.navigate(['/post/comment']);
+      }
     }
   }
-
+  // public handleClick(event:any) {
+  //   if (event.view.getSelection().type !== 'Range') {
+  //     alert('you clicked');
+  //   }
+  // }
   modelPopup(modal: any, post:Post|any) {
     //this.modalData = post;
     //this.modal = modal;
