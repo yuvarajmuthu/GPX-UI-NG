@@ -8,7 +8,7 @@
     <app-newpost></app-newpost>
     <div class="border-radius bg-white mb-3 p-3 hover-card"
     *ngFor='let post of posts ;let index = index'>
-        <app-postcard *ngIf="isPosts" [post]="post" [selfActivities]="selfActivities" (click)="commentPage($event,index)"></app-postcard>
+        <app-postcard *ngIf="isPosts" [post]="post" [selfActivities]="selfActivities" ></app-postcard>
     </div>
 </div>
 
