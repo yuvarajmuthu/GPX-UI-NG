@@ -43,8 +43,10 @@ export class AuthenticationService extends AbstractService{
 
       if(jwtHelper.isTokenExpired()){
         //this.alertService.success('User session expired', true);
-        this.logError('User session expired');
-        //this.logout();
+        if(localStorage.getItem('currentUserToken')){
+          this.logError('User session expired');
+          this.logout();
+        }
         
       }
 /*

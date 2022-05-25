@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, Input, TemplateRef, ViewChild, isDevMode } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { NgbModal, NgbModalRef  } from '@ng-bootstrap/ng-bootstrap';
 
 import {PostService} from '../../services/post.service';
@@ -16,11 +16,14 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
   templateUrl: './postcard.component.html',
   styleUrls: ['./postcard.component.scss']
 })
-export class PostcardComponent implements AfterViewInit{
-  @Input() post: Post;
-  //@Input() idx: string;
-  @Input() isComment : boolean;
+export class PostcardComponent implements AfterViewInit, OnInit{
+  @Input() post: Post; //Postcard shown with Post data, no Post loading required
+  @Input() postId: string; //Postcard shown with Post data loaded using Post Id - considered isStandaloneMode=true
+  @Input() isCommentMode : boolean; //Postcard opened in a modal for Commenting, actions like comment, share, like can be controlled while opened in comment mode
+  @Input() isComment : boolean = false; //Postcard shown is a Comment of another Postcard
   @Input() selfActivities:boolean;
+  @Input() loadComments:boolean = true; //control loading Comments data for a Postcard
+  isStandaloneMode:boolean = false;
   //modalData:Post;
   modalReference: NgbModalRef;
 
@@ -33,6 +36,10 @@ export class PostcardComponent implements AfterViewInit{
   posts: Post[] = [];
   postsByPage : Post[]=[];
   pageNumber: number = 1;
+
+  commentsCount:number = 0;
+  comments: Post[]=[];
+  loadMore:boolean = false;
 
   parentPost:any;
   allPosts : Post[] = [];
@@ -50,7 +57,6 @@ export class PostcardComponent implements AfterViewInit{
 
   liked: boolean = false;
   likedCount:number = 0;
-  commentsCount:number = 0;
   imageseleted:any
 
   PostCardData = [
@@ -96,7 +102,23 @@ export class PostcardComponent implements AfterViewInit{
 
   }
 
+  ngOnInit(): void {
+    console.log('ngOnInit');
+
+    if(!this.post){
+      this.route.params.subscribe((params: Params) => {
+        if(params && params['id']){
+            this.postId = params['id'];
+            this.isStandaloneMode = true;
+            console.log('from postcard.component route params changed ' + this.postId);
+            this.getPost(this.postId);
+          }
+      });
+    }
+  }
+
   ngAfterViewInit(){
+    console.log('ngAfterViewInit');
     this.entityId = this.dataShareService.getLoggedinUsername();
     if (this.post && this.post.postType) {
       //this.postText = this.sanitizer.bypassSecurityTrustHtml(this.post.postText);
@@ -134,25 +156,107 @@ export class PostcardComponent implements AfterViewInit{
     }
 
     //COMMENT count - not required when Post is opened in Comment mode as the count will not be shown
-    if(!this.isComment)
+    //if(!this.isComment)
       this.getCommentsCount();
    
+    if(this.isStandaloneMode && this.loadComments){
+      this.getComments(this.postId, 0);
+    }
+  }
+
+  getPost(postId:string){
+    this.postService.getPostById(postId)
+    .subscribe((data:any) => {
+        this.post = data;
+        console.log("this.post " + this.post);
+    },
+    (err) => {
+      console.log(err);
+      this.alertService.ToastErrorMessage('Error', err.message, true);
+    });    
+  }
+
+  getComments(postId:string, pageNumber:number): void {
+    //let entityId: string;
+    //entityId = this.dataShareService.getLoggedinUsername();
+
+    //console.log('Activities for ' + entityId);
+
+    var getPostRequest:any = {};
+    getPostRequest['postId'] = postId;
+    getPostRequest['pageNumber'] = pageNumber;
+
+    
+    this.postService.getPostComments(JSON.stringify(getPostRequest))
+    .subscribe((result) => {
+        if(pageNumber == 0){
+            this.comments = result;
+        }else{
+            this.comments = this.comments.concat(result);
+        }
+
+        this.managePagination();
+    });
 }
 
-getPost(pageNumber:string): void {
-  
+loadMoreComments() {
+    this.pageNumber++;
+    this.getComments(String(this.post.id), this.pageNumber);
+}
+
+managePagination(){
+    if(this.commentsCount > this.comments.length){
+        this.loadMore = true;
+    }else{
+        this.loadMore = false;
+    }
+
 }
 
 
   //  openModal(largeSlider: any) {
   //   this.modalService.open(largeSlider, { size: 'lg',centered: true });
   // }
-  like($event:any){
-    console.log("Save button is clicked!", $event);  
-    this.isLiked = !this.isLiked
+  like(){
+    //console.log("Save button is clicked!", $event);  
+
+    let entityId = this.dataShareService.getLoggedinUsername();
+
+    var request:any = {};
+    request['id'] = String(this.post.id);
+    request['entityId'] = entityId;
+    request['action'] = !this.isLiked;
+
+    console.log('Post like request ' + JSON.stringify(request));
+
+
+    //if(!this.liked){    
+
+      this.postService.postLikeaction(JSON.stringify(request))
+      .subscribe((data:any) => {
+          this.isLiked = !this.isLiked
+          //let postResponse = data;
+          this.isLiked = data['liked'];
+          
+          if(data['likedBy']){
+              this.likedCount = data['likedBy'].length
+          }    
+
+          this.alertService.success('Done.', true);
+        
+        },
+        (err) => {
+          console.log(err);
+          this.alertService.ToastErrorMessage('Error', err.message, true);
+        });
+  //}
+
   }
 
-  commentPage(event:any){
+  openStandalone(event:any){
+    if(this.isStandaloneMode)
+      return;
+
     console.log(event.srcElement.id);
     console.log(event.view.getSelection().type);
     
@@ -181,9 +285,9 @@ getPost(pageNumber:string): void {
       // this.modalService.open(this.editmodalShow, { size: 'lg',centered: true });
       
     }
-    else if(event.srcElement.id=='newpage'){
+    else if(event.srcElement.id=='cardbase'){
       if (event.view.getSelection().type == 'Caret') {
-      this.router.navigate(['/post/comment']);
+      this.router.navigate(['/post/card', this.post.id]);
       }
     }
   }
@@ -201,7 +305,7 @@ getPost(pageNumber:string): void {
   modelPopupImage(modal: any) {
     this.modalService.open(modal, { size: 'lg' });
   }
-  
+
   getCommentsCount() {
     this.postService.getCommentsCount(String(this.post.id))
     .subscribe((data:any) => {

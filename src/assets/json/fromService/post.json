@@ -113,7 +113,7 @@
 	]
 },
 {
-	"_id":{"$oid":"6043f518942e3152658dea53"},
+	"id":"6043f518942e3152658dea53",
 	"entityId":"thirukkural.rasigan@gmail.com",
 	"post":true,
 	"postType":"TI",
@@ -126,7 +126,7 @@
 	"_class":"com.jpw.springboot.model.Post"
 },
 {
-	"_id":{"$oid":"6043f518942e3152658dea53"},
+	"id":"6043f518942e3152658dea53",
 	"entityId":"thirukkural.rasigan@gmail.com",
 	"post":true,
 	"postType":"TI",

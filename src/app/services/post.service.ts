@@ -330,6 +330,7 @@ export class PostService  extends AbstractService{
 */
     }
 
+  //OBSOLETE?  
   postLike(postId:string, entityId:string):Observable<any> {
     var serviceUrl = "";
 
@@ -358,6 +359,13 @@ export class PostService  extends AbstractService{
 
   }
 
+  postLikeaction(request:string):Observable<any>{
+    let serviceUrl = this.serviceUrl + "/like";
+    console.log("postLikeaction post.service " + request + " this.serviceUrl " + this.serviceUrl);
+  
+    return this.http.post(serviceUrl,  request, this.httpOptions );
+  }
+
   getNotifications(){
     let url = "";
     if(this.devMode){
@@ -377,23 +385,18 @@ export class PostService  extends AbstractService{
 
   }
 
-  //Obsolete ?
-  getSharedPost(postId:string){
-    let url = "";
+
+  getPostById(postId:string): Observable<any>{
+    let serviceUrl = "";
     if(this.devMode){
-      url = '/assets/json/fromService/sharedPost.json'; 
+      serviceUrl = '/assets/json/fromService/sharedPost.json'; 
     }else{
-      url = "";
+      serviceUrl = this.serviceUrl + "/" + postId;
     }
 
-    return this.http.get(url).
-    pipe(
-       map((data: any) => {
-         return data;
-       }), catchError( error => {
-         return throwError( 'Something went wrong!' );
-       })
-    )
+    console.log("in getPostById - serviceUrl ", serviceUrl);
+
+    return this.http.get(serviceUrl, this.httpOptions);    
 
   }
 

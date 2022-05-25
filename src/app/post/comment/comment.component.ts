@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-//OBSOLETE?
+
+//OBSOLETE - Postcard is being used for both Post and Comment
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',

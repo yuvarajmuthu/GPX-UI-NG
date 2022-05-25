@@ -20,7 +20,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./newpost.component.scss']
 })
 export class NewPostComponent implements OnInit {
-  @Input() isComment: boolean;
+  @Input() isCommentMode: boolean;
   @Input() parentPostId: string;
   @Input() modalRef: NgbModalRef;
 
@@ -110,7 +110,7 @@ export class NewPostComponent implements OnInit {
 
     this.currentUser = this.datashareService.getViewingUser();
 
-    if(this.isComment){
+    if(this.isCommentMode){
       this.placeholder = "Please comment here";
     }else{
       this.placeholder = "Whats's happening?";
@@ -236,7 +236,7 @@ export class NewPostComponent implements OnInit {
           (data:any) => {
             this.resetForm();
 
-            if(this.isComment)
+            if(this.isCommentMode)
               //this.modalService.dismissAll();
               this.modalRef.close();
 

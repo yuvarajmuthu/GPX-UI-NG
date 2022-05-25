@@ -26,7 +26,6 @@ export class PostComponent implements OnInit {
 
   parentPost:any;
   allPosts : Post[] = [];
-  isPosts = true;
   postViewDetails=[];
 
   PostCardData = [
