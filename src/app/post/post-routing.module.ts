@@ -8,24 +8,35 @@ import { PostcardComponent } from './postcard/postcard.component';
 const routes: Routes = [
   {
     path: '',
-    component: PostcardComponent,
+    component: PostComponent,
   },
   {
-    path: 'news',
-    component: PostcardComponent,
+    path: 'stage',
+    component: PostComponent
+  },
+  {
+    path: 'card/:id',
+    component: PostcardComponent
   },
   {
     path: 'newpost',
     component: NewPostComponent,
   },
   {
-    path: 'stage',
-    component: PostComponent,
+    path: 'news',
+    component: PostcardComponent,
   },
   {
     path: 'comment',
     component: CommentComponent,
   },
+  {
+    path: ':id', 
+    component: CommentComponent
+  }
+
+
+
 ];
 
 @NgModule({

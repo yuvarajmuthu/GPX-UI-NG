@@ -1,62 +1,82 @@
-<div (click)="commentPage($event)">
-    <div class="d-flex align-items-start  pointer p-1 rounded" id="newpage">
-        <div class="flex-shrink-0 mr-2" id="newpage">
-            <img [src]="profileSmImage" class="post-profile">
+<div [ngClass]="{'mb-5rem container' : (isStandaloneMode && !isCommentMode)}">
+    <div *ngIf="(isStandaloneMode && !isCommentMode)" class="pt-3">
+        <div class="p-3">
+            <h4><span class="mr-3"> <i class='bx bx-arrow-back pointer' [routerLink]="['/post/stage']"></i></span> Home</h4>
+            <hr class="my-2">
         </div>
-        <div class="flex-shrink-1 w-100" id="newpage">
-            <!-- <div> -->
-                <!--<span id="link1" class="font-20 hover-underline"> {{post.entityId}}</span>-->
-                <span id="link2" class="font-20 hover-underline text-green">{{post.entityId}} </span>
-                <div id="newpage"> <small id="newpage"><i class="bx bx-time"></i> {{post.lastModifiedDate}}</small></div>
-                <!-- <p class="color-grew font-20 text-break">
-                    {{post.postText}}
-                </p> -->
-                <angular-editor class="font-20 w-100 border-0" id="text" [(ngModel)]="post.postText" [config]="config">
-                </angular-editor>
-            <!-- </div> -->
-            <div *ngIf="post && post['containsImage']" class="containers" id="newpage">
-                <!--
-                <img src="{{post.postImage}}" id="image{{index}}" class="rounded postcard-img" style="">
-                -->
-                <img [src]="postImage" id="image" class="rounded postcard-img" (click)="modelPopupImage(largeSlider)">
+    </div>
+    <div (click)="openStandalone($event)" [ngClass]="{'border-radius bg-white p-3 mb-3' : (isStandaloneMode && !isCommentMode), 'border-radius bg-comment p-3 mb-3' : isComment}">
+        <div class="d-flex align-items-start  pointer p-1 rounded" id="cardbase">
+            <div class="flex-shrink-0 mr-2" id="cardbase">
+                <img [src]="profileSmImage" class="post-profile">
+            </div>
+            <div class="flex-shrink-1 w-100" id="cardbase">
+                <!-- <div> -->
+                    <!--<span id="link1" class="font-20 hover-underline"> {{post.entityId}}</span>-->
+                    <span id="link2" class="font-16 hover-underline text-green">{{post.entityId}} </span>
+                    <!--<span class="text-muted mr-1">{{post.entityId}}</span>-->
+                    <span class="h6 text-muted"><i class="bx bx-time"></i> {{post.lastModifiedDate}}</span>
 
-                <ng-template #largeSlider let-modal>
-                    <div class="slide-modal-content">
-                        <div class="image-row">
-                            <img class="images rounded" [src]="postImage" style="width: 100%;">
+
+                    <!-- <p class="color-grew font-20 text-break">
+                        {{post.postText}}
+                    </p> -->
+
+                    <angular-editor [ngClass]="{'font-20 w-100 border-0' : !isComment, 'font-14 mb-2' : isComment}" id="text" [(ngModel)]="post.postText" [config]="config">
+                    </angular-editor>
+                <!-- </div> -->
+                <div *ngIf="post && post['containsImage']" class="containers" id="cardbase">
+                    <!--
+                    <img src="{{post.postImage}}" id="image{{index}}" class="rounded postcard-img" style="">
+                    -->
+                    <img [src]="postImage" id="image" class="rounded postcard-img" (click)="modelPopupImage(largeSlider)">
+
+                    <ng-template #largeSlider let-modal>
+                        <div class="slide-modal-content">
+                            <div class="image-row">
+                                <img class="images rounded" [src]="postImage" style="width: 100%;">
+                            </div>
                         </div>
-                    </div>
-                </ng-template>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-0">
+        <div *ngIf="!isCommentMode" id="cardbase" class="d-flex justify-content-around center-text">
+            <div>
+                <a class="edit-comment mr-1" (click)="modelPopup(commentModal, post)">
+                    <span class="icon-shaw pointer">
+                        <i class='bx bx-chat' id="message"></i>
+                    </span></a>{{commentsCount}}
+            </div>
+            <div>
+                <a class="edit-like mr-1" (click)="like()">
+                    <span class="icon-shaw pointer">
+                        <i class='bx bx-heart' id="like" *ngIf="isLiked"></i>
+                        <i class='bx bxs-heart color-red' id="like" *ngIf="!isLiked"></i>
+                    </span>
+                </a>{{likedCount}}
+            </div>
+            <!--
+            <div>
+                <a class="edit-reply mr-1"><span class="icon-shaw pointer"><i class="bx bx-reply"
+                            id="reply"></i></span></a>2
+            </div>
+            -->
+            <div>
+                <a class="edit-share mr-1"><span class="icon-shaw pointer" (click)="modelPopup(shareModal, null)"><i
+                            class="bx bx-share-alt" id="share"></i></span></a>
             </div>
         </div>
     </div>
-    <hr class="mt-0">
-    <div *ngIf="!isComment" id="newpage" class="d-flex justify-content-around center-text">
-        <div>
-            <a class="edit-comment mr-1" (click)="modelPopup(commentModal, post)">
-                <span class="icon-shaw pointer">
-                    <i class='bx bx-chat' id="message"></i>
-                </span></a>10
-        </div>
-        <div>
-            <a class="edit-like mr-1">
-                <span class="icon-shaw pointer">
-                    <i class='bx bx-heart' id="like" *ngIf="isLiked"></i>
-                    <i class='bx bxs-heart color-red' id="like" *ngIf="!isLiked"></i>
-                </span>
-            </a>5
-        </div>
-        <div>
-            <a class="edit-reply mr-1"><span class="icon-shaw pointer"><i class="bx bx-reply"
-                        id="reply"></i></span></a>2
-        </div>
-        <div>
-            <a class="edit-share mr-1"><span class="icon-shaw pointer" (click)="modelPopup(shareModal, null)"><i
-                        class="bx bx-share-alt" id="share"></i></span></a>19
-        </div>
-    </div>
-</div>
 
+    <!--Showing the Comments for a Post only in Standalone mode-->
+    <div *ngIf="isStandaloneMode">    
+        <app-postcard *ngFor='let comment of comments' [isComment]=true [post]="comment" [loadComments]=false></app-postcard>
+    </div>
+
+
+</div>
 <ng-template #shareModal let-modal id="sharemodel">
     <div class="modal-contents">
         <div class="modal-body">
@@ -104,7 +124,7 @@
             </div>
         </div>
 -->
-        <app-postcard [post]=post [isComment]=true class="model-img"></app-postcard>
-        <app-newpost [isComment]=true [modalRef]=modalReference></app-newpost>
+        <app-postcard [post]=post [isCommentMode]=true class="model-img"></app-postcard>
+        <app-newpost [isCommentMode]=true [modalRef]=modalReference></app-newpost>
     </div>
 </ng-template>

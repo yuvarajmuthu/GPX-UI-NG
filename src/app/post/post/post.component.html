@@ -6,9 +6,14 @@
     </div>
     -->
     <app-newpost></app-newpost>
+
     <div class="border-radius bg-white mb-3 p-3 hover-card"
     *ngFor='let post of posts ;let index = index'>
-        <app-postcard *ngIf="isPosts" [post]="post" [selfActivities]="selfActivities" ></app-postcard>
+        <app-postcard [post]="post" [selfActivities]="selfActivities" ></app-postcard>
+    </div>
+
+    <div *ngIf="!posts || posts.length < 1">
+        No Post to show 
     </div>
 </div>
 
