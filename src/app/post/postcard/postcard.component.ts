@@ -16,7 +16,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
   templateUrl: './postcard.component.html',
   styleUrls: ['./postcard.component.scss']
 })
-export class PostcardComponent implements AfterViewInit, OnInit{
+export class PostcardComponent implements OnInit{
   @Input() post: Post; //Postcard shown with Post data, no Post loading required
   @Input() postId: string; //Postcard shown with Post data loaded using Post Id - considered isStandaloneMode=true
   @Input() isCommentMode : boolean; //Postcard opened in a modal for Commenting, actions like comment, share, like can be controlled while opened in comment mode
@@ -114,10 +114,12 @@ export class PostcardComponent implements AfterViewInit, OnInit{
             this.getPost(this.postId);
           }
       });
+    }else{
+      this.loadPostData();
     }
   }
 
-  ngAfterViewInit(){
+  loadPostData(){
     console.log('ngAfterViewInit');
     this.entityId = this.dataShareService.getLoggedinUsername();
     if (this.post && this.post.postType) {
@@ -169,6 +171,7 @@ export class PostcardComponent implements AfterViewInit, OnInit{
     .subscribe((data:any) => {
         this.post = data;
         console.log("this.post " + this.post);
+        this.loadPostData();
     },
     (err) => {
       console.log(err);
@@ -196,7 +199,11 @@ export class PostcardComponent implements AfterViewInit, OnInit{
         }
 
         this.managePagination();
-    });
+      },
+      (err) => {
+        console.log(err);
+        this.alertService.ToastErrorMessage('Error', err.message, true);
+      });
 }
 
 loadMoreComments() {
@@ -287,7 +294,9 @@ managePagination(){
     }
     else if(event.srcElement.id=='cardbase'){
       if (event.view.getSelection().type == 'Caret') {
-      this.router.navigate(['/post/card', this.post.id]);
+        this.router.navigate(['/post/card', this.post.id]);
+        //this.router.navigate(['/post/card', {post:this.post}]);
+        //this.router.navigateByUrl('/post/card', {'post':this.post});
       }
     }
   }

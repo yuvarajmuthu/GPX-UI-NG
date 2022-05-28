@@ -1,19 +1,23 @@
 <div [ngClass]="{'mb-5rem container' : (isStandaloneMode && !isCommentMode)}">
     <div *ngIf="(isStandaloneMode && !isCommentMode)" class="pt-3">
-        <div class="p-3">
-            <h4><span class="mr-3"> <i class='bx bx-arrow-back pointer' [routerLink]="['/post/stage']"></i></span> Home</h4>
+        <div>
+            <a class="edit-comment mr-1" href="javascript:void(0);" [routerLink]="['/post/stage']">
+                <span class="icon-shaw pointer"> 
+                <i class='bx bx-arrow-back' ></i>
+                </span>
+            </a>
             <hr class="my-2">
         </div>
     </div>
     <div (click)="openStandalone($event)" [ngClass]="{'border-radius bg-white p-3 mb-3' : (isStandaloneMode && !isCommentMode), 'border-radius bg-comment p-3 mb-3' : isComment}">
         <div class="d-flex align-items-start  pointer p-1 rounded" id="cardbase">
-            <div class="flex-shrink-0 mr-2" id="cardbase">
+            <div class="flex-shrink-0 mr-2" id="cardbase" [routerLink]="['/user', post.entityId]">
                 <img [src]="profileSmImage" class="post-profile">
             </div>
             <div class="flex-shrink-1 w-100" id="cardbase">
                 <!-- <div> -->
                     <!--<span id="link1" class="font-20 hover-underline"> {{post.entityId}}</span>-->
-                    <span id="link2" class="font-16 hover-underline text-green">{{post.entityId}} </span>
+                    <span id="link2" class="font-16 hover-underline text-green" [routerLink]="['/user', post.entityId]">{{post.entityId}} </span>
                     <!--<span class="text-muted mr-1">{{post.entityId}}</span>-->
                     <span class="h6 text-muted"><i class="bx bx-time"></i> {{post.lastModifiedDate}}</span>
 
@@ -71,7 +75,9 @@
     </div>
 
     <!--Showing the Comments for a Post only in Standalone mode-->
-    <div *ngIf="isStandaloneMode">    
+    <div *ngIf="isStandaloneMode"> 
+        <br/>
+        <h3 class="font-18">Comments:</h3>   
         <app-postcard *ngFor='let comment of comments' [isComment]=true [post]="comment" [loadComments]=false></app-postcard>
     </div>
 
