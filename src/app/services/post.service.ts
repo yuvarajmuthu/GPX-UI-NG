@@ -211,8 +211,8 @@ export class PostService  extends AbstractService{
 
             return postsPromise;      
               }), 
-      tap(_ => this.log(`fetched getPostComments`)),
-      catchError(this.handleError<any>(`Error in getPostComments()`))
+      //tap(_ => this.log(`fetched getPostComments`)),
+      //catchError(this.handleError<any>(`Error in getPostComments()`))
     );                         
   }
 
@@ -224,7 +224,7 @@ export class PostService  extends AbstractService{
     }else{
       serviceUrl = this.serviceUrl + "/getCommentsCount?postId=" + postId;
     }
-    serviceUrl = this.serviceUrl + "/getCommentsCount?postId=" + postId;
+    //serviceUrl = this.serviceUrl + "/getCommentsCount?postId=" + postId;
 
     console.log("in getCommentsCount - serviceUrl ", serviceUrl);
 /*
