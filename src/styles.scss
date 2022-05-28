@@ -621,13 +621,16 @@ textarea:focus-visible {
     // -webkit-border-radius: 227px 20px 227px 227px;
 }
 @media (min-width: 0px) and (max-width: 767px){
+    .card-profile{
+        .img{
+            max-width: 90px !important;
+            height: 90px !important;
+            width: auto !important;
+        }
+      }
     .margin-remove{
         margin: 0!important;
     }
-    // .set-search{
-    //     position: absolute;
-    //     bottom: -386px;
-    // }
     .video-h-w{
         width: 285px;
         height: 285px;
@@ -645,10 +648,10 @@ textarea:focus-visible {
         padding-left: 7px;
         padding-right: 0px;
     }
-.font-size-icon{
-    font-size: 35px;
-}
-.lines {
+    .font-size-icon{
+        font-size: 35px;
+    }
+    .lines {
     margin-left: 0px !important;
     .dots {
       width: 50px !important;
@@ -844,6 +847,13 @@ textarea:focus-visible {
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .card-profile{
+        .img{
+            max-width: 90px !important;
+            height: 90px !important;
+            width: auto !important;
+        }
+      }
     .video-h-w{
         width: 270px;
         height: 270px;
@@ -1013,6 +1023,13 @@ textarea:focus-visible {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px){
+    .card-profile{
+        .img{
+            max-width: 90px !important;
+            height: 90px !important;
+            width: auto !important;
+        }
+      }
     .video-h-w{
         width: 522px;
         height: 522px;
@@ -1139,7 +1156,7 @@ textarea:focus-visible {
 }
 .set-header-m{
     margin-top: 58px;
-    margin-bottom: 58px;
+    margin-bottom: 75px;
 }
 
 @media (min-width: 1115px) and (max-width: 1199px){
@@ -1241,14 +1258,14 @@ textarea:focus-visible {
     background-color: #fff!important;
     .img{
         width: 100%;
-        max-width: 120px;
-        height: 120px;
+        max-width: 100px;
+        height: 100px;
         object-fit: cover;
     }
   }
   .star-tag{
       position: absolute;
-      right: 20px;
+      right: 30px;
       top: 0px;
         padding: 5px 10px;
         min-width: 36px;

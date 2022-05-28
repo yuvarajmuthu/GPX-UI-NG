@@ -1,7 +1,7 @@
 <!--
   https://bootsnipp.com/snippets/7nV1l
 -->
-<div class="box5">
+<!-- <div class="box5">
   <div class="row userMain">
           <div class="userBlock">
               <div class="backgrounImg">
@@ -35,4 +35,31 @@
              
           </div>
     </div>
-  </div>  
+  </div>   -->
+
+
+  <div class="p-2 box-card">
+    <div class="row card-profile m-0 p-3">
+      <div class="col-5 wave-li-firogi">
+        <img [src]="profileSmImage" alt="" class="img" style="border-radius: 50%;" *ngIf="!isImageLoading">
+      </div>
+      <div class="col-7">
+        <div class="font-20">{{user.full_name}}</div>
+        <div class="font-14"> <a class="color-grew">{{user.username}}</a></div>
+        <div class="font-14"> <a class="color-grew"> {{followersCount}} Followers </a></div>
+        <div *ngIf="!isSelfProfile" class="btn button-blue font-14 my-2" (click)="followEntity()">
+          {{followCntrlLabel}}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!isSelfProfile" >
+      <ul class="icon">
+        <li class="text-center"><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning" title="View Profile"> </a></li>
+        <li class="text-center"><a *ngIf="manageMembers" [routerLink]="" (click)="removMember()" class="fa fa-trash-o bg-warning" title="View Profile"> </a></li>
+      </ul>
+    </div>
+    <div class="star-tag">
+      <i class="fa fa-star text-white pointer"></i>
+    </div>
+  </div>
+ 

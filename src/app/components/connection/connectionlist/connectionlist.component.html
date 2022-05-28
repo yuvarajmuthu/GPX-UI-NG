@@ -1,80 +1,80 @@
 
 
- <div class="card tab-card">
-    <div class="card-header tab-card-header">
+ <div class="container">
+  <div class="py-3">
 
-      <div class="top-alignment">
-        <div class="row" style="margin-left:1px">
-          <span class="filterPill">
-            <button class="btn button-color" [ngClass]="{'active': action == 'approvalPending'}" (click)="loadConnections('approvalPending')"> 
-            Approval Pending 
-            <span class="badge badge-light"> {{approvalPendingCount}} </span>
-            </button>
+    <div>
+      <div class="row" style="margin-left:1px">
+        <span class="filterPills">
+          <button class="btn button-color my-2 px-3 green-color box-tag" [ngClass]="{'green-color-active': action == 'approvalPending'}" (click)="loadConnections('approvalPending')"> 
+          Approval Pending 
+          <span class="badge badge-light"> {{approvalPendingCount}} </span>
+          </button>
 
-            <button class="btn button-color" [ngClass]="{'active': action == 'requestSent'}" (click)="loadConnections('requestSent')">
-            Request Sent 
-            <span class="badge badge-light"> {{requestSentCount}} </span>
-            </button>
+          <button class="btn button-color my-2 px-3 box-tag red-color" [ngClass]="{'red-color-active': action == 'requestSent'}" (click)="loadConnections('requestSent')">
+          Request Sent 
+          <span class="badge badge-light" *ngIf="requestSentCount"> {{requestSentCount}} </span>
+          </button>
 
-            <button class="btn button-color" [ngClass]="{'active': action == 'followers'}" (click)="loadConnections('followers')">
-            Followers
-            <span class="badge badge-light"> {{followersCount}} </span>
-            </button>
+          <button class="btn button-color my-2 px-3 box-tag blue-color" [ngClass]="{'blue-color-active': action == 'followers'}" (click)="loadConnections('followers')">
+          Followers
+          <span class="badge badge-light"> {{followersCount}} </span>
+          </button>
 
-            <button class="btn button-color" [ngClass]="{'active': action == 'followings'}" (click)="loadConnections('followings')">
-            Followings 
-            <span class="badge badge-light"> {{followingsCount}} </span>
-            </button>
+          <button class="btn button-color my-2 px-3 box-tag yellow-color" [ngClass]="{'yellow-color-active': action == 'followings'}" (click)="loadConnections('followings')">
+          Followings 
+          <span class="badge badge-light"> {{followingsCount}} </span>
+          </button>
 
-          </span>
-          
-        </div>
+        </span>
+        
       </div>
+    </div>
 
 <!--     
-      <ul class="nav nav-tabs card-header-tabs li-justify-content-center">
-        <li class="nav-item border-right col-xs-3">
-          <a class="nav-link search-legislator-navpills cursor-hand" (click)="loadConnections('approvalPending')">
-            <span [ngClass]="pillCSSAPVar">
-              Approval Pending 
-              <span class="badge badge-light"> {{approvalPendingCount}} </span>
-            </span>
-          </a>
-        </li>
-        <li class="nav-item border-right col-xs-3">
-          <a class="nav-link search-legislator-navpills cursor-hand" (click)="loadConnections('requestSent')">
-            <span [ngClass]="pillCSSRSVar">
-              Request Sent
-              <span class="badge badge-light"> {{requestSentCount}} </span>
-            </span>
-          </a>
-        </li>
-        <li class="nav-item border-right col-xs-3">
-          <a class="nav-link search-legislator-navpills cursor-hand" (click)="loadConnections('followers')">
-            <span [ngClass]="pillCSSFollowersVar">
-              Followers
-              <span class="badge badge-light"> {{followersCount}} </span>
-            </span>
-          </a>
-        </li>
-        <li class="nav-item col-xs-3">
-          <a class="nav-link search-legislator-navpills cursor-hand" (click)="loadConnections('followings')">
-            <span [ngClass]="pillCSSFollowingsVar">
-              Followings 
-              <span class="badge badge-light"> {{followingsCount}} </span>
-            </span>
-          </a>
-        </li>
-        </ul>
-      -->
-    </div>
-
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
-        <div class="row">
-          <app-connectionrequest [username]=entityId [relationStatus]=action *ngFor="let entityId of connectionsEntityId" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 custom-resize-card"></app-connectionrequest>
-        </div>
-      </div>
-
-    </div>
+    <ul class="nav nav-tabs card-header-tabs li-justify-content-center">
+      <li class="nav-item border-right col-xs-3">
+        <a class="nav-link search-legislator-navpills cursor-hand" (click)="loadConnections('approvalPending')">
+          <span [ngClass]="pillCSSAPVar">
+            Approval Pending 
+            <span class="badge badge-light"> {{approvalPendingCount}} </span>
+          </span>
+        </a>
+      </li>
+      <li class="nav-item border-right col-xs-3">
+        <a class="nav-link search-legislator-navpills cursor-hand" (click)="loadConnections('requestSent')">
+          <span [ngClass]="pillCSSRSVar">
+            Request Sent
+            <span class="badge badge-light"> {{requestSentCount}} </span>
+          </span>
+        </a>
+      </li>
+      <li class="nav-item border-right col-xs-3">
+        <a class="nav-link search-legislator-navpills cursor-hand" (click)="loadConnections('followers')">
+          <span [ngClass]="pillCSSFollowersVar">
+            Followers
+            <span class="badge badge-light"> {{followersCount}} </span>
+          </span>
+        </a>
+      </li>
+      <li class="nav-item col-xs-3">
+        <a class="nav-link search-legislator-navpills cursor-hand" (click)="loadConnections('followings')">
+          <span [ngClass]="pillCSSFollowingsVar">
+            Followings 
+            <span class="badge badge-light"> {{followingsCount}} </span>
+          </span>
+        </a>
+      </li>
+      </ul>
+    -->
   </div>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="" id="one" role="tabpanel" aria-labelledby="one-tab">
+      <div class="row">
+        <app-connectionrequest [username]=entityId [relationStatus]=action *ngFor="let entityId of connectionsEntityId" class="col-lg-4 col-md-4 col-sm-12 col-xs-12 "></app-connectionrequest>
+      </div>
+    </div>
+
+  </div>
+</div>

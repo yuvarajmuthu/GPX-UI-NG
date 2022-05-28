@@ -1,25 +1,27 @@
-<p class="top-alignment">
-  <ngb-alert type="primary" [dismissible]="false">
-    You can setup your own Circle, so the favorite profiles can be quickly accessed from here.
-    <h6>Just select 'Add to Circle' from any profile.</h6>
-  </ngb-alert>
-</p>
+<div class="container">
+  <div class="py-3">
+    <div class="locationText font-18">
+      You can setup your own Circle, so the favorite profiles can be quickly accessed from here. 
+      <div class="text-green">Just select 'Add to Circle' from any profile.</div>
+    </div>
+  </div>
 
-<div *ngIf="circleUsersInfo === null">
-Your Circle is empty.
+  <div *ngIf="circleUsersInfo === null">
+    Your Circle is empty.
+    </div>
 </div>
 
 <div *ngIf="circleUsersInfo != null" class="container">
-  <div class="row">
+  <div class="">
 
-      <span class="filterPill"><button class="btn button-color" [ngClass]="{'active': circleCatagoryActive == circleUserCategory}" (click)="loadCircleUsersByCategory(circleUserCategory)"
+      <span class="filterPills"><button class="btn button-color box-tag px-3" [ngClass]="{'active': circleCatagoryActive == circleUserCategory}" (click)="loadCircleUsersByCategory(circleUserCategory)"
         *ngFor="let circleUserCategory of circleUserCategories">
         {{circleUserCategory}}
       </button></span>
   </div>
 
   <div class="row">
-    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 card-body legislator-box-shadow" *ngFor="let circleUser of circleUsers">
+    <div class="col-lg-4 col-sm-12 col-xs-12 " *ngFor="let circleUser of circleUsers">
       
       <app-usercard2 [username]="circleUser"></app-usercard2>
       
