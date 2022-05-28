@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'news',
-    component: PostcardComponent,
+    component: PostComponent,
   },
   {
     path: 'comment',

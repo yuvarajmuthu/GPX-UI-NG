@@ -5,6 +5,11 @@
   margin-right: 10px;
 }
 
+.filterPills{
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
 .filterPills .green-color {
   // margin-bottom: 10px;
   // border-radius: 20px;
@@ -18,6 +23,7 @@
     transition: 0.2s;
     transform: translateY(2px);
   }
+  
 }
 .filterPills .red-color {
   // margin-bottom: 10px;
