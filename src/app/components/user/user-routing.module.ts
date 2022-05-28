@@ -8,7 +8,8 @@ import { EventComponent } from '../../event/event.component';
 //import { HomeComponent } from '../../home/home.component';
 import { RoleComponent } from '../../role/role.component';
 import { TwittertweetsComponent } from '../../components/twittertweets/twittertweets.component';
-import { PostcardComponent } from '../../post/postcard/postcard.component';
+//import { PostcardComponent } from '../../post/postcard/postcard.component';
+import { PostComponent } from '../../post/post/post.component';
 import { InterestComponent } from './interest/interest.component';
 import { ManagedComponent } from './managed/managed.component';
 
@@ -38,7 +39,7 @@ const routes: Routes = [
             },
             {
               path: 'news',
-              component: PostcardComponent,
+              component: PostComponent,
             },
             {
               path: 'interest',
