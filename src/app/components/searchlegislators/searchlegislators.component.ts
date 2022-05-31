@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output, OnInit, ChangeDetectorRef, isDevMode, ViewChild,
-  ElementRef} from '@angular/core';
+  ElementRef,
+  HostListener} from '@angular/core';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
 //import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
@@ -72,6 +73,9 @@ export class SearchlegislatorsComponent  implements OnInit {
 
   @Input() registration: boolean = false;
 
+  navFixed: boolean = false;
+  private scrollOffset: number = 250;
+
   constructor(private  router: Router,
               private route: ActivatedRoute,
               private userService: UserService,
@@ -125,7 +129,13 @@ export class SearchlegislatorsComponent  implements OnInit {
     });
     */
   }
-
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.navFixed = (window.pageYOffset
+      || document.documentElement.scrollTop
+      || document.body.scrollTop || 0
+    ) > this.scrollOffset;
+  }
   ngOnInit() {
     if (isDevMode()) {
       this.address = environment.address;

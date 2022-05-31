@@ -82,10 +82,16 @@
 
 </div> -->
 
-<div class="">
+<div class="set-m-b">
   <div class="text-center card-profile m-0 p-3 wave-li-firogi" style="border-radius: 45% 0% 45% 0%;">
     <div class="" style="margin-top: -70px;">
       <img src="{{legislator['photoUrl']}}" alt="" class="img" style="border-radius: 50%; border: 3px solid #cceef2;">
+      <div class="star-tags" style="background-color: #1BC5BD!important;">
+        <i class="fa fa-star text-white pointer" *ngIf="isInCircle"  title="Remove from your circle" (click)="removeFromCircle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }"></i>
+        <i class="fa fa-star text-white pointer " *ngIf="!isInCircle"  title="Add to Circle" (click)="add2Circle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }"></i>
+        <!-- <a href="javascript:void(0);" *ngIf="isInCircle"  title="Remove from your circle" (click)="removeFromCircle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a>
+        <a href="javascript:void(0);" *ngIf="!isInCircle"  title="Add to Circle" (click)="add2Circle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a> -->
+      </div>
     </div>
     <div class="py-2">
       <div class="font-20">{{legislator.full_name}}</div>
@@ -97,11 +103,4 @@
       </div>
     </div>
   </div>
-  <div class="star-tag" style="background-color: #1BC5BD!important;">
-    <i class="fa fa-star text-white pointer" *ngIf="isInCircle"  title="Remove from your circle" (click)="removeFromCircle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }"></i>
-    <i class="fa fa-star text-white pointer " *ngIf="!isInCircle"  title="Add to Circle" (click)="add2Circle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }"></i>
-    <!-- <a href="javascript:void(0);" *ngIf="isInCircle"  title="Remove from your circle" (click)="removeFromCircle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a>
-    <a href="javascript:void(0);" *ngIf="!isInCircle"  title="Add to Circle" (click)="add2Circle()" [ngClass]="{ 'active': isInCircle, '': !isInCircle }" style="font-size:250%;" class="star-css">&#9733;</a> -->
-  </div>
 </div>
-
