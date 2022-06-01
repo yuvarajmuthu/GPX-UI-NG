@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, HostListener } from '@angular/core';
 
 import {User} from '../../../models/user'; 
 import {Connection} from '../../../models/connection';
@@ -15,7 +15,8 @@ import { ConnectionrequestComponent } from '../connectionrequest/connectionreque
   styleUrls: ['./connectionlist.component.scss']
 })
 export class ConnectionlistComponent implements OnInit {
-
+  navFixed: boolean = false;
+  private scrollOffset: number = 10;
   loggedUser:User;
   connectionRequest:Connection[]; 
   connectionsEntityId:any[];
@@ -24,7 +25,7 @@ export class ConnectionlistComponent implements OnInit {
   requestSentCount: String;
   followersCount: string;
   followingsCount: string;
-
+ 
   constructor(private userService:UserService, 
     private dataShareService:DatashareService,
     private communicationService: ComponentcommunicationService, 
@@ -53,7 +54,13 @@ export class ConnectionlistComponent implements OnInit {
     this.getFollowersCount(this.loggedUser.username);
     this.getFollowingsCount(this.loggedUser.username);
   }
-
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.navFixed = (window.pageYOffset
+      || document.documentElement.scrollTop
+      || document.body.scrollTop || 0
+    ) > this.scrollOffset;
+  }
   loadConnections(action:string){
    this.action = action;
 

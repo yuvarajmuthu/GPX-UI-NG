@@ -46,46 +46,46 @@
         [ngClass]="{ 'btn-legis btn-legis-select': congressData, 'btn-legis btn-secondary': !congressData  }">Find</button>
     </div>
   </div> -->
-  <div *ngIf="searchAddress && !registration">
-    <div class="locationText font-18">
-      Data based on the location <span class="text-green">{{searchAddress}}</span>
+  <div>
+    <div *ngIf="searchAddress && !registration">
+      <div class="locationText font-18">
+        Data based on the location <span class="text-green">{{searchAddress}}</span>
+      </div>
     </div>
-  </div>
 
-  <div style="margin-top:5px" *ngIf="divisions && divisions.length > 0">
+    <div style="margin-top:5px" *ngIf="divisions && divisions.length > 0" [class.fix-division]="navFixed">
+      <div>
+        <!-- <ngb-alert type="primary" [dismissible]="false"> -->
+        <h3 class="font-18 text-green"># Division :</h3>
+        <!-- </ngb-alert> -->
+      </div>
+      <div class="row" style="margin-left:1px">
+        <span class="filterPill"><button class="btn button-color font-14"
+            [ngClass]="{'active': selectedDivision == division}" (click)="selectDivision(division);"
+            *ngFor="let division of divisions">
+            {{ division }}
+          </button></span>
+      </div>
+    </div>
 
-    <div class="sub-title sub-title-size">
-      <!-- <ngb-alert type="primary" [dismissible]="false"> -->
-      <h3 class="font-18 text-green"># Division :</h3>
-      <!-- </ngb-alert> -->
-    </div>
-    <div class="row" style="margin-left:1px">
-      <span class="filterPill"><button class="btn button-color font-14"
-          [ngClass]="{'active': selectedDivision == division}" (click)="selectDivision(division);"
-          *ngFor="let division of divisions">
-          {{ division }}
-        </button></span>
-    </div>
-  </div>
-
-  <div style="margin-top:5px" *ngIf="divisionOffices && divisionOffices.length > 0">
-    <div class="sub-title sub-title-size">
-      <!-- <ngb-alert type="primary" [dismissible]="false"> -->
-      <h3 class="font-18 text-green"># Role :</h3>
-      <!-- </ngb-alert> -->
-    </div>
-    <div class="row" style="margin-left:1px">
-      <span class="filterPill"><button class="btn button-color font-14"
-          [ngClass]="{'active': selectedDivisionOffice == divisionOffice}"
-          (click)="selectDivisionOffice(divisionOffice);" *ngFor="let divisionOffice of divisionOffices">
-          {{ divisionOffice }}
-        </button></span>
+    <div style="margin-top:5px" *ngIf="divisionOffices && divisionOffices.length > 0" [class.fix-role]="navFixed">
+      <div>
+        <!-- <ngb-alert type="primary" [dismissible]="false"> -->
+        <h3 class="font-18 text-green"># Role :</h3>
+        <!-- </ngb-alert> -->
+      </div>
+      <div class="row" style="margin-left:1px">
+        <span class="filterPill"><button class="btn button-color font-14"
+            [ngClass]="{'active': selectedDivisionOffice == divisionOffice}"
+            (click)="selectDivisionOffice(divisionOffice);" *ngFor="let divisionOffice of divisionOffices">
+            {{ divisionOffice }}
+          </button></span>
+      </div>
     </div>
   </div>
   <div class="container">
-
     <div class="row">
-      <div class="col-lg-4 p-2 mt-5" *ngFor="let legislator of legislators">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2 mt-5 set-pos" *ngFor="let legislator of legislators">
         <app-legislator [legislator]=legislator></app-legislator>
       </div>
       <div *ngIf="divisionOffices && divisionOffices.length === 0">

@@ -44,34 +44,36 @@
           <div class="" style="margin-top: -70px;">
             <img [src]="profileSmImage" *ngIf="!isImageLoading" alt="" class="img"
               style="border-radius: 50%; border: 3px solid #cceef2;">
+              <div class="star-tags">
+                <i class="fa fa-star text-white pointer"></i>
+              </div>
           </div>
           <div class="py-2">
             <div class="font-20">{{user.full_name}}</div>
+           
             <div class="font-14"> <a class="color-grew"> {{user.username}} </a></div>
             <!-- <div class="font-14"> <a class="color-grew"> Pennsylvania </a></div> -->
             <div class="font-14"> <a class="color-grew">{{followersCount}} Followers</a></div>
           </div>
+          <div *ngIf="relationStatus === 'approvalPending'">
+            <ul class="icons-fix">
+              <li class="text-center mx-1"><a [routerLink]="" (click)="acceptRequest()" class="fa fa-check bg-primary"
+                  title="Accept"> </a></li>
+              <li class="text-center mx-1"><a [routerLink]="" (click)="denyRequest()" class="fa fa-ban bg-danger"
+                  title="Not Interested"> </a></li>
+              <li class="text-center mx-1"><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning"
+                  title="View Profile"> </a></li>
+            </ul>
+          </div>
+    
+          <div *ngIf="relationStatus != 'approvalPending'">
+            <ul class="icons-fix">
+              <li class="text-center mx-1"><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning"
+                  title="View Profile"> </a></li>
+            </ul>
+          </div>
         </div>
-        <div *ngIf="relationStatus === 'approvalPending'">
-          <ul class="icon">
-            <li class="text-center mx-1"><a [routerLink]="" (click)="acceptRequest()" class="fa fa-check bg-primary"
-                title="Accept"> </a></li>
-            <li class="text-center mx-1"><a [routerLink]="" (click)="denyRequest()" class="fa fa-ban bg-danger"
-                title="Not Interested"> </a></li>
-            <li class="text-center mx-1"><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning"
-                title="View Profile"> </a></li>
-          </ul>
-        </div>
-  
-        <div *ngIf="relationStatus != 'approvalPending'">
-          <ul class="icon">
-            <li class="text-center mx-1"><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning"
-                title="View Profile"> </a></li>
-          </ul>
-        </div>
-        <div class="star-tag" style="background-color: #3699FF!important;">
-          <i class="fa fa-star text-white pointer"></i>
-        </div>
+       
       </div>
     </div>
   </div>

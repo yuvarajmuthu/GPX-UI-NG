@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 import {Usercard2Component} from '../cards/usercard2/usercard2.component';
 
@@ -15,6 +15,8 @@ import { IfStmt } from '@angular/compiler';
   styleUrls: ['./circle.component.scss']
 })
 export class CircleComponent implements OnInit {
+  navFixed: boolean = false;
+  private scrollOffset: number = 10;
   loggedUser: User;
   loggedUsername: string;
   circleUsers:string[];
@@ -45,7 +47,15 @@ export class CircleComponent implements OnInit {
         this.loadCircleUsersInfo(this.loggedUsername);
     }
   } 
-  
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.navFixed = (window.pageYOffset
+      || document.documentElement.scrollTop
+      || document.body.scrollTop || 0
+    ) > this.scrollOffset;
+  }
+
   loadCircleUsersInfo(username: string){
     console.log('loadCircleUsersCategory by ', username);
     this.userService.getCircleUsersCategory(username)

@@ -620,7 +620,73 @@ textarea:focus-visible {
     border: 30px solid #cceef2;
     // -webkit-border-radius: 227px 20px 227px 227px;
 }
+.fix-tag{
+    position: fixed;
+    top: 58px;
+    background-color: white;
+    box-shadow: 0px 1px 6px #00000038;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 69px;
+    left: 0;
+    padding-left: 7%;
+}
+.fix-division{
+    position: fixed;
+    top: 55px;
+    background-color: white;
+    // box-shadow: 0px 1px 6px #00000038;
+    // display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 106px;
+    left: 0;
+    padding-left: 7%;
+    padding-top: 7px;
+}
+.fix-role{
+    position: fixed;
+    top: 161px;
+    background-color: white;
+    box-shadow: 0px 5px 6px #00000038;
+    // display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 110px;
+    padding-top: 5px;
+    left: 0;
+    padding-left: 7%;
+}
+.set-m-b{
+    margin-bottom: 70px;
+}
 @media (min-width: 0px) and (max-width: 767px){
+    .set-m-b{
+        margin-bottom: 65px;
+    }
+    .fix-division{
+        height: 70px;
+        top: 53px;
+       }
+       .fix-role{
+       top: 123px;
+        height: 65px;
+       }
+    .box-card .icons-fixs {
+        margin: 28% 0 0px -13% !important;
+    }
+    .star-tags{
+        margin: -42px 0 29px 90% !important;
+    }
+    .fix-tag{
+        top: 55px;
+        height: 67px;
+        padding-left: 4%;
+        .filterPills{
+            margin-right: 0px !important;
+        }
+    }
     .card-profile{
         .img{
             max-width: 90px !important;
@@ -847,6 +913,20 @@ textarea:focus-visible {
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .set-m-b{
+        margin-bottom: 65px;
+    }
+    .fix-division{
+        height: 70px;
+        top: 53px;
+       }
+       .fix-role{
+       top: 123px;
+        height: 65px;
+       }
+    .star-tags{
+        margin: -42px 0 29px 84% !important;
+    }
     .card-profile{
         .img{
             max-width: 90px !important;
@@ -1023,6 +1103,17 @@ textarea:focus-visible {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px){
+    .fix-division{
+        height: 70px;
+        top: 53px;
+       }
+       .fix-role{
+       top: 123px;
+        height: 65px;
+       }
+    .star-tags{
+        margin: -42px 0 29px 84% !important;
+    }
     .card-profile{
         .img{
             max-width: 90px !important;
@@ -1274,6 +1365,17 @@ textarea:focus-visible {
         border-bottom-left-radius: 0.42rem;
         text-align: center;
         background-color: #1BC5BD !important;
+  }
+  .star-tags{
+    width: 35px;
+    background-color: #3699FF!important;
+    margin: -50px 0 29px 90%;
+    padding: 5px 10px;
+    min-width: 36px;
+    min-height: 36px;
+    border-bottom-right-radius: 0.42rem;
+    border-bottom-left-radius: 0.42rem;
+    text-align: center;
   }
 
   
