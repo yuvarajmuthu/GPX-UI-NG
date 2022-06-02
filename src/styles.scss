@@ -674,7 +674,7 @@ textarea:focus-visible {
         height: 65px;
        }
     .box-card .icons-fixs {
-        margin: 28% 0 0px -13% !important;
+        margin: 28% 0 0px -16% !important;
     }
     .star-tags{
         margin: -42px 0 29px 90% !important;
@@ -913,6 +913,9 @@ textarea:focus-visible {
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
+    .box-card .icons-fixs {
+        margin: 28% 0 0px -16% !important;
+      }
     .set-m-b{
         margin-bottom: 65px;
     }
@@ -1103,6 +1106,9 @@ textarea:focus-visible {
 }
 }
 @media (min-width: 992px) and (max-width: 1199px){
+    .box-card .icons-fixs {
+        margin: 33% 0 0px -18% !important;
+      }
     .fix-division{
         height: 70px;
         top: 53px;
