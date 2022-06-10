@@ -18,7 +18,7 @@
                 <i class="bx bx-camera prof-camera text-green" (click)="fileInput.click()" [class.fix-camera]="navFixed"
                     *ngIf="isProfileInEditMode()"></i>
                 <input #fileInput type="file" (change)="onProfileSmImageSelected($event)" style="display:none" />
-                <div class="lock-postion">
+                <div *ngIf="isProfilePrivate" class="lock-postion">
                     <!-- lock -->
                     <span class="svg-icon svg-icon-primary svg-icon-2x">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30px"
@@ -49,8 +49,7 @@
                                     (click)="removeFromCircle()"></i>
                             </span>
                         </div>
-                        <div
-                            *ngIf="category === 'LEGISLATURE' || category === 'legislature' || category === 'EXECUTIVE'  || category === 'executive' || category === 'municipalities'">
+                        <div *ngIf="category === 'LEGISLATURE' || category === 'legislature' || category === 'EXECUTIVE'  || category === 'executive' || category === 'municipalities'">
                             <div class="font-14 pointer" [class.fixeddes]="navFixed">
                                 <a class="text-green pointer"
                                     [routerLink]="['/user', userData.role.type]">{{userData.role.type}}</a> at
@@ -66,9 +65,9 @@
                                         uppercase}}</a>
                                 </span>
                             </div>
-                            <div class="color-grew font-14"> <i class="bx bx-calendar"></i> Joined December 2014
-                            </div>
                         </div>
+                        <div class="color-grew font-14"> <i class="bx bx-calendar"></i>Joined {{userData.createdDate | date:'mediumDate'}}
+                        </div>                        
                     </div>
                    
                     <!-- Edit Profile-->

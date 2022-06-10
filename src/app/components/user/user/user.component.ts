@@ -8,6 +8,7 @@ import {ProfileService} from '../../../services/profile.service';
 import {PostService} from '../../../services/post.service';
 import {LegislatorService} from '../../../services/legislator.service';
 import {ComponentcommunicationService} from '../../../services/componentcommunication.service';
+import {AlertService} from '../../../services/alert.service';
 
 import {User} from '../../../models/user';
 import {ProfileData} from '../../../models/profiledata'
@@ -131,6 +132,7 @@ export class UserComponent{
     public communicationService: ComponentcommunicationService,
     public legislatorsService: LegislatorService,
     public datashareService: DatashareService,
+    //private alertService:AlertService,
     public formBuilder: FormBuilder
     ) { 
         communicationService.userProfileEditChanged$.subscribe(
@@ -411,6 +413,8 @@ loadBioDataTemplate(category:string){
             this.userService.add2Circle(JSON.stringify(request)).subscribe(
             (result) => {
                 this.isInCircle = true; 
+                //this.alertService.success('Successfully added to your circle', true);
+
             },
             (err) => {
                 console.log('Error ', err);
@@ -434,6 +438,7 @@ loadBioDataTemplate(category:string){
             this.userService.removeFromCircle(JSON.stringify(request)).subscribe(
             (result) => {
                 this.isInCircle = false; 
+                //this.alertService.success('Successfully removed from your circle', true);                
             },
             (err) => {
                 console.log('Error ', err);
