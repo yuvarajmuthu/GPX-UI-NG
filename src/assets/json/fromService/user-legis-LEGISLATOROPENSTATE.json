@@ -12,7 +12,7 @@
    "status":"ACTIVE",
    "profileManagedBy":null,
    "members":["user6@gmail.com"],
-   "adminstrators":["user6@gmail.com"],
+   "administrators":["user6@gmail.com"],
    "circleUsers":null,
    "selfProfile":false,
    "showSettings":true,

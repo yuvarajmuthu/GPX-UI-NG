@@ -1,3 +1,4 @@
+import { Data } from "@angular/router";
 import { ProfileData } from "./profiledata";
 import { ProfileTemplate } from "./profileTemplate";
 
@@ -37,7 +38,7 @@ export class User {
     profileTemplates:ProfileTemplate[] = [];
     accessRestriction:{};
     interest:String[]=[];
-
+    createdDate:Date;
 }
 
 export class role {

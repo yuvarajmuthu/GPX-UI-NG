@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {UserRoutingModule} from './user-routing.module';
-import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete'; 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {SharedModule} from '../../shared.module';
 
 import { UserComponent } from './user/user.component';
 import { SidemenuComponent } from '../../sidemenu/sidemenu.component';
@@ -11,6 +12,7 @@ import { RightsidemenuComponent } from '../../rightsidemenu/rightsidemenu.compon
 import { UserstageComponent } from './userstage/userstage.component';
 import { AboutComponent } from './about/about.component';
 import { RoleComponent } from '../../role/role.component';
+//import {GlobalSearchComponent} from '../../components/global-search/global-search.component';
 
 //import { HomeComponent } from '../../home/home.component';
 
@@ -26,7 +28,8 @@ import { ManagedComponent } from './managed/managed.component';
     AutocompleteLibModule,
     UserRoutingModule,
     NgbModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    SharedModule
 
   ],
   exports: [
@@ -41,7 +44,8 @@ import { ManagedComponent } from './managed/managed.component';
    AboutComponent,
    RoleComponent,
    InterestComponent,
-   ManagedComponent
+   ManagedComponent,
+   //GlobalSearchComponent
   ],
   //The entryComponents array is used to define only components that are not found in html and created dynamically with ComponentFactoryResolver.
   entryComponents:[UserstageComponent],

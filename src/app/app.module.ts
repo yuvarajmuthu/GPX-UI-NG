@@ -16,6 +16,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import {UserModule} from './components/user/user.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SecurityModule} from './components/security/security.module';
+import {SharedModule} from './shared.module';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -28,8 +30,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RoleComponent } from './role/role.component';
 import {SearchlegislatorsComponent} from './components/searchlegislators/searchlegislators.component';
 import {LegislatorComponent} from './components/legislator/legislator.component';
-//import {GAddressSearchComponent} from './components/g-address-search/g-address-search.component';
-import {GlobalSearchComponent} from './components/global-search/global-search.component';
+//import {GlobalSearchComponent} from './components/global-search/global-search.component';
 import { CreatepageComponent } from './components/createpage/createpage.component';
 import {ConnectionlistComponent} from './components/connection/connectionlist/connectionlist.component';
 import {ConnectionrequestComponent} from './components/connection/connectionrequest/connectionrequest.component';
@@ -66,8 +67,7 @@ export function tokenGetter() {
     SearchlegislatorsComponent,
     LegislatorComponent,
     TwittertweetsComponent,
-    //GAddressSearchComponent,
-    GlobalSearchComponent,
+    //GlobalSearchComponent,
     CreatepageComponent,
     ConnectionlistComponent,
     ConnectionrequestComponent,
@@ -89,6 +89,7 @@ export function tokenGetter() {
     NgbModule,
     AngularEditorModule,
     SocialLoginModule,
+    SharedModule,
     SecurityModule,
     //UserModule,
     //Any requests sent using Angular's HttpClient will automatically have a token attached as an Authorization header.
@@ -109,6 +110,7 @@ export function tokenGetter() {
   })
   ],
     exports:[
+      //SharedModule
       //UserModule
     ],
   providers: [
