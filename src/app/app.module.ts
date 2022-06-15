@@ -44,6 +44,7 @@ import {AuthenticationService} from '../app/services/authentication.service';
 import {AuthGuard} from '../app/auth/auth.guard';
 import { TwittertweetsComponent } from './components/twittertweets/twittertweets.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { ElectionComponent } from './election/election.component';
 
 export let AppInjector: Injector;
 
@@ -73,7 +74,8 @@ export function tokenGetter() {
     ConnectionlistComponent,
     ConnectionrequestComponent,
     CircleComponent,
-    Usercard2Component
+    Usercard2Component,
+    ElectionComponent
   ],
   imports: [
     BrowserModule,
