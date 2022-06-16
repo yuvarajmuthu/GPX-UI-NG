@@ -57,8 +57,8 @@
       </div>
       <div *ngIf="!isSelfProfile"  class="icons-fixs">
         <ul class="p-0 m-0">
-          <li class="text-center mx-1"><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning" title="View Profile"> </a></li>
-          <li class="text-center mx-1" *ngIf="manageMembers"><a  [routerLink]="" (click)="removMember()" class="fa fa-trash-o bg-warning" title="View Profile"> </a></li>
+          <li class="text-center mx-1"><a (click)="gotoUser()" class="fa fa-eye bg-warning" title="View Profile"> </a></li>
+          <li class="text-center mx-1" *ngIf="manageMembers"><a (click)="removMember()" class="fa fa-trash-o bg-warning" title="View Profile"> </a></li>
         </ul>
       </div>
     </div>

@@ -42,10 +42,20 @@
                         </ng-template>
                 </div>
                 -->
-                <app-global-search class="wid" placeholder="Search Legislator, Person, District, Party..." from="commonSearch" (valueSelect)='selectEvent($event)' category="all"></app-global-search>
+                <app-global-search class="wid" placeholder="Search a Person..." from="commonSearch" (valueSelect)='selectEvent($event)' category="all"></app-global-search>
 
         </div>
 </div>
+
+<div class="container">
+        <div class="row">
+                <div class="col-lg-4 col-sm-6 col-xs-12 set-pos" *ngFor="let username of managedBy">
+                <app-usercard2 [username]="username"></app-usercard2>
+                </div>
+        </div>
+</div>
+
+
 <div class="container">
         <div class="row mt-3">
                 <div class="col-md-6 set-pos p-2 mt-5" *ngFor="let item of selectArray;let i=index">

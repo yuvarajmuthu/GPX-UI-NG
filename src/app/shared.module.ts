@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 import {GlobalSearchComponent} from './components/global-search/global-search.component';
-
+import {Usercard2Component} from './components/cards/usercard2/usercard2.component';
 
 
 @NgModule({
@@ -13,10 +13,12 @@ import {GlobalSearchComponent} from './components/global-search/global-search.co
 
   ],
   exports:[
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    Usercard2Component
   ],
   declarations: [
-    GlobalSearchComponent
+    GlobalSearchComponent,
+    Usercard2Component
   ],
   providers:[
 

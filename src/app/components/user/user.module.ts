@@ -38,7 +38,7 @@ import { ManagedComponent } from './managed/managed.component';
   declarations: [
    UserComponent, 
    UserstageComponent,
-   //HomeComponent,
+      //HomeComponent,
    SidemenuComponent,
    RightsidemenuComponent,
    AboutComponent,

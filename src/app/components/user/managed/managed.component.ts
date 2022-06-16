@@ -1,8 +1,10 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 
 //import {GlobalSearchComponent} from '../../../components/global-search/global-search.component';
+//import {Usercard2Component} from '../../cards/usercard2/usercard2.component';
 
 import { AlertService } from 'src/app/services/alert.service';
+import {UserService} from '../../../services/user.service';
 import {DatashareService} from '../../../services/datashare.service';
 import {ComponentcommunicationService} from '../../../services/componentcommunication.service';
 
@@ -17,11 +19,12 @@ import Swal from 'sweetalert2';
 })
 export class ManagedComponent implements OnInit {
   userData:User;
-  currentUser:User;
+  viewingUser:User;
   eventSubscription: any;
   isEditMode:boolean;
   loggedUsername: string = '';
   loggedUser:User;
+  managedBy:string[] = [];
 
   navFixed: boolean = false;
   private scrollOffset: number = 200;
@@ -48,10 +51,11 @@ export class ManagedComponent implements OnInit {
 
   constructor(private alertService: AlertService,
     private communicationService: ComponentcommunicationService,
-    private datashareService: DatashareService) { 
+    private datashareService: DatashareService,
+    private userService: UserService) { 
     this.eventSubscription = communicationService.userdataLoadEvent.subscribe(data => {
       if(data){
-        this.currentUser = datashareService.getViewingUser();
+        this.viewingUser = datashareService.getViewingUser();
         this.eventSubscription.unsubscribe();
 
         this.loadData();  
@@ -68,13 +72,13 @@ export class ManagedComponent implements OnInit {
 
   ngOnInit(): void {
     //super.ngOnInit();
-    this.currentUser = this.datashareService.getViewingUser();
+    this.viewingUser = this.datashareService.getViewingUser();
     this.isEditMode = this.datashareService.isProfileInEditMode();
     this.loggedUsername = this.datashareService.getLoggedinUsername();
     //this.loggedUser = this.datashareService.getCurrentUser();
 
   
-    if(this.currentUser.username){
+    if(this.viewingUser.username){
       this.eventSubscription.unsubscribe();
 
       this.loadData(); 
@@ -84,14 +88,16 @@ export class ManagedComponent implements OnInit {
   }
   
   loadData(){
-    this.userData = this.currentUser;
+    this.userData = this.viewingUser;
+    this.managedBy = this.userData['members'];
+
     console.log("this.userData ", this.userData);
   }
 
   //Admin function - Add / Remove members, Add / Remove Admin option for a member
   isAdmin(){
     //console.log(this.currentUser.administrators.indexOf(this.loggedUsername), this.currentUser.administrators.indexOf(this.loggedUsername) > -1);
-    return (this.currentUser.administrators && (this.currentUser.administrators.indexOf(this.loggedUsername) > -1));
+    return (this.viewingUser.administrators && (this.viewingUser.administrators.indexOf(this.loggedUsername) > -1));
   }
 
   @HostListener('window:scroll')
@@ -107,8 +113,44 @@ export class ManagedComponent implements OnInit {
     this.selectArray.push(item)
     console.log(this.selectArray,"array total");
     // do something with selected item
+
+    this.addMember(item.username);
+
   }
 
+  addMember(userId:string) {
+    var request:any = {};
+    request['memberUsername'] = userId; //member user
+    request['modifiedBy'] = this.loggedUsername; // not required
+    request['username'] = this.viewingUser.username;
+
+    console.log('addMember request ' + JSON.stringify(request));
+
+    this.userService.addMember(JSON.stringify(request)).subscribe(
+    (result) => {
+        this.managedBy = result; 
+    },
+    (err) => {
+        console.log('Error ', err);
+    }); 
+}
+
+removeMember(userId:string) {
+    var request:any = {};
+    request['memberUsername'] = userId;
+    request['modifiedBy'] = this.loggedUsername;
+    request['username'] = this.viewingUser.username;
+
+    console.log('removeMember request ' + JSON.stringify(request));
+
+    this.userService.removeMember(JSON.stringify(request)).subscribe(
+    (result) => {
+        this.managedBy = result; 
+    },
+    (err) => {
+        console.log('Error ', err);
+    }); 
+}
   onChangeSearch(val: string) {
     console.log(val);
     
