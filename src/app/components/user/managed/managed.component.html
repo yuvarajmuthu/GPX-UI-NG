@@ -1,7 +1,7 @@
 <div *ngIf="isAdmin()">
         <h3 class="font-18 my-3">Add Members:</h3>
-        <div class="input-group">
-                <span class="input-group-append" style="width: 0px;" [class.fixed-search]="navFixed">
+        <div class="">
+                <!-- <span class="input-group-append" style="width: 0px;" [class.fixed-search]="navFixed">
                         <button class="btn rounded-left bg-search border-0 ms-n5" type="button">
                                 <span class="svg-icon svg-icon-primary svg-icon-2x">
                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -16,7 +16,7 @@
                                         </svg>
                                 </span>
                         </button>
-                </span>
+                </span> -->
                 <!--
                 <div class="ng-autocomplete padding-left">
                         <ng-autocomplete [data]="data" [searchKeyword]="keyword" placeholder="Select" [class.fixed-search]="navFixed"
@@ -49,7 +49,7 @@
 
 <div class="container">
         <div class="row">
-                <div class="col-lg-4 col-sm-6 col-xs-12 set-pos" *ngFor="let username of managedBy">
+                <div class="col-lg-6 col-sm-6 col-xs-12 set-pos" *ngFor="let username of managedBy">
                 <app-usercard2 [username]="username"></app-usercard2>
                 </div>
         </div>

@@ -1,52 +1,107 @@
 <div class="container">
     <div class="py-3 ">
-        <div class="row bg-white">
-            <div class="col-md-3 center-button">
-                <div>
-                    <div>Filter</div>
-                    <div class="center-icon">
-                        <div (click)="filter()">
-                            <a class="s3d dribbble">
-                                <span class="textleft" > Filter</span>
-                                <span class="icons dribbble"></span>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="s3d twitter">
-                                <span class="textleft"> Twitter </span>
-                                <span class="icons twitter"></span>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="s3d facebook">
-                                <span class="textleft"> Facebook </span>
-                                <span class="icons facebook"></span>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="s3d forrst">
-                                <span class="textleft"> Forrst </span>
-                                <span class="icons forrst"></span>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="s3d designmoo">
-                                <span class="textleft"> Designmoo </span>
-                                <span class="icons designmoo"></span>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="s3d flickr">
-                                <span class="textleft"> Flickr </span>
-                                <span class="icons flickr"></span>
-                            </a>
+        <div>
+            <div class="my-3">
+                <div class="locationText font-18">Filter:</div>
+                <div class="row">
+                    <div class="col-md-3 col-6 " (click)="filter()">
+                        <div class="nav-link d-flex bg-white mb-2 flex-column text-center box-shadow-grew p-3 active" data-toggle="tab"
+                            href="#kt_tab_mixed_2_1">
+                            <span class="nav-icon">
+                                <span class="svg-icon">
+                                    <span class="svg-icon svg-icon-xxl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5">
+                                                </rect>
+                                                <rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5"></rect>
+                                                <rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5"></rect>
+                                                <rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5"></rect>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </span>
+                            <span class="nav-text pt-3 font-14">Filter</span>
                         </div>
                     </div>
+                    <div class="col-md-3 col-6">
+                        <div class="nav-link d-flex flex-column bg-white mb-2 text-center box-shadow-grew p-3 active" data-toggle="tab"
+                            href="#kt_tab_mixed_2_1">
+                            <span class="nav-icon">
+                                <span class="svg-icon">
+                                    <span class="svg-icon svg-icon-xxl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5">
+                                                </rect>
+                                                <rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5"></rect>
+                                                <rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5"></rect>
+                                                <rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5"></rect>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </span>
+                            <span class="nav-text pt-3 font-14">Filter2</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="nav-link d-flex flex-column bg-white mb-2 text-center box-shadow-grew p-3 active" data-toggle="tab"
+                            href="#kt_tab_mixed_2_1">
+                            <span class="nav-icon">
+                                <span class="svg-icon">
+                                    <span class="svg-icon svg-icon-xxl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5">
+                                                </rect>
+                                                <rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5"></rect>
+                                                <rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5"></rect>
+                                                <rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5"></rect>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </span>
+                            <span class="nav-text pt-3 font-14">Filter3</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="nav-link d-flex flex-column bg-white mb-2 text-center box-shadow-grew p-3 active" data-toggle="tab"
+                            href="#kt_tab_mixed_2_1">
+                            <span class="nav-icon">
+                                <span class="svg-icon">
+                                    <span class="svg-icon svg-icon-xxl">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                <rect fill="#000000" opacity="0.3" x="13" y="4" width="3" height="16" rx="1.5">
+                                                </rect>
+                                                <rect fill="#000000" x="8" y="9" width="3" height="11" rx="1.5"></rect>
+                                                <rect fill="#000000" x="18" y="11" width="3" height="9" rx="1.5"></rect>
+                                                <rect fill="#000000" x="3" y="13" width="3" height="7" rx="1.5"></rect>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </span>
+                            <span class="nav-text pt-3 font-14">Filter4</span>
+                        </div>
+                    </div>
+                   
                 </div>
-            </div>
-            <div class="col-md-9">
+            </div> 
+            <div class="">
                 <highcharts-chart [Highcharts]="Highcharts" [constructorType]="chartConstructor"
-                    [options]="chartOptions" style="width: 100%; display: block;" class="highcharts-chart">
+                    [options]="chartOptions"  style=" display: block;" class="highcharts-chart">
                 </highcharts-chart>
             </div>
         </div>
