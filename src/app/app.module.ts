@@ -35,7 +35,7 @@ import { CreatepageComponent } from './components/createpage/createpage.componen
 import {ConnectionlistComponent} from './components/connection/connectionlist/connectionlist.component';
 import {ConnectionrequestComponent} from './components/connection/connectionrequest/connectionrequest.component';
 import { CircleComponent } from './components/circle/circle.component';
-import {Usercard2Component} from './components/cards/usercard2/usercard2.component';
+//import {Usercard2Component} from './components/cards/usercard2/usercard2.component';
 
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
@@ -74,7 +74,7 @@ export function tokenGetter() {
     ConnectionlistComponent,
     ConnectionrequestComponent,
     CircleComponent,
-    Usercard2Component,
+   // Usercard2Component,
     ElectionComponent
   ],
   imports: [
