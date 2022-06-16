@@ -63,7 +63,8 @@ export class ElectionComponent {
 
     this.chartOptions = {
       chart: {
-        height: (10 / 16) * 100 + "%",
+        // height: (10 / 16) * 100 + "%",
+        // height:  100 + "%",
         events: {
           drilldown(e: any) {
             const chart = this as any;
@@ -137,6 +138,20 @@ export class ElectionComponent {
           format: '{point.properties.hc-a2}'
         },
       }],
+      drilldown: {
+        activeDataLabelStyle: {
+            color: '#FFFFFF',
+            textDecoration: 'none',
+            textOutline: '1px #000000'
+        },
+        drillUpButton: {
+            relativeTo: 'spacingBox',
+            position: {
+                x: 0,
+                y: 100
+            }
+        }
+    },
       tooltip: {
         borderRadius: 8,
         borderWidth: 0,
@@ -242,7 +257,7 @@ export class ElectionComponent {
         //   return s;
         // }
       },
-      drilldown: {}
+    
     };
   }
 
@@ -266,7 +281,7 @@ filter(){
     console.log(caMap);
   this.chartOptions = {
     chart: {
-      height: (10 / 16) * 100 + "%",
+      // height: (10 / 16) * 100 + "%",
       events: {
         drilldown(e: any) {
           const chart = this as any;
