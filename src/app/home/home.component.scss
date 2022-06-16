@@ -6,7 +6,10 @@
 .content {
   // position: relative;
 }
-
+:host::ng-deep.highcharts-chart svg{
+  width: auto !important;
+  height: auto !important;
+}
 .content h2 {
   color: #fff;
   font-size: 3em;
