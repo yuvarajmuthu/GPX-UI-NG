@@ -37,46 +37,8 @@
     </div>
   </div> -->
 
-  <div class="">
-    <div class="box-card">
-      <div class="p-2 mt-5">
-        <div class="text-center card-profile m-0 p-3 wave-li-firogis">
-          <div class="" style="margin-top: -70px;">
-            <img [src]="profileSmImage" *ngIf="!isImageLoading" alt="" class="img"
-              style="border-radius: 50%; border: 3px solid #cceef2;">
-              <div class="star-tags">
-                <i class="fa fa-star text-white pointer"></i>
-              </div>
-          </div>
-          <div class="py-2">
-            <div class="font-20">{{user.full_name}}</div>
-           
-            <div class="font-14"> <a class="color-grew"> {{user.username}} </a></div>
-            <!-- <div class="font-14"> <a class="color-grew"> Pennsylvania </a></div> -->
-            <div class="font-14"> <a class="color-grew">{{followersCount}} Followers</a></div>
-          </div>
-          <div *ngIf="relationStatus === 'approvalPending'">
-            <ul class="icons-fix">
-              <li class="text-center mx-1"><a [routerLink]="" (click)="acceptRequest()" class="fa fa-check bg-primary"
-                  title="Accept"> </a></li>
-              <li class="text-center mx-1"><a [routerLink]="" (click)="denyRequest()" class="fa fa-ban bg-danger"
-                  title="Not Interested"> </a></li>
-              <li class="text-center mx-1"><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning"
-                  title="View Profile"> </a></li>
-            </ul>
-          </div>
-    
-          <div *ngIf="relationStatus != 'approvalPending'">
-            <ul class="icons-fix">
-              <li class="text-center mx-1"><a [routerLink]="" (click)="gotoUser()" class="fa fa-eye bg-warning"
-                  title="View Profile"> </a></li>
-            </ul>
-          </div>
-        </div>
-       
-      </div>
-    </div>
-  </div>
+
+  
   
   
   
@@ -103,7 +65,7 @@
         </div>
       </div>
   
-  
+  <!--
      <div class="mb-4 p-3" style="background-color: #ffd54f;">
        <div class="text-center pb-2 pt-3">
          <img src="../../../assets/images/userprofile.jpg" style="border-radius:50%; width: 150px;height: 150px;box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);">
@@ -111,7 +73,6 @@
        <div class="py-2 text-center">
         <div class="font-20">{{user.full_name}}</div>
         <div class="font-14"> <a > {{user.username}} </a></div>
-        <!-- <div class="font-14"> <a > Pennsylvania </a></div> -->
         <div class="font-14"> <a >{{followersCount}} Followers</a></div>
       </div>
       <div>
@@ -122,6 +83,9 @@
       </div>
      </div>
      </div>
+-->
+
+     <!--
      <div class="mb-4 p-3" style="background-color: #ffd54f;">
        <div class="text-center pb-2 pt-3">
          <img src="../../../assets/images/userprofile.jpg" style="border-radius:50%; width: 150px;height: 150px;box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);">
@@ -129,7 +93,6 @@
        <div class="py-2 text-center">
         <div class="font-20">{{user.full_name}}</div>
         <div class="font-14"> <a > {{user.username}} </a></div>
-        <!-- <div class="font-14"> <a > Pennsylvania </a></div> -->
         <div class="font-14"> <a >{{followersCount}} Followers</a></div>
       </div>
       <div>
@@ -140,3 +103,4 @@
       </div>
      </div>
      </div>
+     -->

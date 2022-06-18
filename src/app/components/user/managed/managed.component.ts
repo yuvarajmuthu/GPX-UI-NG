@@ -96,7 +96,8 @@ export class ManagedComponent implements OnInit {
 
   //Admin function - Add / Remove members, Add / Remove Admin option for a member
   isAdmin(){
-    //console.log(this.currentUser.administrators.indexOf(this.loggedUsername), this.currentUser.administrators.indexOf(this.loggedUsername) > -1);
+    console.log("this.viewingUser.administrators - ", this.viewingUser.administrators);
+    console.log("this.loggedUsername - ", this.loggedUsername);
     return (this.viewingUser.administrators && (this.viewingUser.administrators.indexOf(this.loggedUsername) > -1));
   }
 
