@@ -123,7 +123,15 @@ export class LoginComponent implements OnInit {
     get f() {
         return this.loginForm.controls;
     }
+    flipcss = 'btn-default';
 
+    Flip() {
+      if(this.flipcss == 'btn-change') {
+        this.flipcss = 'btn-default';
+      } else {
+        this.flipcss = 'btn-change';
+      }
+    }
     //inhouse login
     login() {
         this.submitted = true;
