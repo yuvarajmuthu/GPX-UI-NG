@@ -18,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SecurityModule} from './components/security/security.module';
 import {SharedModule} from './shared.module';
 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -35,7 +34,7 @@ import { CreatepageComponent } from './components/createpage/createpage.componen
 import {ConnectionlistComponent} from './components/connection/connectionlist/connectionlist.component';
 import {ConnectionrequestComponent} from './components/connection/connectionrequest/connectionrequest.component';
 import { CircleComponent } from './components/circle/circle.component';
-//import {Usercard2Component} from './components/cards/usercard2/usercard2.component';
+//import {Usercard1Component} from './components/cards/usercard1/usercard1.component';
 
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
@@ -74,7 +73,7 @@ export function tokenGetter() {
     ConnectionlistComponent,
     ConnectionrequestComponent,
     CircleComponent,
-   // Usercard2Component,
+    //Usercard1Component,
     ElectionComponent
   ],
   imports: [
