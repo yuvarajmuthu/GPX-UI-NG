@@ -12,6 +12,8 @@ import { TwittertweetsComponent } from '../../components/twittertweets/twittertw
 import { PostComponent } from '../../post/post/post.component';
 import { InterestComponent } from './interest/interest.component';
 import { ManagedComponent } from './managed/managed.component';
+import { Usercard1Component } from '../cards/usercard1/usercard1.component';
+import {FollowersComponent} from '../connection/followers/followers.component';
 
 const routes: Routes = [
   {
@@ -48,6 +50,14 @@ const routes: Routes = [
             {
               path: 'manage',
               component: ManagedComponent,
+            },
+            {
+              path: 'followers',
+              component: FollowersComponent,
+            },
+            {
+              path: 'followings',
+              component: Usercard1Component,
             }
           ]
      // }  

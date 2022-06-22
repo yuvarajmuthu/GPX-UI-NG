@@ -138,7 +138,7 @@
         </div>
         <!--Add here-->
         <div class="row">
-            <div class="col-md-3 col-4 line">
+            <div class="col-md-3 col-4 line" [routerLink]="['./followings']">
                 <div class="d-flex flex-column bd-highlight shaw-bg" routerLinkActive="shaw-bg">
                     <div class="bd-highlight mx-auto pt-1">
                         <span class="navi-icon mr-2">
@@ -170,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-4 line">
+            <div class="col-md-3 col-4 line" [routerLink]="['./followers']">
                 <div class="d-flex flex-column bd-highlight shaw-bg" routerLinkActive="shaw-bg">
                     <div class="bd-highlight mx-auto pt-1">
                         <span class="navi-icon mr-2">
@@ -201,7 +201,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-4">
+            <div class="col-md-3 col-4" [routerLink]="['./manage']">
                 <div class="d-flex flex-column bd-highlight shaw-bg" routerLinkActive="shaw-bg" (click)="loadTemplate('upMember')">
                     <div class="bd-highlight mx-auto pt-1">
                         <span class="navi-icon mr-2">
@@ -443,11 +443,13 @@
                                 <span class="font-14">
                                     Cancel Editing
                                 </span>
-                            </div>                                                        
+                            </div>     
+                            <!--
                             <div ngbDropdownItem class="pointer">
                                 <span class="navi-icon mr-2">
                                     <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/Communication/Shield-user.svg--><svg
+                                        
+                                        <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                             viewBox="0 0 24 24" version="1.1">
@@ -464,7 +466,6 @@
                                                     fill="#000000" opacity="0.3" />
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="font-14 mr-3">
@@ -475,7 +476,8 @@
                             <div ngbDropdownItem class="pointer">
                                 <span class="navi-icon mr-2">
                                     <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/General/User.svg--><svg
+                                        
+                                        <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                             viewBox="0 0 24 24" version="1.1">
@@ -489,7 +491,6 @@
                                                     fill="#000000" fill-rule="nonzero" />
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="font-14 mr-3">
@@ -500,7 +501,6 @@
                             <div ngbDropdownItem class="pointer" (click)="loadTemplate('upMember')">
                                 <span class="navi-icon mr-2">
                                     <span class="svg-icon svg-icon-md svg-icon-primary">
-                                        <!--begin::Svg Icon | path:/keen/theme/demo3/dist/assets/media/svg/icons/Communication/Add-user.svg-->
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                             viewBox="0 0 24 24" version="1.1">
@@ -514,7 +514,6 @@
                                                     fill="#000000" fill-rule="nonzero"></path>
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="font-14 mr-3">
@@ -526,7 +525,7 @@
                                 (click)="add2Circle()">
                                 <span class="navi-icon mr-2">
                                     <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/Home/Book-open.svg--><svg
+                                        <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                             viewBox="0 0 24 24" version="1.1">
@@ -540,7 +539,6 @@
                                                     fill="#000000" opacity="0.3" />
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="font-14">
@@ -551,7 +549,7 @@
                                 (click)="removeFromCircle()">
                                 <span class="navi-icon mr-2">
                                     <span class="svg-icon svg-icon-primary svg-icon-2x">
-                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/keen/releases/2021-04-21-040700/theme/demo5/dist/../src/media/svg/icons/Home/Book-open.svg--><svg
+                                        <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
                                             viewBox="0 0 24 24" version="1.1">
@@ -565,13 +563,13 @@
                                                     fill="#000000" opacity="0.3" />
                                             </g>
                                         </svg>
-                                        <!--end::Svg Icon-->
                                     </span>
                                 </span>
                                 <span class="font-14">
                                     In Circle
                                 </span>
                             </div>
+                        -->
                         </div>
                     </div>
 
