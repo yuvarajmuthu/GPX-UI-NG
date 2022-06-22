@@ -1,60 +1,64 @@
 <div class="container m-t-login">
   <!-- <h3 class="font-20 my-3 mx-4 text-center">Welcome to GoPolitix</h3> -->
   <div class="row d-flex align-items-center">
-    <div class="col-md-12 col-lg-6 col-sm-12">
+    <div class="col-md-6 col-sm-12 col-xs-12">
       <div class="title-login my-3"><span>Go</span>Politix</div>
       <div class="card">
         <h3 class="font-20 my-3 mx-4">Sign in</h3>
-        <div class="border-top py-3">
-          <div class="row">
-            <div class="col-6 col-md-6 col-lg-6 text-right">
-              <div class="btn-group">
-                <button type="button" class="btn btn-outline-danger font-18" title="Sign in with Google"
-                  (click)="loginG()">
-                  Sign in with
-                  <span class="svg-icon svg-icon-md">
-                    <!--begin::Svg Icon | path:/keen/theme/demo5/dist/assets/media/svg/social-icons/google.svg-->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 20" fill="none">
-                      <path
-                        d="M19.9895 10.1871C19.9895 9.36767 19.9214 8.76973 19.7742 8.14966H10.1992V11.848H15.8195C15.7062 12.7671 15.0943 14.1512 13.7346 15.0813L13.7155 15.2051L16.7429 17.4969L16.9527 17.5174C18.879 15.7789 19.9895 13.221 19.9895 10.1871Z"
-                        fill="#4285F4"></path>
-                      <path
-                        d="M10.1993 19.9313C12.9527 19.9313 15.2643 19.0454 16.9527 17.5174L13.7346 15.0813C12.8734 15.6682 11.7176 16.0779 10.1993 16.0779C7.50243 16.0779 5.21352 14.3395 4.39759 11.9366L4.27799 11.9466L1.13003 14.3273L1.08887 14.4391C2.76588 17.6945 6.21061 19.9313 10.1993 19.9313Z"
-                        fill="#34A853"></path>
-                      <path
-                        d="M4.39748 11.9366C4.18219 11.3166 4.05759 10.6521 4.05759 9.96565C4.05759 9.27909 4.18219 8.61473 4.38615 7.99466L4.38045 7.8626L1.19304 5.44366L1.08875 5.49214C0.397576 6.84305 0.000976562 8.36008 0.000976562 9.96565C0.000976562 11.5712 0.397576 13.0882 1.08875 14.4391L4.39748 11.9366Z"
-                        fill="#FBBC05"></path>
-                      <path
-                        d="M10.1993 3.85336C12.1142 3.85336 13.406 4.66168 14.1425 5.33717L17.0207 2.59107C15.253 0.985496 12.9527 0 10.1993 0C6.2106 0 2.76588 2.23672 1.08887 5.49214L4.38626 7.99466C5.21352 5.59183 7.50242 3.85336 10.1993 3.85336Z"
-                        fill="#EB4335"></path>
-                    </svg>
-                    <!--end::Svg Icon-->
-                  </span>
-                </button>
-              </div>
-            </div>
+        <div class="flip-card" [ngClass]="[flipcss]">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="border-top py-3">
+                <div class="row">
+                  <div class="col-6 col-md-6 col-lg-6 text-right">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-outline-danger font-18" title="Sign in with Google"
+                        (click)="loginG()">
+                        Sign in with
+                        <span class="svg-icon svg-icon-md">
+                          <!--begin::Svg Icon | path:/keen/theme/demo5/dist/assets/media/svg/social-icons/google.svg-->
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 20"
+                            fill="none">
+                            <path
+                              d="M19.9895 10.1871C19.9895 9.36767 19.9214 8.76973 19.7742 8.14966H10.1992V11.848H15.8195C15.7062 12.7671 15.0943 14.1512 13.7346 15.0813L13.7155 15.2051L16.7429 17.4969L16.9527 17.5174C18.879 15.7789 19.9895 13.221 19.9895 10.1871Z"
+                              fill="#4285F4"></path>
+                            <path
+                              d="M10.1993 19.9313C12.9527 19.9313 15.2643 19.0454 16.9527 17.5174L13.7346 15.0813C12.8734 15.6682 11.7176 16.0779 10.1993 16.0779C7.50243 16.0779 5.21352 14.3395 4.39759 11.9366L4.27799 11.9466L1.13003 14.3273L1.08887 14.4391C2.76588 17.6945 6.21061 19.9313 10.1993 19.9313Z"
+                              fill="#34A853"></path>
+                            <path
+                              d="M4.39748 11.9366C4.18219 11.3166 4.05759 10.6521 4.05759 9.96565C4.05759 9.27909 4.18219 8.61473 4.38615 7.99466L4.38045 7.8626L1.19304 5.44366L1.08875 5.49214C0.397576 6.84305 0.000976562 8.36008 0.000976562 9.96565C0.000976562 11.5712 0.397576 13.0882 1.08875 14.4391L4.39748 11.9366Z"
+                              fill="#FBBC05"></path>
+                            <path
+                              d="M10.1993 3.85336C12.1142 3.85336 13.406 4.66168 14.1425 5.33717L17.0207 2.59107C15.253 0.985496 12.9527 0 10.1993 0C6.2106 0 2.76588 2.23672 1.08887 5.49214L4.38626 7.99466C5.21352 5.59183 7.50242 3.85336 10.1993 3.85336Z"
+                              fill="#EB4335"></path>
+                          </svg>
+                          <!--end::Svg Icon-->
+                        </span>
+                      </button>
+                    </div>
+                  </div>
 
-            <div class="col-6 col-md-6 col-lg-6">
-              <div class="btn-group">
-                <button type="button" class="btn btn-outline-primary font-18" title="Sign in with Facebook"
-                  (click)="loginFB()">
-                  Sign in with
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
-                    <linearGradient id="Ld6sqrtcxMyckEl6xeDdMa" x1="9.993" x2="40.615" y1="9.993" y2="40.615"
-                      gradientUnits="userSpaceOnUse">
-                      <stop offset="0" stop-color="#2aa4f4" />
-                      <stop offset="1" stop-color="#007ad9" />
-                    </linearGradient>
-                    <path fill="url(#Ld6sqrtcxMyckEl6xeDdMa)"
-                      d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z" />
-                    <path fill="#fff"
-                      d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!--
+                  <div class="col-6 col-md-6 col-lg-6">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-outline-primary font-18" title="Sign in with Facebook"
+                        (click)="loginFB()">
+                        Sign in with
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
+                          <linearGradient id="Ld6sqrtcxMyckEl6xeDdMa" x1="9.993" x2="40.615" y1="9.993" y2="40.615"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#2aa4f4" />
+                            <stop offset="1" stop-color="#007ad9" />
+                          </linearGradient>
+                          <path fill="url(#Ld6sqrtcxMyckEl6xeDdMa)"
+                            d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z" />
+                          <path fill="#fff"
+                            d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!--
                   <br/>
                   <div class="row">
                     <div class="col-sm-6">
@@ -75,45 +79,82 @@
                     </div>
                   </div>
                 -->
-        </div>
-        <div class="loginOptionDivide">
-          <small>(OR)</small>
-        </div>
-        <article class="card-body py-0">
-          <form [formGroup]="loginForm" (ngSubmit)="login()">
-            <div class="form-row">
-              <div class="col form-group">
-                <label class="font-14">User name</label>
-                <input type="text" class="form-control" placeholder="User name" formControlName="username"
-                  [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-              </div> <!-- form-group end.// -->
-            </div> <!-- form-row end.// -->
-            <div class="form-row">
-              <div class="col form-group">
-                <label class="font-14">Password</label>
-                <input type="password" class="form-control" placeholder="Password" formControlName="password"
-                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-              </div> <!-- form-group end.// -->
-            </div> <!-- form-row end.// -->
-            <div class="row border-bottom">
-              <div class="col-12">
-                <div class="form-group w-50 mx-auto">
-                  <button type="submit" [disabled]="loading" class="btn button-blue btn-block font-18">Sign
-                    in</button>
-                </div>
               </div>
-              <!-- <div class="col-6">
+              <div class="loginOptionDivide">
+                <small>(OR)</small>
+              </div>
+              <article class="card-body py-0">
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                  <div class="form-row">
+                    <div class="col form-group">
+                      <label class="font-14">User name</label>
+                      <input type="text" class="form-control" placeholder="User name" formControlName="username"
+                        [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    </div> <!-- form-group end.// -->
+                  </div> <!-- form-row end.// -->
+                  <div class="form-row">
+                    <div class="col form-group">
+                      <label class="font-14">Password</label>
+                      <input type="password" class="form-control" placeholder="Password" formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    </div> <!-- form-group end.// -->
+                  </div> <!-- form-row end.// -->
+                  <div class="row border-bottom">
+                    <div class="col-12">
+                      <div class="form-group w-50 mx-auto">
+                        <button type="submit" [disabled]="loading" class="btn button-blue btn-block font-18">Sign
+                          in</button>
+                      </div>
+                    </div>
+                    <!-- <div class="col-6">
                 <div class="form-group w-50 mx-auto">
                   <button type="button" class="btn button-blue btn-block font-18">Next</button>
                 </div>
               </div> -->
+                  </div>
+                  <img *ngIf="loading" class="pl-3"
+                    src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </form>
+                <button (click)="Flip()" class="btn button-blue btn-block font-18">otp</button>
+              </article> <!-- card-body end .// -->
+              <div class="my-3 mx-4 text-center font-18">Don't have an account? <a href="javascript:void(0);"
+                  (click)="loadRegisterComponent()" class="float-right btn button-blue font-14 mt-1">Sign up</a>
+              </div>
             </div>
-            <img *ngIf="loading" class="pl-3"
-              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-          </form>
-        </article> <!-- card-body end .// -->
-        <div class="my-3 mx-4 text-center font-18">Don't have an account? <a href="javascript:void(0);"
-            (click)="loadRegisterComponent()" class="float-right btn button-blue font-14 mt-1">Sign up</a></div>
+            <div class="border-top flip-card-back">
+              <div class=" height-100 d-flex justify-content-center align-items-center">
+                <div class="position-relative">
+                  <div class="card p-2 text-center">
+                    <h6>Please enter the one time password <br> to verify your account</h6>
+                    <div> <span>A code has been sent to</span> <small>*******9897</small> </div>
+                    <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> <input
+                        class="m-2 text-center form-control rounded" type="text" id="first" maxlength="1" /> <input
+                        class="m-2 text-center form-control rounded" type="text" id="second" maxlength="1" /> <input
+                        class="m-2 text-center form-control rounded" type="text" id="third" maxlength="1" /> <input
+                        class="m-2 text-center form-control rounded" type="text" id="fourth" maxlength="1" /> <input
+                        class="m-2 text-center form-control rounded" type="text" id="fifth" maxlength="1" /> <input
+                        class="m-2 text-center form-control rounded" type="text" id="sixth" maxlength="1" /> </div>
+                    <div class="mt-4"> 
+                      <div class="row">
+                        <div class="col-6">
+                      <button class="btn button-blue font-18" (click)="Flip()">Back</button> 
+                      </div>
+                      <div class="col-6">
+                      <button class="btn button-blue font-18">Verify</button> 
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="card-2">
+                    <div class="content d-flex justify-content-center align-items-center"> <span>Didn't get the
+                        code</span> <a href="#" class="text-decoration-none ms-3">Resend(1/3)</a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div> <!-- card.// -->
     </div> <!-- col.//-->
     <div class="col-md-6 col-lg-6 hide-small">
@@ -123,6 +164,7 @@
 
 
 </div>
+
 <!--container end.//-->
 
 <!--<div class="container-fluid">

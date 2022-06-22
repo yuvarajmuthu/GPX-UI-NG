@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 //import { CreatepageComponent } from './createpage/createpage.component';
 //import { GpsGlobalSearchComponent } from '../gps-global-search/gps-global-search.component';
 import {GAddressSearchComponent} from '../../components/g-address-search/g-address-search.component';
+import { OtpComponent } from './otp/otp.component';
 
 //import { CKEditorModule } from 'ckeditor4-angular';
 
@@ -36,7 +37,7 @@ import {GAddressSearchComponent} from '../../components/g-address-search/g-addre
     LoginComponent, 
     //CreatepageComponent
     //, GpsGlobalSearchComponent, 
-    GAddressSearchComponent
+    GAddressSearchComponent, OtpComponent
   ],
   providers:[
 //    {provide:MAT_DIALOG_DATA, useValue:{}},

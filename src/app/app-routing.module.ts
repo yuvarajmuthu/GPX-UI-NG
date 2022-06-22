@@ -15,6 +15,7 @@ import {CircleComponent} from './components/circle/circle.component';
 
 import {AuthGuard} from '../app/auth/auth.guard';
 import { ElectionComponent } from './election/election.component';
+import { OtpComponent } from './components/security/otp/otp.component';
 
 const routes: Routes = [
   { path: 'searchLegislator', 
@@ -28,6 +29,7 @@ const routes: Routes = [
    // {path: 'circle', component: CircleComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'otp', component: OtpComponent},
  // {path: 'createpage', component: CreatepageComponent, canActivate: [AuthGuard]},
  // {path: 'createpageoptions', component: CreatepageselectionComponent, canActivate: [AuthGuard]},
  // {path: 'request', loadChildren: './components/connection/connection.module#ConnectionModule', canActivate: [AuthGuard]},
