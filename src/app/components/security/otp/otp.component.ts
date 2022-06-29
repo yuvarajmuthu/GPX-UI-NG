@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
 export class OtpComponent implements OnInit {
 
   constructor(private router: Router) { }
-
+  messageDispaly=false
   ngOnInit(): void {
   }
   loginPage() {
     this.router.navigate(['/login']);
+  }
+  ReSendOTP(){
+    this.messageDispaly=true
   }
 }

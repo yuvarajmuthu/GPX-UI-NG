@@ -10,12 +10,15 @@
                 </span>
                 <div class=" height-100 d-flex justify-content-center align-items-center">
                     <div class="position-relative">
-                        <div class="hide-big text-center set-m-tb">
+                        <div class="hide-big text-center">
                             <img class="set-as-logo " src="../../../../assets/images/process-setup.svg" alt="">
                         </div>
+                        <!-- autocomplete="one-time-code" -->
                         <div class="card p-2 text-center border-0" style="background-color: transparent;">
-                            <h6>Please enter the one time password <br> to verify your account</h6>
-                            <div> <span>A code has been sent to</span> <small>*******9897</small> </div>
+                            <h6 >Please enter the one time password <br> to verify your account</h6>
+                            <div *ngIf="!messageDispaly"> <span>A code has been sent to </span> <small>*******9897</small> </div>
+                            <!-- <div> <span>A code has been sent to </span> <small>sa****875@gmail.com</small> </div> -->
+                            <div class="text-danger" *ngIf="messageDispaly"> <span>A code has been Resend to </span> <small>*******9897</small> </div>
                             <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
                                 <input class="m-2 text-center form-control rounded" type="text" id="first"
                                     maxlength="1" />
@@ -43,8 +46,9 @@
                         </div>
                         <div class="card-2">
                             <div class="content d-flex justify-content-center align-items-center"> <span>Didn't get the
-                                    code</span> <a href="#" class="text-decoration-none ms-3">Resend(1/3)</a> </div>
+                                    code</span> <a class="text-decoration-none ms-3 pointer" (click)="ReSendOTP()">Resend(1/3)</a> </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
